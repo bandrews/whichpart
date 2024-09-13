@@ -18,8 +18,8 @@ export function Home() {
 				/>
 				<Resource
 					title="Other"
-					description="Coming Soon"
-					
+					description="A scattered, incomplete collection of other components we tend to reach for in our projects"
+					href="/other"
 				/>
 			</section>
 		</div>

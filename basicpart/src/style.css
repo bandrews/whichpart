@@ -68,7 +68,7 @@ header a:hover {
 .hover-copy::after {
     content: '📋';
     position: absolute;
-    right: 3em;
+    right: 2em;
     top: 50%;
     transform: translateY(-50%);
     opacity: 0;
@@ -88,6 +88,17 @@ thead td {
 	vertical-align: bottom;
 	padding: 2rem;
 }
+td {
+	padding: 0.5rem;
+}
+tr:nth-child(odd) {
+	background-color: #bbb;
+}
+tr:nth-child(1) {
+	background-color: black;
+	color: white;
+}
+
 main {
 	flex: auto;
 	display: flex;

@@ -13,6 +13,9 @@ export function Header() {
 				<a href="/resistors" class={(url == '/resistors' || url == '/') && 'active'}>
 					Resistors
 				</a>
+				<a href="/other" class={url == '/other' && 'active'}>
+					Other
+				</a>
 			</nav>
 		</header>
 		</>

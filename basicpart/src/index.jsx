@@ -6,6 +6,7 @@ import { Home } from './pages/Home/index.jsx';
 import { NotFound } from './pages/_404.jsx';
 import './style.css';
 import { Resistors } from './pages/Home/resistors.jsx';
+import { OtherComponents } from './pages/Home/other.jsx';
 
 export function App() {
 	return (
@@ -15,6 +16,7 @@ export function App() {
 				<Router>
 					<Route path="/home" component={Home} />
 					<Route path="/resistors" component={Resistors} />
+					<Route path="/other" component={OtherComponents} />
 					<Route default component={Resistors} />
 				</Router>
 			</main>
