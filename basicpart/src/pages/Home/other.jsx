@@ -104,6 +104,13 @@ export function OtherComponents() {
 						<td>USB-C SMD</td>
 						<td><JlcLink part="C2894897"></JlcLink></td>
 					</tr>
+					<tr>
+						<td>USB-C Connector (5V/5A 16P)</td>
+						<td>XKB Connection</td>
+						<td>U263-163N-4BLS1735</td>
+						<td>USB-C SMD</td>
+						<td><JlcLink part="C2931474"></JlcLink></td>
+					</tr>
 
 					
 					<tr>
