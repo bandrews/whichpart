@@ -216,39 +216,19 @@
   opacity: 1;
 }
 
-/* JLC Link wrapper for tooltip positioning */
-.jlc-link-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-/* Tooltip */
+/* Tooltip - rendered via portal to document.body */
 .jlc-tooltip {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 8px;
+  position: fixed;
   padding: var(--spacing-sm) var(--spacing-md);
   background-color: var(--bg-primary);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  z-index: 1000;
-  min-width: 180px;
-  max-width: 280px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  z-index: 99999;
+  width: 240px;
   text-align: left;
   font-size: 0.75rem;
-}
-
-.jlc-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: var(--border);
+  pointer-events: none;
 }
 
 .jlc-tooltip-header {

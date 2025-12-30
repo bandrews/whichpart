@@ -1,4 +1,5 @@
-import { useState, useRef } from 'preact/hooks';
+import { useState, useRef, useEffect } from 'preact/hooks';
+import { createPortal } from 'preact/compat';
 
 /**
  * Clickable part number with hover info and navigation to details
@@ -12,16 +13,47 @@ import { useState, useRef } from 'preact/hooks';
 export function JlcLink({ part, tier = 'basic', info, description }) {
 	const [copied, setCopied] = useState(false);
 	const [showTooltip, setShowTooltip] = useState(false);
+	const [tooltipPos, setTooltipPos] = useState(null);
 	const tooltipTimeout = useRef(null);
+	const linkRef = useRef(null);
+	const tooltipRef = useRef(null);
 
 	if (!part) {
 		return null;
 	}
 
+	// Calculate tooltip position after it renders
+	useEffect(() => {
+		if (showTooltip && linkRef.current && tooltipRef.current) {
+			const linkRect = linkRef.current.getBoundingClientRect();
+			const tooltipRect = tooltipRef.current.getBoundingClientRect();
+			const padding = 12;
+
+			// Position above the link by default
+			let top = linkRect.top - tooltipRect.height - padding;
+			let left = linkRect.left + linkRect.width / 2 - tooltipRect.width / 2;
+
+			// Keep tooltip on screen horizontally
+			if (left < padding) {
+				left = padding;
+			} else if (left + tooltipRect.width > window.innerWidth - padding) {
+				left = window.innerWidth - tooltipRect.width - padding;
+			}
+
+			// If tooltip would go above viewport, show below the link instead
+			if (top < padding) {
+				top = linkRect.bottom + padding;
+			}
+
+			setTooltipPos({ top, left });
+		} else if (!showTooltip) {
+			setTooltipPos(null);
+		}
+	}, [showTooltip]);
+
 	const handleClick = async (e) => {
 		// Ctrl+click or Cmd+click: open JLC page directly
 		if (e.ctrlKey || e.metaKey) {
-			// Let the default link behavior work
 			return;
 		}
 
@@ -58,9 +90,32 @@ export function JlcLink({ part, tier = 'basic', info, description }) {
 	const tierClass = tier === 'preferred' ? 'preferred' : tier === 'extended' ? 'extended' : '';
 	const tierLabel = tier === 'preferred' ? 'Preferred Extended' : tier === 'extended' ? 'Extended' : 'Basic';
 
+	const tooltip = showTooltip && createPortal(
+		<div
+			ref={tooltipRef}
+			class="jlc-tooltip"
+			style={{
+				position: 'fixed',
+				top: tooltipPos ? `${tooltipPos.top}px` : '-9999px',
+				left: tooltipPos ? `${tooltipPos.left}px` : '-9999px',
+				visibility: tooltipPos ? 'visible' : 'hidden',
+			}}
+		>
+			<div class="jlc-tooltip-header">{part}</div>
+			<div class="jlc-tooltip-tier">{tierLabel}</div>
+			{info && <div class="jlc-tooltip-info">{info}</div>}
+			{description && <div class="jlc-tooltip-desc">{description}</div>}
+			<div class="jlc-tooltip-hint">
+				Click for details | Shift+click to copy | Ctrl+click for JLC
+			</div>
+		</div>,
+		document.body
+	);
+
 	return (
-		<span class="jlc-link-wrapper">
+		<>
 			<a
+				ref={linkRef}
 				href={jlcUrl}
 				onClick={handleClick}
 				onMouseEnter={handleMouseEnter}
@@ -72,17 +127,7 @@ export function JlcLink({ part, tier = 'basic', info, description }) {
 				<span>{part}</span>
 				{copied && <span class="jlc-link-icon">✓</span>}
 			</a>
-			{showTooltip && (
-				<div class="jlc-tooltip">
-					<div class="jlc-tooltip-header">{part}</div>
-					<div class="jlc-tooltip-tier">{tierLabel}</div>
-					{info && <div class="jlc-tooltip-info">{info}</div>}
-					{description && <div class="jlc-tooltip-desc">{description}</div>}
-					<div class="jlc-tooltip-hint">
-						Click for details | Shift+click to copy | Ctrl+click for JLC
-					</div>
-				</div>
-			)}
-		</span>
+			{tooltip}
+		</>
 	);
 }

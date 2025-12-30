@@ -12,6 +12,22 @@ import capacitorData from '../data/ceramic-capacitors.json';
 import electrolyticData from '../data/electrolytic-capacitors.json';
 import diodeData from '../data/diodes.json';
 
+// Categories shown on other pages (Diodes, Transistors)
+const DIODE_CATEGORIES = [
+	'Schottky Diodes',
+	'Diodes - General Purpose',
+	'Zener Diodes',
+	'ESD and Surge Protection (TVS/ESD)',
+	'Switching Diodes',
+	'Fast Recovery / High Efficiency Diodes',
+];
+
+const TRANSISTOR_CATEGORIES = [
+	'Bipolar (BJT)',
+	'MOSFETs',
+	'Darlington Transistor Arrays',
+];
+
 /**
  * Get all part numbers from a data source
  */
@@ -52,10 +68,18 @@ export function AllBasicParts() {
 	// Collect part numbers already shown on other pages (not including Our Picks)
 	const shownParts = useMemo(() => {
 		const shown = new Set();
+		// Resistors and capacitors from JSON data
 		getPartNumbers(resistorData, ['0402', '0603', '0805', '1206']).forEach(p => shown.add(p));
 		getPartNumbers(capacitorData, ['0402', '0603', '0805', '1206']).forEach(p => shown.add(p));
 		getPartNumbers(electrolyticData, electrolyticData.meta?.columns || []).forEach(p => shown.add(p));
 		getDiodePartNumbers(diodeData).forEach(p => shown.add(p));
+
+		// Diodes and transistors are shown by category from parts-index
+		for (const [partNumber, info] of Object.entries(partsIndex)) {
+			if (DIODE_CATEGORIES.includes(info.cat) || TRANSISTOR_CATEGORIES.includes(info.cat)) {
+				shown.add(partNumber);
+			}
+		}
 		return shown;
 	}, []);
 
