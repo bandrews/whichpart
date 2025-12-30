@@ -82,6 +82,11 @@
   border-style: dashed;
 }
 
+.tier-legend-swatch.extended {
+  background-color: var(--tier-extended-bg);
+  border-color: var(--tier-extended-border);
+}
+
 /* Component Grid table */
 .component-grid-container {
   overflow-x: auto;
@@ -190,6 +195,15 @@
 
 .jlc-link.preferred:hover {
   background-color: rgba(255, 193, 7, 0.2);
+}
+
+.jlc-link.extended {
+  background-color: var(--tier-extended-bg);
+  border: 1px solid var(--tier-extended-border);
+}
+
+.jlc-link.extended:hover {
+  background-color: rgba(255, 140, 0, 0.25);
 }
 
 .jlc-link-icon {

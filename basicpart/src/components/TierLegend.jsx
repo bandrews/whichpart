@@ -14,10 +14,16 @@ export function TierLegend() {
 					<span>Basic Part (no extra fee)</span>
 				</div>
 				{showPreferred && (
-					<div class="tier-legend-item">
-						<span class="tier-legend-swatch preferred"></span>
-						<span>Preferred Extended (low fee)</span>
-					</div>
+					<>
+						<div class="tier-legend-item">
+							<span class="tier-legend-swatch preferred"></span>
+							<span>Preferred Extended (low fee)</span>
+						</div>
+						<div class="tier-legend-item">
+							<span class="tier-legend-swatch extended"></span>
+							<span>Extended (standard fee)</span>
+						</div>
+					</>
 				)}
 			</div>
 			<div class="tier-toggle">

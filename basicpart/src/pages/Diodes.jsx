@@ -280,7 +280,7 @@ function DiodeTable({ diodes }) {
 									part={diode.partNumber}
 									tier={diode.tier}
 									info={`${diode.type} - ${diode.mpn}`}
-									description={diode.desc}
+									description={`${diode.mfr || ''} ${diode.specs.vr ? `• ${diode.specs.vr}` : ''} ${diode.specs.current ? `• ${diode.specs.current}` : ''} ${diode.pkg ? `• ${diode.pkg}` : ''}`.trim()}
 								/>
 							</td>
 							<td>

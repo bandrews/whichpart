@@ -9,6 +9,7 @@ import { Resistors } from './pages/Resistors.jsx';
 import { CeramicCapacitors } from './pages/CeramicCapacitors.jsx';
 import { ElectrolyticCapacitors } from './pages/ElectrolyticCapacitors.jsx';
 import { Diodes } from './pages/Diodes.jsx';
+import { Transistors } from './pages/Transistors.jsx';
 import { OtherComponents } from './pages/OtherComponents.jsx';
 import { AllBasicParts } from './pages/AllBasicParts.jsx';
 import { PartDetails } from './pages/PartDetails.jsx';
@@ -29,7 +30,8 @@ export function App() {
 						<Route path="/capacitors" component={CeramicCapacitors} />
 						<Route path="/electrolytic" component={ElectrolyticCapacitors} />
 						<Route path="/diodes" component={Diodes} />
-						<Route path="/other" component={OtherComponents} />
+						<Route path="/transistors" component={Transistors} />
+						<Route path="/picks" component={OtherComponents} />
 						<Route path="/all" component={AllBasicParts} />
 						<Route path="/part/:id" component={PartDetails} />
 						<Route default component={NotFound} />

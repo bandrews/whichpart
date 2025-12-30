@@ -25,9 +25,9 @@ export function OtherComponents() {
 
 	return (
 		<div>
-			<h1 class="page-title">Other Components</h1>
+			<h1 class="page-title">Our Picks</h1>
 			<p class="page-subtitle">
-				{totalParts} commonly used ICs, connectors, and other components available as JLCPCB basic parts.
+				Curated selection of {totalParts} useful ICs, connectors, and other components. These are our recommendations for common design needs.
 			</p>
 
 			<TierLegend />

@@ -51,8 +51,9 @@ export function Resistors() {
 				columnImages={columnImages}
 				columnLabels={columnLabels}
 				sortRows={sortResistorValues}
+				unit="Ω"
 				renderRowHeader={(row) => (
-					<strong>{row.display} Ω</strong>
+					<strong>{row.display}Ω</strong>
 				)}
 			/>
 		</div>

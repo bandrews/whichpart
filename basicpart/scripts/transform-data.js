@@ -30,13 +30,15 @@ function parseResistance(desc, attrs) {
 		a.attribute_name_en?.toLowerCase().includes('resistance')
 	);
 	if (resistanceAttr) {
-		const match = resistanceAttr.attribute_value_name?.match(/^([\d.]+)\s*(m|k|M|G)?Ω?/i);
+		// Case-sensitive matching for m (milli) vs M (mega)
+		const match = resistanceAttr.attribute_value_name?.match(/^([\d.]+)\s*(m|k|M|G)?Ω?/);
 		if (match) {
 			let value = parseFloat(match[1]);
 			const unit = match[2];
-			switch (unit?.toLowerCase()) {
+			switch (unit) {
 				case 'm': value *= 0.001; break;
-				case 'k': value *= 1000; break;
+				case 'k':
+				case 'K': value *= 1000; break;
 				case 'M': value *= 1000000; break;
 				case 'G': value *= 1000000000; break;
 			}
@@ -44,14 +46,15 @@ function parseResistance(desc, attrs) {
 		}
 	}
 
-	// Try to parse from description
-	const match = desc?.match(/([\d.]+)\s*(m|k|M|G)?Ω/i);
+	// Try to parse from description - case-sensitive for m vs M
+	const match = desc?.match(/([\d.]+)\s*(m|k|M|G)?Ω/);
 	if (match) {
 		let value = parseFloat(match[1]);
 		const unit = match[2];
-		switch (unit?.toLowerCase()) {
+		switch (unit) {
 			case 'm': value *= 0.001; break;
-			case 'k': value *= 1000; break;
+			case 'k':
+			case 'K': value *= 1000; break;
 			case 'M': value *= 1000000; break;
 			case 'G': value *= 1000000000; break;
 		}
@@ -62,18 +65,31 @@ function parseResistance(desc, attrs) {
 }
 
 /**
- * Format resistance for display
+ * Format resistance for display (without Ω symbol - component adds it)
+ * Uses uppercase M for mega, lowercase m for milli
  */
 function formatResistance(ohms) {
 	if (ohms === 0) return '0';
-	if (ohms < 1) return `${(ohms * 1000).toFixed(0)}mΩ`;
-	if (ohms < 1000) return `${ohms}`;
+	if (ohms < 1) {
+		const mOhms = ohms * 1000;
+		// Format milliohms nicely
+		if (mOhms % 1 === 0) return `${mOhms}m`;
+		return `${mOhms.toFixed(1).replace(/\.0$/, '')}m`;
+	}
+	if (ohms < 1000) {
+		// Format plain ohms
+		if (ohms % 1 === 0) return `${ohms}`;
+		return `${ohms.toFixed(1).replace(/\.0$/, '')}`;
+	}
 	if (ohms < 1000000) {
 		const k = ohms / 1000;
-		return k % 1 === 0 ? `${k}k` : `${k.toFixed(1)}k`;
+		if (k % 1 === 0) return `${k}k`;
+		return `${k.toFixed(1).replace(/\.0$/, '')}k`;
 	}
+	// Megaohms - uppercase M
 	const M = ohms / 1000000;
-	return M % 1 === 0 ? `${M}M` : `${M.toFixed(1)}M`;
+	if (M % 1 === 0) return `${M}M`;
+	return `${M.toFixed(1).replace(/\.0$/, '')}M`;
 }
 
 /**

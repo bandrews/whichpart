@@ -11,7 +11,6 @@ import resistorData from '../data/resistors.json';
 import capacitorData from '../data/ceramic-capacitors.json';
 import electrolyticData from '../data/electrolytic-capacitors.json';
 import diodeData from '../data/diodes.json';
-import otherData from '../data/other-components.json';
 
 /**
  * Get all part numbers from a data source
@@ -43,18 +42,6 @@ function getDiodePartNumbers(data) {
 	return parts;
 }
 
-/**
- * Get all part numbers from other-components
- */
-function getOtherPartNumbers(data) {
-	const parts = new Set();
-	for (const cat of data.categories || []) {
-		for (const item of cat.items || []) {
-			if (item.part) parts.add(item.part);
-		}
-	}
-	return parts;
-}
 
 export function AllBasicParts() {
 	const [searchTerm, setSearchTerm] = useState('');
@@ -62,14 +49,13 @@ export function AllBasicParts() {
 	const [categoryFilter, setCategoryFilter] = useState('All');
 	const { showPreferred } = useTierFilter();
 
-	// Collect part numbers already shown on other pages
+	// Collect part numbers already shown on other pages (not including Our Picks)
 	const shownParts = useMemo(() => {
 		const shown = new Set();
 		getPartNumbers(resistorData, ['0402', '0603', '0805', '1206']).forEach(p => shown.add(p));
 		getPartNumbers(capacitorData, ['0402', '0603', '0805', '1206']).forEach(p => shown.add(p));
 		getPartNumbers(electrolyticData, electrolyticData.meta?.columns || []).forEach(p => shown.add(p));
 		getDiodePartNumbers(diodeData).forEach(p => shown.add(p));
-		getOtherPartNumbers(otherData).forEach(p => shown.add(p));
 		return shown;
 	}, []);
 

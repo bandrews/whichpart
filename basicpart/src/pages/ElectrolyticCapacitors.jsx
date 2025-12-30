@@ -44,6 +44,7 @@ export function ElectrolyticCapacitors() {
 						data={capacitorData}
 						columns={activeColumns}
 						columnLabels={columnLabels}
+						unit=""
 						renderRowHeader={(row) => (
 							<div>
 								<strong>{row.display}</strong>

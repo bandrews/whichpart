@@ -8,8 +8,9 @@ export function Header() {
 		{ path: '/resistors', label: 'Resistors' },
 		{ path: '/capacitors', label: 'Capacitors' },
 		{ path: '/diodes', label: 'Diodes' },
-		{ path: '/other', label: 'Other' },
+		{ path: '/transistors', label: 'Transistors' },
 		{ path: '/all', label: 'All Parts' },
+		{ path: '/picks', label: 'Our Picks' },
 	];
 
 	return (

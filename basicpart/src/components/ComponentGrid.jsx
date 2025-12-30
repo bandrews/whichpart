@@ -1,5 +1,33 @@
 import { useTierFilter } from '../context/TierFilter.jsx';
 import { JlcLink } from './JlcLink.jsx';
+import partsIndex from '../data/parts-index.json';
+
+/**
+ * Get helpful tooltip info from parts-index
+ */
+function getTooltipInfo(part, rowDisplay, unit, col) {
+	const partData = partsIndex[part];
+	if (!partData) {
+		return { info: `${rowDisplay}${unit} ${col}`, description: '' };
+	}
+
+	// Build a concise info line
+	const info = `${rowDisplay}${unit} ${col}`;
+
+	// Build a helpful description from attributes
+	const descParts = [];
+	if (partData.mpn) descParts.push(partData.mpn);
+	if (partData.mfr) descParts.push(`by ${partData.mfr}`);
+
+	// Add key specs based on category
+	const attrs = partData.attrs || {};
+	if (attrs['Tolerance']) descParts.push(attrs['Tolerance']);
+	if (attrs['Voltage-Supply(Max)']) descParts.push(`${attrs['Voltage-Supply(Max)']} max`);
+	if (attrs['Voltage']) descParts.push(attrs['Voltage']);
+	if (attrs['Dielectric Type']) descParts.push(attrs['Dielectric Type']);
+
+	return { info, description: descParts.join(' • ') };
+}
 
 /**
  * Generic grid component for displaying component data
@@ -84,20 +112,21 @@ export function ComponentGrid({
 									if (renderCell) {
 										return <td key={col}>{renderCell(cell, col, row)}</td>;
 									}
-									return (
-										<td key={col}>
-											{cell ? (
-												<JlcLink
-													part={cell.part}
-													tier={cell.tier}
-													info={`${row.display || rowKey} ${col}`}
-													description={row.description}
-												/>
-											) : (
-												<span class="cell-empty">-</span>
-											)}
-										</td>
-									);
+									const tooltip = cell ? getTooltipInfo(cell.part, row.display || rowKey, unit, col) : null;
+								return (
+									<td key={col}>
+										{cell ? (
+											<JlcLink
+												part={cell.part}
+												tier={cell.tier}
+												info={tooltip.info}
+												description={tooltip.description}
+											/>
+										) : (
+											<span class="cell-empty">-</span>
+										)}
+									</td>
+								);
 								})}
 							</tr>
 						);

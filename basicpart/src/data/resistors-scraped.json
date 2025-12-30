@@ -703,7 +703,7 @@
       }
     },
     "4990": {
-      "display": "5.0k",
+      "display": "5k",
       "0805": {
         "part": "C17677",
         "tier": "preferred"
@@ -1395,41 +1395,12 @@
         "tier": "preferred"
       }
     },
-    "0.0015": {
-      "display": "2mΩ",
-      "0603": {
-        "part": "C4172",
-        "tier": "preferred"
-      }
-    },
-    "0.01": {
-      "display": "10mΩ",
-      "0603": {
-        "part": "C7250",
-        "tier": "basic"
-      },
-      "0402": {
-        "part": "C26082",
-        "tier": "preferred"
-      },
-      "0805": {
-        "part": "C26108",
-        "tier": "preferred"
-      }
-    },
-    "0.0050999999999999995": {
-      "display": "5mΩ",
-      "0603": {
-        "part": "C13320",
-        "tier": "preferred"
-      }
-    },
-    "0.001": {
+    "1000000": {
       "1206": {
         "part": "C17927",
         "tier": "basic"
       },
-      "display": "1mΩ",
+      "display": "1M",
       "0805": {
         "part": "C17514",
         "tier": "basic"
@@ -1441,6 +1412,78 @@
       "0402": {
         "part": "C26083",
         "tier": "basic"
+      }
+    },
+    "1200000": {
+      "1206": {
+        "part": "C22107",
+        "tier": "preferred"
+      },
+      "display": "1.2M"
+    },
+    "1500000": {
+      "display": "1.5M",
+      "0603": {
+        "part": "C4172",
+        "tier": "preferred"
+      }
+    },
+    "2000000": {
+      "display": "2M",
+      "0603": {
+        "part": "C22976",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C26112",
+        "tier": "preferred"
+      }
+    },
+    "2200000": {
+      "display": "2.2M",
+      "0603": {
+        "part": "C22938",
+        "tier": "preferred"
+      },
+      "0805": {
+        "part": "C26113",
+        "tier": "preferred"
+      }
+    },
+    "3000000": {
+      "display": "3M",
+      "0603": {
+        "part": "C23156",
+        "tier": "preferred"
+      }
+    },
+    "4700000": {
+      "display": "4.7M",
+      "0603": {
+        "part": "C23163",
+        "tier": "preferred"
+      }
+    },
+    "5100000": {
+      "display": "5.1M",
+      "0603": {
+        "part": "C13320",
+        "tier": "preferred"
+      }
+    },
+    "10000000": {
+      "display": "10M",
+      "0603": {
+        "part": "C7250",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C26082",
+        "tier": "preferred"
+      },
+      "0805": {
+        "part": "C26108",
+        "tier": "preferred"
       }
     },
     "2.2": {
@@ -1491,55 +1534,12 @@
         "tier": "basic"
       }
     },
-    "0.0012": {
-      "1206": {
-        "part": "C22107",
-        "tier": "preferred"
-      },
-      "display": "1mΩ"
-    },
-    "0.0022": {
-      "display": "2mΩ",
-      "0603": {
-        "part": "C22938",
-        "tier": "preferred"
-      },
-      "0805": {
-        "part": "C26113",
-        "tier": "preferred"
-      }
-    },
-    "0.002": {
-      "display": "2mΩ",
-      "0603": {
-        "part": "C22976",
-        "tier": "basic"
-      },
-      "0805": {
-        "part": "C26112",
-        "tier": "preferred"
-      }
-    },
-    "0.003": {
-      "display": "3mΩ",
-      "0603": {
-        "part": "C23156",
-        "tier": "preferred"
-      }
-    },
-    "0.0047": {
-      "display": "5mΩ",
-      "0603": {
-        "part": "C23163",
-        "tier": "preferred"
-      }
-    },
     "0.1": {
       "1206": {
         "part": "C25334",
         "tier": "basic"
       },
-      "display": "100mΩ"
+      "display": "100m"
     }
   }
 }

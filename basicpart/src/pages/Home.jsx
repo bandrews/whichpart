@@ -25,15 +25,21 @@ export function Home() {
 			ready: true,
 		},
 		{
-			title: 'Other Components',
-			description: 'Microcontrollers, connectors, crystals, and more',
-			href: '/other',
+			title: 'Transistors',
+			description: 'BJTs, MOSFETs, and Darlington arrays',
+			href: '/transistors',
 			ready: true,
 		},
 		{
 			title: 'All Basic Parts',
 			description: 'Browse all 1585 basic and preferred parts from JLCPCB',
 			href: '/all',
+			ready: true,
+		},
+		{
+			title: 'Our Picks',
+			description: 'Curated selection of useful ICs, connectors, and more',
+			href: '/picks',
 			ready: true,
 		},
 	];

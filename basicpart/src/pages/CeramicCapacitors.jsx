@@ -4,6 +4,20 @@ import { JlcLink } from '../components/JlcLink.jsx';
 import { useTierFilter } from '../context/TierFilter.jsx';
 import { parseCapacitance, formatCapacitanceWithAlt } from '../utils/formatting.js';
 import capacitorData from '../data/ceramic-capacitors.json';
+import partsIndex from '../data/parts-index.json';
+
+/**
+ * Get tooltip description from parts-index
+ */
+function getDescription(part) {
+	const partData = partsIndex[part];
+	if (!partData) return '';
+	const parts = [];
+	if (partData.mpn) parts.push(partData.mpn);
+	if (partData.mfr) parts.push(`by ${partData.mfr}`);
+	if (partData.attrs?.['Tolerance']) parts.push(partData.attrs['Tolerance']);
+	return parts.join(' • ');
+}
 
 const COLUMNS = ['0402', '0603', '0805', '1206'];
 
@@ -194,6 +208,7 @@ export function CeramicCapacitors() {
 															part={p.part}
 															tier={p.tier}
 															info={`${main} ${p.voltage} ${p.dielectric}`}
+															description={getDescription(p.part)}
 														/>
 														<span class="cell-specs">{p.voltage} {p.dielectric}</span>
 													</div>
@@ -211,6 +226,7 @@ export function CeramicCapacitors() {
 																part={p.part}
 																tier={p.tier}
 																info={`${main} ${p.voltage} ${p.dielectric}`}
+																description={getDescription(p.part)}
 															/>
 															<span class="cell-specs">{p.voltage} {p.dielectric}</span>
 														</div>

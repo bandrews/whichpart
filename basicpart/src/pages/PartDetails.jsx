@@ -19,13 +19,6 @@ export function PartDetails() {
 		return `$${price.toFixed(2)}`;
 	};
 
-	// Format stock count
-	const formatStock = (stock) => {
-		if (stock >= 1000000) return `${(stock / 1000000).toFixed(1)}M`;
-		if (stock >= 1000) return `${(stock / 1000).toFixed(0)}k`;
-		return stock.toString();
-	};
-
 	return (
 		<div>
 			<h1 class="page-title">
@@ -103,15 +96,9 @@ export function PartDetails() {
 								<tr>
 									<th>Tier</th>
 									<td style={{ textTransform: 'capitalize' }}>
-										{partInfo.tier === 'preferred' ? 'Preferred Extended' : 'Basic'}
+										{partInfo.tier === 'preferred' ? 'Preferred Extended' : partInfo.tier === 'extended' ? 'Extended' : 'Basic'}
 									</td>
 								</tr>
-								{partInfo.stock !== undefined && (
-									<tr>
-										<th>Stock</th>
-										<td>{formatStock(partInfo.stock)} pcs</td>
-									</tr>
-								)}
 							</tbody>
 						</table>
 					</div>
@@ -119,7 +106,12 @@ export function PartDetails() {
 					{/* Pricing */}
 					{partInfo.prices && partInfo.prices.length > 0 && (
 						<div class="part-details-card">
-							<h3 style={{ margin: '0 0 var(--spacing-md) 0', fontSize: '1rem' }}>Pricing</h3>
+							<h3 style={{ margin: '0 0 var(--spacing-md) 0', fontSize: '1rem' }}>
+								Pricing
+								<span style={{ fontSize: '0.75rem', fontWeight: 'normal', color: 'var(--text-muted)', marginLeft: '8px' }}>
+									(historical snapshot)
+								</span>
+							</h3>
 							<table class="part-details-table">
 								<tbody>
 									{partInfo.prices.map((p, i) => (
@@ -130,6 +122,9 @@ export function PartDetails() {
 									))}
 								</tbody>
 							</table>
+							<p style={{ margin: 'var(--spacing-sm) 0 0 0', fontSize: '0.75rem', color: 'var(--warning)', fontStyle: 'italic' }}>
+								Prices shown are from when data was collected and may not reflect current pricing.
+							</p>
 						</div>
 					)}
 

@@ -55,8 +55,8 @@ export function JlcLink({ part, tier = 'basic', info, description }) {
 	};
 
 	const jlcUrl = `https://jlcpcb.com/partdetail/${part}`;
-	const tierClass = tier === 'preferred' ? 'preferred' : '';
-	const tierLabel = tier === 'preferred' ? 'Preferred Extended' : 'Basic';
+	const tierClass = tier === 'preferred' ? 'preferred' : tier === 'extended' ? 'extended' : '';
+	const tierLabel = tier === 'preferred' ? 'Preferred Extended' : tier === 'extended' ? 'Extended' : 'Basic';
 
 	return (
 		<span class="jlc-link-wrapper">
