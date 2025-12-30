@@ -9,6 +9,7 @@ export function Header() {
 		{ path: '/capacitors', label: 'Capacitors' },
 		{ path: '/diodes', label: 'Diodes' },
 		{ path: '/other', label: 'Other' },
+		{ path: '/all', label: 'All Parts' },
 	];
 
 	return (

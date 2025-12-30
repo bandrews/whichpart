@@ -1,16 +1,56 @@
 import { useState, useMemo } from 'preact/hooks';
-import { ComponentGrid } from '../components/ComponentGrid.jsx';
-import { FilterBar } from '../components/FilterBar.jsx';
 import { TierLegend } from '../components/TierLegend.jsx';
+import { JlcLink } from '../components/JlcLink.jsx';
+import { useTierFilter } from '../context/TierFilter.jsx';
+import { parseCapacitance, formatCapacitanceWithAlt } from '../utils/formatting.js';
 import capacitorData from '../data/ceramic-capacitors.json';
 
-export function CeramicCapacitors() {
-	const [filters, setFilters] = useState({
-		voltage: 'All',
-		dielectric: 'All',
-	});
+const COLUMNS = ['0402', '0603', '0805', '1206'];
 
-	// Extract unique voltages and dielectrics from data
+/**
+ * Group capacitors by value, collecting all variants (different voltage/dielectric)
+ */
+function groupByValue(data) {
+	const groups = {};
+
+	for (const [key, entry] of Object.entries(data)) {
+		const display = entry.display;
+		if (!groups[display]) {
+			groups[display] = {
+				display,
+				variants: [],
+			};
+		}
+
+		// Collect package parts for this variant
+		const variant = {
+			key,
+			voltage: entry.voltage,
+			dielectric: entry.dielectric,
+			packages: {},
+		};
+
+		for (const col of COLUMNS) {
+			if (entry[col]) {
+				variant.packages[col] = entry[col];
+			}
+		}
+
+		groups[display].variants.push(variant);
+	}
+
+	return groups;
+}
+
+export function CeramicCapacitors() {
+	const [voltageFilter, setVoltageFilter] = useState('All');
+	const [dielectricFilter, setDielectricFilter] = useState('All');
+	const { showPreferred } = useTierFilter();
+
+	// Group capacitors by value
+	const groupedData = useMemo(() => groupByValue(capacitorData.data), []);
+
+	// Extract unique voltages and dielectrics for filters
 	const filterOptions = useMemo(() => {
 		const voltages = new Set(['All']);
 		const dielectrics = new Set(['All']);
@@ -30,54 +70,36 @@ export function CeramicCapacitors() {
 		};
 	}, []);
 
-	// Filter the data based on selected filters
-	const filteredData = useMemo(() => {
-		const filtered = { ...capacitorData, data: {} };
+	// Filter variants based on tier and filters
+	const filterVariant = (variant) => {
+		if (voltageFilter !== 'All' && variant.voltage !== voltageFilter) return false;
+		if (dielectricFilter !== 'All' && variant.dielectric !== dielectricFilter) return false;
 
-		for (const [key, entry] of Object.entries(capacitorData.data)) {
-			const matchesVoltage = filters.voltage === 'All' || entry.voltage === filters.voltage;
-			const matchesDielectric = filters.dielectric === 'All' || entry.dielectric === filters.dielectric;
-
-			if (matchesVoltage && matchesDielectric) {
-				filtered.data[key] = entry;
-			}
+		if (!showPreferred) {
+			// Check if any package has a basic tier
+			return Object.values(variant.packages).some(p => p.tier === 'basic');
 		}
-
-		return filtered;
-	}, [filters]);
-
-	// Sort capacitance values
-	const sortCapacitance = (keys) => {
-		return keys.sort((a, b) => {
-			// Parse capacitance values for comparison
-			const parseVal = (key) => {
-				const entry = capacitorData.data[key];
-				const display = entry?.display || '';
-				const match = display.match(/^([\d.]+)(p|n|u|µ)?F?/i);
-				if (!match) return 0;
-				let val = parseFloat(match[1]);
-				const unit = match[2]?.toLowerCase();
-				if (unit === 'p') val *= 1e-12;
-				else if (unit === 'n') val *= 1e-9;
-				else if (unit === 'u' || unit === 'µ') val *= 1e-6;
-				return val;
-			};
-			return parseVal(a) - parseVal(b);
-		});
+		return true;
 	};
 
-	const filterConfig = [
-		{
-			key: 'voltage',
-			label: 'Voltage',
-			options: filterOptions.voltage,
-		},
-		{
-			key: 'dielectric',
-			label: 'Dielectric',
-			options: filterOptions.dielectric,
-		},
-	];
+	// Filter cell based on tier
+	const filterCell = (cell) => {
+		if (!cell) return null;
+		if (showPreferred) return cell;
+		return cell.tier === 'basic' ? cell : null;
+	};
+
+	// Get sorted value keys
+	const sortedValues = useMemo(() => {
+		return Object.keys(groupedData).sort((a, b) => {
+			return parseCapacitance(a) - parseCapacitance(b);
+		});
+	}, [groupedData]);
+
+	// Filter values that have at least one matching variant
+	const visibleValues = sortedValues.filter(value => {
+		return groupedData[value].variants.some(filterVariant);
+	});
 
 	const partCount = Object.keys(capacitorData.data).length;
 
@@ -91,26 +113,124 @@ export function CeramicCapacitors() {
 
 			<TierLegend />
 
-			<FilterBar
-				filters={filterConfig}
-				values={filters}
-				onChange={setFilters}
-			/>
+			<div class="filter-bar">
+				<div class="filter-group">
+					<label htmlFor="voltage">Voltage</label>
+					<select
+						id="voltage"
+						value={voltageFilter}
+						onChange={(e) => setVoltageFilter(e.target.value)}
+					>
+						{filterOptions.voltage.map(v => (
+							<option key={v} value={v}>{v}</option>
+						))}
+					</select>
+				</div>
+				<div class="filter-group">
+					<label htmlFor="dielectric">Dielectric</label>
+					<select
+						id="dielectric"
+						value={dielectricFilter}
+						onChange={(e) => setDielectricFilter(e.target.value)}
+					>
+						{filterOptions.dielectric.map(d => (
+							<option key={d} value={d}>{d}</option>
+						))}
+					</select>
+				</div>
+			</div>
 
-			<ComponentGrid
-				data={filteredData}
-				columns={['0402', '0603', '0805', '1206']}
-				sortRows={sortCapacitance}
-				renderRowHeader={(row) => (
-					<div>
-						<strong>{row.display}</strong>
-						<br />
-						<small style={{ color: 'var(--text-muted)' }}>
-							{row.voltage} {row.dielectric}
-						</small>
-					</div>
-				)}
-			/>
+			<div class="component-grid-container">
+				<table class="component-grid">
+					<thead>
+						<tr>
+							<th>Capacitance</th>
+							{COLUMNS.map(col => (
+								<th key={col}>{col}</th>
+							))}
+						</tr>
+					</thead>
+					<tbody>
+						{visibleValues.map(value => {
+							const group = groupedData[value];
+							const matchingVariants = group.variants.filter(filterVariant);
+							const { main, alt } = formatCapacitanceWithAlt(value);
+
+							return (
+								<tr key={value}>
+									<td>
+										<strong>{main}</strong>
+										{alt && (
+											<span style={{ color: 'var(--text-muted)', fontSize: '0.75rem', marginLeft: '4px' }}>
+												({alt})
+											</span>
+										)}
+									</td>
+									{COLUMNS.map(col => {
+										// Collect all parts for this column across matching variants
+										const partsInColumn = [];
+										for (const variant of matchingVariants) {
+											const cell = filterCell(variant.packages[col]);
+											if (cell) {
+												partsInColumn.push({
+													...cell,
+													voltage: variant.voltage,
+													dielectric: variant.dielectric,
+												});
+											}
+										}
+
+										if (partsInColumn.length === 0) {
+											return <td key={col}><span class="cell-empty">-</span></td>;
+										}
+
+										// If only one part, show simple link
+										if (partsInColumn.length === 1) {
+											const p = partsInColumn[0];
+											return (
+												<td key={col}>
+													<div class="stacked-cell">
+														<JlcLink
+															part={p.part}
+															tier={p.tier}
+															info={`${main} ${p.voltage} ${p.dielectric}`}
+														/>
+														<span class="cell-specs">{p.voltage} {p.dielectric}</span>
+													</div>
+												</td>
+											);
+										}
+
+										// Multiple parts - stack them
+										return (
+											<td key={col}>
+												<div class="stacked-parts">
+													{partsInColumn.map((p, i) => (
+														<div key={i} class="stacked-cell">
+															<JlcLink
+																part={p.part}
+																tier={p.tier}
+																info={`${main} ${p.voltage} ${p.dielectric}`}
+															/>
+															<span class="cell-specs">{p.voltage} {p.dielectric}</span>
+														</div>
+													))}
+												</div>
+											</td>
+										);
+									})}
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
+			</div>
+
+			{visibleValues.length === 0 && (
+				<p style={{ color: 'var(--text-muted)', textAlign: 'center', padding: 'var(--spacing-xl)' }}>
+					No capacitors match your filter criteria.
+				</p>
+			)}
 
 			<p style={{ marginTop: 'var(--spacing-lg)', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
 				Data scraped from JLCPCB basic parts on {capacitorData.meta?.lastUpdated}.

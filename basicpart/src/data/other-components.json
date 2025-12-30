@@ -42,7 +42,7 @@
       "items": [
         { "name": "CH340C", "description": "USB to Serial", "package": "SOP-16", "part": "C84681", "tier": "basic" },
         { "name": "SP3485", "description": "RS485 Transceiver", "package": "MSOP-8", "part": "C8963", "tier": "basic" },
-        { "name": "W5500", "description": "Ethernet PHY+MAC", "package": "QFN-48", "part": "C32843", "tier": "basic" },
+        { "name": "W5500", "description": "Ethernet PHY+MAC", "package": "QFN-48", "part": "C32843", "tier": "basic", "notes": "Popular all-in-one choice that doesn't require an onboard Ethernet MAC" },
         { "name": "PCF8574", "description": "I2C GPIO Expander", "package": "SOP-16", "part": "C86607", "tier": "basic" }
       ]
     },

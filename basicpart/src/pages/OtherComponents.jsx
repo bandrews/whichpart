@@ -88,10 +88,22 @@ export function OtherComponents() {
 								{cat.items.map(item => (
 									<tr key={item.part}>
 										<td><strong>{item.name}</strong></td>
-										<td>{item.description}</td>
+										<td>
+											{item.description}
+											{item.notes && (
+												<div class="component-notes">
+													{item.notes}
+												</div>
+											)}
+										</td>
 										<td>{item.package}</td>
 										<td>
-											<JlcLink part={item.part} tier={item.tier} />
+											<JlcLink
+												part={item.part}
+												tier={item.tier}
+												info={`${item.name} - ${item.description}`}
+												description={item.notes}
+											/>
 										</td>
 									</tr>
 								))}

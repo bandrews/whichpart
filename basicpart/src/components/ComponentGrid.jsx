@@ -1,3 +1,4 @@
+import { useTierFilter } from '../context/TierFilter.jsx';
 import { JlcLink } from './JlcLink.jsx';
 
 /**
@@ -10,6 +11,7 @@ import { JlcLink } from './JlcLink.jsx';
  * @param {Object} props.columnImages - Optional images for column headers (e.g., { "0402": "/path/to/img" })
  * @param {Function} props.renderRowHeader - Function to render the row header cell
  * @param {Function} props.sortRows - Optional function to sort row keys
+ * @param {Function} props.renderCell - Optional custom cell renderer
  * @param {string} props.unit - Unit to display after row values (e.g., "Ω", "F")
  */
 export function ComponentGrid({
@@ -18,15 +20,32 @@ export function ComponentGrid({
 	columnLabels = {},
 	columnImages = {},
 	renderRowHeader,
+	renderCell,
 	sortRows,
 	unit = '',
 }) {
+	const { showPreferred } = useTierFilter();
+
 	if (!data || !data.data) {
 		return <div class="cell-empty">No data available</div>;
 	}
 
-	// Get and sort row keys
-	let rowKeys = Object.keys(data.data);
+	// Filter out rows that have no visible parts when preferred is hidden
+	const filterRow = (row) => {
+		if (showPreferred) return true;
+		// Check if any column has a basic part
+		return columns.some(col => row[col]?.tier === 'basic');
+	};
+
+	// Filter cell based on tier
+	const filterCell = (cell) => {
+		if (!cell) return null;
+		if (showPreferred) return cell;
+		return cell.tier === 'basic' ? cell : null;
+	};
+
+	// Get and sort row keys, filtering out empty rows
+	let rowKeys = Object.keys(data.data).filter(key => filterRow(data.data[key]));
 	if (sortRows) {
 		rowKeys = sortRows(rowKeys);
 	}
@@ -61,13 +80,18 @@ export function ComponentGrid({
 									}
 								</td>
 								{columns.map(col => {
-									const cell = row[col];
+									const cell = filterCell(row[col]);
+									if (renderCell) {
+										return <td key={col}>{renderCell(cell, col, row)}</td>;
+									}
 									return (
 										<td key={col}>
 											{cell ? (
 												<JlcLink
 													part={cell.part}
 													tier={cell.tier}
+													info={`${row.display || rowKey} ${col}`}
+													description={row.description}
 												/>
 											) : (
 												<span class="cell-empty">-</span>

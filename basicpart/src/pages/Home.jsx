@@ -30,6 +30,12 @@ export function Home() {
 			href: '/other',
 			ready: true,
 		},
+		{
+			title: 'All Basic Parts',
+			description: 'Browse all 1585 basic and preferred parts from JLCPCB',
+			href: '/all',
+			ready: true,
+		},
 	];
 
 	return (
