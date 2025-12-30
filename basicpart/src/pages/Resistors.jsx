@@ -1,6 +1,7 @@
 import { ComponentGrid } from '../components/ComponentGrid.jsx';
 import { TierLegend } from '../components/TierLegend.jsx';
 import resistorData from '../data/resistors.json';
+import imgResistor from '../assets/resistor.png';
 
 // Import package images
 import img0402 from '../assets/0402.jpg';
@@ -37,11 +38,16 @@ function sortResistorValues(keys) {
 export function Resistors() {
 	return (
 		<div>
-			<h1 class="page-title">Resistors</h1>
-			<p class="page-subtitle">
-				SMD chip resistors available as JLCPCB basic parts.
-				All values are 1% tolerance unless otherwise noted.
-			</p>
+			<div class="page-header">
+				<img src={imgResistor} alt="" class="page-header-image" />
+				<div class="page-header-text">
+					<h1 class="page-title">Resistors</h1>
+					<p class="page-subtitle">
+						SMD chip resistors available as JLCPCB basic parts.
+						All values are 1% tolerance unless otherwise noted.
+					</p>
+				</div>
+			</div>
 
 			<TierLegend />
 

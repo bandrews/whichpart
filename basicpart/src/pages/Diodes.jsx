@@ -6,6 +6,7 @@ import { useTierFilter } from '../context/TierFilter.jsx';
 // Import parts index with full metadata
 import partsIndex from '../data/parts-index.json';
 import friendlyDescriptions from '../data/friendly-descriptions.json';
+import imgDiode from '../assets/diode.png';
 
 // Diode categories to include
 const DIODE_CATEGORIES = [
@@ -169,11 +170,16 @@ export function Diodes() {
 
 	return (
 		<div>
-			<h1 class="page-title">Diodes</h1>
-			<p class="page-subtitle">
-				{totalCount} diodes available as JLCPCB basic parts.
-				Search and filter to find the right diode for your application.
-			</p>
+			<div class="page-header">
+				<img src={imgDiode} alt="" class="page-header-image" />
+				<div class="page-header-text">
+					<h1 class="page-title">Diodes</h1>
+					<p class="page-subtitle">
+						{totalCount} diodes available as JLCPCB basic parts.
+						Search and filter to find the right diode for your application.
+					</p>
+				</div>
+			</div>
 
 			<TierLegend />
 

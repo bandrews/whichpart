@@ -5,6 +5,7 @@ import { useTierFilter } from '../context/TierFilter.jsx';
 import { parseCapacitance, formatCapacitanceWithAlt } from '../utils/formatting.js';
 import capacitorData from '../data/ceramic-capacitors.json';
 import partsIndex from '../data/parts-index.json';
+import imgCeramicCap from '../assets/ceramiccapacitor.png';
 
 /**
  * Get tooltip description from parts-index
@@ -119,11 +120,16 @@ export function CeramicCapacitors() {
 
 	return (
 		<div>
-			<h1 class="page-title">Ceramic Capacitors (MLCC)</h1>
-			<p class="page-subtitle">
-				{partCount} multilayer ceramic capacitor values available as JLCPCB basic parts.
-				Use filters to narrow by voltage rating and dielectric type.
-			</p>
+			<div class="page-header">
+				<img src={imgCeramicCap} alt="" class="page-header-image" />
+				<div class="page-header-text">
+					<h1 class="page-title">Ceramic Capacitors (MLCC)</h1>
+					<p class="page-subtitle">
+						{partCount} multilayer ceramic capacitor values available as JLCPCB basic parts.
+						Use filters to narrow by voltage rating and dielectric type.
+					</p>
+				</div>
+			</div>
 
 			<TierLegend />
 

@@ -1,6 +1,7 @@
 import { ComponentGrid } from '../components/ComponentGrid.jsx';
 import { TierLegend } from '../components/TierLegend.jsx';
 import capacitorData from '../data/electrolytic-capacitors.json';
+import imgElectrolyticCap from '../assets/electrolyticcapacitor.png';
 
 export function ElectrolyticCapacitors() {
 	const partCount = Object.keys(capacitorData.data).length;
@@ -21,20 +22,25 @@ export function ElectrolyticCapacitors() {
 
 	return (
 		<div>
-			<h1 class="page-title">Electrolytic & Tantalum Capacitors</h1>
-			<p class="page-subtitle">
-				{partCount > 0 ? (
-					<>
-						{partCount} tantalum capacitor values available as JLCPCB basic parts.
-						Most electrolytic capacitors are in the extended library.
-					</>
-				) : (
-					<>
-						Very few electrolytic capacitors are available as basic parts.
-						Check the JLCPCB extended library for more options.
-					</>
-				)}
-			</p>
+			<div class="page-header">
+				<img src={imgElectrolyticCap} alt="" class="page-header-image" />
+				<div class="page-header-text">
+					<h1 class="page-title">Electrolytic & Tantalum Capacitors</h1>
+					<p class="page-subtitle">
+						{partCount > 0 ? (
+							<>
+								{partCount} tantalum capacitor values available as JLCPCB basic parts.
+								Most electrolytic capacitors are in the extended library.
+							</>
+						) : (
+							<>
+								Very few electrolytic capacitors are available as basic parts.
+								Check the JLCPCB extended library for more options.
+							</>
+						)}
+					</p>
+				</div>
+			</div>
 
 			{hasData && (
 				<>

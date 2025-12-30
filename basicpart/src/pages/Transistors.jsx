@@ -6,6 +6,7 @@ import { useTierFilter } from '../context/TierFilter.jsx';
 // Import parts index with full metadata
 import partsIndex from '../data/parts-index.json';
 import friendlyDescriptions from '../data/friendly-descriptions.json';
+import imgTransistor from '../assets/transistor.png';
 
 // Transistor categories to include
 const TRANSISTOR_CATEGORIES = [
@@ -209,11 +210,16 @@ export function Transistors() {
 
 	return (
 		<div>
-			<h1 class="page-title">Transistors</h1>
-			<p class="page-subtitle">
-				{totalCount} transistors available as JLCPCB basic parts.
-				Includes BJTs, MOSFETs, and Darlington arrays.
-			</p>
+			<div class="page-header">
+				<img src={imgTransistor} alt="" class="page-header-image" />
+				<div class="page-header-text">
+					<h1 class="page-title">Transistors</h1>
+					<p class="page-subtitle">
+						{totalCount} transistors available as JLCPCB basic parts.
+						Includes BJTs, MOSFETs, and Darlington arrays.
+					</p>
+				</div>
+			</div>
 
 			<TierLegend />
 

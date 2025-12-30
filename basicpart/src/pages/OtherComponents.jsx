@@ -2,6 +2,7 @@ import { useState } from 'preact/hooks';
 import { JlcLink } from '../components/JlcLink.jsx';
 import { TierLegend } from '../components/TierLegend.jsx';
 import componentData from '../data/other-components.json';
+import imgIC from '../assets/integratedcircuit.png';
 
 export function OtherComponents() {
 	const [searchTerm, setSearchTerm] = useState('');
@@ -25,10 +26,15 @@ export function OtherComponents() {
 
 	return (
 		<div>
-			<h1 class="page-title">Our Picks</h1>
-			<p class="page-subtitle">
-				Curated selection of {totalParts} useful ICs, connectors, and other components. These are our recommendations for common design needs.
-			</p>
+			<div class="page-header">
+				<img src={imgIC} alt="" class="page-header-image" />
+				<div class="page-header-text">
+					<h1 class="page-title">Our Picks</h1>
+					<p class="page-subtitle">
+						Curated selection of {totalParts} useful ICs, connectors, and other components. These are our recommendations for common design needs.
+					</p>
+				</div>
+			</div>
 
 			<TierLegend />
 

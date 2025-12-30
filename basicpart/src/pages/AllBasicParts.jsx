@@ -6,6 +6,7 @@ import { useTierFilter } from '../context/TierFilter.jsx';
 // Import parts index and friendly descriptions
 import partsIndex from '../data/parts-index.json';
 import friendlyDescriptions from '../data/friendly-descriptions.json';
+import imgBucket from '../assets/bucketoparts.png';
 
 // Import data sources to identify categorized parts
 import resistorData from '../data/resistors.json';
@@ -149,11 +150,16 @@ export function AllBasicParts() {
 
 	return (
 		<div>
-			<h1 class="page-title">All Basic Parts</h1>
-			<p class="page-subtitle">
-				Browse all {totalParts} basic and promotional extended parts from JLCPCB.
-				{!includeShown && ` Showing ${filteredParts.length} parts not shown on other pages.`}
-			</p>
+			<div class="page-header">
+				<img src={imgBucket} alt="" class="page-header-image" />
+				<div class="page-header-text">
+					<h1 class="page-title">All Basic Parts</h1>
+					<p class="page-subtitle">
+						Browse all {totalParts} basic and promotional extended parts from JLCPCB.
+						{!includeShown && ` Showing ${filteredParts.length} parts not shown on other pages.`}
+					</p>
+				</div>
+			</div>
 
 			<TierLegend />
 
@@ -217,6 +223,7 @@ export function AllBasicParts() {
 							<thead>
 								<tr>
 									<th>Part</th>
+									<th style={{ width: '40px' }}></th>
 									<th>Manufacturer Part</th>
 									<th>Package</th>
 									<th>Description</th>
@@ -232,6 +239,22 @@ export function AllBasicParts() {
 												info={part.mpn}
 												description={part.desc}
 											/>
+										</td>
+										<td>
+											{part.ds && (
+												<a
+													href={part.ds}
+													target="_blank"
+													rel="noopener noreferrer"
+													class="datasheet-icon"
+													title="View Datasheet"
+												>
+													<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+														<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+														<polyline points="14 2 14 8 20 8"></polyline>
+													</svg>
+												</a>
+											)}
 										</td>
 										<td>
 											<strong>{part.mpn}</strong>
