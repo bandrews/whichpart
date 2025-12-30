@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "type": "other-components",
+    "lastUpdated": "2025-12-30"
+  },
+  "categories": [
+    {
+      "name": "Microcontrollers",
+      "items": [
+        { "name": "RP2040", "description": "Dual-core ARM Cortex-M0+", "package": "QFN-56", "part": "C2040", "tier": "basic" },
+        { "name": "STM32F103C8T6", "description": "ARM Cortex-M3 72MHz", "package": "LQFP-48", "part": "C8734", "tier": "basic" },
+        { "name": "STM32G030F6P6", "description": "ARM Cortex-M0+ 64MHz", "package": "TSSOP-20", "part": "C529330", "tier": "basic" }
+      ]
+    },
+    {
+      "name": "Connectors",
+      "items": [
+        { "name": "USB-C 16P", "description": "USB Type-C Receptacle", "package": "SMD", "part": "C168688", "tier": "basic" },
+        { "name": "USB-C 6P", "description": "USB Type-C Power Only", "package": "SMD", "part": "C2765186", "tier": "basic" },
+        { "name": "JST-SH 4P", "description": "1.0mm Pitch Horizontal", "package": "SMD", "part": "C145956", "tier": "basic" },
+        { "name": "JST-SH 3P", "description": "1.0mm Pitch Horizontal", "package": "SMD", "part": "C160402", "tier": "basic" }
+      ]
+    },
+    {
+      "name": "Crystals & Oscillators",
+      "items": [
+        { "name": "12MHz Crystal", "description": "HC-49S", "package": "HC-49S", "part": "C9002", "tier": "basic" },
+        { "name": "25MHz Crystal", "description": "3225 SMD", "package": "3225", "part": "C13738", "tier": "basic" },
+        { "name": "32.768kHz Crystal", "description": "2012 SMD", "package": "2012", "part": "C32346", "tier": "basic" }
+      ]
+    },
+    {
+      "name": "Memory",
+      "items": [
+        { "name": "W25Q128JVSIQ", "description": "128Mbit SPI Flash", "package": "SOIC-8", "part": "C97521", "tier": "basic" },
+        { "name": "W25Q32JVSSIQ", "description": "32Mbit SPI Flash", "package": "SOIC-8", "part": "C571134", "tier": "basic" },
+        { "name": "24AA025E48T", "description": "2Kbit I2C EEPROM + MAC", "package": "SOT-23-5", "part": "C191662", "tier": "preferred" }
+      ]
+    },
+    {
+      "name": "Interface ICs",
+      "items": [
+        { "name": "CH340C", "description": "USB to Serial", "package": "SOP-16", "part": "C84681", "tier": "basic" },
+        { "name": "SP3485", "description": "RS485 Transceiver", "package": "MSOP-8", "part": "C8963", "tier": "basic" },
+        { "name": "W5500", "description": "Ethernet PHY+MAC", "package": "QFN-48", "part": "C32843", "tier": "basic" },
+        { "name": "PCF8574", "description": "I2C GPIO Expander", "package": "SOP-16", "part": "C86607", "tier": "basic" }
+      ]
+    },
+    {
+      "name": "Power Management",
+      "items": [
+        { "name": "AMS1117-3.3", "description": "3.3V 1A LDO", "package": "SOT-223", "part": "C6186", "tier": "basic" },
+        { "name": "ME6211C33M5G", "description": "3.3V 500mA LDO", "package": "SOT-23-5", "part": "C82942", "tier": "basic" },
+        { "name": "XL1509-5.0E1", "description": "5V 2A Buck", "package": "SOP-8", "part": "C61063", "tier": "basic" }
+      ]
+    },
+    {
+      "name": "LEDs",
+      "items": [
+        { "name": "Red LED", "description": "0603 SMD", "package": "0603", "part": "C2286", "tier": "basic" },
+        { "name": "Green LED", "description": "0603 SMD", "package": "0603", "part": "C72043", "tier": "basic" },
+        { "name": "Blue LED", "description": "0603 SMD", "package": "0603", "part": "C72041", "tier": "basic" },
+        { "name": "White LED", "description": "0603 SMD", "package": "0603", "part": "C2290", "tier": "basic" },
+        { "name": "WS2812B", "description": "Addressable RGB", "package": "5050", "part": "C114586", "tier": "basic" }
+      ]
+    },
+    {
+      "name": "Protection & Drivers",
+      "items": [
+        { "name": "SRV05-4", "description": "5V 4-Line ESD Protection", "package": "SOT-23-6", "part": "C85364", "tier": "basic" },
+        { "name": "ULN2003A", "description": "7-Ch Darlington Driver", "package": "SOIC-16", "part": "C7548", "tier": "basic" },
+        { "name": "SN74AHCT1G125", "description": "Single Bus Buffer", "package": "SOT-23-5", "part": "C7484", "tier": "basic" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "type": "electrolytic-capacitor",
+    "lastUpdated": "2025-12-30",
+    "columns": [
+      "CASE-A-3216-18(mm)",
+      "CASE-B-3528-21(mm)",
+      "CASE-C-6032-28(mm)",
+      "CASE-D-7343-31(mm)"
+    ],
+    "rowKey": "capacitance",
+    "rowLabel": "Capacitance"
+  },
+  "data": {
+    "10uF_16V": {
+      "display": "10uF",
+      "voltage": "16V",
+      "CASE-A-3216-18(mm)": {
+        "part": "C7171",
+        "tier": "basic"
+      }
+    },
+    "100uF_6.3V": {
+      "display": "100uF",
+      "voltage": "6.3V",
+      "CASE-B-3528-21(mm)": {
+        "part": "C16133",
+        "tier": "basic"
+      }
+    }
+  }
+}

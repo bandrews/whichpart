@@ -2,11 +2,17 @@ import { render } from 'preact';
 import { LocationProvider, Router, Route } from 'preact-iso';
 
 import { Header } from './components/Header.jsx';
-import { Home } from './pages/Home/index.jsx';
-import { NotFound } from './pages/_404.jsx';
-import './style.css';
-import { Resistors } from './pages/Home/resistors.jsx';
-import { OtherComponents } from './pages/Home/other.jsx';
+import { Footer } from './components/Footer.jsx';
+import { Home } from './pages/Home.jsx';
+import { Resistors } from './pages/Resistors.jsx';
+import { CeramicCapacitors } from './pages/CeramicCapacitors.jsx';
+import { ElectrolyticCapacitors } from './pages/ElectrolyticCapacitors.jsx';
+import { Diodes } from './pages/Diodes.jsx';
+import { OtherComponents } from './pages/OtherComponents.jsx';
+import { NotFound } from './pages/NotFound.jsx';
+
+import './styles/global.css';
+import './styles/components.css';
 
 export function App() {
 	return (
@@ -14,13 +20,16 @@ export function App() {
 			<Header />
 			<main>
 				<Router>
-					<Route path="/home" component={Home} />
+					<Route path="/" component={Home} />
 					<Route path="/resistors" component={Resistors} />
+					<Route path="/capacitors" component={CeramicCapacitors} />
+					<Route path="/electrolytic" component={ElectrolyticCapacitors} />
+					<Route path="/diodes" component={Diodes} />
 					<Route path="/other" component={OtherComponents} />
-					<Route default component={Resistors} />
+					<Route default component={NotFound} />
 				</Router>
 			</main>
-			<footer><h4>All trademarks used within are property of their respective owners.  basicp.art is not affiliated with LCSC or JLCPCB.  By using this site, you accept all risk associated with use, including the risk of inaccurate information in the parts table.</h4></footer>
+			<Footer />
 		</LocationProvider>
 	);
 }

@@ -2,13 +2,42 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="color-scheme" content="light dark" />
-		<title>basicp.art</title>
+
+		<!-- SEO Meta Tags -->
+		<title>basicp.art - JLCPCB Basic Parts Finder</title>
+		<meta name="description" content="Find JLCPCB basic and promotional extended parts for your PCB designs. Browse resistors, capacitors, diodes, and more with quick part number lookup." />
+		<meta name="keywords" content="JLCPCB, PCB assembly, SMD components, basic parts, resistors, capacitors, diodes, electronics, PCB design" />
+		<meta name="author" content="basicp.art" />
+
+		<!-- Open Graph / Social Media -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="basicp.art - JLCPCB Basic Parts Finder" />
+		<meta property="og:description" content="Find JLCPCB basic and promotional extended parts for your PCB designs. Browse resistors, capacitors, diodes, and more." />
+		<meta property="og:url" content="https://basicp.art" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="basicp.art - JLCPCB Basic Parts Finder" />
+		<meta name="twitter:description" content="Find JLCPCB basic and promotional extended parts for your PCB designs." />
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href="https://basicp.art" />
 	</head>
 	<body>
-		<div id="app"></div>
+		<div id="app">
+			<!-- Initial loading state (replaced when app hydrates) -->
+			<div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: system-ui, sans-serif; color: #666;">
+				<div style="text-align: center;">
+					<div style="font-size: 1.5rem; margin-bottom: 0.5rem;">basicp.art</div>
+					<div>Loading...</div>
+				</div>
+			</div>
+		</div>
 		<script type="module" src="/src/index.jsx"></script>
 	</body>
 </html>

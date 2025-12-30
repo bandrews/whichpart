@@ -1,0 +1,1545 @@
+{
+  "meta": {
+    "type": "resistor",
+    "lastUpdated": "2025-12-30",
+    "columns": [
+      "0402",
+      "0603",
+      "0805",
+      "1206"
+    ],
+    "rowKey": "value",
+    "rowLabel": "Resistance"
+  },
+  "data": {
+    "0": {
+      "1206": {
+        "part": "C17888",
+        "tier": "basic"
+      },
+      "display": "0",
+      "0402": {
+        "part": "C17168",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C17477",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C21189",
+        "tier": "basic"
+      }
+    },
+    "1": {
+      "1206": {
+        "part": "C17928",
+        "tier": "basic"
+      },
+      "display": "1",
+      "0603": {
+        "part": "C22936",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25086",
+        "tier": "preferred"
+      },
+      "0805": {
+        "part": "C25271",
+        "tier": "basic"
+      }
+    },
+    "2": {
+      "display": "2",
+      "0805": {
+        "part": "C17606",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C22977",
+        "tier": "basic"
+      }
+    },
+    "10": {
+      "1206": {
+        "part": "C17903",
+        "tier": "basic"
+      },
+      "display": "10",
+      "0805": {
+        "part": "C17415",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22859",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25077",
+        "tier": "basic"
+      }
+    },
+    "15": {
+      "display": "15",
+      "0805": {
+        "part": "C17480",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C22810",
+        "tier": "preferred"
+      }
+    },
+    "20": {
+      "1206": {
+        "part": "C17955",
+        "tier": "basic"
+      },
+      "display": "20",
+      "0805": {
+        "part": "C17544",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22950",
+        "tier": "basic"
+      }
+    },
+    "22": {
+      "1206": {
+        "part": "C17958",
+        "tier": "basic"
+      },
+      "display": "22",
+      "0805": {
+        "part": "C17561",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23345",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25092",
+        "tier": "basic"
+      }
+    },
+    "27": {
+      "display": "27",
+      "0805": {
+        "part": "C17594",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C25190",
+        "tier": "preferred"
+      }
+    },
+    "33": {
+      "display": "33",
+      "0805": {
+        "part": "C17634",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23140",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25105",
+        "tier": "basic"
+      }
+    },
+    "47": {
+      "display": "47",
+      "0805": {
+        "part": "C17714",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23182",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25118",
+        "tier": "preferred"
+      }
+    },
+    "51": {
+      "display": "51",
+      "0805": {
+        "part": "C17738",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23197",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25125",
+        "tier": "preferred"
+      }
+    },
+    "56": {
+      "display": "56",
+      "0805": {
+        "part": "C17757",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C25196",
+        "tier": "preferred"
+      }
+    },
+    "68": {
+      "display": "68",
+      "0805": {
+        "part": "C17802",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C27592",
+        "tier": "preferred"
+      }
+    },
+    "75": {
+      "display": "75",
+      "0603": {
+        "part": "C4275",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C20638",
+        "tier": "preferred"
+      },
+      "0402": {
+        "part": "C25133",
+        "tier": "preferred"
+      }
+    },
+    "82": {
+      "display": "82",
+      "0603": {
+        "part": "C23255",
+        "tier": "preferred"
+      }
+    },
+    "100": {
+      "1206": {
+        "part": "C17901",
+        "tier": "basic"
+      },
+      "display": "100",
+      "0805": {
+        "part": "C17408",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22775",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25076",
+        "tier": "basic"
+      }
+    },
+    "120": {
+      "1206": {
+        "part": "C17909",
+        "tier": "basic"
+      },
+      "display": "120",
+      "0805": {
+        "part": "C17437",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22787",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25079",
+        "tier": "basic"
+      }
+    },
+    "150": {
+      "display": "150",
+      "0805": {
+        "part": "C17471",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22808",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25082",
+        "tier": "preferred"
+      }
+    },
+    "180": {
+      "1206": {
+        "part": "C17924",
+        "tier": "preferred"
+      },
+      "display": "180",
+      "0603": {
+        "part": "C22828",
+        "tier": "preferred"
+      },
+      "0805": {
+        "part": "C25270",
+        "tier": "preferred"
+      }
+    },
+    "200": {
+      "display": "200",
+      "0603": {
+        "part": "C8218",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C17540",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25087",
+        "tier": "basic"
+      }
+    },
+    "220": {
+      "display": "220",
+      "0805": {
+        "part": "C17557",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22962",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25091",
+        "tier": "basic"
+      }
+    },
+    "240": {
+      "display": "240",
+      "0805": {
+        "part": "C17572",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23350",
+        "tier": "preferred"
+      }
+    },
+    "270": {
+      "display": "270",
+      "0805": {
+        "part": "C17590",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C22966",
+        "tier": "basic"
+      }
+    },
+    "300": {
+      "1206": {
+        "part": "C17887",
+        "tier": "basic"
+      },
+      "display": "300",
+      "0805": {
+        "part": "C17617",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23025",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25102",
+        "tier": "preferred"
+      }
+    },
+    "330": {
+      "display": "330",
+      "0805": {
+        "part": "C17630",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23138",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25104",
+        "tier": "basic"
+      }
+    },
+    "360": {
+      "display": "360",
+      "0603": {
+        "part": "C25194",
+        "tier": "preferred"
+      }
+    },
+    "390": {
+      "display": "390",
+      "0805": {
+        "part": "C17655",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23151",
+        "tier": "basic"
+      }
+    },
+    "430": {
+      "display": "430",
+      "0603": {
+        "part": "C23170",
+        "tier": "preferred"
+      }
+    },
+    "470": {
+      "display": "470",
+      "0805": {
+        "part": "C17710",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23179",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25117",
+        "tier": "basic"
+      }
+    },
+    "510": {
+      "display": "510",
+      "0805": {
+        "part": "C17734",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23193",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25123",
+        "tier": "basic"
+      }
+    },
+    "560": {
+      "display": "560",
+      "0603": {
+        "part": "C23204",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C28636",
+        "tier": "basic"
+      }
+    },
+    "620": {
+      "display": "620",
+      "0603": {
+        "part": "C23220",
+        "tier": "preferred"
+      }
+    },
+    "680": {
+      "display": "680",
+      "0805": {
+        "part": "C17798",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23228",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25130",
+        "tier": "preferred"
+      }
+    },
+    "750": {
+      "1206": {
+        "part": "C17985",
+        "tier": "preferred"
+      },
+      "display": "750",
+      "0805": {
+        "part": "C17818",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23241",
+        "tier": "preferred"
+      }
+    },
+    "820": {
+      "display": "820",
+      "0805": {
+        "part": "C17837",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23253",
+        "tier": "basic"
+      }
+    },
+    "1000": {
+      "1206": {
+        "part": "C4410",
+        "tier": "basic"
+      },
+      "display": "1k",
+      "0402": {
+        "part": "C11702",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C17513",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C20197",
+        "tier": "basic"
+      }
+    },
+    "1100": {
+      "display": "1.1k",
+      "0603": {
+        "part": "C22764",
+        "tier": "preferred"
+      }
+    },
+    "1200": {
+      "display": "1.2k",
+      "0805": {
+        "part": "C17379",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22765",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25862",
+        "tier": "preferred"
+      }
+    },
+    "1500": {
+      "display": "1.5k",
+      "0805": {
+        "part": "C4310",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22843",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25867",
+        "tier": "basic"
+      }
+    },
+    "1800": {
+      "display": "1.8k",
+      "0603": {
+        "part": "C4177",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C17398",
+        "tier": "preferred"
+      }
+    },
+    "2000": {
+      "1206": {
+        "part": "C17944",
+        "tier": "basic"
+      },
+      "display": "2k",
+      "0402": {
+        "part": "C4109",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C17604",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22975",
+        "tier": "basic"
+      }
+    },
+    "2200": {
+      "display": "2.2k",
+      "0603": {
+        "part": "C4190",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C17520",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25879",
+        "tier": "basic"
+      }
+    },
+    "2400": {
+      "display": "2.4k",
+      "0805": {
+        "part": "C17526",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22940",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25882",
+        "tier": "preferred"
+      }
+    },
+    "2700": {
+      "display": "2.7k",
+      "0603": {
+        "part": "C13167",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C17530",
+        "tier": "basic"
+      }
+    },
+    "3000": {
+      "display": "3k",
+      "0603": {
+        "part": "C4211",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C17661",
+        "tier": "basic"
+      }
+    },
+    "3300": {
+      "display": "3.3k",
+      "0603": {
+        "part": "C22978",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25890",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C26010",
+        "tier": "basic"
+      }
+    },
+    "3600": {
+      "display": "3.6k",
+      "0805": {
+        "part": "C18359",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C22980",
+        "tier": "basic"
+      }
+    },
+    "3900": {
+      "display": "3.9k",
+      "0805": {
+        "part": "C17614",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23018",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C51721",
+        "tier": "preferred"
+      }
+    },
+    "4300": {
+      "display": "4.3k",
+      "0805": {
+        "part": "C17667",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23159",
+        "tier": "preferred"
+      }
+    },
+    "4700": {
+      "1206": {
+        "part": "C17936",
+        "tier": "basic"
+      },
+      "display": "4.7k",
+      "0603": {
+        "part": "C1980",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C17673",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25900",
+        "tier": "basic"
+      }
+    },
+    "4990": {
+      "display": "5.0k",
+      "0805": {
+        "part": "C17677",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23046",
+        "tier": "basic"
+      }
+    },
+    "5100": {
+      "display": "5.1k",
+      "0603": {
+        "part": "C23186",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25905",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C27834",
+        "tier": "basic"
+      }
+    },
+    "5600": {
+      "display": "5.6k",
+      "0805": {
+        "part": "C4382",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23189",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25908",
+        "tier": "preferred"
+      }
+    },
+    "6200": {
+      "display": "6.2k",
+      "0603": {
+        "part": "C4260",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C17767",
+        "tier": "preferred"
+      }
+    },
+    "6800": {
+      "display": "6.8k",
+      "0805": {
+        "part": "C17772",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23212",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25917",
+        "tier": "preferred"
+      }
+    },
+    "7500": {
+      "display": "7.5k",
+      "0805": {
+        "part": "C17807",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23234",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25918",
+        "tier": "preferred"
+      }
+    },
+    "8200": {
+      "display": "8.2k",
+      "0805": {
+        "part": "C17828",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25924",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C25981",
+        "tier": "basic"
+      }
+    },
+    "9100": {
+      "display": "9.1k",
+      "0805": {
+        "part": "C17855",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23260",
+        "tier": "basic"
+      }
+    },
+    "10000": {
+      "1206": {
+        "part": "C17902",
+        "tier": "basic"
+      },
+      "display": "10k",
+      "0805": {
+        "part": "C17414",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25725",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C25804",
+        "tier": "basic"
+      }
+    },
+    "11000": {
+      "display": "11k",
+      "0805": {
+        "part": "C17429",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C25950",
+        "tier": "preferred"
+      }
+    },
+    "12000": {
+      "display": "12k",
+      "0805": {
+        "part": "C17444",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22790",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25752",
+        "tier": "basic"
+      }
+    },
+    "13000": {
+      "display": "13k",
+      "0805": {
+        "part": "C17455",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C22797",
+        "tier": "basic"
+      }
+    },
+    "15000": {
+      "display": "15k",
+      "0805": {
+        "part": "C17475",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22809",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25756",
+        "tier": "basic"
+      }
+    },
+    "16000": {
+      "display": "16k",
+      "0805": {
+        "part": "C17490",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C22818",
+        "tier": "preferred"
+      }
+    },
+    "18000": {
+      "display": "18k",
+      "0805": {
+        "part": "C17506",
+        "tier": "preferred"
+      },
+      "0402": {
+        "part": "C25762",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C25810",
+        "tier": "basic"
+      }
+    },
+    "20000": {
+      "display": "20k",
+      "0603": {
+        "part": "C4184",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C4328",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25765",
+        "tier": "basic"
+      }
+    },
+    "22000": {
+      "display": "22k",
+      "0805": {
+        "part": "C17560",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25768",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C31850",
+        "tier": "basic"
+      }
+    },
+    "24000": {
+      "display": "24k",
+      "0805": {
+        "part": "C17575",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23352",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25769",
+        "tier": "preferred"
+      }
+    },
+    "27000": {
+      "display": "27k",
+      "0805": {
+        "part": "C17593",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22967",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25771",
+        "tier": "preferred"
+      }
+    },
+    "30000": {
+      "display": "30k",
+      "0805": {
+        "part": "C17621",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22984",
+        "tier": "basic"
+      }
+    },
+    "33000": {
+      "display": "33k",
+      "0603": {
+        "part": "C4216",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C17633",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25779",
+        "tier": "basic"
+      }
+    },
+    "36000": {
+      "display": "36k",
+      "0805": {
+        "part": "C4360",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23147",
+        "tier": "preferred"
+      }
+    },
+    "39000": {
+      "display": "39k",
+      "0603": {
+        "part": "C23153",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25783",
+        "tier": "preferred"
+      },
+      "0805": {
+        "part": "C25826",
+        "tier": "preferred"
+      }
+    },
+    "40200": {
+      "display": "40.2k",
+      "0603": {
+        "part": "C12447",
+        "tier": "preferred"
+      }
+    },
+    "43000": {
+      "display": "43k",
+      "0805": {
+        "part": "C17695",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23172",
+        "tier": "preferred"
+      }
+    },
+    "47000": {
+      "display": "47k",
+      "0805": {
+        "part": "C17713",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25792",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C25819",
+        "tier": "basic"
+      }
+    },
+    "49900": {
+      "display": "49.9k",
+      "0805": {
+        "part": "C17719",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23184",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25897",
+        "tier": "preferred"
+      }
+    },
+    "51000": {
+      "display": "51k",
+      "0805": {
+        "part": "C17737",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23196",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25794",
+        "tier": "basic"
+      }
+    },
+    "56000": {
+      "display": "56k",
+      "0805": {
+        "part": "C17756",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23206",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25796",
+        "tier": "preferred"
+      }
+    },
+    "62000": {
+      "display": "62k",
+      "0805": {
+        "part": "C17783",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23221",
+        "tier": "preferred"
+      }
+    },
+    "68000": {
+      "display": "68k",
+      "0805": {
+        "part": "C17801",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23231",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C36871",
+        "tier": "preferred"
+      }
+    },
+    "75000": {
+      "display": "75k",
+      "0805": {
+        "part": "C17819",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23242",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25798",
+        "tier": "preferred"
+      }
+    },
+    "82000": {
+      "display": "82k",
+      "0805": {
+        "part": "C17840",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23254",
+        "tier": "basic"
+      }
+    },
+    "91000": {
+      "display": "91k",
+      "0603": {
+        "part": "C23265",
+        "tier": "preferred"
+      }
+    },
+    "100000": {
+      "1206": {
+        "part": "C17900",
+        "tier": "basic"
+      },
+      "display": "100k",
+      "0402": {
+        "part": "C25741",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C25803",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C149504",
+        "tier": "basic"
+      }
+    },
+    "110000": {
+      "display": "110k",
+      "0603": {
+        "part": "C25805",
+        "tier": "preferred"
+      }
+    },
+    "120000": {
+      "display": "120k",
+      "0805": {
+        "part": "C17436",
+        "tier": "preferred"
+      },
+      "0402": {
+        "part": "C25750",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C25808",
+        "tier": "basic"
+      }
+    },
+    "130000": {
+      "display": "130k",
+      "0603": {
+        "part": "C22795",
+        "tier": "preferred"
+      }
+    },
+    "150000": {
+      "display": "150k",
+      "0805": {
+        "part": "C17470",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22807",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25755",
+        "tier": "preferred"
+      }
+    },
+    "160000": {
+      "display": "160k",
+      "0603": {
+        "part": "C22813",
+        "tier": "preferred"
+      }
+    },
+    "180000": {
+      "display": "180k",
+      "0805": {
+        "part": "C17501",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C22827",
+        "tier": "preferred"
+      }
+    },
+    "200000": {
+      "display": "200k",
+      "0805": {
+        "part": "C17539",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25764",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C25811",
+        "tier": "basic"
+      }
+    },
+    "220000": {
+      "display": "220k",
+      "0805": {
+        "part": "C17556",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22961",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25767",
+        "tier": "preferred"
+      }
+    },
+    "240000": {
+      "display": "240k",
+      "0603": {
+        "part": "C4197",
+        "tier": "preferred"
+      }
+    },
+    "270000": {
+      "display": "270k",
+      "0805": {
+        "part": "C17589",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C22965",
+        "tier": "preferred"
+      }
+    },
+    "300000": {
+      "display": "300k",
+      "0805": {
+        "part": "C17616",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23024",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25774",
+        "tier": "preferred"
+      }
+    },
+    "330000": {
+      "display": "330k",
+      "0805": {
+        "part": "C17629",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23137",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25778",
+        "tier": "preferred"
+      }
+    },
+    "360000": {
+      "display": "360k",
+      "0603": {
+        "part": "C23146",
+        "tier": "preferred"
+      }
+    },
+    "390000": {
+      "display": "390k",
+      "0805": {
+        "part": "C17656",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23150",
+        "tier": "preferred"
+      }
+    },
+    "430000": {
+      "display": "430k",
+      "0603": {
+        "part": "C25969",
+        "tier": "preferred"
+      }
+    },
+    "470000": {
+      "display": "470k",
+      "0805": {
+        "part": "C17709",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23178",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25790",
+        "tier": "preferred"
+      }
+    },
+    "510000": {
+      "display": "510k",
+      "0402": {
+        "part": "C11616",
+        "tier": "preferred"
+      },
+      "0805": {
+        "part": "C17733",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C23192",
+        "tier": "basic"
+      }
+    },
+    "560000": {
+      "display": "560k",
+      "0603": {
+        "part": "C23203",
+        "tier": "preferred"
+      }
+    },
+    "680000": {
+      "display": "680k",
+      "0805": {
+        "part": "C17797",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C25822",
+        "tier": "preferred"
+      }
+    },
+    "750000": {
+      "display": "750k",
+      "0603": {
+        "part": "C23240",
+        "tier": "preferred"
+      }
+    },
+    "0.0015": {
+      "display": "2mΩ",
+      "0603": {
+        "part": "C4172",
+        "tier": "preferred"
+      }
+    },
+    "0.01": {
+      "display": "10mΩ",
+      "0603": {
+        "part": "C7250",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C26082",
+        "tier": "preferred"
+      },
+      "0805": {
+        "part": "C26108",
+        "tier": "preferred"
+      }
+    },
+    "0.0050999999999999995": {
+      "display": "5mΩ",
+      "0603": {
+        "part": "C13320",
+        "tier": "preferred"
+      }
+    },
+    "0.001": {
+      "1206": {
+        "part": "C17927",
+        "tier": "basic"
+      },
+      "display": "1mΩ",
+      "0805": {
+        "part": "C17514",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22935",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C26083",
+        "tier": "basic"
+      }
+    },
+    "2.2": {
+      "display": "2.2",
+      "0805": {
+        "part": "C17521",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C22939",
+        "tier": "basic"
+      }
+    },
+    "4.7": {
+      "display": "4.7",
+      "0805": {
+        "part": "C17675",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23164",
+        "tier": "basic"
+      }
+    },
+    "49.9": {
+      "display": "49.9",
+      "0805": {
+        "part": "C17720",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23185",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C25120",
+        "tier": "basic"
+      }
+    },
+    "5.1": {
+      "display": "5.1",
+      "0805": {
+        "part": "C17724",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C25197",
+        "tier": "basic"
+      }
+    },
+    "0.0012": {
+      "1206": {
+        "part": "C22107",
+        "tier": "preferred"
+      },
+      "display": "1mΩ"
+    },
+    "0.0022": {
+      "display": "2mΩ",
+      "0603": {
+        "part": "C22938",
+        "tier": "preferred"
+      },
+      "0805": {
+        "part": "C26113",
+        "tier": "preferred"
+      }
+    },
+    "0.002": {
+      "display": "2mΩ",
+      "0603": {
+        "part": "C22976",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C26112",
+        "tier": "preferred"
+      }
+    },
+    "0.003": {
+      "display": "3mΩ",
+      "0603": {
+        "part": "C23156",
+        "tier": "preferred"
+      }
+    },
+    "0.0047": {
+      "display": "5mΩ",
+      "0603": {
+        "part": "C23163",
+        "tier": "preferred"
+      }
+    },
+    "0.1": {
+      "1206": {
+        "part": "C25334",
+        "tier": "basic"
+      },
+      "display": "100mΩ"
+    }
+  }
+}

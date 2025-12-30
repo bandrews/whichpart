@@ -1,0 +1,976 @@
+{
+  "meta": {
+    "type": "ceramic-capacitor",
+    "lastUpdated": "2025-12-30",
+    "columns": [
+      "0402",
+      "0603",
+      "0805",
+      "1206"
+    ],
+    "rowKey": "capacitance",
+    "rowLabel": "Capacitance"
+  },
+  "data": {
+    "1nF_50V_X7R": {
+      "display": "1nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0402": {
+        "part": "C1523",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C1588",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C46653",
+        "tier": "basic"
+      }
+    },
+    "100nF_16V_X7R": {
+      "display": "100nF",
+      "voltage": "16V",
+      "dielectric": "X7R",
+      "0402": {
+        "part": "C1525",
+        "tier": "basic"
+      }
+    },
+    "150pF_50V_X7R": {
+      "display": "150pF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0402": {
+        "part": "C1527",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C1594",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C1716",
+        "tier": "preferred"
+      }
+    },
+    "220pF_50V_X7R": {
+      "display": "220pF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0402": {
+        "part": "C1530",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C1603",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C107145",
+        "tier": "basic"
+      }
+    },
+    "2.2nF_50V_X7R": {
+      "display": "2.2nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0402": {
+        "part": "C1531",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C1604",
+        "tier": "basic"
+      }
+    },
+    "22nF_50V_X7R": {
+      "display": "22nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0402": {
+        "part": "C1532",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C1729",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C21122",
+        "tier": "basic"
+      }
+    },
+    "470pF_50V_X7R": {
+      "display": "470pF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0402": {
+        "part": "C1537",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C1620",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C1743",
+        "tier": "basic"
+      }
+    },
+    "4.7nF_50V_X7R": {
+      "display": "4.7nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0402": {
+        "part": "C1538",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C1744",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C53987",
+        "tier": "basic"
+      }
+    },
+    "6.8nF_50V_X7R": {
+      "display": "6.8nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0402": {
+        "part": "C1542",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C1631",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C1755",
+        "tier": "preferred"
+      }
+    },
+    "100pF_50V_C0G": {
+      "display": "100pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1546",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C1790",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C14858",
+        "tier": "basic"
+      }
+    },
+    "12pF_50V_C0G": {
+      "display": "12pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1547",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C1792",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C38523",
+        "tier": "basic"
+      }
+    },
+    "15pF_50V_C0G": {
+      "display": "15pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1548",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C1644",
+        "tier": "basic"
+      }
+    },
+    "18pF_50V_C0G": {
+      "display": "18pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1549",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C1647",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C1797",
+        "tier": "preferred"
+      }
+    },
+    "1pF_50V_C0G": {
+      "display": "1pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1550",
+        "tier": "preferred"
+      }
+    },
+    "1.5pF_50V_C0G": {
+      "display": "1.5pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1552",
+        "tier": "preferred"
+      }
+    },
+    "20pF_50V_C0G": {
+      "display": "20pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1554",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C1648",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C1798",
+        "tier": "basic"
+      }
+    },
+    "22pF_50V_C0G": {
+      "display": "22pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1555",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C1653",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C1804",
+        "tier": "basic"
+      }
+    },
+    "27pF_50V_C0G": {
+      "display": "27pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1557",
+        "tier": "preferred"
+      }
+    },
+    "2.2pF_50V_C0G": {
+      "display": "2.2pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1559",
+        "tier": "preferred"
+      }
+    },
+    "2.7pF_50V_C0G": {
+      "display": "2.7pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1561",
+        "tier": "preferred"
+      }
+    },
+    "33pF_50V_C0G": {
+      "display": "33pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1562",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C1663",
+        "tier": "basic"
+      }
+    },
+    "3.3pF_50V_C0G": {
+      "display": "3.3pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1565",
+        "tier": "preferred"
+      }
+    },
+    "47pF_50V_C0G": {
+      "display": "47pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1567",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C1671",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C14857",
+        "tier": "basic"
+      }
+    },
+    "4.7pF_50V_C0G": {
+      "display": "4.7pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1569",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C1669",
+        "tier": "preferred"
+      }
+    },
+    "30pF_50V_C0G": {
+      "display": "30pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1570",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C1658",
+        "tier": "basic"
+      }
+    },
+    "6.8pF_50V_C0G": {
+      "display": "6.8pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C1576",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C1679",
+        "tier": "preferred"
+      }
+    },
+    "33nF_50V_Y5V": {
+      "display": "33nF",
+      "voltage": "50V",
+      "dielectric": "Y5V",
+      "0402": {
+        "part": "C1585",
+        "tier": "preferred"
+      }
+    },
+    "1.5nF_50V_X7R": {
+      "display": "1.5nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C1595",
+        "tier": "preferred"
+      },
+      "0805": {
+        "part": "C1717",
+        "tier": "preferred"
+      }
+    },
+    "15nF_50V_X7R": {
+      "display": "15nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C1596",
+        "tier": "preferred"
+      }
+    },
+    "200pF_50V_X7R": {
+      "display": "200pF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C1600",
+        "tier": "preferred"
+      }
+    },
+    "2.7nF_50V_X7R": {
+      "display": "2.7nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C1609",
+        "tier": "preferred"
+      }
+    },
+    "3.3nF_50V_X7R": {
+      "display": "3.3nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C1613",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C26404",
+        "tier": "preferred"
+      }
+    },
+    "330nF_25V_X7R": {
+      "display": "330nF",
+      "voltage": "25V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C1615",
+        "tier": "preferred"
+      }
+    },
+    "47nF_50V_X7R": {
+      "display": "47nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C1622",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C53134",
+        "tier": "basic"
+      }
+    },
+    "470nF_25V_X7R": {
+      "display": "470nF",
+      "voltage": "25V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C1623",
+        "tier": "basic"
+      }
+    },
+    "680pF_50V_X7R": {
+      "display": "680pF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C1630",
+        "tier": "preferred"
+      }
+    },
+    "10pF_50V_C0G": {
+      "display": "10pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0603": {
+        "part": "C1634",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C32949",
+        "tier": "basic"
+      }
+    },
+    "330pF_50V_C0G": {
+      "display": "330pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0603": {
+        "part": "C1664",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C13533",
+        "tier": "preferred"
+      }
+    },
+    "8.2pF_50V_C0G": {
+      "display": "8.2pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0603": {
+        "part": "C1685",
+        "tier": "preferred"
+      }
+    },
+    "10nF_50V_X7R": {
+      "1206": {
+        "part": "C1846",
+        "tier": "basic"
+      },
+      "display": "10nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0805": {
+        "part": "C1710",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C15195",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C57112",
+        "tier": "basic"
+      }
+    },
+    "33nF_50V_X7R": {
+      "display": "33nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0805": {
+        "part": "C1739",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C21117",
+        "tier": "basic"
+      }
+    },
+    "330nF_50V_X7R": {
+      "display": "330nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0805": {
+        "part": "C1740",
+        "tier": "preferred"
+      }
+    },
+    "4.7uF_25V_X5R": {
+      "display": "4.7uF",
+      "voltage": "25V",
+      "dielectric": "X5R",
+      "0805": {
+        "part": "C1779",
+        "tier": "basic"
+      }
+    },
+    "1uF_50V_X7R": {
+      "1206": {
+        "part": "C1848",
+        "tier": "basic"
+      },
+      "display": "1uF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0805": {
+        "part": "C28323",
+        "tier": "basic"
+      }
+    },
+    "220nF_50V_X7R": {
+      "1206": {
+        "part": "C1857",
+        "tier": "preferred"
+      },
+      "display": "220nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0805": {
+        "part": "C5378",
+        "tier": "basic"
+      }
+    },
+    "22uF_10V_X5R": {
+      "1206": {
+        "part": "C5672",
+        "tier": "preferred"
+      },
+      "display": "22uF",
+      "voltage": "10V",
+      "dielectric": "X5R"
+    },
+    "1nF_Unknown_X7R": {
+      "1206": {
+        "part": "C9196",
+        "tier": "basic"
+      },
+      "display": "1nF",
+      "voltage": "Unknown",
+      "dielectric": "X7R"
+    },
+    "2.2uF_6.3V_X5R": {
+      "display": "2.2uF",
+      "voltage": "6.3V",
+      "dielectric": "X5R",
+      "0402": {
+        "part": "C12530",
+        "tier": "basic"
+      }
+    },
+    "22uF_25V_X5R": {
+      "1206": {
+        "part": "C12891",
+        "tier": "basic"
+      },
+      "display": "22uF",
+      "voltage": "25V",
+      "dielectric": "X5R",
+      "0805": {
+        "part": "C45783",
+        "tier": "basic"
+      }
+    },
+    "10uF_50V_X5R": {
+      "1206": {
+        "part": "C13585",
+        "tier": "basic"
+      },
+      "display": "10uF",
+      "voltage": "50V",
+      "dielectric": "X5R",
+      "0805": {
+        "part": "C440198",
+        "tier": "basic"
+      }
+    },
+    "470nF_50V_X7R": {
+      "display": "470nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0805": {
+        "part": "C13967",
+        "tier": "basic"
+      }
+    },
+    "68pF_50V_C0G": {
+      "display": "68pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C14441",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C28262",
+        "tier": "preferred"
+      }
+    },
+    "100nF_50V_X7R": {
+      "1206": {
+        "part": "C24497",
+        "tier": "basic"
+      },
+      "display": "100nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C14663",
+        "tier": "basic"
+      },
+      "0805": {
+        "part": "C49678",
+        "tier": "basic"
+      },
+      "0402": {
+        "part": "C307331",
+        "tier": "basic"
+      }
+    },
+    "100uF_6.3V_X5R": {
+      "1206": {
+        "part": "C15008",
+        "tier": "basic"
+      },
+      "display": "100uF",
+      "voltage": "6.3V",
+      "dielectric": "X5R"
+    },
+    "10uF_6.3V_X5R": {
+      "display": "10uF",
+      "voltage": "6.3V",
+      "dielectric": "X5R",
+      "0402": {
+        "part": "C15525",
+        "tier": "basic"
+      }
+    },
+    "1uF_50V_X5R": {
+      "display": "1uF",
+      "voltage": "50V",
+      "dielectric": "X5R",
+      "0603": {
+        "part": "C15849",
+        "tier": "basic"
+      }
+    },
+    "10uF_25V_X5R": {
+      "display": "10uF",
+      "voltage": "25V",
+      "dielectric": "X5R",
+      "0805": {
+        "part": "C15850",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C96446",
+        "tier": "basic"
+      }
+    },
+    "220nF_16V_X7R": {
+      "display": "220nF",
+      "voltage": "16V",
+      "dielectric": "X7R",
+      "0402": {
+        "part": "C16772",
+        "tier": "basic"
+      }
+    },
+    "47uF_6.3V_X5R": {
+      "display": "47uF",
+      "voltage": "6.3V",
+      "dielectric": "X5R",
+      "0805": {
+        "part": "C16780",
+        "tier": "basic"
+      }
+    },
+    "4.7uF_16V_X5R": {
+      "display": "4.7uF",
+      "voltage": "16V",
+      "dielectric": "X5R",
+      "0603": {
+        "part": "C19666",
+        "tier": "basic"
+      }
+    },
+    "10uF_10V_X5R": {
+      "display": "10uF",
+      "voltage": "10V",
+      "dielectric": "X5R",
+      "0603": {
+        "part": "C19702",
+        "tier": "basic"
+      }
+    },
+    "220nF_25V_X7R": {
+      "display": "220nF",
+      "voltage": "25V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C21120",
+        "tier": "basic"
+      }
+    },
+    "2.2uF_16V_X5R": {
+      "display": "2.2uF",
+      "voltage": "16V",
+      "dielectric": "X5R",
+      "0603": {
+        "part": "C23630",
+        "tier": "basic"
+      }
+    },
+    "4.7uF_10V_X5R": {
+      "display": "4.7uF",
+      "voltage": "10V",
+      "dielectric": "X5R",
+      "0402": {
+        "part": "C23733",
+        "tier": "basic"
+      }
+    },
+    "100nF_100V_X7R": {
+      "display": "100nF",
+      "voltage": "100V",
+      "dielectric": "X7R",
+      "0805": {
+        "part": "C28233",
+        "tier": "basic"
+      }
+    },
+    "2.2nF_50V_C0G": {
+      "display": "2.2nF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0805": {
+        "part": "C28260",
+        "tier": "basic"
+      }
+    },
+    "4.7uF_50V_X7R": {
+      "1206": {
+        "part": "C29823",
+        "tier": "basic"
+      },
+      "display": "4.7uF",
+      "voltage": "50V",
+      "dielectric": "X7R"
+    },
+    "6pF_50V_C0G": {
+      "display": "6pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0402": {
+        "part": "C30274",
+        "tier": "preferred"
+      },
+      "0603": {
+        "part": "C37474",
+        "tier": "preferred"
+      }
+    },
+    "68nF_50V_X7R": {
+      "display": "68nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C31658",
+        "tier": "preferred"
+      }
+    },
+    "1nF_500V_X7R": {
+      "1206": {
+        "part": "C35216",
+        "tier": "preferred"
+      },
+      "display": "1nF",
+      "voltage": "500V",
+      "dielectric": "X7R"
+    },
+    "56pF_50V_C0G": {
+      "display": "56pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0603": {
+        "part": "C39148",
+        "tier": "preferred"
+      }
+    },
+    "3pF_50V_C0G": {
+      "display": "3pF",
+      "voltage": "50V",
+      "dielectric": "C0G",
+      "0603": {
+        "part": "C46219",
+        "tier": "preferred"
+      }
+    },
+    "470nF_10V_X5R": {
+      "display": "470nF",
+      "voltage": "10V",
+      "dielectric": "X5R",
+      "0402": {
+        "part": "C47339",
+        "tier": "preferred"
+      }
+    },
+    "2.2uF_50V_Y5V": {
+      "display": "2.2uF",
+      "voltage": "50V",
+      "dielectric": "Y5V",
+      "0805": {
+        "part": "C49217",
+        "tier": "preferred"
+      }
+    },
+    "2.2uF_50V_X7R": {
+      "1206": {
+        "part": "C50254",
+        "tier": "basic"
+      },
+      "display": "2.2uF",
+      "voltage": "50V",
+      "dielectric": "X7R"
+    },
+    "1uF_25V_X5R": {
+      "display": "1uF",
+      "voltage": "25V",
+      "dielectric": "X5R",
+      "0402": {
+        "part": "C52923",
+        "tier": "basic"
+      }
+    },
+    "22uF_6.3V_X5R": {
+      "display": "22uF",
+      "voltage": "6.3V",
+      "dielectric": "X5R",
+      "0603": {
+        "part": "C59461",
+        "tier": "basic"
+      }
+    },
+    "47uF_10V_X5R": {
+      "1206": {
+        "part": "C96123",
+        "tier": "basic"
+      },
+      "display": "47uF",
+      "voltage": "10V",
+      "dielectric": "X5R"
+    },
+    "27pF_50V_NP0": {
+      "display": "27pF",
+      "voltage": "50V",
+      "dielectric": "NP0",
+      "0603": {
+        "part": "C107045",
+        "tier": "preferred"
+      }
+    },
+    "15pF_50V_NP0": {
+      "display": "15pF",
+      "voltage": "50V",
+      "dielectric": "NP0",
+      "0805": {
+        "part": "C107110",
+        "tier": "preferred"
+      }
+    },
+    "30pF_50V_NP0": {
+      "display": "30pF",
+      "voltage": "50V",
+      "dielectric": "NP0",
+      "0805": {
+        "part": "C107114",
+        "tier": "preferred"
+      }
+    },
+    "33pF_50V_NP0": {
+      "display": "33pF",
+      "voltage": "50V",
+      "dielectric": "NP0",
+      "0805": {
+        "part": "C107115",
+        "tier": "preferred"
+      }
+    },
+    "2.2uF_50V_X5R": {
+      "display": "2.2uF",
+      "voltage": "50V",
+      "dielectric": "X5R",
+      "0805": {
+        "part": "C377773",
+        "tier": "basic"
+      }
+    },
+    "8.2nF_50V_X7R": {
+      "display": "8.2nF",
+      "voltage": "50V",
+      "dielectric": "X7R",
+      "0603": {
+        "part": "C1322360",
+        "tier": "basic"
+      }
+    }
+  }
+}

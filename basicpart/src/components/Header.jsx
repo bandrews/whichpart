@@ -3,21 +3,28 @@ import { useLocation } from 'preact-iso';
 export function Header() {
 	const { url } = useLocation();
 
-	return (<>
+	const links = [
+		{ path: '/', label: 'Home' },
+		{ path: '/resistors', label: 'Resistors' },
+		{ path: '/capacitors', label: 'Capacitors' },
+		{ path: '/diodes', label: 'Diodes' },
+		{ path: '/other', label: 'Other' },
+	];
+
+	return (
 		<header>
-			<div class="headerlogo">basicp.art</div>
+			<a href="/" class="headerlogo">basicp.art</a>
 			<nav>
-				<a href="/home" class={url == '/home' && 'active'}>
-					Home
-				</a>
-				<a href="/resistors" class={(url == '/resistors' || url == '/') && 'active'}>
-					Resistors
-				</a>
-				<a href="/other" class={url == '/other' && 'active'}>
-					Other
-				</a>
+				{links.map(link => (
+					<a
+						key={link.path}
+						href={link.path}
+						class={url === link.path ? 'active' : ''}
+					>
+						{link.label}
+					</a>
+				))}
 			</nav>
 		</header>
-		</>
 	);
 }

@@ -4,7 +4,10 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"scrape": "node scripts/scrape-jlcpcb.js",
+		"transform": "node scripts/transform-data.js",
+		"validate": "node scripts/validate-data.js"
 	},
 	"dependencies": {
 		"preact": "^10.22.1",
@@ -12,6 +15,7 @@
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "^2.9.0",
+		"playwright": "^1.40.0",
 		"vite": "^5.3.3"
 	}
 }
