@@ -5,6 +5,7 @@ import { useTierFilter } from '../context/TierFilter.jsx';
 
 // Import parts index with full metadata
 import partsIndex from '../data/parts-index.json';
+import friendlyDescriptions from '../data/friendly-descriptions.json';
 
 // Transistor categories to include
 const TRANSISTOR_CATEGORIES = [
@@ -320,7 +321,7 @@ function TransistorTable({ transistors, type }) {
 				<thead>
 					<tr>
 						<th>Part</th>
-						<th>Model</th>
+						<th>Description</th>
 						<th>Polarity</th>
 						<th>{isMOSFET ? 'Vds' : 'Vceo'}</th>
 						<th>{isMOSFET ? 'Id' : 'Ic'}</th>
@@ -335,17 +336,20 @@ function TransistorTable({ transistors, type }) {
 								<JlcLink
 									part={tr.partNumber}
 									tier={tr.tier}
-									info={`${tr.type} ${tr.polarity || ''} - ${tr.mpn}`}
-									description={`${tr.mfr || ''} ${tr.specs.vds || tr.specs.vceo ? `• ${tr.specs.vds || tr.specs.vceo}` : ''} ${tr.specs.id || tr.specs.ic ? `• ${tr.specs.id || tr.specs.ic}` : ''} ${tr.pkg ? `• ${tr.pkg}` : ''}`.trim()}
+									info={friendlyDescriptions[tr.partNumber] || `${tr.type} ${tr.polarity || ''} - ${tr.mpn}`}
+									description={tr.desc}
 								/>
 							</td>
-							<td>
-								<strong>{tr.mpn}</strong>
-								{tr.mfr && (
-									<div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-										{tr.mfr}
+							<td style={{ maxWidth: '250px' }}>
+								{friendlyDescriptions[tr.partNumber] && (
+									<div style={{ fontWeight: 600, fontSize: '0.875rem', marginBottom: '2px' }}>
+										{friendlyDescriptions[tr.partNumber]}
 									</div>
 								)}
+								<div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+									{tr.mpn}
+									{tr.mfr && ` • ${tr.mfr}`}
+								</div>
 							</td>
 							<td style={{ whiteSpace: 'nowrap' }}>
 								{tr.polarity || '-'}

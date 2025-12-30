@@ -5,6 +5,7 @@ import { useTierFilter } from '../context/TierFilter.jsx';
 
 // Import parts index with full metadata
 import partsIndex from '../data/parts-index.json';
+import friendlyDescriptions from '../data/friendly-descriptions.json';
 
 // Diode categories to include
 const DIODE_CATEGORIES = [
@@ -266,7 +267,7 @@ function DiodeTable({ diodes }) {
 				<thead>
 					<tr>
 						<th>Part</th>
-						<th>Model</th>
+						<th>Description</th>
 						<th>Voltage</th>
 						<th>Current</th>
 						<th>Package</th>
@@ -279,17 +280,20 @@ function DiodeTable({ diodes }) {
 								<JlcLink
 									part={diode.partNumber}
 									tier={diode.tier}
-									info={`${diode.type} - ${diode.mpn}`}
-									description={`${diode.mfr || ''} ${diode.specs.vr ? `• ${diode.specs.vr}` : ''} ${diode.specs.current ? `• ${diode.specs.current}` : ''} ${diode.pkg ? `• ${diode.pkg}` : ''}`.trim()}
+									info={friendlyDescriptions[diode.partNumber] || `${diode.type} - ${diode.mpn}`}
+									description={diode.desc}
 								/>
 							</td>
-							<td>
-								<strong>{diode.mpn}</strong>
-								{diode.mfr && (
-									<div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-										{diode.mfr}
+							<td style={{ maxWidth: '250px' }}>
+								{friendlyDescriptions[diode.partNumber] && (
+									<div style={{ fontWeight: 600, fontSize: '0.875rem', marginBottom: '2px' }}>
+										{friendlyDescriptions[diode.partNumber]}
 									</div>
 								)}
+								<div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+									{diode.mpn}
+									{diode.mfr && ` • ${diode.mfr}`}
+								</div>
 							</td>
 							<td style={{ whiteSpace: 'nowrap' }}>
 								{diode.specs.vr || '-'}

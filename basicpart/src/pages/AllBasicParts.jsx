@@ -3,8 +3,9 @@ import { TierLegend } from '../components/TierLegend.jsx';
 import { JlcLink } from '../components/JlcLink.jsx';
 import { useTierFilter } from '../context/TierFilter.jsx';
 
-// Import parts index
+// Import parts index and friendly descriptions
 import partsIndex from '../data/parts-index.json';
+import friendlyDescriptions from '../data/friendly-descriptions.json';
 
 // Import data sources to identify categorized parts
 import resistorData from '../data/resistors.json';
@@ -241,8 +242,15 @@ export function AllBasicParts() {
 											)}
 										</td>
 										<td>{part.pkg}</td>
-										<td style={{ maxWidth: '300px', fontSize: '0.75rem' }}>
-											{part.desc?.length > 100 ? part.desc.substring(0, 100) + '...' : part.desc}
+										<td style={{ maxWidth: '300px' }}>
+											{friendlyDescriptions[part.partNumber] && (
+												<div style={{ fontWeight: 600, fontSize: '0.875rem', marginBottom: '2px' }}>
+													{friendlyDescriptions[part.partNumber]}
+												</div>
+											)}
+											<div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+												{part.desc?.length > 80 ? part.desc.substring(0, 80) + '...' : part.desc}
+											</div>
 										</td>
 									</tr>
 								))}
