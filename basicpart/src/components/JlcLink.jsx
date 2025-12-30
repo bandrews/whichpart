@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'preact/hooks';
 import { createPortal } from 'preact/compat';
+import friendlyDescriptions from '../data/friendly-descriptions.json';
 
 /**
  * Clickable part number with hover info and navigation to details
@@ -11,6 +12,8 @@ import { createPortal } from 'preact/compat';
  * @param {string} props.description - Optional longer description for tooltip
  */
 export function JlcLink({ part, tier = 'basic', info, description }) {
+	// Use friendly description if available
+	const friendlyDesc = friendlyDescriptions[part];
 	const [copied, setCopied] = useState(false);
 	const [showTooltip, setShowTooltip] = useState(false);
 	const [tooltipPos, setTooltipPos] = useState(null);
@@ -103,7 +106,8 @@ export function JlcLink({ part, tier = 'basic', info, description }) {
 		>
 			<div class="jlc-tooltip-header">{part}</div>
 			<div class="jlc-tooltip-tier">{tierLabel}</div>
-			{info && <div class="jlc-tooltip-info">{info}</div>}
+			{friendlyDesc && <div class="jlc-tooltip-friendly">{friendlyDesc}</div>}
+			{info && !friendlyDesc && <div class="jlc-tooltip-info">{info}</div>}
 			{description && <div class="jlc-tooltip-desc">{description}</div>}
 			<div class="jlc-tooltip-hint">
 				Click for details | Shift+click to copy | Ctrl+click for JLC

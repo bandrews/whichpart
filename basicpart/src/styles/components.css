@@ -243,6 +243,13 @@
   margin-bottom: 4px;
 }
 
+.jlc-tooltip-friendly {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
 .jlc-tooltip-info {
   color: var(--text-primary);
   font-weight: 500;

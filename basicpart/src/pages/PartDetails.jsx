@@ -3,12 +3,14 @@ import { useRoute } from 'preact-iso';
 
 // Import parts index with full metadata
 import partsIndex from '../data/parts-index.json';
+import friendlyDescriptions from '../data/friendly-descriptions.json';
 
 export function PartDetails() {
 	const { params } = useRoute();
 	const partNumber = params.id;
 
 	const partInfo = useMemo(() => partsIndex[partNumber] || null, [partNumber]);
+	const friendlyDesc = friendlyDescriptions[partNumber];
 
 	const jlcUrl = `https://jlcpcb.com/partdetail/${partNumber}`;
 
@@ -32,6 +34,21 @@ export function PartDetails() {
 				<p class="page-subtitle" style={{ marginTop: '-8px' }}>
 					by {partInfo.mfr}
 				</p>
+			)}
+
+			{friendlyDesc && (
+				<div style={{
+					fontSize: '1.25rem',
+					fontWeight: 600,
+					color: 'var(--text-primary)',
+					marginBottom: 'var(--spacing-lg)',
+					padding: 'var(--spacing-md) var(--spacing-lg)',
+					backgroundColor: 'var(--bg-secondary)',
+					borderRadius: 'var(--radius-md)',
+					borderLeft: '4px solid var(--accent)',
+				}}>
+					{friendlyDesc}
+				</div>
 			)}
 
 			<div style={{
