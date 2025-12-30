@@ -11,10 +11,6 @@ import friendlyDescriptions from '../data/friendly-descriptions.json';
  * @param {string} props.info - Optional info to show on hover (e.g., "50V X7R")
  * @param {string} props.description - Optional longer description for tooltip
  */
-// Detect Mac for showing "Option" vs "Alt" in hints
-const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad|iPod/.test(navigator.platform);
-const altKeyName = isMac ? 'Option' : 'Alt';
-
 export function JlcLink({ part, tier = 'basic', info, description }) {
 	// Use friendly description if available
 	const friendlyDesc = friendlyDescriptions[part];
@@ -59,12 +55,6 @@ export function JlcLink({ part, tier = 'basic', info, description }) {
 	}, [showTooltip]);
 
 	const handleClick = async (e) => {
-		// Alt/Option+click: open JLC page directly
-		if (e.altKey) {
-			// Let browser handle it - href points to JLC
-			return;
-		}
-
 		// Shift+click: copy to clipboard
 		if (e.shiftKey) {
 			e.preventDefault();
@@ -115,7 +105,7 @@ export function JlcLink({ part, tier = 'basic', info, description }) {
 			{info && !friendlyDesc && <div class="jlc-tooltip-info">{info}</div>}
 			{description && <div class="jlc-tooltip-desc">{description}</div>}
 			<div class="jlc-tooltip-hint">
-				Click for details | Shift+click to copy | {altKeyName}+click for JLC
+				Click for details | Shift+click to copy
 			</div>
 		</div>,
 		document.body
