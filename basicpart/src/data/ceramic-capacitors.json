@@ -598,13 +598,13 @@
       "voltage": "10V",
       "dielectric": "X5R"
     },
-    "1nF_Unknown_X7R": {
+    "1nF_2kV_X7R": {
       "1206": {
         "part": "C9196",
         "tier": "basic"
       },
       "display": "1nF",
-      "voltage": "Unknown",
+      "voltage": "2kV",
       "dielectric": "X7R"
     },
     "2.2uF_6.3V_X5R": {

@@ -128,9 +128,7 @@
 }
 
 .component-grid thead {
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  /* Note: sticky applied to th elements for better browser support */
 }
 
 .component-grid th {
@@ -140,19 +138,24 @@
   text-align: center;
   font-weight: 600;
   white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .component-grid th:first-child {
   text-align: left;
   position: sticky;
   left: 0;
-  z-index: 11;
+  top: 0;
+  z-index: 12; /* Higher z-index for corner cell */
 }
 
 .component-grid td {
   padding: var(--spacing-sm) var(--spacing-md);
   text-align: center;
   border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
 }
 
 .component-grid td:first-child {
@@ -322,14 +325,22 @@
 .stacked-parts {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-sm);
 }
 
 .stacked-cell {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 1px;
+}
+
+/* Framed cell for multi-part cells */
+.stacked-parts .stacked-cell {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
 }
 
 .cell-specs {
@@ -427,6 +438,34 @@
 
 .detail-button.datasheet svg {
   flex-shrink: 0;
+}
+
+/* Temperature class legend for capacitors */
+.temp-class-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  align-items: center;
+}
+
+.temp-class-legend strong {
+  color: var(--text-primary);
+  margin-right: var(--spacing-xs);
+}
+
+.temp-class-legend span {
+  white-space: nowrap;
+}
+
+.temp-class-legend b {
+  color: var(--text-primary);
+  font-family: monospace;
 }
 
 /* Filter bar */
@@ -623,5 +662,15 @@
   .tier-legend {
     flex-direction: column;
     gap: var(--spacing-sm);
+  }
+
+  .temp-class-legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+
+  .temp-class-legend span {
+    white-space: normal;
   }
 }

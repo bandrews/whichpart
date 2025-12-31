@@ -147,7 +147,7 @@ export function CeramicCapacitors() {
 					</select>
 				</div>
 				<div class="filter-group">
-					<label htmlFor="dielectric">Dielectric</label>
+					<label htmlFor="dielectric">Temp Class</label>
 					<select
 						id="dielectric"
 						value={dielectricFilter}
@@ -158,6 +158,15 @@ export function CeramicCapacitors() {
 						))}
 					</select>
 				</div>
+			</div>
+
+			{/* Temperature class explanation */}
+			<div class="temp-class-legend">
+				<strong>Temp Class Guide:</strong>
+				<span><b>C0G/NP0</b> = Ultra-stable, for precision/timing</span>
+				<span><b>X7R</b> = General purpose, ±15% over temp</span>
+				<span><b>X5R</b> = Higher capacitance, narrower temp range</span>
+				<span><b>Y5V</b> = High capacitance, poor stability</span>
 			</div>
 
 			<div class="component-grid-container">
