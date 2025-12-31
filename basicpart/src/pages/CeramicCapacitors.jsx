@@ -161,12 +161,47 @@ export function CeramicCapacitors() {
 			</div>
 
 			{/* Temperature class explanation */}
-			<div class="temp-class-legend">
-				<strong>Temp Class Guide:</strong>
-				<span><b>C0G/NP0</b> = Ultra-stable, for precision/timing</span>
-				<span><b>X7R</b> = General purpose, ±15% over temp</span>
-				<span><b>X5R</b> = Higher capacitance, narrower temp range</span>
-				<span><b>Y5V</b> = High capacitance, poor stability</span>
+			<div class="temp-class-guide">
+				<div class="temp-class-guide-header">
+					<strong>Temp Class Guide</strong>
+					<span class="temp-class-guide-subtitle">How capacitance changes with temperature</span>
+				</div>
+				<table class="temp-class-table">
+					<thead>
+						<tr>
+							<th>Class</th>
+							<th>Temp Range</th>
+							<th>Cap. Change</th>
+							<th>Best For</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><b>C0G/NP0</b></td>
+							<td>-55 to +125°C</td>
+							<td>±0.5% max</td>
+							<td>Oscillators, filters, timing</td>
+						</tr>
+						<tr>
+							<td><b>X7R</b></td>
+							<td>-55 to +125°C</td>
+							<td>±15%</td>
+							<td>Decoupling, bypass, general use</td>
+						</tr>
+						<tr>
+							<td><b>X5R</b></td>
+							<td>-55 to +85°C</td>
+							<td>±15%</td>
+							<td>Bulk capacitance (stays cool)</td>
+						</tr>
+						<tr>
+							<td><b>Y5V</b></td>
+							<td>-30 to +85°C</td>
+							<td>+22/-82%</td>
+							<td>Non-critical, cost-sensitive</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 
 			<div class="component-grid-container">
@@ -218,15 +253,13 @@ export function CeramicCapacitors() {
 											const p = partsInColumn[0];
 											return (
 												<td key={col}>
-													<div class="stacked-cell">
-														<JlcLink
-															part={p.part}
-															tier={p.tier}
-															info={`${main} ${p.voltage} ${p.dielectric}`}
-															description={getDescription(p.part)}
-														/>
-														<span class="cell-specs">{p.voltage} {p.dielectric}</span>
-													</div>
+													<JlcLink
+														part={p.part}
+														tier={p.tier}
+														info={`${main} ${p.voltage} ${p.dielectric}`}
+														description={getDescription(p.part)}
+														specs={`${p.voltage} ${p.dielectric}`}
+													/>
 												</td>
 											);
 										}
@@ -236,15 +269,14 @@ export function CeramicCapacitors() {
 											<td key={col}>
 												<div class="stacked-parts">
 													{partsInColumn.map((p, i) => (
-														<div key={i} class="stacked-cell">
-															<JlcLink
-																part={p.part}
-																tier={p.tier}
-																info={`${main} ${p.voltage} ${p.dielectric}`}
-																description={getDescription(p.part)}
-															/>
-															<span class="cell-specs">{p.voltage} {p.dielectric}</span>
-														</div>
+														<JlcLink
+															key={i}
+															part={p.part}
+															tier={p.tier}
+															info={`${main} ${p.voltage} ${p.dielectric}`}
+															description={getDescription(p.part)}
+															specs={`${p.voltage} ${p.dielectric}`}
+														/>
 													))}
 												</div>
 											</td>

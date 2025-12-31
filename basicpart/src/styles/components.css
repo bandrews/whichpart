@@ -101,6 +101,7 @@
 .tier-legend-swatch.basic {
   background-color: var(--tier-basic-bg);
   border-color: var(--border);
+  border-style: dashed;
 }
 
 .tier-legend-swatch.preferred {
@@ -206,6 +207,8 @@
   font-size: 0.8rem;
   text-decoration: none;
   color: var(--text-primary);
+  border: 1px dashed var(--border);
+  background-color: var(--bg-primary);
 }
 
 .jlc-link:hover {
@@ -216,6 +219,7 @@
 .jlc-link.copied {
   background-color: var(--success);
   color: white;
+  border-color: var(--success);
 }
 
 .jlc-link.preferred {
@@ -234,6 +238,20 @@
 
 .jlc-link.extended:hover {
   background-color: rgba(255, 140, 0, 0.25);
+}
+
+/* JlcLink with specs - vertical layout */
+.jlc-link.has-specs {
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.jlc-link-specs {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-family: inherit;
 }
 
 .jlc-link-icon {
@@ -335,14 +353,6 @@
   gap: 1px;
 }
 
-/* Framed cell for multi-part cells */
-.stacked-parts .stacked-cell {
-  padding: var(--spacing-xs) var(--spacing-sm);
-  background-color: var(--bg-tertiary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-sm);
-}
-
 .cell-specs {
   font-size: 0.65rem;
   color: var(--text-muted);
@@ -440,32 +450,58 @@
   flex-shrink: 0;
 }
 
-/* Temperature class legend for capacitors */
-.temp-class-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-md);
+/* Temperature class guide for capacitors */
+.temp-class-guide {
   margin-bottom: var(--spacing-md);
   padding: var(--spacing-sm) var(--spacing-md);
   background-color: var(--bg-secondary);
   border-radius: var(--radius-md);
   font-size: 0.75rem;
+}
+
+.temp-class-guide-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.temp-class-guide-header strong {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.temp-class-guide-subtitle {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.temp-class-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.temp-class-table th {
+  text-align: left;
+  padding: var(--spacing-xs) var(--spacing-sm);
   color: var(--text-secondary);
-  align-items: center;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-light);
 }
 
-.temp-class-legend strong {
-  color: var(--text-primary);
-  margin-right: var(--spacing-xs);
+.temp-class-table td {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--text-secondary);
 }
 
-.temp-class-legend span {
-  white-space: nowrap;
-}
-
-.temp-class-legend b {
-  color: var(--text-primary);
+.temp-class-table td:first-child {
   font-family: monospace;
+  color: var(--text-primary);
+}
+
+.temp-class-table td b {
+  font-weight: 600;
 }
 
 /* Filter bar */
@@ -664,13 +700,11 @@
     gap: var(--spacing-sm);
   }
 
-  .temp-class-legend {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-xs);
+  .temp-class-guide {
+    overflow-x: auto;
   }
 
-  .temp-class-legend span {
-    white-space: normal;
+  .temp-class-table {
+    min-width: 400px;
   }
 }

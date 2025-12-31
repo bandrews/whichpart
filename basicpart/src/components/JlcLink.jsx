@@ -10,8 +10,9 @@ import friendlyDescriptions from '../data/friendly-descriptions.json';
  * @param {string} props.tier - Part tier: "basic" or "preferred"
  * @param {string} props.info - Optional info to show on hover (e.g., "50V X7R")
  * @param {string} props.description - Optional longer description for tooltip
+ * @param {string} props.specs - Optional specs to show below part number (e.g., "16V X7R")
  */
-export function JlcLink({ part, tier = 'basic', info, description }) {
+export function JlcLink({ part, tier = 'basic', info, description, specs }) {
 	// Use friendly description if available
 	const friendlyDesc = friendlyDescriptions[part];
 	const [copied, setCopied] = useState(false);
@@ -119,11 +120,12 @@ export function JlcLink({ part, tier = 'basic', info, description }) {
 				onClick={handleClick}
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
-				class={`jlc-link ${tierClass} ${copied ? 'copied' : ''}`}
+				class={`jlc-link ${tierClass} ${copied ? 'copied' : ''} ${specs ? 'has-specs' : ''}`}
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<span>{part}</span>
+				<span class="jlc-link-part">{part}</span>
+				{specs && <span class="jlc-link-specs">{specs}</span>}
 				{copied && <span class="jlc-link-icon">✓</span>}
 			</a>
 			{tooltip}
