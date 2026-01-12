@@ -134,12 +134,22 @@ function parseVoltage(desc, attrs) {
 		!a.attribute_name_en?.toLowerCase().includes('breakdown')
 	);
 	if (voltAttr) {
-		const match = voltAttr.attribute_value_name?.match(/(\d+(?:\.\d+)?)\s*V/i);
-		if (match) return `${match[1]}V`;
+		// Handle kV (kilovolts) and regular V
+		const match = voltAttr.attribute_value_name?.match(/(\d+(?:\.\d+)?)\s*(k)?V/i);
+		if (match) {
+			const value = match[1];
+			const isKilo = match[2]?.toLowerCase() === 'k';
+			return isKilo ? `${value}kV` : `${value}V`;
+		}
 	}
 
-	const match = desc?.match(/(\d+(?:\.\d+)?)\s*V(?:DC)?/i);
-	if (match) return `${match[1]}V`;
+	// Try description - handle kV and V
+	const match = desc?.match(/(\d+(?:\.\d+)?)\s*(k)?V(?:DC)?/i);
+	if (match) {
+		const value = match[1];
+		const isKilo = match[2]?.toLowerCase() === 'k';
+		return isKilo ? `${value}kV` : `${value}V`;
+	}
 
 	return null;
 }
@@ -187,10 +197,14 @@ function transformResistors(parts) {
 	const columns = ['0402', '0603', '0805', '1206'];
 	const data = {};
 
-	const resistors = parts.filter(p =>
-		p.category?.toLowerCase().includes('resistor') ||
-		p.firstSort?.toLowerCase().includes('resistor')
-	);
+	// Filter for individual resistors, excluding networks/arrays
+	const resistors = parts.filter(p => {
+		const cat = p.category?.toLowerCase() || '';
+		const firstSort = p.firstSort?.toLowerCase() || '';
+		const isResistor = cat.includes('resistor') || firstSort.includes('resistor');
+		const isNetwork = cat.includes('network') || cat.includes('array');
+		return isResistor && !isNetwork;
+	});
 
 	console.log(`  Found ${resistors.length} resistors`);
 
@@ -461,7 +475,7 @@ async function main() {
 
 	// Write output files
 	fs.writeFileSync(
-		path.join(OUTPUT_DIR, 'resistors-scraped.json'),
+		path.join(OUTPUT_DIR, 'resistors.json'),
 		JSON.stringify(resistors, null, 2)
 	);
 
@@ -482,7 +496,7 @@ async function main() {
 
 	console.log('Transformation complete!');
 	console.log('Output files:');
-	console.log('  - src/data/resistors-scraped.json');
+	console.log('  - src/data/resistors.json');
 	console.log('  - src/data/ceramic-capacitors.json');
 	console.log('  - src/data/electrolytic-capacitors.json');
 	console.log('  - src/data/diodes.json');

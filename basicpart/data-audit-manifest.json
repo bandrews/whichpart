@@ -1,0 +1,1424 @@
+{
+  "generatedAt": "2026-01-12T00:37:18.020Z",
+  "summary": {
+    "totalIssues": 74,
+    "errors": 74,
+    "warnings": 0,
+    "byType": {
+      "package_mismatch": 74
+    },
+    "byFile": {
+      "diodes.json": 74
+    }
+  },
+  "proposedChanges": [
+    {
+      "file": "diodes.json",
+      "location": "SM4007PL/SOD-123",
+      "action": "replace",
+      "currentPart": "C64898",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C64898 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF6.0CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C2990473",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C2990473 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF30CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C2990493",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C2990493 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SRV05-4/SOT-23-6",
+      "action": "replace",
+      "currentPart": "C7420376",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C7420376 has package \"SOT-23-6L\" but is listed under \"SOT-23-6\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK34/SOD-123",
+      "action": "replace",
+      "currentPart": "C7502709",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C7502709 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK14/SOD-123",
+      "action": "replace",
+      "currentPart": "C7502711",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C7502711 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK26/SOD-123",
+      "action": "replace",
+      "currentPart": "C7502712",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C7502712 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK210/SOD-123",
+      "action": "replace",
+      "currentPart": "C7502713",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C7502713 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "1N4001W/SOD-123",
+      "action": "replace",
+      "currentPart": "C18199085",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C18199085 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "1N4002W/SOD-123",
+      "action": "replace",
+      "currentPart": "C18199086",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C18199086 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "1N4004W/SOD-123",
+      "action": "replace",
+      "currentPart": "C18199087",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C18199087 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "1N4007W/SOD-123",
+      "action": "replace",
+      "currentPart": "C18199088",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C18199088 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "FR102W/SOD-123",
+      "action": "replace",
+      "currentPart": "C18199113",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C18199113 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "FR107W/SOD-123",
+      "action": "replace",
+      "currentPart": "C18199114",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C18199114 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "US1DW/SOD-123",
+      "action": "replace",
+      "currentPart": "C18199122",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C18199122 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "US1MW/SOD-123",
+      "action": "replace",
+      "currentPart": "C18199123",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C18199123 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "ES1JW/SOD-123",
+      "action": "replace",
+      "currentPart": "C18199137",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C18199137 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "ES1DW/SOD-123",
+      "action": "replace",
+      "currentPart": "C18199155",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C18199155 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "ES2JW/SOD-123",
+      "action": "replace",
+      "currentPart": "C18199156",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C18199156 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF3.3CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077496",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077496 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF5.0A/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077497",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077497 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF5.0CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077498",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077498 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF6.0A/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077499",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077499 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF6.5CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077501",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077501 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF7.0CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077502",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077502 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF7.5CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077503",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077503 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF9.0CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077504",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077504 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF10CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077505",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077505 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF12A/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077506",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077506 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF12CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077507",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077507 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF13CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077508",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077508 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF15A/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077509",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077509 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF15CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077510",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077510 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF16CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077511",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077511 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF18A/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077512",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077512 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF18CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077513",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077513 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF24A/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077514",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077514 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF24CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077515",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077515 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF26CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077516",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077516 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF28CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077517",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077517 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF30A/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077518",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077518 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF33CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077520",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077520 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF36CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C19077521",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C19077521 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SRV05-4A/SOT-23-6",
+      "action": "replace",
+      "currentPart": "C20615829",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C20615829 has package \"SOT-23-6L\" but is listed under \"SOT-23-6\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSL34/SOD-123",
+      "action": "replace",
+      "currentPart": "C22466347",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C22466347 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSL16/SOD-123",
+      "action": "replace",
+      "currentPart": "C22466348",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C22466348 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSL14/SOD-123",
+      "action": "replace",
+      "currentPart": "C22466349",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C22466349 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK16/SOD-123",
+      "action": "replace",
+      "currentPart": "C22466351",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C22466351 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK24/SOD-123",
+      "action": "replace",
+      "currentPart": "C22466352",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C22466352 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK36/SOD-123",
+      "action": "replace",
+      "currentPart": "C22466353",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C22466353 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK110/SOD-123",
+      "action": "replace",
+      "currentPart": "C22466354",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C22466354 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK120/SOD-123",
+      "action": "replace",
+      "currentPart": "C22466355",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C22466355 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK12/SOD-123",
+      "action": "replace",
+      "currentPart": "C22466356",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C22466356 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK115/SOD-123",
+      "action": "replace",
+      "currentPart": "C28646287",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C28646287 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK220/SOD-123",
+      "action": "replace",
+      "currentPart": "C28646288",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C28646288 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK310/SOD-123",
+      "action": "replace",
+      "currentPart": "C28646289",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C28646289 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK22/SOD-123",
+      "action": "replace",
+      "currentPart": "C28646290",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C28646290 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK38/SOD-123",
+      "action": "replace",
+      "currentPart": "C28646291",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C28646291 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "DSK320/SOD-123",
+      "action": "replace",
+      "currentPart": "C28646292",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C28646292 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF36A/SOD-123",
+      "action": "replace",
+      "currentPart": "C41376086",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C41376086 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF13A/SOD-123",
+      "action": "replace",
+      "currentPart": "C41376087",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C41376087 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF7.0A/SOD-123",
+      "action": "replace",
+      "currentPart": "C41376088",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C41376088 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF6.5A/SOD-123",
+      "action": "replace",
+      "currentPart": "C41376089",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C41376089 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF26A/SOD-123",
+      "action": "replace",
+      "currentPart": "C41376090",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C41376090 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF28A/SOD-123",
+      "action": "replace",
+      "currentPart": "C41376091",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C41376091 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF60CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C41376092",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C41376092 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF20A/SOD-123",
+      "action": "replace",
+      "currentPart": "C41411782",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C41411782 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF14CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C41411783",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C41411783 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF20CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C42371747",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C42371747 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF40CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C42371749",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C42371749 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF7.5A/SOD-123",
+      "action": "replace",
+      "currentPart": "C42371750",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C42371750 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF150CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C42371752",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C42371752 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF58CA/SOD-123",
+      "action": "replace",
+      "currentPart": "C42371753",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C42371753 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "file": "diodes.json",
+      "location": "SMF48A/SOD-123",
+      "action": "replace",
+      "currentPart": "C42371754",
+      "suggestedPart": "MANUAL_REVIEW_NEEDED",
+      "suggestedPartDetails": null,
+      "reason": "Part C42371754 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    }
+  ],
+  "issues": [
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SM4007PL/SOD-123",
+      "partNumber": "C64898",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C64898 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF6.0CA/SOD-123",
+      "partNumber": "C2990473",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C2990473 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF30CA/SOD-123",
+      "partNumber": "C2990493",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C2990493 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SRV05-4/SOT-23-6",
+      "partNumber": "C7420376",
+      "severity": "error",
+      "expected": "SOT-23-6",
+      "actual": "SOT-23-6L",
+      "message": "Part C7420376 has package \"SOT-23-6L\" but is listed under \"SOT-23-6\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK34/SOD-123",
+      "partNumber": "C7502709",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C7502709 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK14/SOD-123",
+      "partNumber": "C7502711",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C7502711 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK26/SOD-123",
+      "partNumber": "C7502712",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C7502712 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK210/SOD-123",
+      "partNumber": "C7502713",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C7502713 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "1N4001W/SOD-123",
+      "partNumber": "C18199085",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C18199085 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "1N4002W/SOD-123",
+      "partNumber": "C18199086",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C18199086 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "1N4004W/SOD-123",
+      "partNumber": "C18199087",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C18199087 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "1N4007W/SOD-123",
+      "partNumber": "C18199088",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C18199088 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "FR102W/SOD-123",
+      "partNumber": "C18199113",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C18199113 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "FR107W/SOD-123",
+      "partNumber": "C18199114",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C18199114 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "US1DW/SOD-123",
+      "partNumber": "C18199122",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C18199122 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "US1MW/SOD-123",
+      "partNumber": "C18199123",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C18199123 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "ES1JW/SOD-123",
+      "partNumber": "C18199137",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C18199137 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "ES1DW/SOD-123",
+      "partNumber": "C18199155",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C18199155 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "ES2JW/SOD-123",
+      "partNumber": "C18199156",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C18199156 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF3.3CA/SOD-123",
+      "partNumber": "C19077496",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077496 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF5.0A/SOD-123",
+      "partNumber": "C19077497",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077497 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF5.0CA/SOD-123",
+      "partNumber": "C19077498",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077498 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF6.0A/SOD-123",
+      "partNumber": "C19077499",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077499 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF6.5CA/SOD-123",
+      "partNumber": "C19077501",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077501 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF7.0CA/SOD-123",
+      "partNumber": "C19077502",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077502 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF7.5CA/SOD-123",
+      "partNumber": "C19077503",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077503 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF9.0CA/SOD-123",
+      "partNumber": "C19077504",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077504 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF10CA/SOD-123",
+      "partNumber": "C19077505",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077505 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF12A/SOD-123",
+      "partNumber": "C19077506",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077506 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF12CA/SOD-123",
+      "partNumber": "C19077507",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077507 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF13CA/SOD-123",
+      "partNumber": "C19077508",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077508 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF15A/SOD-123",
+      "partNumber": "C19077509",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077509 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF15CA/SOD-123",
+      "partNumber": "C19077510",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077510 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF16CA/SOD-123",
+      "partNumber": "C19077511",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077511 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF18A/SOD-123",
+      "partNumber": "C19077512",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077512 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF18CA/SOD-123",
+      "partNumber": "C19077513",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077513 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF24A/SOD-123",
+      "partNumber": "C19077514",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077514 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF24CA/SOD-123",
+      "partNumber": "C19077515",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077515 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF26CA/SOD-123",
+      "partNumber": "C19077516",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077516 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF28CA/SOD-123",
+      "partNumber": "C19077517",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077517 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF30A/SOD-123",
+      "partNumber": "C19077518",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077518 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF33CA/SOD-123",
+      "partNumber": "C19077520",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077520 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF36CA/SOD-123",
+      "partNumber": "C19077521",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C19077521 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SRV05-4A/SOT-23-6",
+      "partNumber": "C20615829",
+      "severity": "error",
+      "expected": "SOT-23-6",
+      "actual": "SOT-23-6L",
+      "message": "Part C20615829 has package \"SOT-23-6L\" but is listed under \"SOT-23-6\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSL34/SOD-123",
+      "partNumber": "C22466347",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C22466347 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSL16/SOD-123",
+      "partNumber": "C22466348",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C22466348 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSL14/SOD-123",
+      "partNumber": "C22466349",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C22466349 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK16/SOD-123",
+      "partNumber": "C22466351",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C22466351 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK24/SOD-123",
+      "partNumber": "C22466352",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C22466352 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK36/SOD-123",
+      "partNumber": "C22466353",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C22466353 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK110/SOD-123",
+      "partNumber": "C22466354",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C22466354 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK120/SOD-123",
+      "partNumber": "C22466355",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C22466355 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK12/SOD-123",
+      "partNumber": "C22466356",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C22466356 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK115/SOD-123",
+      "partNumber": "C28646287",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C28646287 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK220/SOD-123",
+      "partNumber": "C28646288",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C28646288 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK310/SOD-123",
+      "partNumber": "C28646289",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C28646289 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK22/SOD-123",
+      "partNumber": "C28646290",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C28646290 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK38/SOD-123",
+      "partNumber": "C28646291",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C28646291 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "DSK320/SOD-123",
+      "partNumber": "C28646292",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C28646292 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF36A/SOD-123",
+      "partNumber": "C41376086",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C41376086 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF13A/SOD-123",
+      "partNumber": "C41376087",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C41376087 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF7.0A/SOD-123",
+      "partNumber": "C41376088",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C41376088 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF6.5A/SOD-123",
+      "partNumber": "C41376089",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C41376089 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF26A/SOD-123",
+      "partNumber": "C41376090",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C41376090 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF28A/SOD-123",
+      "partNumber": "C41376091",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C41376091 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF60CA/SOD-123",
+      "partNumber": "C41376092",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C41376092 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF20A/SOD-123",
+      "partNumber": "C41411782",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C41411782 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF14CA/SOD-123",
+      "partNumber": "C41411783",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C41411783 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF20CA/SOD-123",
+      "partNumber": "C42371747",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C42371747 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF40CA/SOD-123",
+      "partNumber": "C42371749",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C42371749 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF7.5A/SOD-123",
+      "partNumber": "C42371750",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C42371750 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF150CA/SOD-123",
+      "partNumber": "C42371752",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C42371752 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF58CA/SOD-123",
+      "partNumber": "C42371753",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C42371753 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    },
+    {
+      "type": "package_mismatch",
+      "file": "diodes.json",
+      "location": "SMF48A/SOD-123",
+      "partNumber": "C42371754",
+      "severity": "error",
+      "expected": "SOD-123",
+      "actual": "SOD-123FL",
+      "message": "Part C42371754 has package \"SOD-123FL\" but is listed under \"SOD-123\""
+    }
+  ]
+}

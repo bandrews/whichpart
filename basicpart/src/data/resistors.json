@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "resistor",
-    "lastUpdated": "2025-12-30",
+    "lastUpdated": "2026-01-12",
     "columns": [
       "0402",
       "0603",
@@ -508,7 +508,7 @@
         "tier": "basic"
       },
       "0603": {
-        "part": "C20197",
+        "part": "C21190",
         "tier": "basic"
       }
     },
@@ -689,12 +689,12 @@
         "tier": "basic"
       },
       "display": "4.7k",
-      "0603": {
-        "part": "C1980",
-        "tier": "basic"
-      },
       "0805": {
         "part": "C17673",
+        "tier": "basic"
+      },
+      "0603": {
+        "part": "C23162",
         "tier": "basic"
       },
       "0402": {
@@ -821,8 +821,8 @@
         "tier": "basic"
       },
       "0402": {
-        "part": "C25725",
-        "tier": "preferred"
+        "part": "C25744",
+        "tier": "basic"
       },
       "0603": {
         "part": "C25804",
