@@ -195,6 +195,46 @@
 }
 
 /* JLC Link component */
+.jlc-link-wrapper {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.jlc-copy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  margin-left: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+  cursor: pointer;
+  opacity: 0;
+  transition: all var(--transition-fast);
+}
+
+.jlc-link-wrapper:hover .jlc-copy-btn {
+  opacity: 1;
+}
+
+.jlc-copy-btn:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.jlc-copy-btn.copied {
+  background-color: var(--success);
+  border-color: var(--success);
+  color: white;
+  opacity: 1;
+}
+
 .jlc-link {
   display: inline-flex;
   align-items: center;
@@ -254,14 +294,9 @@
   font-family: inherit;
 }
 
-.jlc-link-icon {
-  opacity: 0;
-  transition: opacity var(--transition-fast);
+.jlc-link-check {
   font-size: 0.75rem;
-}
-
-.jlc-link:hover .jlc-link-icon {
-  opacity: 1;
+  margin-left: 2px;
 }
 
 /* Tooltip - rendered via portal to document.body */
@@ -317,7 +352,7 @@
   padding-top: 6px;
   border-top: 1px solid var(--border-light);
   color: var(--text-muted);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
 }
 
 /* Empty cell */
@@ -368,6 +403,130 @@
   font-size: 0.75rem;
   color: var(--text-secondary);
   font-style: italic;
+}
+
+/* Part details page - Header */
+.part-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.part-header-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.part-friendly-desc {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: 1.3;
+}
+
+.part-identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--spacing-xs);
+  margin: 0;
+}
+
+.part-mpn {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.part-mfr {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+}
+
+.part-jlc-pill {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: monospace;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--accent);
+  color: white;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.part-jlc-pill:hover {
+  background-color: var(--accent-hover);
+}
+
+.part-jlc-pill.copied {
+  background-color: var(--success);
+}
+
+/* Copyable text component */
+.copyable-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 2px 6px;
+  margin: -2px -6px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.copyable-text:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.copyable-text.copied {
+  background-color: var(--success);
+  color: white;
+}
+
+.copyable-icon {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  color: var(--text-muted);
+}
+
+.copyable-text:hover .copyable-icon {
+  opacity: 1;
+}
+
+.copyable-text.copied .copyable-icon {
+  opacity: 1;
+  color: white;
+}
+
+/* Override for pill style */
+.part-jlc-pill .copyable-icon {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.part-jlc-pill:hover .copyable-icon {
+  color: white;
+}
+
+/* Responsive part header */
+@media (max-width: 768px) {
+  .part-header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .part-jlc-pill {
+    align-self: flex-start;
+  }
+
+  .part-friendly-desc {
+    font-size: 1.25rem;
+  }
 }
 
 /* Part details page */

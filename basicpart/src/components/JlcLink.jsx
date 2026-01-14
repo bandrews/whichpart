@@ -55,17 +55,22 @@ export function JlcLink({ part, tier = 'basic', info, description, specs }) {
 		}
 	}, [showTooltip]);
 
+	const copyToClipboard = async (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		try {
+			await navigator.clipboard.writeText(part);
+			setCopied(true);
+			setTimeout(() => setCopied(false), 1500);
+		} catch (err) {
+			console.error('Failed to copy:', err);
+		}
+	};
+
 	const handleClick = async (e) => {
 		// Shift+click: copy to clipboard
 		if (e.shiftKey) {
-			e.preventDefault();
-			try {
-				await navigator.clipboard.writeText(part);
-				setCopied(true);
-				setTimeout(() => setCopied(false), 1500);
-			} catch (err) {
-				console.error('Failed to copy:', err);
-			}
+			await copyToClipboard(e);
 			return;
 		}
 
@@ -114,20 +119,39 @@ export function JlcLink({ part, tier = 'basic', info, description, specs }) {
 
 	return (
 		<>
-			<a
-				ref={linkRef}
-				href={jlcUrl}
-				onClick={handleClick}
-				onMouseEnter={handleMouseEnter}
-				onMouseLeave={handleMouseLeave}
-				class={`jlc-link ${tierClass} ${copied ? 'copied' : ''} ${specs ? 'has-specs' : ''}`}
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<span class="jlc-link-part">{part}</span>
-				{specs && <span class="jlc-link-specs">{specs}</span>}
-				{copied && <span class="jlc-link-icon">✓</span>}
-			</a>
+			<span class="jlc-link-wrapper">
+				<a
+					ref={linkRef}
+					href={jlcUrl}
+					onClick={handleClick}
+					onMouseEnter={handleMouseEnter}
+					onMouseLeave={handleMouseLeave}
+					class={`jlc-link ${tierClass} ${copied ? 'copied' : ''} ${specs ? 'has-specs' : ''}`}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span class="jlc-link-part">{part}</span>
+					{specs && <span class="jlc-link-specs">{specs}</span>}
+					{copied && <span class="jlc-link-check">✓</span>}
+				</a>
+				<button
+					class={`jlc-copy-btn ${copied ? 'copied' : ''}`}
+					onClick={copyToClipboard}
+					title="Copy part number"
+					type="button"
+				>
+					{copied ? (
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+							<polyline points="20 6 9 17 4 12"></polyline>
+						</svg>
+					) : (
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+							<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+							<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+						</svg>
+					)}
+				</button>
+			</span>
 			{tooltip}
 		</>
 	);

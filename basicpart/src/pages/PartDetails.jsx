@@ -1,9 +1,55 @@
-import { useMemo } from 'preact/hooks';
+import { useMemo, useState } from 'preact/hooks';
 import { useRoute } from 'preact-iso';
 
 // Import parts index with full metadata
 import partsIndex from '../data/parts-index.json';
 import friendlyDescriptions from '../data/friendly-descriptions.json';
+
+// Copy icon SVG component
+function CopyIcon({ size = 14 }) {
+	return (
+		<svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+			<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+			<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+		</svg>
+	);
+}
+
+function CheckIcon({ size = 14 }) {
+	return (
+		<svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+			<polyline points="20 6 9 17 4 12"></polyline>
+		</svg>
+	);
+}
+
+// Copyable text component with hover icon
+function CopyableText({ text, children, className = '' }) {
+	const [copied, setCopied] = useState(false);
+
+	const handleCopy = async () => {
+		try {
+			await navigator.clipboard.writeText(text);
+			setCopied(true);
+			setTimeout(() => setCopied(false), 1500);
+		} catch (err) {
+			console.error('Failed to copy:', err);
+		}
+	};
+
+	return (
+		<span
+			class={`copyable-text ${copied ? 'copied' : ''} ${className}`}
+			onClick={handleCopy}
+			title="Click to copy"
+		>
+			{children}
+			<span class="copyable-icon">
+				{copied ? <CheckIcon size={14} /> : <CopyIcon size={14} />}
+			</span>
+		</span>
+	);
+}
 
 export function PartDetails() {
 	const { params } = useRoute();
@@ -23,33 +69,31 @@ export function PartDetails() {
 
 	return (
 		<div>
-			<h1 class="page-title">
-				{partInfo?.mpn || partNumber}
-				<span style={{ fontSize: '0.875rem', fontWeight: 400, marginLeft: '12px', color: 'var(--text-muted)' }}>
-					{partNumber}
-				</span>
-			</h1>
+			{/* Header section with new layout */}
+			<div class="part-header">
+				{/* Main content area */}
+				<div class="part-header-main">
+					{/* Lead with friendly description if available */}
+					{friendlyDesc && (
+						<h1 class="part-friendly-desc">{friendlyDesc}</h1>
+					)}
 
-			{partInfo?.mfr && (
-				<p class="page-subtitle" style={{ marginTop: '-8px' }}>
-					by {partInfo.mfr}
-				</p>
-			)}
-
-			{friendlyDesc && (
-				<div style={{
-					fontSize: '1.25rem',
-					fontWeight: 600,
-					color: 'var(--text-primary)',
-					marginBottom: 'var(--spacing-lg)',
-					padding: 'var(--spacing-md) var(--spacing-lg)',
-					backgroundColor: 'var(--bg-secondary)',
-					borderRadius: 'var(--radius-md)',
-					borderLeft: '4px solid var(--accent)',
-				}}>
-					{friendlyDesc}
+					{/* Part number and manufacturer */}
+					<div class="part-identity">
+						<CopyableText text={partInfo?.mpn || partNumber} className="part-mpn">
+							{partInfo?.mpn || partNumber}
+						</CopyableText>
+						{partInfo?.mfr && (
+							<span class="part-mfr">by {partInfo.mfr}</span>
+						)}
+					</div>
 				</div>
-			)}
+
+				{/* JLC part number pill - upper right */}
+				<CopyableText text={partNumber} className="part-jlc-pill">
+					{partNumber}
+				</CopyableText>
+			</div>
 
 			<div style={{
 				display: 'flex',
