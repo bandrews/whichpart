@@ -1,7 +1,23 @@
 import { useLocation } from 'preact-iso';
+import { useRef, useEffect } from 'preact/hooks';
 
 export function Header() {
 	const { url } = useLocation();
+	const headerRef = useRef();
+
+	useEffect(() => {
+		const header = headerRef.current;
+		if (!header) return;
+
+		const observer = new ResizeObserver(() => {
+			document.documentElement.style.setProperty(
+				'--header-height',
+				`${header.offsetHeight}px`
+			);
+		});
+		observer.observe(header);
+		return () => observer.disconnect();
+	}, []);
 
 	const links = [
 		{ path: '/', label: 'Home' },
@@ -14,7 +30,7 @@ export function Header() {
 	];
 
 	return (
-		<header>
+		<header ref={headerRef}>
 			<a href="/" class="headerlogo">basicp.art</a>
 			<nav>
 				{links.map(link => (

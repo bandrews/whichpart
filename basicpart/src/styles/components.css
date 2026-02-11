@@ -118,6 +118,8 @@
 /* Component Grid table */
 .component-grid-container {
   overflow-x: auto;
+  overflow-y: auto;
+  max-height: calc(100dvh - var(--header-height, 3.25rem) - 1.5rem);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
 }
@@ -794,7 +796,14 @@
 .component-grid td:first-child {
   position: sticky;
   left: 0;
+}
+
+.component-grid td:first-child {
   z-index: 1;
+}
+
+.component-grid th:first-child {
+  z-index: 12;
 }
 
 /* Responsive table on mobile */
