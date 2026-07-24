@@ -146,5 +146,5 @@ for (const [pid, desc] of Object.entries(descriptions)) {
     }
 }
 
-fs.writeFileSync('tasks/descriptions-schottky.json', JSON.stringify(descriptions, null, 2));
-console.log('\nOutput written to tasks/descriptions-schottky.json');
+fs.writeFileSync('tasks/descriptions-rectifiers.json', JSON.stringify(descriptions, null, 2));
+console.log('\nOutput written to tasks/descriptions-rectifiers.json');

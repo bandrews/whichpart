@@ -19,11 +19,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const DATA_DIR = path.join(__dirname, '../src/data');
+const TASKS_DIR = path.join(__dirname, '../tasks');
 
 // Valid package sizes
 const VALID_SMD_PACKAGES = ['0201', '0402', '0603', '0805', '1206', '1210', '1812', '2010', '2512'];
-const VALID_DIODE_PACKAGES = ['SOD-123', 'SOD-323', 'SOD-523', 'SOT-23', 'SOT-23-3', 'SOT-23-5', 'SOT-23-6'];
 const VALID_TANTALUM_PACKAGES = ['CASE-A-3216-18(mm)', 'CASE-B-3528-21(mm)', 'CASE-C-6032-28(mm)', 'CASE-D-7343-31(mm)'];
+const VALID_CATALOG_TIERS = ['basic', 'preferred'];
 
 // E24 series values (common 5% resistors)
 const E24_SERIES = [1.0, 1.1, 1.2, 1.3, 1.5, 1.6, 1.8, 2.0, 2.2, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 5.6, 6.2, 6.8, 7.5, 8.2, 9.1];
@@ -44,6 +45,18 @@ const E12_CAP_SERIES = [1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8
 let errors = [];
 let warnings = [];
 
+function loadJson(fileName) {
+	return JSON.parse(fs.readFileSync(path.join(DATA_DIR, fileName), 'utf8'));
+}
+
+function partCells(entry) {
+	return Object.entries(entry).filter(([, value]) =>
+		value &&
+		typeof value === 'object' &&
+		typeof value.part === 'string'
+	);
+}
+
 function validatePartNumber(partNum, context) {
 	if (!partNum) {
 		errors.push(`${context}: Missing part number`);
@@ -59,7 +72,109 @@ function validatePartNumber(partNum, context) {
 	return true;
 }
 
-function validateResistors() {
+function validateCatalogCell(cell, context, pkg, partsIndex) {
+	if (!validatePartNumber(cell.part, context)) return;
+
+	if (!VALID_CATALOG_TIERS.includes(cell.tier)) {
+		errors.push(`${context}: Invalid tier "${cell.tier}"`);
+	}
+
+	const current = partsIndex[cell.part];
+	if (!current) {
+		errors.push(`${context}: ${cell.part} is missing from parts-index.json`);
+		return;
+	}
+	if (current.tier !== cell.tier) {
+		errors.push(`${context}: Tier is ${cell.tier}, but parts-index.json says ${current.tier}`);
+	}
+	if (current.pkg !== pkg) {
+		errors.push(`${context}: Package key is "${pkg}", but parts-index.json says "${current.pkg}"`);
+	}
+}
+
+function validateCatalogAndDescriptions(partsIndex) {
+	console.log('\nValidating catalog and description coverage...');
+
+	const indexIds = Object.keys(partsIndex);
+	if (indexIds.length === 0) {
+		errors.push('parts-index.json is empty');
+		return;
+	}
+
+	for (const [partNumber, part] of Object.entries(partsIndex)) {
+		validatePartNumber(partNumber, 'parts-index.json');
+		if (!VALID_CATALOG_TIERS.includes(part.tier)) {
+			errors.push(`parts-index.json[${partNumber}]: Invalid tier "${part.tier}"`);
+		}
+		if (!part.mpn || !part.pkg || !part.cat) {
+			errors.push(`parts-index.json[${partNumber}]: Missing MPN, package, or category`);
+		}
+		if (!Array.isArray(part.prices)) {
+			errors.push(`parts-index.json[${partNumber}]: prices must be an array`);
+		}
+	}
+
+	const taskFiles = fs.readdirSync(TASKS_DIR)
+		.filter(file => file.startsWith('descriptions-') && file.endsWith('.json'))
+		.sort();
+	const taskDescriptions = new Map();
+
+	for (const file of taskFiles) {
+		const data = JSON.parse(fs.readFileSync(path.join(TASKS_DIR, file), 'utf8'));
+		for (const [partNumber, description] of Object.entries(data)) {
+			if (partNumber === '_meta') continue;
+			validatePartNumber(partNumber, `tasks/${file}`);
+			if (!partsIndex[partNumber]) {
+				errors.push(`tasks/${file}: ${partNumber} is not in parts-index.json`);
+			}
+			if (typeof description !== 'string' || description.trim().length === 0) {
+				errors.push(`tasks/${file}: ${partNumber} has an empty description`);
+			}
+			if (taskDescriptions.has(partNumber)) {
+				errors.push(
+					`tasks/${file}: ${partNumber} duplicates a description from ` +
+					taskDescriptions.get(partNumber).file
+				);
+			}
+			taskDescriptions.set(partNumber, { description, file });
+		}
+	}
+
+	const friendly = loadJson('friendly-descriptions.json');
+	const friendlyIds = Object.keys(friendly).filter(key => key !== '_meta');
+
+	for (const partNumber of indexIds) {
+		if (!taskDescriptions.has(partNumber)) {
+			errors.push(`Description tasks are missing current catalog part ${partNumber}`);
+		}
+		if (!friendly[partNumber]) {
+			errors.push(`friendly-descriptions.json is missing current catalog part ${partNumber}`);
+		}
+	}
+	for (const partNumber of friendlyIds) {
+		if (!partsIndex[partNumber]) {
+			errors.push(`friendly-descriptions.json contains stale part ${partNumber}`);
+		}
+		const taskDescription = taskDescriptions.get(partNumber)?.description;
+		if (taskDescription && friendly[partNumber] !== taskDescription) {
+			errors.push(`friendly-descriptions.json differs from task source for ${partNumber}`);
+		}
+	}
+
+	if (friendlyIds.length !== indexIds.length) {
+		errors.push(
+			`Friendly-description coverage is ${friendlyIds.length}/${indexIds.length}; ` +
+			'run npm run descriptions'
+		);
+	}
+
+	console.log(
+		`  Checked ${indexIds.length} indexed parts, ${taskDescriptions.size} task descriptions, ` +
+		`${friendlyIds.length} merged descriptions`
+	);
+}
+
+function validateResistors(partsIndex) {
 	console.log('\nValidating resistors...');
 
 	const filePath = path.join(DATA_DIR, 'resistors.json');
@@ -92,14 +207,12 @@ function validateResistors() {
 		}
 
 		// Validate each package entry
-		for (const pkg of data.meta.columns) {
-			if (entry[pkg]) {
-				partCount++;
-				validatePartNumber(entry[pkg].part, `Resistors[${key}][${pkg}]`);
+		for (const [pkg, cell] of partCells(entry)) {
+			partCount++;
+			validateCatalogCell(cell, `Resistors[${key}][${pkg}]`, pkg, partsIndex);
 
-				if (!VALID_SMD_PACKAGES.includes(pkg)) {
-					warnings.push(`Resistors[${key}]: Unexpected package "${pkg}"`);
-				}
+			if (!VALID_SMD_PACKAGES.includes(pkg)) {
+				warnings.push(`Resistors[${key}]: Unexpected package "${pkg}"`);
 			}
 		}
 	}
@@ -107,7 +220,7 @@ function validateResistors() {
 	console.log(`  Checked ${Object.keys(data.data).length} values, ${partCount} parts`);
 }
 
-function validateCeramicCapacitors() {
+function validateCeramicCapacitors(partsIndex) {
 	console.log('\nValidating ceramic capacitors...');
 
 	const filePath = path.join(DATA_DIR, 'ceramic-capacitors.json');
@@ -127,7 +240,7 @@ function validateCeramicCapacitors() {
 
 		// Validate voltage
 		if (entry.voltage && entry.voltage !== 'Unknown') {
-			if (!/^\d+(\.\d+)?V$/.test(entry.voltage)) {
+			if (!/^\d+(\.\d+)?(?:k)?V$/.test(entry.voltage)) {
 				warnings.push(`Capacitors[${key}]: Unusual voltage format "${entry.voltage}"`);
 			}
 		}
@@ -139,18 +252,16 @@ function validateCeramicCapacitors() {
 		}
 
 		// Validate each package entry
-		for (const pkg of data.meta.columns) {
-			if (entry[pkg]) {
-				partCount++;
-				validatePartNumber(entry[pkg].part, `Capacitors[${key}][${pkg}]`);
-			}
+		for (const [pkg, cell] of partCells(entry)) {
+			partCount++;
+			validateCatalogCell(cell, `Capacitors[${key}][${pkg}]`, pkg, partsIndex);
 		}
 	}
 
 	console.log(`  Checked ${Object.keys(data.data).length} values, ${partCount} parts`);
 }
 
-function validateDiodes() {
+function validateDiodes(partsIndex) {
 	console.log('\nValidating diodes...');
 
 	const filePath = path.join(DATA_DIR, 'diodes.json');
@@ -171,18 +282,16 @@ function validateDiodes() {
 		}
 
 		// Validate each package entry
-		for (const pkg of data.meta.columns) {
-			if (entry[pkg]) {
-				partCount++;
-				validatePartNumber(entry[pkg].part, `Diodes[${key}][${pkg}]`);
-			}
+		for (const [pkg, cell] of partCells(entry)) {
+			partCount++;
+			validateCatalogCell(cell, `Diodes[${key}][${pkg}]`, pkg, partsIndex);
 		}
 	}
 
 	console.log(`  Checked ${Object.keys(data.data).length} models, ${partCount} parts`);
 }
 
-function validateElectrolyticCapacitors() {
+function validateElectrolyticCapacitors(partsIndex) {
 	console.log('\nValidating electrolytic capacitors...');
 
 	const filePath = path.join(DATA_DIR, 'electrolytic-capacitors.json');
@@ -196,10 +305,11 @@ function validateElectrolyticCapacitors() {
 
 	for (const [key, entry] of Object.entries(data.data)) {
 		// Validate each package entry
-		for (const pkg of data.meta.columns) {
-			if (entry[pkg]) {
-				partCount++;
-				validatePartNumber(entry[pkg].part, `Electrolytic[${key}][${pkg}]`);
+		for (const [pkg, cell] of partCells(entry)) {
+			partCount++;
+			validateCatalogCell(cell, `Electrolytic[${key}][${pkg}]`, pkg, partsIndex);
+			if (!VALID_TANTALUM_PACKAGES.includes(pkg)) {
+				warnings.push(`Electrolytic[${key}]: Unexpected package "${pkg}"`);
 			}
 		}
 	}
@@ -210,10 +320,12 @@ function validateElectrolyticCapacitors() {
 function main() {
 	console.log('Validating component data...\n');
 
-	validateResistors();
-	validateCeramicCapacitors();
-	validateDiodes();
-	validateElectrolyticCapacitors();
+	const partsIndex = loadJson('parts-index.json');
+	validateCatalogAndDescriptions(partsIndex);
+	validateResistors(partsIndex);
+	validateCeramicCapacitors(partsIndex);
+	validateDiodes(partsIndex);
+	validateElectrolyticCapacitors(partsIndex);
 
 	console.log('\n' + '='.repeat(50));
 

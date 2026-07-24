@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "resistor",
-    "lastUpdated": "2026-01-12",
+    "lastUpdated": "2026-07-24",
     "columns": [
       "0402",
       "0603",
@@ -41,13 +41,13 @@
         "part": "C22936",
         "tier": "basic"
       },
-      "0402": {
-        "part": "C25086",
-        "tier": "preferred"
-      },
       "0805": {
         "part": "C25271",
         "tier": "basic"
+      },
+      "0402": {
+        "part": "C25086",
+        "tier": "preferred"
       }
     },
     "2": {
@@ -790,13 +790,13 @@
         "part": "C17828",
         "tier": "basic"
       },
-      "0402": {
-        "part": "C25924",
-        "tier": "preferred"
-      },
       "0603": {
         "part": "C25981",
         "tier": "basic"
+      },
+      "0402": {
+        "part": "C25924",
+        "tier": "preferred"
       }
     },
     "9100": {
@@ -1357,10 +1357,6 @@
     },
     "510000": {
       "display": "510k",
-      "0402": {
-        "part": "C11616",
-        "tier": "preferred"
-      },
       "0805": {
         "part": "C17733",
         "tier": "preferred"
@@ -1368,6 +1364,10 @@
       "0603": {
         "part": "C23192",
         "tier": "basic"
+      },
+      "0402": {
+        "part": "C11616",
+        "tier": "preferred"
       }
     },
     "560000": {

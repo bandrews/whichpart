@@ -160,7 +160,7 @@ Object.keys(descriptions).sort((a, b) => {
 });
 
 // Write output
-const outputPath = path.join(__dirname, 'descriptions-capacitors.json');
+const outputPath = path.join(__dirname, 'descriptions-passives.json');
 fs.writeFileSync(outputPath, JSON.stringify(sortedDescriptions, null, 2), 'utf8');
 
 console.log('Processed:', processed);

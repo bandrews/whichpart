@@ -179,12 +179,15 @@ function parseDielectric(desc, attrs) {
 function normalizePackage(pkg) {
 	if (!pkg) return null;
 
-	// Common SMD sizes
-	const smdMatch = pkg.match(/(0201|0402|0603|0805|1206|1210|1812|2010|2512)/);
+	// Normalize only an exact passive chip-size label. A substring match would
+	// incorrectly collapse footprint-significant packages such as DFN0603-2L
+	// into generic 0603.
+	const smdMatch = pkg.match(/^(0201|0402|0603|0805|1206|1210|1812|2010|2512)$/);
 	if (smdMatch) return smdMatch[1];
 
-	// SOD/SOT packages
-	const sodMatch = pkg.match(/(SOD-\d+|SOT-\d+(?:-\d+)?)/i);
+	// Preserve footprint-significant SOD/SOT suffixes such as SOD-123FL and
+	// SOT-23-6L. Collapsing these creates misleading package matches.
+	const sodMatch = pkg.match(/(SOD-\d+(?:FL)?|SOT-\d+(?:-\d+)?L?)/i);
 	if (sodMatch) return sodMatch[1].toUpperCase();
 
 	return pkg;
@@ -354,7 +357,18 @@ function transformElectrolyticCapacitors(parts) {
  * Transform diode data
  */
 function transformDiodes(parts) {
-	const columns = ['SOD-123', 'SOD-323', 'SOD-523', 'SOT-23', 'SOT-23-3', 'SOT-23-5', 'SOT-23-6'];
+	const columns = [
+		'SOD-123',
+		'SOD-123FL',
+		'SOD-323',
+		'SOD-523',
+		'SOT-23',
+		'SOT-23-3',
+		'SOT-23-5',
+		'SOT-23-6',
+		'SOT-23-6L',
+		'SOT-323',
+	];
 	const data = {};
 
 	const diodes = parts.filter(p =>

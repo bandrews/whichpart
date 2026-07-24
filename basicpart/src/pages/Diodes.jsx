@@ -175,7 +175,7 @@ export function Diodes() {
 				<div class="page-header-text">
 					<h1 class="page-title">Diodes</h1>
 					<p class="page-subtitle">
-						{totalCount} diodes available as JLCPCB basic parts.
+						{totalCount} diodes from the current JLCPCB Basic and Preferred Extended catalog.
 						Search and filter to find the right diode for your application.
 					</p>
 				</div>
@@ -260,7 +260,7 @@ export function Diodes() {
 			)}
 
 			<p style={{ marginTop: 'var(--spacing-lg)', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
-				Data scraped from JLCPCB basic parts. Always verify specifications before ordering.
+				Basic and Preferred Extended snapshot data. Always verify specifications before ordering.
 			</p>
 		</div>
 	);

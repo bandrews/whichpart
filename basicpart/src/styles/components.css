@@ -57,6 +57,7 @@
 
 .tier-legend-items {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-lg);
 }
 
@@ -113,6 +114,29 @@
 .tier-legend-swatch.extended {
   background-color: var(--tier-extended-bg);
   border-color: var(--tier-extended-border);
+}
+
+.pick-tier-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border);
+  background: var(--tier-basic-bg);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.pick-tier-badge.preferred {
+  background: var(--tier-preferred-bg);
+  border-color: var(--tier-preferred-border);
+}
+
+.pick-tier-badge.extended {
+  background: var(--tier-extended-bg);
+  border-color: var(--tier-extended-border);
+  border-style: solid;
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 /* Component Grid table */

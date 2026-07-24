@@ -12,29 +12,28 @@ const __dirname = path.dirname(__filename);
 const tasksDir = path.join(__dirname, '..', 'tasks');
 const outputFile = path.join(__dirname, '..', 'src', 'data', 'friendly-descriptions.json');
 
-// Start with existing or empty object
-let merged = { _meta: { generated: new Date().toISOString().split('T')[0], description: 'Human-friendly part descriptions for basicp.art' } };
-if (fs.existsSync(outputFile)) {
-  try {
-    merged = JSON.parse(fs.readFileSync(outputFile, 'utf8'));
-  } catch (e) {
-    console.error('Error reading existing file:', e.message);
-  }
-}
+const generatedDate = new Date().toISOString().split('T')[0];
+const merged = {
+  _meta: {
+    generated: generatedDate,
+    catalogSnapshotDate: generatedDate,
+    description: 'Human-friendly part descriptions for basicp.art',
+  },
+};
 
 // Read all task output files
 const files = fs.readdirSync(tasksDir).filter(f => f.startsWith('descriptions-') && f.endsWith('.json'));
 console.log(`Found ${files.length} task output files`);
 
-let newCount = 0;
+let descriptionCount = 0;
 for (const file of files) {
   const filePath = path.join(tasksDir, file);
   try {
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     for (const [partId, desc] of Object.entries(data)) {
-      if (partId !== '_meta' && !merged[partId]) {
+      if (partId !== '_meta') {
         merged[partId] = desc;
-        newCount++;
+        descriptionCount++;
       }
     }
     console.log(`Merged ${file}`);
@@ -55,4 +54,4 @@ Object.keys(merged)
   .forEach(k => { sortedMerged[k] = merged[k]; });
 
 fs.writeFileSync(outputFile, JSON.stringify(sortedMerged, null, 2));
-console.log(`Merged ${newCount} new descriptions. Total: ${Object.keys(sortedMerged).length - 1} parts`);
+console.log(`Merged ${descriptionCount} descriptions. Total: ${Object.keys(sortedMerged).length - 1} parts`);

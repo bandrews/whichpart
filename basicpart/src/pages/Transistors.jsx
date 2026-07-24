@@ -215,7 +215,7 @@ export function Transistors() {
 				<div class="page-header-text">
 					<h1 class="page-title">Transistors</h1>
 					<p class="page-subtitle">
-						{totalCount} transistors available as JLCPCB basic parts.
+						{totalCount} transistors from the current JLCPCB Basic and Preferred Extended catalog.
 						Includes BJTs, MOSFETs, and Darlington arrays.
 					</p>
 				</div>
@@ -312,7 +312,7 @@ export function Transistors() {
 			)}
 
 			<p style={{ marginTop: 'var(--spacing-lg)', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
-				Data scraped from JLCPCB basic parts. Always verify specifications before ordering.
+				Basic and Preferred Extended snapshot data. Always verify specifications before ordering.
 			</p>
 		</div>
 	);

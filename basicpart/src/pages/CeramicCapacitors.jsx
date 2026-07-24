@@ -125,7 +125,7 @@ export function CeramicCapacitors() {
 				<div class="page-header-text">
 					<h1 class="page-title">Ceramic Capacitors (MLCC)</h1>
 					<p class="page-subtitle">
-						{partCount} multilayer ceramic capacitor values available as JLCPCB basic parts.
+						{partCount} multilayer ceramic capacitor values from the current JLCPCB Basic and Preferred Extended catalog.
 						Use filters to narrow by voltage rating and dielectric type.
 					</p>
 				</div>
@@ -296,8 +296,8 @@ export function CeramicCapacitors() {
 			)}
 
 			<p style={{ marginTop: 'var(--spacing-lg)', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
-				Data scraped from JLCPCB basic parts on {capacitorData.meta?.lastUpdated}.
-				Additional package sizes may be available in the extended library.
+				Basic and Preferred Extended data collected on {capacitorData.meta?.lastUpdated}.
+				Additional package sizes may be available as ordinary Extended parts.
 			</p>
 		</div>
 	);

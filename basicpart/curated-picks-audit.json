@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-07-24T03:19:43.898Z",
+  "picksDeclaredUpdatedAt": "2026-07-24",
+  "summary": {
+    "totalPicks": 59,
+    "qualifyingPicks": 49,
+    "extendedPicks": 10,
+    "validPicks": 59,
+    "totalIssues": 0,
+    "errors": 0,
+    "warnings": 0,
+    "byType": {}
+  },
+  "issues": []
+}

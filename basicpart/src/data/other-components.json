@@ -1,75 +1,480 @@
 {
   "meta": {
     "type": "other-components",
-    "lastUpdated": "2025-12-30"
+    "catalogSnapshotDate": "2026-07-24",
+    "curatedReviewedDate": "2026-07-24",
+    "lastUpdated": "2026-07-24"
   },
   "categories": [
     {
       "name": "Microcontrollers",
       "items": [
-        { "name": "RP2040", "description": "Dual-core ARM Cortex-M0+", "package": "QFN-56", "part": "C2040", "tier": "basic" },
-        { "name": "STM32F103C8T6", "description": "ARM Cortex-M3 72MHz", "package": "LQFP-48", "part": "C8734", "tier": "basic" },
-        { "name": "STM32G030F6P6", "description": "ARM Cortex-M0+ 64MHz", "package": "TSSOP-20", "part": "C529330", "tier": "basic" }
+        {
+          "name": "RP2040",
+          "description": "Dual-core 133MHz Arm Cortex-M0+ MCU",
+          "package": "LQFN-56(7x7)",
+          "part": "C2040",
+          "tier": "extended"
+        },
+        {
+          "name": "STM32F103C8T6",
+          "description": "72MHz Cortex-M3, 64KB Flash, 20KB SRAM",
+          "package": "LQFP-48(7x7)",
+          "part": "C8734",
+          "tier": "preferred"
+        },
+        {
+          "name": "STM32G030F6P6TR",
+          "description": "64MHz Cortex-M0+ MCU",
+          "package": "TSSOP-20",
+          "part": "C529330",
+          "tier": "extended"
+        },
+        {
+          "name": "STM32F030C8T6",
+          "description": "48MHz Cortex-M0, 64KB Flash, 8KB SRAM",
+          "package": "LQFP-48(7x7)",
+          "part": "C23922",
+          "tier": "preferred"
+        },
+        {
+          "name": "ATMEGA328P-AU",
+          "description": "20MHz 8-bit AVR, 32KB Flash, 2KB SRAM",
+          "package": "TQFP-32(7x7)",
+          "part": "C14877",
+          "tier": "preferred",
+          "notes": "Familiar Arduino-compatible MCU; Microchip marks this family not recommended for new designs."
+        }
       ]
     },
     {
       "name": "Connectors",
       "items": [
-        { "name": "USB-C 16P", "description": "USB Type-C Receptacle", "package": "SMD", "part": "C168688", "tier": "basic" },
-        { "name": "USB-C 6P", "description": "USB Type-C Power Only", "package": "SMD", "part": "C2765186", "tier": "basic" },
-        { "name": "JST-SH 4P", "description": "1.0mm Pitch Horizontal", "package": "SMD", "part": "C145956", "tier": "basic" },
-        { "name": "JST-SH 3P", "description": "1.0mm Pitch Horizontal", "package": "SMD", "part": "C160402", "tier": "basic" }
+        {
+          "name": "918-418K2024S40000",
+          "description": "16-contact USB Type-C receptacle",
+          "package": "SMD",
+          "part": "C168688",
+          "tier": "extended",
+          "notes": "Ordinary Extended part; verify its exact footprint and JLCPCB assembly restrictions before use."
+        },
+        {
+          "name": "TYPE-C 16PIN 2MD(073)",
+          "description": "16-contact 3A right-angle USB Type-C receptacle",
+          "package": "SMD",
+          "part": "C2765186",
+          "tier": "extended",
+          "notes": "This is a 16-contact connector, not a six-pin power-only receptacle. Verify the footprint and pin map."
+        }
       ]
     },
     {
       "name": "Crystals & Oscillators",
       "items": [
-        { "name": "12MHz Crystal", "description": "HC-49S", "package": "HC-49S", "part": "C9002", "tier": "basic" },
-        { "name": "25MHz Crystal", "description": "3225 SMD", "package": "3225", "part": "C13738", "tier": "basic" },
-        { "name": "32.768kHz Crystal", "description": "2012 SMD", "package": "2012", "part": "C32346", "tier": "basic" }
+        {
+          "name": "12MHz Crystal",
+          "description": "20pF load, ±10ppm nominal tolerance",
+          "package": "SMD3225-4P",
+          "part": "C9002",
+          "tier": "basic"
+        },
+        {
+          "name": "16MHz Crystal",
+          "description": "9pF load, ±10ppm nominal tolerance",
+          "package": "SMD3225-4P",
+          "part": "C13738",
+          "tier": "basic"
+        },
+        {
+          "name": "25MHz Crystal",
+          "description": "12pF load, ±10ppm nominal tolerance",
+          "package": "SMD3225-4P",
+          "part": "C9006",
+          "tier": "basic"
+        },
+        {
+          "name": "32.768kHz Crystal",
+          "description": "12.5pF load, ±20ppm",
+          "package": "SMD3215-2P",
+          "part": "C32346",
+          "tier": "basic"
+        }
       ]
     },
     {
-      "name": "Memory",
+      "name": "Memory & RTC",
       "items": [
-        { "name": "W25Q128JVSIQ", "description": "128Mbit SPI Flash", "package": "SOIC-8", "part": "C97521", "tier": "basic" },
-        { "name": "W25Q32JVSSIQ", "description": "32Mbit SPI Flash", "package": "SOIC-8", "part": "C571134", "tier": "basic" },
-        { "name": "24AA025E48T", "description": "2Kbit I2C EEPROM + MAC", "package": "SOT-23-5", "part": "C191662", "tier": "preferred" }
+        {
+          "name": "W25Q128JVSIQ",
+          "description": "128Mbit 133MHz SPI NOR Flash",
+          "package": "SOIC-8-208mil",
+          "part": "C97521",
+          "tier": "basic"
+        },
+        {
+          "name": "M24C02-WMN6TP",
+          "description": "2Kbit I2C EEPROM",
+          "package": "SOIC-8",
+          "part": "C7562",
+          "tier": "preferred"
+        },
+        {
+          "name": "AT24C256C-SSHL-T",
+          "description": "256Kbit 1MHz I2C EEPROM",
+          "package": "SOIC-8",
+          "part": "C6482",
+          "tier": "preferred"
+        },
+        {
+          "name": "PCF8563T/5,518",
+          "description": "Low-power I2C real-time clock with alarm and timer",
+          "package": "SO-8",
+          "part": "C7440",
+          "tier": "preferred"
+        }
       ]
     },
     {
-      "name": "Interface ICs",
+      "name": "Interfaces & Isolation",
       "items": [
-        { "name": "CH340C", "description": "USB to Serial", "package": "SOP-16", "part": "C84681", "tier": "basic" },
-        { "name": "SP3485", "description": "RS485 Transceiver", "package": "MSOP-8", "part": "C8963", "tier": "basic" },
-        { "name": "W5500", "description": "Ethernet PHY+MAC", "package": "QFN-48", "part": "C32843", "tier": "basic", "notes": "Popular all-in-one choice that doesn't require an onboard Ethernet MAC" },
-        { "name": "PCF8574", "description": "I2C GPIO Expander", "package": "SOP-16", "part": "C86607", "tier": "basic" }
+        {
+          "name": "CH340C",
+          "description": "USB-to-serial converter",
+          "package": "SOP-16",
+          "part": "C84681",
+          "tier": "extended",
+          "notes": "Useful for legacy designs; this catalog record is ordinary Extended and marked no longer manufactured."
+        },
+        {
+          "name": "SP3485EN-L/TR",
+          "description": "3.3V 10Mbps half-duplex RS-485 transceiver",
+          "package": "SOIC-8",
+          "part": "C8963",
+          "tier": "basic"
+        },
+        {
+          "name": "W5500",
+          "description": "SPI Ethernet controller with integrated MAC and PHY",
+          "package": "LQFP-48(7x7)",
+          "part": "C32843",
+          "tier": "extended",
+          "notes": "Popular all-in-one Ethernet choice that does not require an MCU with an onboard Ethernet MAC."
+        },
+        {
+          "name": "SN65HVD230DR",
+          "description": "3.3V 1Mbps CAN transceiver",
+          "package": "SOIC-8",
+          "part": "C12084",
+          "tier": "preferred"
+        },
+        {
+          "name": "TJA1050T/CM,118",
+          "description": "5V 1Mbps CAN transceiver",
+          "package": "SOP-8",
+          "part": "C6952",
+          "tier": "preferred"
+        },
+        {
+          "name": "CP2102-GMR",
+          "description": "USB 2.0 to UART bridge",
+          "package": "WQFN-28-EP(5x5)",
+          "part": "C6568",
+          "tier": "preferred"
+        },
+        {
+          "name": "SN74LVC4245APWR",
+          "description": "Eight-bit bidirectional 5V-to-3.3V level translator",
+          "package": "TSSOP-24",
+          "part": "C7859",
+          "tier": "preferred"
+        },
+        {
+          "name": "SP485EEN-L/TR",
+          "description": "5V 10Mbps half-duplex RS-485 transceiver",
+          "package": "SOIC-8",
+          "part": "C6855",
+          "tier": "basic"
+        },
+        {
+          "name": "SP3232EEY-L/TR",
+          "description": "3V-to-5.5V dual RS-232 transceiver",
+          "package": "TSSOP-16",
+          "part": "C13482",
+          "tier": "basic"
+        },
+        {
+          "name": "ADUM1201ARZ-RL7",
+          "description": "Two-channel 2.5kVrms digital isolator, one channel each direction",
+          "package": "SOIC-8",
+          "part": "C9669",
+          "tier": "preferred"
+        }
       ]
     },
     {
-      "name": "Power Management",
+      "name": "Power & Battery",
       "items": [
-        { "name": "AMS1117-3.3", "description": "3.3V 1A LDO", "package": "SOT-223", "part": "C6186", "tier": "basic" },
-        { "name": "ME6211C33M5G", "description": "3.3V 500mA LDO", "package": "SOT-23-5", "part": "C82942", "tier": "basic" },
-        { "name": "XL1509-5.0E1", "description": "5V 2A Buck", "package": "SOP-8", "part": "C61063", "tier": "basic" }
+        {
+          "name": "AMS1117-3.3",
+          "description": "3.3V 1A linear regulator",
+          "package": "SOT-223",
+          "part": "C6186",
+          "tier": "basic"
+        },
+        {
+          "name": "XL1509-5.0E1",
+          "description": "Fixed 5V 2A buck converter, 4.5V-to-40V input",
+          "package": "SOIC-8",
+          "part": "C61063",
+          "tier": "basic"
+        },
+        {
+          "name": "TPS5430DDAR",
+          "description": "3A 500kHz adjustable buck converter, 5.5V-to-36V input",
+          "package": "SOIC-8-EP",
+          "part": "C9864",
+          "tier": "basic"
+        },
+        {
+          "name": "XC6206P332MR-G",
+          "description": "Fixed 3.3V 200mA linear regulator",
+          "package": "SOT-23-3L",
+          "part": "C5446",
+          "tier": "basic"
+        },
+        {
+          "name": "TP4056-42-ESOP8",
+          "description": "Single-cell 4.2V lithium battery charger, up to 1A",
+          "package": "ESOP-8",
+          "part": "C16581",
+          "tier": "preferred",
+          "notes": "Charger only; it does not provide battery protection or power-path management."
+        },
+        {
+          "name": "TPS61040DBVR",
+          "description": "1MHz adjustable boost converter, 1.8V-to-6V input",
+          "package": "SOT-23-5",
+          "part": "C7722",
+          "tier": "preferred"
+        },
+        {
+          "name": "ICL7660AIBAZA-T",
+          "description": "1.5V-to-12V inverting charge pump",
+          "package": "SOIC-8",
+          "part": "C7881",
+          "tier": "preferred"
+        }
+      ]
+    },
+    {
+      "name": "Analog, Timing & Logic",
+      "items": [
+        {
+          "name": "MCP6002T-I/SN",
+          "description": "Dual 1MHz rail-to-rail-input/output op-amp",
+          "package": "SOIC-8",
+          "part": "C7377",
+          "tier": "preferred"
+        },
+        {
+          "name": "LM358DR2G",
+          "description": "Wide-supply dual general-purpose op-amp",
+          "package": "SOIC-8",
+          "part": "C7950",
+          "tier": "basic"
+        },
+        {
+          "name": "OP07CDR",
+          "description": "Low-offset precision op-amp for dual-supply designs",
+          "package": "SOIC-8",
+          "part": "C7433",
+          "tier": "basic"
+        },
+        {
+          "name": "LM393DR2G",
+          "description": "Wide-supply dual comparator",
+          "package": "SOIC-8",
+          "part": "C7955",
+          "tier": "basic"
+        },
+        {
+          "name": "CD4051BM96",
+          "description": "Eight-to-one bidirectional analog multiplexer",
+          "package": "SOIC-16-150mil",
+          "part": "C21379",
+          "tier": "preferred"
+        },
+        {
+          "name": "NE555DR",
+          "description": "General-purpose bipolar 555 timer",
+          "package": "SOIC-8",
+          "part": "C7593",
+          "tier": "preferred"
+        },
+        {
+          "name": "74HC14D,653",
+          "description": "Six Schmitt-trigger inverters",
+          "package": "SOIC-14",
+          "part": "C5605",
+          "tier": "basic"
+        },
+        {
+          "name": "74HC595D,118",
+          "description": "Eight-bit serial-in, parallel-out shift register",
+          "package": "SOIC-16",
+          "part": "C5947",
+          "tier": "basic"
+        },
+        {
+          "name": "74HC165D,653",
+          "description": "Eight-bit parallel-in, serial-out shift register",
+          "package": "SOIC-16",
+          "part": "C5613",
+          "tier": "preferred"
+        },
+        {
+          "name": "ULN2003ADR",
+          "description": "Seven-channel 500mA Darlington transistor array",
+          "package": "SOIC-16",
+          "part": "C7512",
+          "tier": "basic"
+        },
+        {
+          "name": "SN74AHCT1G125DBVR",
+          "description": "Single non-inverting three-state buffer",
+          "package": "SOT-23-5",
+          "part": "C7484",
+          "tier": "extended"
+        }
       ]
     },
     {
       "name": "LEDs",
       "items": [
-        { "name": "Red LED", "description": "0603 SMD", "package": "0603", "part": "C2286", "tier": "basic" },
-        { "name": "Green LED", "description": "0603 SMD", "package": "0603", "part": "C72043", "tier": "basic" },
-        { "name": "Blue LED", "description": "0603 SMD", "package": "0603", "part": "C72041", "tier": "basic" },
-        { "name": "White LED", "description": "0603 SMD", "package": "0603", "part": "C2290", "tier": "basic" },
-        { "name": "WS2812B", "description": "Addressable RGB", "package": "5050", "part": "C114586", "tier": "basic" }
+        {
+          "name": "Red LED",
+          "description": "0603 indicator LED",
+          "package": "0603",
+          "part": "C2286",
+          "tier": "basic"
+        },
+        {
+          "name": "Green LED",
+          "description": "0603 indicator LED",
+          "package": "0603",
+          "part": "C72043",
+          "tier": "extended"
+        },
+        {
+          "name": "Blue LED",
+          "description": "0603 indicator LED",
+          "package": "0603",
+          "part": "C72041",
+          "tier": "extended"
+        },
+        {
+          "name": "White LED",
+          "description": "0603 indicator LED",
+          "package": "0603",
+          "part": "C2290",
+          "tier": "basic"
+        },
+        {
+          "name": "WS2812B",
+          "description": "Individually addressable RGB LED",
+          "package": "5050",
+          "part": "C114586",
+          "tier": "extended"
+        }
       ]
     },
     {
-      "name": "Protection & Drivers",
+      "name": "Protection & Discretes",
       "items": [
-        { "name": "SRV05-4", "description": "5V 4-Line ESD Protection", "package": "SOT-23-6", "part": "C85364", "tier": "basic" },
-        { "name": "ULN2003A", "description": "7-Ch Darlington Driver", "package": "SOIC-16", "part": "C7548", "tier": "basic" },
-        { "name": "SN74AHCT1G125", "description": "Single Bus Buffer", "package": "SOT-23-5", "part": "C7484", "tier": "basic" }
+        {
+          "name": "SRV05-4-P-T7",
+          "description": "Four-channel 5V low-capacitance ESD protector",
+          "package": "SOT-23-6",
+          "part": "C85364",
+          "tier": "preferred"
+        },
+        {
+          "name": "AO3400A",
+          "description": "30V 5.7A N-channel MOSFET, 48mΩ at 2.5V gate drive",
+          "package": "SOT-23",
+          "part": "C20917",
+          "tier": "basic"
+        },
+        {
+          "name": "AO3401A",
+          "description": "30V 4A P-channel MOSFET, 85mΩ at 2.5V gate drive",
+          "package": "SOT-23",
+          "part": "C15127",
+          "tier": "basic"
+        },
+        {
+          "name": "BSS138W",
+          "description": "50V 220mA N-channel MOSFET for low-current switching",
+          "package": "SOT-323",
+          "part": "C28646265",
+          "tier": "preferred"
+        },
+        {
+          "name": "BAT54C,215",
+          "description": "30V 200mA dual common-cathode Schottky diode",
+          "package": "SOT-23",
+          "part": "C37704",
+          "tier": "preferred"
+        },
+        {
+          "name": "MB10S-50MIL",
+          "description": "1A 1kV single-phase bridge rectifier",
+          "package": "MBS",
+          "part": "C2488",
+          "tier": "basic"
+        },
+        {
+          "name": "US1M",
+          "description": "1A 1kV 75ns fast-recovery diode",
+          "package": "SMA",
+          "part": "C412437",
+          "tier": "basic"
+        },
+        {
+          "name": "BAV99W",
+          "description": "75V 150mA dual-series 4ns switching diode",
+          "package": "SOT-323",
+          "part": "C7502727",
+          "tier": "preferred"
+        },
+        {
+          "name": "SS14",
+          "description": "1A 40V Schottky rectifier",
+          "package": "SMA_DO-214AC",
+          "part": "C7420316",
+          "tier": "preferred"
+        },
+        {
+          "name": "H5VL10B",
+          "description": "Bidirectional 5V ESD protector for lower-speed signal lines",
+          "package": "DFN1006-2L",
+          "part": "C7420372",
+          "tier": "preferred",
+          "notes": "Its approximately 15pF capacitance is not a good fit for high-speed USB data lines."
+        }
+      ]
+    },
+    {
+      "name": "Sensors",
+      "items": [
+        {
+          "name": "MPU-6050",
+          "description": "Six-axis 16-bit accelerometer and gyroscope",
+          "package": "QFN-24-EP(4x4)",
+          "part": "C24112",
+          "tier": "preferred",
+          "notes": "Useful for legacy ecosystem compatibility; TDK marks the MPU-6050 discontinued."
+        }
       ]
     }
   ]

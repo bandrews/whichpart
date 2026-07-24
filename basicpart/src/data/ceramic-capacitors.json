@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "ceramic-capacitor",
-    "lastUpdated": "2026-01-12",
+    "lastUpdated": "2026-07-24",
     "columns": [
       "0402",
       "0603",
@@ -371,15 +371,6 @@
       },
       "0603": {
         "part": "C1679",
-        "tier": "preferred"
-      }
-    },
-    "33nF_50V_Y5V": {
-      "display": "33nF",
-      "voltage": "50V",
-      "dielectric": "Y5V",
-      "0402": {
-        "part": "C1585",
         "tier": "preferred"
       }
     },
@@ -970,6 +961,15 @@
       "0603": {
         "part": "C1322360",
         "tier": "basic"
+      }
+    },
+    "33nF_50V_Y5V": {
+      "display": "33nF",
+      "voltage": "50V",
+      "dielectric": "Y5V",
+      "0402": {
+        "part": "C1585",
+        "tier": "preferred"
       }
     }
   }

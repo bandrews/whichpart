@@ -153,9 +153,9 @@ export function AllBasicParts() {
 			<div class="page-header">
 				<img src={imgBucket} alt="" class="page-header-image" />
 				<div class="page-header-text">
-					<h1 class="page-title">All Basic Parts</h1>
+					<h1 class="page-title">All Basic & Preferred Parts</h1>
 					<p class="page-subtitle">
-						Browse all {totalParts} basic and promotional extended parts from JLCPCB.
+						Browse all {totalParts} Basic and Preferred Extended parts from the current JLCPCB snapshot.
 						{!includeShown && ` Showing ${filteredParts.length} parts not shown on other pages.`}
 					</p>
 				</div>

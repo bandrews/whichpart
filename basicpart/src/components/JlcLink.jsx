@@ -1,13 +1,14 @@
 import { useState, useRef, useEffect } from 'preact/hooks';
 import { createPortal } from 'preact/compat';
 import friendlyDescriptions from '../data/friendly-descriptions.json';
+import partsIndex from '../data/parts-index.json';
 
 /**
  * Clickable part number with hover info and navigation to details
  *
  * @param {Object} props
  * @param {string} props.part - Part number (e.g., "C17513")
- * @param {string} props.tier - Part tier: "basic" or "preferred"
+ * @param {string} props.tier - Part tier: "basic", "preferred", or "extended"
  * @param {string} props.info - Optional info to show on hover (e.g., "50V X7R")
  * @param {string} props.description - Optional longer description for tooltip
  * @param {string} props.specs - Optional specs to show below part number (e.g., "16V X7R")
@@ -15,6 +16,7 @@ import friendlyDescriptions from '../data/friendly-descriptions.json';
 export function JlcLink({ part, tier = 'basic', info, description, specs }) {
 	// Use friendly description if available
 	const friendlyDesc = friendlyDescriptions[part];
+	const hasLocalDetails = Boolean(partsIndex[part]);
 	const [copied, setCopied] = useState(false);
 	const [showTooltip, setShowTooltip] = useState(false);
 	const [tooltipPos, setTooltipPos] = useState(null);
@@ -74,6 +76,12 @@ export function JlcLink({ part, tier = 'basic', info, description, specs }) {
 			return;
 		}
 
+		// Parts outside the refreshed Basic/Preferred catalog do not have a
+		// local details record. Let the normal external JLCPCB link open.
+		if (!hasLocalDetails) {
+			return;
+		}
+
 		// Regular click: navigate to details page
 		e.preventDefault();
 		window.location.href = `/part/${part}`;
@@ -111,7 +119,7 @@ export function JlcLink({ part, tier = 'basic', info, description, specs }) {
 			{info && !friendlyDesc && <div class="jlc-tooltip-info">{info}</div>}
 			{description && <div class="jlc-tooltip-desc">{description}</div>}
 			<div class="jlc-tooltip-hint">
-				Click for details | Shift+click to copy
+				{hasLocalDetails ? 'Click for details' : 'Click to view on JLCPCB'} | Shift+click to copy
 			</div>
 		</div>,
 		document.body

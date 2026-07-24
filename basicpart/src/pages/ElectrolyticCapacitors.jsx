@@ -29,13 +29,13 @@ export function ElectrolyticCapacitors() {
 					<p class="page-subtitle">
 						{partCount > 0 ? (
 							<>
-								{partCount} tantalum capacitor values available as JLCPCB basic parts.
-								Most electrolytic capacitors are in the extended library.
+								{partCount} tantalum capacitor values in the current JLCPCB Basic and Preferred Extended catalog.
+								Most electrolytic capacitors are ordinary Extended parts.
 							</>
 						) : (
 							<>
-								Very few electrolytic capacitors are available as basic parts.
-								Check the JLCPCB extended library for more options.
+								Very few electrolytic capacitors are available as Basic or Preferred Extended parts.
+								Check the broader JLCPCB library for ordinary Extended options.
 							</>
 						)}
 					</p>
@@ -63,7 +63,7 @@ export function ElectrolyticCapacitors() {
 					/>
 
 					<p style={{ marginTop: 'var(--spacing-lg)', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
-						Data scraped from JLCPCB basic parts on {capacitorData.meta?.lastUpdated}.
+						Basic and Preferred Extended data collected on {capacitorData.meta?.lastUpdated}.
 					</p>
 				</>
 			)}
@@ -77,8 +77,8 @@ export function ElectrolyticCapacitors() {
 			}}>
 				<h3 style={{ marginBottom: 'var(--spacing-sm)' }}>Looking for more options?</h3>
 				<p style={{ color: 'var(--text-secondary)', marginBottom: 'var(--spacing-sm)' }}>
-					JLCPCB's extended library has hundreds of electrolytic and tantalum capacitors.
-					Extended parts have a small additional fee but offer much more variety.
+					JLCPCB's broader library has hundreds of ordinary Extended electrolytic and tantalum capacitors.
+					Feeder-loading charges depend on the selected PCBA service, so confirm the current order pricing before use.
 				</p>
 				<a
 					href="https://jlcpcb.com/parts"

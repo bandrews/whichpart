@@ -6,8 +6,16 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"scrape": "node scripts/scrape-jlcpcb.js",
+		"diff": "node scripts/catalog-diff.js",
 		"transform": "node scripts/transform-data.js",
-		"validate": "node scripts/validate-data.js"
+		"index": "node scripts/generate-parts-index.js",
+		"descriptions": "node scripts/merge-descriptions.js",
+		"validate": "node scripts/validate-data.js",
+		"audit": "node scripts/audit-data.js",
+		"audit:curated": "node scripts/audit-curated-picks.js",
+		"audit:curated:strict": "node scripts/audit-curated-picks.js --strict",
+		"refresh:from-raw": "npm run diff && npm run transform && npm run index && npm run descriptions && npm run validate && npm run audit && npm run audit:curated:strict && npm run build",
+		"refresh": "npm run scrape && npm run refresh:from-raw"
 	},
 	"dependencies": {
 		"preact": "^10.22.1",

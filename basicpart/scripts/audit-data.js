@@ -24,13 +24,13 @@ const EXPECTED_CATEGORIES = {
 	'ceramic-capacitor': ['Multilayer Ceramic Capacitors MLCC - SMD/SMT'],
 	'electrolytic-capacitor': ['Tantalum Capacitors', 'Aluminum Electrolytic Capacitors - SMD'],
 	diode: [
-		'Schottky Barrier Diodes (SBD)',
+		'Schottky Diodes',
 		'Zener Diodes',
-		'TVS',
-		'ESD Protection Devices',
+		'ESD and Surge Protection (TVS/ESD)',
 		'Switching Diodes',
 		'Diodes - General Purpose',
-		'Rectifiers',
+		'Bridge Rectifiers',
+		'Fast Recovery / High Efficiency Diodes',
 	],
 };
 
@@ -42,6 +42,14 @@ const PACKAGE_RED_FLAGS = {
 	'0805': /0805x/i,
 	'1206': /1206x/i,
 };
+
+function partCells(entry) {
+	return Object.entries(entry).filter(([, value]) =>
+		value &&
+		typeof value === 'object' &&
+		typeof value.part === 'string'
+	);
+}
 
 function loadPartsIndex() {
 	const indexPath = path.join(DATA_DIR, 'parts-index.json');
@@ -59,10 +67,8 @@ function auditResistors(partsIndex) {
 	const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
 	for (const [value, entry] of Object.entries(data.data)) {
-		for (const pkg of data.meta.columns) {
-			if (!entry[pkg]) continue;
-
-			const partNum = entry[pkg].part;
+		for (const [pkg, cell] of partCells(entry)) {
+			const partNum = cell.part;
 			const partInfo = partsIndex[partNum];
 
 			if (!partInfo) {
@@ -144,10 +150,8 @@ function auditCeramicCapacitors(partsIndex) {
 	const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
 	for (const [key, entry] of Object.entries(data.data)) {
-		for (const pkg of data.meta.columns) {
-			if (!entry[pkg]) continue;
-
-			const partNum = entry[pkg].part;
+		for (const [pkg, cell] of partCells(entry)) {
+			const partNum = cell.part;
 			const partInfo = partsIndex[partNum];
 
 			if (!partInfo) {
@@ -211,10 +215,8 @@ function auditElectrolyticCapacitors(partsIndex) {
 	const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
 	for (const [key, entry] of Object.entries(data.data)) {
-		for (const pkg of data.meta.columns) {
-			if (!entry[pkg]) continue;
-
-			const partNum = entry[pkg].part;
+		for (const [pkg, cell] of partCells(entry)) {
+			const partNum = cell.part;
 			const partInfo = partsIndex[partNum];
 
 			if (!partInfo) {
@@ -227,6 +229,19 @@ function auditElectrolyticCapacitors(partsIndex) {
 					message: `Part ${partNum} not found in parts-index.json`,
 				});
 				continue;
+			}
+
+			if (!EXPECTED_CATEGORIES['electrolytic-capacitor'].includes(partInfo.cat)) {
+				issues.push({
+					type: 'category_mismatch',
+					file: 'electrolytic-capacitors.json',
+					location: `${key}/${pkg}`,
+					partNumber: partNum,
+					severity: 'error',
+					expected: EXPECTED_CATEGORIES['electrolytic-capacitor'],
+					actual: partInfo.cat,
+					message: `Part ${partNum} has category "${partInfo.cat}" but expected a supported electrolytic/tantalum category`,
+				});
 			}
 
 			// Check package
@@ -259,10 +274,8 @@ function auditDiodes(partsIndex) {
 	const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
 	for (const [key, entry] of Object.entries(data.data)) {
-		for (const pkg of data.meta.columns) {
-			if (!entry[pkg]) continue;
-
-			const partNum = entry[pkg].part;
+		for (const [pkg, cell] of partCells(entry)) {
+			const partNum = cell.part;
 			const partInfo = partsIndex[partNum];
 
 			if (!partInfo) {
@@ -275,6 +288,19 @@ function auditDiodes(partsIndex) {
 					message: `Part ${partNum} not found in parts-index.json`,
 				});
 				continue;
+			}
+
+			if (!EXPECTED_CATEGORIES.diode.includes(partInfo.cat)) {
+				issues.push({
+					type: 'category_mismatch',
+					file: 'diodes.json',
+					location: `${key}/${pkg}`,
+					partNumber: partNum,
+					severity: 'error',
+					expected: EXPECTED_CATEGORIES.diode,
+					actual: partInfo.cat,
+					message: `Part ${partNum} has category "${partInfo.cat}" but expected a supported diode category`,
+				});
 			}
 
 			// Check package

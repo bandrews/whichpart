@@ -6,8 +6,10 @@ import imgDiode from '../assets/diode.png';
 import imgTransistor from '../assets/transistor.png';
 import imgIC from '../assets/integratedcircuit.png';
 import imgBucket from '../assets/bucketoparts.png';
+import partsIndex from '../data/parts-index.json';
 
 export function Home() {
+	const catalogPartCount = Object.keys(partsIndex).length;
 	const categories = [
 		{
 			title: 'Resistors',
@@ -45,8 +47,8 @@ export function Home() {
 			ready: true,
 		},
 		{
-			title: 'All Basic Parts',
-			description: 'Browse all 1585 basic and preferred parts from JLCPCB',
+			title: 'All Basic & Preferred Parts',
+			description: `Browse all ${catalogPartCount} Basic and Preferred Extended parts from JLCPCB`,
 			href: '/all',
 			image: imgBucket,
 			ready: true,
@@ -62,10 +64,10 @@ export function Home() {
 
 	return (
 		<div>
-			<h1 class="page-title">JLCPCB Basic Parts Finder</h1>
+			<h1 class="page-title">JLCPCB Basic & Preferred Parts Finder</h1>
 			<p class="page-subtitle">
 				Find basic and preferred extended parts for your PCB designs.
-				Click a part number to copy it to your clipboard.
+				Click a part number for details; Shift-click or use the copy button to copy it.
 			</p>
 
 			<div class="home-grid">

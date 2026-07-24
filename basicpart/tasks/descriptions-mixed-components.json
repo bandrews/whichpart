@@ -1,4 +1,7 @@
 {
+  "_meta": {
+    "scope": "Mixed ICs, LEDs, crystals, switches, regulators, and other components"
+  },
   "C2286": "Red LED (0603)",
   "C2290": "White LED (0603)",
   "C2296": "Yellow LED (0805)",

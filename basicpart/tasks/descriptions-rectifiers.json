@@ -1,4 +1,7 @@
 {
+  "_meta": {
+    "scope": "Schottky, bridge, and fast-recovery rectifier diodes"
+  },
   "C2480": "40V 1A Schottky (SMA(DO-214AC))",
   "C2488": "1kV 1A Bridge Rectifier (MBS)",
   "C5377": "1kV 1A Bridge Rectifier (DBS)",

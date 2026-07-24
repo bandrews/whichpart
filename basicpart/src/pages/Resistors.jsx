@@ -43,7 +43,7 @@ export function Resistors() {
 				<div class="page-header-text">
 					<h1 class="page-title">Resistors</h1>
 					<p class="page-subtitle">
-						SMD chip resistors available as JLCPCB basic parts.
+						SMD chip resistors from the current JLCPCB Basic and Preferred Extended catalog.
 						All values are 1% tolerance unless otherwise noted.
 					</p>
 				</div>

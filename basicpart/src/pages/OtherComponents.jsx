@@ -23,6 +23,11 @@ export function OtherComponents() {
 		.filter(cat => cat.items.length > 0);
 
 	const totalParts = componentData.categories.reduce((sum, cat) => sum + cat.items.length, 0);
+	const tierLabel = {
+		basic: 'Basic',
+		preferred: 'Preferred Extended',
+		extended: 'Extended',
+	};
 
 	return (
 		<div>
@@ -31,12 +36,13 @@ export function OtherComponents() {
 				<div class="page-header-text">
 					<h1 class="page-title">Our Picks</h1>
 					<p class="page-subtitle">
-						Curated selection of {totalParts} useful ICs, connectors, and other components. These are our recommendations for common design needs.
+						Curated selection of {totalParts} useful ICs, connectors, and other components.
+						Ordinary Extended recommendations are highlighted in orange.
 					</p>
 				</div>
 			</div>
 
-			<TierLegend />
+			<TierLegend showToggle={false} includeExtended />
 
 			{/* Search and filter */}
 			<div class="filter-bar">
@@ -87,6 +93,7 @@ export function OtherComponents() {
 									<th>Component</th>
 									<th>Description</th>
 									<th>Package</th>
+									<th>Tier</th>
 									<th>Part Number</th>
 								</tr>
 							</thead>
@@ -103,6 +110,11 @@ export function OtherComponents() {
 											)}
 										</td>
 										<td>{item.package}</td>
+										<td>
+											<span class={`pick-tier-badge ${item.tier}`}>
+												{tierLabel[item.tier] || item.tier}
+											</span>
+										</td>
 										<td>
 											<JlcLink
 												part={item.part}
@@ -126,7 +138,8 @@ export function OtherComponents() {
 			)}
 
 			<p style={{ marginTop: 'var(--spacing-lg)', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
-				Data curated from JLCPCB basic parts. Last updated: {componentData.meta?.lastUpdated}.
+				Curated from the broader JLCPCB library and reviewed on {componentData.meta?.curatedReviewedDate || componentData.meta?.lastUpdated}.
+				Always confirm current tier, stock, package, and lifecycle status before ordering.
 			</p>
 		</div>
 	);
