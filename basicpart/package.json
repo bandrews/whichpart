@@ -18,12 +18,12 @@
 		"refresh": "npm run scrape && npm run refresh:from-raw"
 	},
 	"dependencies": {
-		"preact": "^10.22.1",
-		"preact-iso": "^2.6.3"
+		"preact": "^10.29.7",
+		"preact-iso": "^2.12.1"
 	},
 	"devDependencies": {
-		"@preact/preset-vite": "^2.9.0",
-		"playwright": "^1.40.0",
-		"vite": "^5.3.3"
+		"@preact/preset-vite": "^2.10.6",
+		"playwright": "^1.61.1",
+		"vite": "^8.1.5"
 	}
 }

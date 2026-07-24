@@ -99,6 +99,14 @@ footer p {
   margin: 0 auto;
 }
 
+footer .footer-meta {
+  margin-top: var(--spacing-xs);
+}
+
+footer a {
+  font-weight: 600;
+}
+
 /* Links */
 a {
   color: var(--accent);
