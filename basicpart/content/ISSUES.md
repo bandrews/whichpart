@@ -328,3 +328,31 @@ which two are surcharged Extended parts, when Basic alternatives may exist, is
 worth a second look. If the Extended parts are the right call anyway, the notes
 for them will remain thin — which the component files now say plainly rather than
 filling the gap with plausible-sounding numbers.
+
+---
+
+## 12. Twenty-seven parts in the qualifying snapshot have zero stock — Note
+
+**Where:** `parts-index.json`, snapshot 2026-07-24.
+
+**What was checked:** a scan of the `stock` field across all 1,586 qualifying
+parts.
+
+**Finding:** 27 parts show `stock: 0`, and a further 26 show fewer than 100
+units. Most are individual resistor and capacitor values, where an out-of-stock
+value is a routine inconvenience. Two are individually notable components that
+the site presents as normal choices:
+
+| Part | MPN | Tier | Stock |
+|---|---|---|---|
+| C75501 | 78L12G-AB3-R | preferred | 0 |
+| C719499 | FEMDRM008G-58A39 | preferred | 0 |
+
+**Why it matters:** a JLCPCB Basic or Preferred listing is an implicit statement
+that the part is readily assemblable. A zero-stock Preferred part is not, and a
+designer choosing from a table has no way to tell.
+
+**Suggested action:** The data is already there — `stock` is captured per part.
+Consider surfacing it in the UI, or at minimum sorting or flagging parts with
+zero or very low stock. A "low stock" badge would cost little and prevent a
+frustrating discovery at order time.
