@@ -102,3 +102,54 @@ Separately: at $6.22 in ones against $0.17 for the seven-channel ULN2003ADR
 (C7512), the price gap between these two parts is large enough that it may be
 worth flagging in the UI, or reconsidering whether the ULN2803A earns its place
 in the recommendations.
+
+---
+
+## 4. M24C64-RMN6TP — the catalog lists ECC as a feature, but ST ties it to the process letter — Note
+
+**Where:** `parts-index.json` entry for C79988 (`M24C64-RMN6TP`), attribute
+`Features: ... 、Built-in error correction code (ECC) function`.
+
+**What was checked:** STMicroelectronics *M24C64-W, M24C64-R, M24C64-F,
+M24C64-DF — 64-Kbit serial I²C bus EEPROM*, DS6638 Rev 38 (February 2023),
+Section 5.1.5.
+
+**Finding:** ST writes that the ECC "is offered only in devices identified with
+process letter K, all other devices (identified with a different process letter)
+do not embed the ECC logic." The order code `M24C64-RMN6TP` does not itself
+encode the process letter, so the presence of ECC is not determined by the part
+number the catalog lists.
+
+This matters beyond a feature checkbox: where ECC *is* present, writing a single
+byte cycles all four bytes of its ECC group, so the 4-million-cycle endurance
+budget is defined per group rather than per byte.
+
+**Suggested action:** Either qualify the attribute ("ECC on process-letter K
+devices only") or drop it. As written it promises a feature that the
+manufacturer's own datasheet declines to guarantee for a given order code.
+
+---
+
+## 5. L78M05ABDT-TR — ST's datasheet is watermarked "Obsolete Product(s)" — Error
+
+**Where:** `parts-index.json` entry for C58069 (`L78M05ABDT-TR`), listed as a
+JLCPCB **Basic** part with 117,309 units in stock at the 2026-07-24 snapshot.
+
+**What was checked:** STMicroelectronics *L78MxxAB, L78MxxAC — Precision 500 mA
+regulators*, Doc ID 2147 Rev 13 (May 2012), fetched from st.com.
+
+**Finding:** All 31 pages of the datasheet carry the watermark
+`Obsolete Product(s) - Obsolete Product(s)`. The document's cover still says
+"Datasheet − production data", so the two statements inside the same PDF
+disagree; the watermark is ST's standard marking for a discontinued product.
+
+**Suggested action:** This is worth surfacing. A Basic-tier part is one the site
+actively encourages people to design in, and Basic tier is exactly the situation
+where a designer is least likely to go and check lifecycle status themselves.
+Consider either a lifecycle warning on this part, or a general mechanism for
+flagging parts whose manufacturer documentation is marked obsolete — the
+ATMEGA328P-AU note (issue 1) suggests this will not be the only case.
+
+Note that stock and tier are LCSC/JLCPCB facts and remain true; obsolete at the
+manufacturer does not mean unavailable today. It does mean the supply has an end
+date.
