@@ -340,13 +340,17 @@ parts.
 
 **Finding:** 27 parts show `stock: 0`, and a further 26 show fewer than 100
 units. Most are individual resistor and capacitor values, where an out-of-stock
-value is a routine inconvenience. Two are individually notable components that
-the site presents as normal choices:
+value is a routine inconvenience. Several, though, are individually notable
+components that the site presents as normal choices — including every one of the
+three large memory devices in the catalog:
 
 | Part | MPN | Tier | Stock |
 |---|---|---|---|
 | C75501 | 78L12G-AB3-R | preferred | 0 |
-| C719499 | FEMDRM008G-58A39 | preferred | 0 |
+| C719499 | FEMDRM008G-58A39 (8 GB eMMC) | preferred | 0 |
+| C5126825 | F35UQA512M-WWT (512 Mbit SPI NAND) | preferred | 0 |
+| C6847463 | MT25QU512ABB8E12-0AUT (512 Mbit NOR) | preferred | 0 |
+| C42432160 | IS281B-N-AXW (optocoupler) | preferred | 4 |
 
 **Why it matters:** a JLCPCB Basic or Preferred listing is an implicit statement
 that the part is readily assemblable. A zero-stock Preferred part is not, and a
