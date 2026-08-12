@@ -153,3 +153,29 @@ ATMEGA328P-AU note (issue 1) suggests this will not be the only case.
 Note that stock and tier are LCSC/JLCPCB facts and remain true; obsolete at the
 manufacturer does not mean unavailable today. It does mean the supply has an end
 date.
+
+---
+
+## 6. ADUM1201ARZ-RL7 — the catalog understates the data rate by 25× — Error
+
+**Where:** `parts-index.json` entry for C9669 (`ADUM1201ARZ-RL7`), attribute
+`Data Rate(Max): 1Mbps`.
+
+**What was checked:** Analog Devices *ADuM1200/ADuM1201 — Dual-Channel Digital
+Isolators*, Rev. L, Features page 1.
+
+**Finding:** ADI specifies "High data rate: dc to 25 Mbps (NRZ)" and gives supply
+current at 0–2 Mbps, 10 Mbps and 25 Mbps operating points. The catalog's 1 Mbps
+figure is not a number that appears in the datasheet.
+
+The `ARZ` order code is the part's temperature/package grade, not a speed grade —
+ADI's speed grades for this family are denoted by the `W`/`B`/`C` letter after
+the channel-configuration digits, and none of them is 1 Mbps.
+
+**Why it matters:** This is the kind of error that causes someone to reject a
+suitable part. Anyone isolating an SPI bus or a fast UART would look at 1 Mbps
+and go elsewhere.
+
+**Suggested action:** Correct the attribute to 25 Mbps, or drop it and let the
+datasheet link speak. The component note for C9669 quotes the datasheet figure
+and flags the discrepancy.
