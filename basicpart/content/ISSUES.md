@@ -214,3 +214,37 @@ Separately, both parts' output-current attributes (100 mA for the HT7533-1,
 150 mA for the HT7550-1) are the datasheet's *typical* values; the guaranteed
 minima are 60 mA and 100 mA respectively. That is not an error, but it is worth
 knowing the site's figures are typicals here.
+
+---
+
+## 8. AMS1117-3.3 and AMS1117-5.0 — temperature range and input voltage disagree with the datasheet — Note
+
+**Where:** `parts-index.json` entries for C6186 (`AMS1117-3.3`) and C6187
+(`AMS1117-5.0`), attributes `Operating Temperature: -40℃~+125℃` and
+`Voltage - Supply: 15V`.
+
+**What was checked:** Advanced Monolithic Systems *AMS1117 — 1A Adjustable/Fixed
+Low Dropout Linear Regulator*, AMS1117_20120314 (14 March 2012), obtained from
+ams-semitech.com after advanced-monolithic.com returned HTTP 503.
+
+**Finding:**
+
+| Attribute | Catalog | Datasheet |
+|---|---|---|
+| Operating temperature | −40 °C to +125 °C | Operating **junction** temperature range −20 °C to +125 °C |
+| Input voltage | 15 V | 4.8 V–10.3 V (3.3 V part) / 6.5 V–12 V (5.0 V part) for guaranteed regulation |
+
+Neither is straightforwardly wrong — the input-voltage rows in the datasheet are
+the conditions under which output accuracy is *guaranteed*, not an absolute
+maximum, and different AMS1117 datasheet revisions from different vendors quote
+different absolute maxima. But a reader taking "15 V" and "−40 °C" from the site
+would be outside what this datasheet underwrites.
+
+**Suggested action:** Low priority. If the attributes are ever revisited,
+quoting the guaranteed input range per output voltage would be more useful than
+a single 15 V figure, and the −20 °C junction floor is worth reflecting.
+
+Note also that the AMS1117 part number is widely second-sourced and relabelled;
+different manufacturers' AMS1117 datasheets genuinely differ in these numbers.
+The LCSC record names Advanced Monolithic Systems specifically, which is what
+this note is checked against.
