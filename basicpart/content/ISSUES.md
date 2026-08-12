@@ -248,3 +248,33 @@ Note also that the AMS1117 part number is widely second-sourced and relabelled;
 different manufacturers' AMS1117 datasheets genuinely differ in these numbers.
 The LCSC record names Advanced Monolithic Systems specifically, which is what
 this note is checked against.
+
+---
+
+## 9. House-brand discretes have no reachable manufacturer datasheet — Note
+
+**Where:** several `parts-index.json` entries whose manufacturer is
+`hongjiacheng` or `MDD(Microdiode Semiconductor)` — including C7502727
+(`BAV99W`), C7420316 (`SS14`), C7420372 (`H5VL10B`), C28646265 (`BSS138W`),
+C2488 (`MB10S-50MIL`) and C412437 (`US1M`).
+
+**What was checked:** the `ds` field in `parts-index.json` for these parts points
+at `lcsc.com/datasheet/...`. Every request to that host returns the LCSC
+navigation page rather than the PDF, whether by `curl` or by the fetch tool, so
+these datasheets could not be retrieved.
+
+**Finding:** These are industry-standard *types* (BAV99W, SS14, MB10S, US1M,
+BSS138) rather than proprietary designs, so other manufacturers' datasheets are
+available and describe the same function. But the numbers are not always the
+same. The clearest example found: the catalog rates C7502727 (`BAV99W`,
+hongjiacheng) at 75 V reverse, while Nexperia's BAV99W is rated 100 V.
+
+**How the notes handle it:** for these parts the component note cites the catalog
+record as the primary source for every figure, names it as such in the
+specification table, and cites a named manufacturer's datasheet for the same
+industry type separately and explicitly — never blending the two.
+
+**Suggested action:** No data change needed. But it is worth knowing that for
+this class of part the site's attribute data *is* the specification of record,
+and there is no second source to check it against. If the pipeline ever gains a
+"datasheet reachable?" check, these would be the parts it flags.
