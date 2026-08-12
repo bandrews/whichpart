@@ -301,3 +301,30 @@ unguaranteed range.
 
 **Suggested action:** Correct to −40 °C to +85 °C, or verify against Microchip's
 product page for this specific order code.
+
+---
+
+## 11. Two curated LEDs are Extended parts with no specification data at all — Note
+
+**Where:** `src/data/other-components.json`, LEDs → `Green LED` (C72043) and
+`Blue LED` (C72041), both `"tier": "extended"`.
+
+**What was checked:** the curated list carries only a name, a description
+("0603 indicator LED"), a package and a C-number for these two. Because they are
+ordinary Extended parts they are absent from `parts-index.json`, so there is no
+manufacturer, no forward voltage, no current rating, no luminous intensity, and
+no price or stock data anywhere in the repository. The LCSC datasheet is not
+reachable to automated fetching.
+
+**Finding:** This is not an error, but it is an asymmetry worth noticing. The red
+(C2286) and white (C2290) LEDs in the same recommendation group are Basic-tier
+parts from Hubei KENTO with full attribute data. The green and blue ones are
+Extended-tier parts with none — meaning they cost more to assemble *and* the site
+can say less about them.
+
+**Suggested action:** Check whether Hubei KENTO (or another supplier) has
+qualifying Basic or Preferred green and blue 0603 LEDs. Recommending four LEDs of
+which two are surcharged Extended parts, when Basic alternatives may exist, is
+worth a second look. If the Extended parts are the right call anyway, the notes
+for them will remain thin — which the component files now say plainly rather than
+filling the gap with plausible-sounding numbers.
