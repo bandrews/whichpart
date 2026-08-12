@@ -68,3 +68,37 @@ units error in TI's document — milliseconds would make the part unusable, and
 manufacturer's own document. But the specification tables are the normative part
 of a TI datasheet, so `12 MHz` and `5 V/µs` would be the safer values to display.
 The component note for C7426 quotes the tables and flags the discrepancy.
+
+---
+
+## 3. ULN2803A — TI's datasheet is no longer retrievable, and the "C" successor is a different package — Note
+
+**Where:** `parts-index.json` entry for C9683 (`ULN2803ADWR`).
+
+**What was checked:** Every `ti.com/lit/` path for the ULN2803A datasheet
+(SLRS049 / SLRS049H, February 1997, revised February 2017) returned HTTP 404
+during this work, including `lit/ds/symlink/uln2803a.pdf`,
+`lit/ds/slrs049h/slrs049h.pdf` and `lit/pdf/slrs049`. The seven-channel
+ULN2003A datasheet (SLRS027T) and the newer ULN2803C datasheet (SLRS076B) both
+download normally.
+
+**Finding:** Two things follow.
+
+1. The spec note for C9683 has to source its electrical figures from the catalog
+   record rather than from a manufacturer datasheet. Those figures are
+   internally consistent with the ULN2003A's, which is reassuring but not the
+   same as verified.
+2. TI's current ULN2803C is described in SLRS076B as a **20-pin** SOIC (DW)
+   device, while the ULN2803A in this catalog is an **18-pin** part
+   (`SOIC-18-300mil`). Anyone treating the ULN2803C as a drop-in replacement
+   would get a footprint mismatch.
+
+**Suggested action:** Nothing to fix in the data. Worth knowing that the LCSC
+datasheet link for C9683 is the only readily available copy, and worth
+recording the 18-pin / 20-pin difference somewhere user-visible if the site ever
+suggests successors.
+
+Separately: at $6.22 in ones against $0.17 for the seven-channel ULN2003ADR
+(C7512), the price gap between these two parts is large enough that it may be
+worth flagging in the UI, or reconsidering whether the ULN2803A earns its place
+in the recommendations.
