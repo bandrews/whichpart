@@ -12,7 +12,7 @@ part: C7593                       # LCSC C-number; matches the key in parts-inde
 mpn: NE555DR                      # manufacturer part number, as the catalog spells it
 manufacturer: Texas Instruments
 category: 555 Timers / Counters   # catalog category, verbatim
-kind: analog-timing-logic         # one of the kinds listed below
+kind: analog                      # one of the kinds listed below
 package: SOIC-8
 tier: preferred                   # basic | preferred | extended
 catalog_snapshot: 2026-07-24
@@ -93,6 +93,11 @@ side by side or rendered into a common table.
 | `sensor` | Measurand and ranges; Interface; Resolution; Supply voltage; Supply current; Operating temperature |
 | `connector` | Contact count; Current rating; Voltage rating; Mating cycles; Mounting; Operating temperature |
 | `isolation` | Function; Isolation rating; Channel count and direction; Maximum data rate; Supply voltage; Operating temperature |
+
+Three further kinds are used only by family files, which carry a different table
+(see below): `passive` (resistors, capacitors, inductors, ferrite beads,
+resistor arrays), `discrete` (bipolar transistors) and `electromechanical`
+(tactile switches).
 
 A part that genuinely has no meaningful value for a row keeps the row and writes
 `Not specified [1]` — an absent row would break alignment for the UI.
