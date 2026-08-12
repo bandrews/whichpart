@@ -179,3 +179,38 @@ and go elsewhere.
 **Suggested action:** Correct the attribute to 25 Mbps, or drop it and let the
 datasheet link speak. The component note for C9669 quotes the datasheet figure
 and flags the discrepancy.
+
+---
+
+## 7. HT7533-1 and HT7550-1 — catalog input voltage and dropout disagree with Holtek's datasheet — Error
+
+**Where:** `parts-index.json` entries for C14289 (`HT7533-1`) and C16106
+(`HT7550-1`), attributes `Voltage - Supply: 30V` and
+`Voltage Dropout: 25mV@(1mA)`.
+
+**What was checked:** Holtek *HT75XX-1 — 100mA Low Power LDO*, Rev. 1.50
+(12 January 2006), obtained from a third-party mirror after holtek.com returned
+an HTML page rather than the PDF.
+
+**Finding:** Two mismatches on both parts.
+
+| Attribute | Catalog | Datasheet Rev. 1.50 |
+|---|---|---|
+| Input voltage | 30 V | 24 V maximum input; 26 V absolute maximum supply |
+| Dropout at 1 mA | 25 mV | 100 mV typical |
+
+The input-voltage figure is the more serious of the two: 30 V exceeds even the
+absolute-maximum rating in this revision, so a design taken from the catalog
+figure could destroy the part.
+
+**Caveat:** the revision obtained is from 2006 and came from a mirror, not from
+Holtek directly. It is possible a later revision raised these numbers. Both
+component notes quote the datasheet figures and flag the discrepancy.
+
+**Suggested action:** Verify against a current Holtek datasheet and correct the
+attributes. Until then, the safe reading is 24 V.
+
+Separately, both parts' output-current attributes (100 mA for the HT7533-1,
+150 mA for the HT7550-1) are the datasheet's *typical* values; the guaranteed
+minima are 60 mA and 100 mA respectively. That is not an error, but it is worth
+knowing the site's figures are typicals here.
