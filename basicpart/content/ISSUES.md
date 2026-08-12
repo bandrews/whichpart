@@ -40,3 +40,31 @@ committing", or replace it with a link to a Microchip lifecycle document if one
 can be found. Leaving it as-is risks stating a manufacturer position that the
 manufacturer may not hold.
 
+---
+
+## 2. NE5532 — the TI datasheet contradicts itself, and the catalog follows the prose — Note
+
+**Where:** `parts-index.json` entry for C7426 (`NE5532DR`), attributes
+`Gain Bandwidth Product: 10MHz` and `Slew Rate: 9V/us`.
+
+**What was checked:** Texas Instruments *NE5532, NE5532A, SA5532, SA5532A — Dual
+Low-Noise Operational Amplifiers*, SLOS075K (revised December 2025).
+
+**Finding:** The document gives different numbers in different places.
+
+| Location in SLOS075K | Unity-gain bandwidth | Slew rate |
+|---|---|---|
+| Section 1, Features | 12 MHz typ | 5 V/µs typ |
+| Section 5.5, Electrical Characteristics | 12 MHz typ | — |
+| Section 5.6, Operating Characteristics | — | 5 V/µs typ |
+| Section 6.3.1 / 6.3.3, descriptive prose | 10 MHz | "9V/ms" |
+
+The catalog's 10 MHz and 9 V/µs match the descriptive prose, not the
+specification tables. The prose figure of "9V/ms" is itself almost certainly a
+units error in TI's document — milliseconds would make the part unusable, and
+9 V/µs is the figure other manufacturers' NE5532 datasheets quote.
+
+**Suggested action:** No change is strictly required — both numbers appear in the
+manufacturer's own document. But the specification tables are the normative part
+of a TI datasheet, so `12 MHz` and `5 V/µs` would be the safer values to display.
+The component note for C7426 quotes the tables and flags the discrepancy.
