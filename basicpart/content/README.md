@@ -48,9 +48,9 @@ So:
 - **`families/`** — the commodity groups. One file per family covering what the
   specs in that family mean, which ones actually bite you, and how to read the
   catalog attributes shown in the site's tables. 14 files covering 19 catalog
-  categories and the remaining 1,487 parts. (The `part_count` fields in the family
-files describe each category's size in the catalog, and overlap slightly where a
-part also has its own component file.)
+  categories and the remaining 1,487 parts. (The `part_count` fields in the
+  family files describe each category's size in the catalog, so they overlap
+  slightly where a part also has its own component file.)
 
 ## Source policy
 
