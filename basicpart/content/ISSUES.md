@@ -278,3 +278,26 @@ industry type separately and explicitly — never blending the two.
 this class of part the site's attribute data *is* the specification of record,
 and there is no second source to check it against. If the pipeline ever gains a
 "datasheet reachable?" check, these would be the parts it flags.
+
+---
+
+## 10. MCP6002T-I/SN — catalog gives the extended temperature range for an industrial-grade order code — Note
+
+**Where:** `parts-index.json` entry for C7377 (`MCP6002T-I/SN`), attribute
+`Operating Temperature: -40℃~+125℃`.
+
+**What was checked:** Microchip *MCP6001/1R/1U/2/4 — 1 MHz, Low-Power Op Amp*,
+DS20001733L (2020), Features page 1.
+
+**Finding:** Microchip lists two temperature grades for this family: Industrial,
+−40 °C to +85 °C, and Extended, −40 °C to +125 °C. The `-I` in `MCP6002T-I/SN`
+denotes the *industrial* grade, so the specified range for this order code is
+−40 °C to +85 °C. The catalog shows the extended range.
+
+**Why it matters:** modestly. Most MCP6002 parts will work well outside their
+specified range; "specified" is about what Microchip guarantees, not about what
+fails. But a design qualified against the catalog figure would be relying on an
+unguaranteed range.
+
+**Suggested action:** Correct to −40 °C to +85 °C, or verify against Microchip's
+product page for this specific order code.
