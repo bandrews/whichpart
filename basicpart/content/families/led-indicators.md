@@ -73,10 +73,12 @@ backwards across a 12 V rail is outside its rating even though no current flows
 in the direction you wanted. Where a signal can reverse — an AC-coupled
 indicator, or a line that floats — add a series diode or an anti-parallel one. [2]
 
-**Check which current each number was measured at.** In the same KENTO
-datasheet the forward voltage is specified at 10 mA and the luminous intensity at
-20 mA. That is normal, and it means you cannot simply read the two off together:
-at 20 mA the forward voltage is a little higher than the quoted range. [2]
+**Check which current each number was measured at — it varies even within one
+manufacturer.** KENTO specifies the 0805 yellow part's forward voltage at 10 mA
+but its luminous intensity at 20 mA, while the 0603 red part's datasheet uses
+20 mA for both. Reading a forward voltage measured at 10 mA and a brightness
+measured at 20 mA as though they described the same operating point will
+under-estimate the drop. [1] [2]
 
 **Perceived brightness is not luminous intensity.** The eye is most sensitive to
 green and least to blue. A blue LED and a green LED of equal millicandela do not
