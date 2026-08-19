@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'preact/hooks';
 import { createPortal } from 'preact/compat';
 import friendlyDescriptions from '../data/friendly-descriptions.json';
-import partsIndex from '../data/parts-index.json';
+import { hasPartPage } from '../utils/partPage.js';
 
 /**
  * Clickable part number with hover info and navigation to details
@@ -16,7 +16,9 @@ import partsIndex from '../data/parts-index.json';
 export function JlcLink({ part, tier = 'basic', info, description, specs }) {
 	// Use friendly description if available
 	const friendlyDesc = friendlyDescriptions[part];
-	const hasLocalDetails = Boolean(partsIndex[part]);
+	// Curated Extended picks are absent from parts-index.json but still have a
+	// detail page, built from the curated entry and the part's spec note.
+	const hasLocalDetails = hasPartPage(part);
 	const [copied, setCopied] = useState(false);
 	const [showTooltip, setShowTooltip] = useState(false);
 	const [tooltipPos, setTooltipPos] = useState(null);
@@ -76,8 +78,8 @@ export function JlcLink({ part, tier = 'basic', info, description, specs }) {
 			return;
 		}
 
-		// Parts outside the refreshed Basic/Preferred catalog do not have a
-		// local details record. Let the normal external JLCPCB link open.
+		// Nothing in this repository describes the part. Let the normal external
+		// JLCPCB link open.
 		if (!hasLocalDetails) {
 			return;
 		}

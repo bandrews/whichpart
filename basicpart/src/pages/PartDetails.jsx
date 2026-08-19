@@ -4,6 +4,7 @@ import { useRoute } from 'preact-iso';
 // Import parts index with full metadata
 import partsIndex from '../data/parts-index.json';
 import friendlyDescriptions from '../data/friendly-descriptions.json';
+import { curatedPickFor, specEntryFor } from '../utils/partPage.js';
 import { SpecNotes } from '../components/SpecNotes.jsx';
 
 // Copy icon SVG component
@@ -57,7 +58,21 @@ export function PartDetails() {
 	const partNumber = params.id;
 
 	const partInfo = useMemo(() => partsIndex[partNumber] || null, [partNumber]);
+	// Curated Extended picks are not in the qualifying snapshot, so they have no
+	// parts-index record. Their spec note's front matter and their curated entry
+	// still identify the part, and the note itself is the substance of the page.
+	const specEntry = useMemo(() => specEntryFor(partNumber), [partNumber]);
+	const pick = useMemo(() => curatedPickFor(partNumber), [partNumber]);
 	const friendlyDesc = friendlyDescriptions[partNumber];
+
+	const mpn = partInfo?.mpn || specEntry?.mpn || partNumber;
+	const manufacturer = partInfo?.mfr || specEntry?.manufacturer || null;
+	const category = partInfo?.cat || specEntry?.category || null;
+	const pkg = partInfo?.pkg || specEntry?.package || pick?.package || null;
+	const tier = partInfo?.tier || specEntry?.tier || pick?.tier || null;
+	const datasheetUrl = partInfo?.ds || specEntry?.datasheet_url || null;
+	const tierName = (t) =>
+		t === 'preferred' ? 'Preferred Extended' : t === 'extended' ? 'Extended' : t === 'basic' ? 'Basic' : null;
 
 	const jlcUrl = `https://jlcpcb.com/partdetail/${partNumber}`;
 
@@ -75,17 +90,19 @@ export function PartDetails() {
 				{/* Main content area */}
 				<div class="part-header-main">
 					{/* Lead with friendly description if available */}
-					{friendlyDesc && (
-						<h1 class="part-friendly-desc">{friendlyDesc}</h1>
+					{(friendlyDesc || specEntry?.summary || pick?.description) && (
+						<h1 class="part-friendly-desc">
+							{friendlyDesc || specEntry?.summary || pick?.description}
+						</h1>
 					)}
 
 					{/* Part number and manufacturer */}
 					<div class="part-identity">
-						<CopyableText text={partInfo?.mpn || partNumber} className="part-mpn">
-							{partInfo?.mpn || partNumber}
+						<CopyableText text={mpn} className="part-mpn">
+							{mpn}
 						</CopyableText>
-						{partInfo?.mfr && (
-							<span class="part-mfr">by {partInfo.mfr}</span>
+						{manufacturer && (
+							<span class="part-mfr">by {manufacturer}</span>
 						)}
 					</div>
 				</div>
@@ -103,9 +120,9 @@ export function PartDetails() {
 				flexWrap: 'wrap',
 				alignItems: 'stretch',
 			}}>
-				{partInfo?.ds && (
+				{datasheetUrl && (
 					<a
-						href={partInfo.ds}
+						href={datasheetUrl}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="detail-button datasheet"
@@ -217,6 +234,63 @@ export function PartDetails() {
 						</div>
 					)}
 				</div>
+			) : specEntry || pick ? (
+				<div style={{ display: 'grid', gap: 'var(--spacing-lg)', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+					{/* Basic Info, assembled from the spec note's front matter and
+					    the curated entry, since there is no catalog record. */}
+					<div class="part-details-card">
+						<h3 style={{ margin: '0 0 var(--spacing-md) 0', fontSize: '1rem' }}>Basic Info</h3>
+						<table class="part-details-table">
+							<tbody>
+								{category && (
+									<tr>
+										<th>Category</th>
+										<td>{category}</td>
+									</tr>
+								)}
+								{pkg && (
+									<tr>
+										<th>Package</th>
+										<td>{pkg}</td>
+									</tr>
+								)}
+								{tierName(tier) && (
+									<tr>
+										<th>Tier</th>
+										<td>{tierName(tier)}</td>
+									</tr>
+								)}
+							</tbody>
+						</table>
+					</div>
+
+					{pick && (
+						<div class="part-details-card">
+							<h3 style={{ margin: '0 0 var(--spacing-md) 0', fontSize: '1rem' }}>
+								Why it is in Our Picks
+							</h3>
+							<p style={{ margin: 0, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+								<strong>{pick.name}</strong>
+								{pick.description ? ` — ${pick.description}` : ''}
+							</p>
+							{pick.notes && (
+								<p style={{ margin: 'var(--spacing-sm) 0 0 0', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+									{pick.notes}
+								</p>
+							)}
+						</div>
+					)}
+
+					<div class="part-details-card" style={{ gridColumn: '1 / -1' }}>
+						<p style={{ margin: 0, color: 'var(--text-muted)' }}>
+							{tier === 'extended'
+								? 'This is an ordinary Extended part, so it is not in the qualifying Basic/Preferred snapshot this site tables. '
+								: 'This part is not in the qualifying snapshot this site tables. '}
+							That means there is no scraped price, stock or attribute data for it here — check JLCPCB for those.
+							{(specEntry ? ' The notes below were written from its manufacturer datasheet.' : '')}
+						</p>
+					</div>
+				</div>
 			) : (
 				<div class="part-details-card">
 					<p style={{ color: 'var(--text-muted)' }}>
@@ -235,7 +309,7 @@ export function PartDetails() {
 				</div>
 			)}
 
-			<SpecNotes partNumber={partNumber} category={partInfo?.cat} />
+			<SpecNotes partNumber={partNumber} category={category} />
 
 			<div style={{
 				marginTop: 'var(--spacing-xl)',
