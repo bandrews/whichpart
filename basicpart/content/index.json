@@ -51,8 +51,8 @@
       "kind": "isolation",
       "package": "SOP-4-175mil",
       "tier": "basic",
-      "summary": "A wider-temperature optocoupler with a 70 V output rating and slightly faster switching.",
-      "datasheet_url": null,
+      "summary": "A 70 V, −55 °C optocoupler whose \"-B-\" order code names a gain rank the catalog's 50–600 % span ignores.",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0ac19b80a57eb3e7b1a9d9449eed6b45.pdf",
       "file": "components/C115450.md"
     },
     {
@@ -63,8 +63,8 @@
       "kind": "battery-management",
       "package": "SOT-23-6",
       "tier": "preferred",
-      "summary": "A smaller sibling of the TP4056 — 500 mA of lithium charging in a six-pin package.",
-      "datasheet_url": null,
+      "summary": "Standalone linear lithium charger in SOT-23-6 — 4.2 V within ±1 %, up to 500 mA set by a single resistor.",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/a06f26a534534913a54f86485e56d5f7.pdf",
       "file": "components/C12044.md"
     },
     {
@@ -100,7 +100,7 @@
       "package": "SMD3225-4P",
       "tier": "basic",
       "summary": "A 16 MHz crystal with a 9 pF load — the classic Arduino Uno clock frequency.",
-      "datasheet_url": null,
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/a84bd8d530dd46e4b0f6d0ee59d8a89c.pdf",
       "file": "components/C13738.md"
     },
     {
@@ -171,8 +171,8 @@
       "kind": "connector",
       "package": "SMD",
       "tier": "extended",
-      "summary": "A 16-contact USB Type-C receptacle — 577 in stock at last check, so verify availability along with the footprint.",
-      "datasheet_url": null,
+      "summary": "A 16-contact USB Type-C receptacle, USB 2.0 only, rated 3 A — but the drawing on file carries a different part number.",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/c26680a47779df2150f1403f3fec276a.pdf",
       "file": "components/C168688.md"
     },
     {
@@ -232,7 +232,7 @@
       "package": "0603",
       "tier": "basic",
       "summary": "A plain red 0603 indicator LED — the cheapest way to tell a user something is happening.",
-      "datasheet_url": null,
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/011ec3e8cb1e825f6961d29bc4db4c7a.pdf",
       "file": "components/C2286.md"
     },
     {
@@ -243,8 +243,8 @@
       "kind": "led",
       "package": "0603",
       "tier": "basic",
-      "summary": "A white 0603 LED — brighter than the red one at a quarter of the current, but it needs 3 V.",
-      "datasheet_url": null,
+      "summary": "A white 0603 indicator LED specified at 5 mA — and with up to 3.1 V of forward drop, an awkward fit on a 3.3 V rail.",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/8238ae278d43fbd59fd57ef71ae67c27.pdf",
       "file": "components/C2290.md"
     },
     {
@@ -280,7 +280,7 @@
       "package": "MBS",
       "tier": "basic",
       "summary": "Four diodes wired as a bridge in one small package — turns AC into DC, or makes a supply polarity-proof.",
-      "datasheet_url": null,
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/d166b641999f7c4a86c69b88af3f89c6.pdf",
       "file": "components/C2488.md"
     },
     {
@@ -303,8 +303,8 @@
       "kind": "connector",
       "package": "SMD",
       "tier": "extended",
-      "summary": "A right-angle 16-contact USB Type-C receptacle with over a million in stock — and definitely not a six-pin power-only part.",
-      "datasheet_url": null,
+      "summary": "A board-edge 16-contact USB Type-C receptacle rated 3 A at 5 V, with over a million in stock — and not a six-pin power-only part.",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/2d53d8d8199c9dd6666d9bc9ac7c3a1e.pdf",
       "file": "components/C2765186.md"
     },
     {
@@ -316,7 +316,7 @@
       "package": "SOT-323",
       "tier": "preferred",
       "summary": "A small logic-level N-channel MOSFET — the one inside every bidirectional I²C level shifter.",
-      "datasheet_url": null,
+      "datasheet_url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2407151447_hongjiacheng-BSS138W_C28646265.pdf",
       "file": "components/C28646265.md"
     },
     {
@@ -328,7 +328,7 @@
       "package": "SOT-23",
       "tier": "basic",
       "summary": "A programmable shunt reference — the TL431 in a SOT-23, for setting a voltage precisely from two resistors.",
-      "datasheet_url": null,
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/dca1b312f3e4467c9202db2f691d7926.pdf",
       "file": "components/C3113.md"
     },
     {
@@ -363,8 +363,8 @@
       "kind": "battery-management",
       "package": "SOT-23-5",
       "tier": "preferred",
-      "summary": "The smallest of the family — 450 mA of lithium charging in five pins.",
-      "datasheet_url": null,
+      "summary": "Standalone linear lithium charger in SOT-23-5 — 4.2 V within ±1 %, charge current set by a single resistor.",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0b076ddf91114449998aff7a9f06b7d9.pdf",
       "file": "components/C32574.md"
     },
     {
@@ -412,7 +412,7 @@
       "package": "SMA",
       "tier": "basic",
       "summary": "A 1 A, 1000 V ultrafast rectifier — high voltage and quick to turn off, where a Schottky cannot reach.",
-      "datasheet_url": null,
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/89b4a1927916d4412d7e6f222faa3abd.pdf",
       "file": "components/C412437.md"
     },
     {
@@ -423,8 +423,8 @@
       "kind": "isolation",
       "package": "SSOP-4",
       "tier": "preferred",
-      "summary": "A tighter-tolerance optocoupler — 130–260 % current transfer ratio instead of the usual 12:1 spread.",
-      "datasheet_url": null,
+      "summary": "A tighter-tolerance optocoupler — its datasheet puts the \"B\" grade's current transfer ratio in a 2:1 band, 130–260 %.",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/15bccda90490db9859724aab46f62c6f.pdf",
       "file": "components/C42432160.md"
     },
     {
@@ -435,8 +435,8 @@
       "kind": "isolation",
       "package": "SOP-4",
       "tier": "preferred",
-      "summary": "A 200–400 % binned optocoupler in SOP-4 — the practical choice of the four here, with real stock behind it.",
-      "datasheet_url": null,
+      "summary": "A high-gain optocoupler in SOP-4 whose order code names its 200–400 % gain grade — and the grade letter is printed on the part.",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/c46af7ff312be366f2d1aa118c0aa2ac.pdf",
       "file": "components/C42432283.md"
     },
     {
@@ -447,8 +447,8 @@
       "kind": "memory",
       "package": "WSON-8-EP(6x8)",
       "tier": "preferred",
-      "summary": "64 megabytes of SPI NAND — bulk storage in an eight-pin package, at a fraction of NOR flash's price per byte.",
-      "datasheet_url": null,
+      "summary": "512 Mbit (64 MB) of 1.8 V SPI NAND in an eight-pin package, with single-bit error correction built into the chip.",
+      "datasheet_url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2210121130_FORESEE-F35UQA512M-WWT_C5126825.pdf",
       "file": "components/C5126825.md"
     },
     {
@@ -651,8 +651,8 @@
       "kind": "memory",
       "package": "FBGA-24",
       "tier": "preferred",
-      "summary": "64 megabytes of 1.8 V NOR flash rated to 125 °C — an automotive-grade code store, at automotive-grade prices.",
-      "datasheet_url": null,
+      "summary": "512 Mbit (64 MB) of 1.8 V NOR flash in an AEC-Q100 automotive grade rated to 125 °C — a code store for hot places, at a price to match.",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/4d14a968eb85adb3f2716281a66f0576.pdf",
       "file": "components/C6847463.md"
     },
     {
@@ -735,15 +735,15 @@
       "kind": "memory",
       "package": "FBGA-153",
       "tier": "preferred",
-      "summary": "8 GB of managed flash storage in one chip — a solid-state disk for an embedded Linux board.",
-      "datasheet_url": null,
+      "summary": "Managed flash storage in one chip — an 8 GB part with 7.28 GB usable, effectively a soldered-down disk for an embedded Linux board.",
+      "datasheet_url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2211030130_FORESEE-FEMDRM008G-58A39_C719499.pdf",
       "file": "components/C719499.md"
     },
     {
       "part": "C72041",
       "mpn": "19-217/BHC-ZL1M2RY/3T",
       "manufacturer": "EVERLIGHT",
-      "category": "LEDs",
+      "category": "LED Indication - Discrete",
       "kind": "led",
       "package": "0603",
       "tier": "extended",
@@ -755,12 +755,12 @@
       "part": "C72043",
       "mpn": "19-217/GHC-YR1S2/3T",
       "manufacturer": "EVERLIGHT",
-      "category": "LEDs",
+      "category": "LED Indication - Discrete",
       "kind": "led",
       "package": "0603",
       "tier": "extended",
-      "summary": "The green 0603 indicator in the curated picks — an InGaN part whose 3.3 V forward voltage rules out a 3.3 V rail.",
-      "datasheet_url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1051/19-217,GHC-YR1S2,3T.pdf",
+      "summary": "The green 0603 indicator in the curated picks — an InGaN part that leaves a 3.3 V rail almost no resistor headroom.",
+      "datasheet_url": "https://datasheet.octopart.com/19-217-GHC-YR1S2-3T-Everlight-datasheet-155996615.pdf",
       "file": "components/C72043.md"
     },
     {
@@ -795,8 +795,8 @@
       "kind": "discrete-diode",
       "package": "SMA_DO-214AC",
       "tier": "preferred",
-      "summary": "A 1 A, 40 V Schottky rectifier — the standard catch diode for small buck converters, and it leaks 30 times more when hot.",
-      "datasheet_url": null,
+      "summary": "A 1 A, 40 V Schottky rectifier — the standard catch diode for small buck converters, and its leakage climbs a hundredfold when hot.",
+      "datasheet_url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2308281514_hongjiacheng-SS14_C7420316.pdf",
       "file": "components/C7420316.md"
     },
     {
@@ -808,7 +808,7 @@
       "package": "DFN1006-2L",
       "tier": "preferred",
       "summary": "A tiny bidirectional 5 V ESD clamp for slower signal lines — too much capacitance for USB data.",
-      "datasheet_url": null,
+      "datasheet_url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2306301553_hongjiacheng-H5VL10B_C7420372.pdf",
       "file": "components/C7420372.md"
     },
     {
@@ -868,7 +868,7 @@
       "package": "SOT-323",
       "tier": "preferred",
       "summary": "Two fast silicon switching diodes in series in a tiny package — for clamping, steering and protection.",
-      "datasheet_url": null,
+      "datasheet_url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2308281443_hongjiacheng-BAV99W_C7502727.pdf",
       "file": "components/C7502727.md"
     },
     {
@@ -975,7 +975,7 @@
       "kind": "power-switching",
       "package": "SOIC-8",
       "tier": "preferred",
-      "summary": "Makes a negative rail from a positive one using two capacitors and no inductor — and performs better at 5 V than the catalog figures suggest.",
+      "summary": "Makes a negative rail from a positive one with two capacitors and no inductor — and does better at 5 V than the catalog suggests.",
       "datasheet_url": "https://www.renesas.com/en/document/dst/icl7660-icl7660a-datasheet",
       "file": "components/C7881.md"
     },
@@ -1108,7 +1108,7 @@
       "package": "SMD3225-4P",
       "tier": "basic",
       "summary": "A 12 MHz crystal with a 20 pF load — the frequency the RP2040's USB bootloader requires.",
-      "datasheet_url": null,
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/a84bd8d530dd46e4b0f6d0ee59d8a89c.pdf",
       "file": "components/C9002.md"
     },
     {
@@ -1120,7 +1120,7 @@
       "package": "SMD3225-4P",
       "tier": "basic",
       "summary": "A 25 MHz crystal with a 12 pF load — the usual reference for Ethernet PHYs.",
-      "datasheet_url": null,
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/a84bd8d530dd46e4b0f6d0ee59d8a89c.pdf",
       "file": "components/C9006.md"
     },
     {
