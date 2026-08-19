@@ -9,7 +9,10 @@ Nothing in these files is invented. Every number is taken from a manufacturer
 datasheet or from the JLCPCB/LCSC catalog record, and every file ends with a
 numbered source list so you can check any figure yourself.
 
-**This is content only.** Nothing in the site's UI reads it yet.
+**Now surfaced in the UI.** Part detail pages (`/part/:id`) display the
+matching note — the part's own file when one exists, otherwise its family's
+file — inside a clearly marked "AI GENERATED — MAY CONTAIN ERRORS" block. No
+other page reads this content.
 
 ## Layout
 
@@ -57,7 +60,7 @@ So:
 1. **Manufacturer datasheet first.** Where a manufacturer datasheet could be
    retrieved, the electrical figures come from it, and the file records the
    document number and revision so a future reader can tell whether the summary
-   has gone stale. 63 of the 99 component files have a manufacturer datasheet
+   has gone stale. 65 of the 99 component files have a manufacturer datasheet
    recorded in their front matter.
 2. **Catalog record second.** Package, price, stock, JLCPCB tier, and the
    attribute strings shown in the site's tables come from the JLCPCB/LCSC
@@ -76,20 +79,30 @@ Where the catalog record and the datasheet disagree, the file says so and
 See [`ISSUES.md`](ISSUES.md). It lists twelve findings — mismatches between the
 site's data and manufacturer datasheets, claims that could not be verified,
 parts whose datasheets are marked obsolete, and parts listed as available that
-have no stock. Two are worth acting on regardless of anything else: the
-ADuM1201's data rate is understated by 25× (issue 6), and the HT7533/HT7550
-input-voltage figure exceeds the datasheet's absolute maximum (issue 7).
+have no stock — plus a status review (2026-08-19) recording which were since
+resolved, which were retracted, and which remain open. The standout remaining
+data error is the ADuM1201's data rate, understated by 25× (issue 6, confirmed);
+the HT7533/HT7550 finding (issue 7) was retracted after the current Holtek
+datasheet confirmed the catalog's figures.
 
-## For whoever builds the UI
+## How the UI reads this content
 
-`index.json` carries the front matter of every file plus its path, so a page can
-be rendered without parsing Markdown front matter at runtime. `FORMAT.md`
-defines the section order and the per-`kind` specification rows, which are
-consistent across parts of the same kind — so parts of one kind can be rendered
-into a shared comparison table.
+Three files in `src/` do the work:
 
-Regenerating `index.json` after editing files is a short Node script; the front
-matter is the only input it needs.
+- `src/utils/specNotes.js` — maps a part number (or its catalog category) to a
+  note via `index.json`, and lazy-loads the Markdown with `import.meta.glob`,
+  so each note ships as its own small chunk fetched only when its page is
+  visited.
+- `src/utils/renderSpecNote.js` — a deliberately minimal renderer for exactly
+  the constructs `FORMAT.md` allows (escaping everything else). If new
+  Markdown constructs are introduced into these files, extend the renderer
+  first.
+- `src/components/SpecNotes.jsx` — the "AI GENERATED — MAY CONTAIN ERRORS"
+  block on the part detail page. It renders nothing when no note matches.
+
+After editing note files, regenerate `index.json` (a short Node script over the
+front matter) and run `npm run build`. `FORMAT.md` still defines the per-`kind`
+specification rows, so a future comparison table remains possible.
 
 ## A note on dates
 

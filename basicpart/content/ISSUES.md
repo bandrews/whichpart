@@ -14,6 +14,33 @@ Severity is used loosely:
 - **Note** — a mismatch that is explainable and probably harmless, recorded so
   the next person does not have to re-check it.
 
+## Status review — 2026-08-19
+
+Each issue was revisited before the spec notes were wired into the UI. Current
+state:
+
+| # | Issue | Status |
+|---|---|---|
+| 1 | ATMEGA328P NRND attribution | **Resolved (editorially).** Evidence stays split by channel: Mouser shows NRND, a Findchips review of authorized listings (June 2026) found no flag, MicrochipDirect projects EOL 2040-11. The curated note no longer attributes NRND to Microchip; it now describes the split and points at the ATmega328PB. |
+| 2 | NE5532 datasheet self-contradiction | **Open upstream, surfaced.** The inconsistency is in TI's own document; the correction (12 MHz / 5 V/µs from the spec tables) is stated in the C7426 note, which the part page now displays. |
+| 3 | ULN2803A datasheet unreachable | **Resolved.** The genuine SLRS049H (Rev H, Feb 2017) was obtained via a mirror; C9683 is now datasheet-sourced and every catalog attribute checks out, including the 18-pin DW package (TI's own device table). The ULN2803C remains a 20-pin non-substitute. |
+| 4 | M24C64 ECC tied to process letter | **Open in catalog data, surfaced.** No override path exists for scraped attributes (parts-index.json regenerates from raw-data); the caveat is stated in the C79988 note, now displayed on the part page. |
+| 5 | L78M05 datasheet marked obsolete | **Open, surfaced.** Lifecycle warning is stated prominently in the C58069 note, now displayed on the part page. |
+| 6 | ADuM1201 data rate understated 25× | **Open in catalog data, surfaced.** Same regeneration constraint as issue 4; the 25 Mbps correction is stated in the C9669 note, now displayed on the part page next to the wrong attribute. |
+| 7 | HT7533/HT7550 30 V and 25 mV "errors" | **Retracted — false alarm.** The current Holtek datasheet (Rev 2.81, 3 Dec 2025, fetched from holtek.com) is titled "30V, 100mA Low Power LDO" and specifies 30 V input (33 V abs max) and 25 mV typ / 55 mV max dropout at 1 mA. The catalog matched the current revision all along; the earlier finding was based on a stale 2006 mirror (Rev 1.50, 24 V / 100 mV). Both component notes rewritten against Rev 2.81. See the amended issue 7 below. |
+| 8 | AMS1117 temp range / input voltage | **Open, surfaced.** Issue 7's lesson (revisions move) applies here too — the figures may match a newer AMS datasheet revision than the 2012 one obtained. Noted in the component files. |
+| 9 | House-brand datasheets unreachable | **Partially mitigated.** LCSC *datasheet PDFs* remain blocked, but LCSC *product pages* are readable — used on 2026-08-19 to recover full specs for the green/blue LEDs, both Type-C connectors and the CH340C. Catalog-record-only notes remain the specification of record for the rest. |
+| 10 | MCP6002T-I/SN temperature grade | **Confirmed Error.** DS20001733L's Product Identification System defines `I` = −40 °C to +85 °C and `E` = −40 °C to +125 °C; the catalog shows the `E` figure on an `-I` order code. Correction stated in the C7377 note, now displayed on the part page. |
+| 11 | Green/blue LEDs had no data | **Resolved, with a new finding.** Live LCSC pages identify them as Everlight 19-217/GHC-YR1S2/3T (green) and 19-217/BHC-ZL1M2RY/3T (blue), with full specs now in the component notes — and both listings were marked "not available now" on 2026-08-19. The picks list may want a substitute or a stock check. |
+| 12 | 27 zero-stock parts in the snapshot | **Open.** Data suggestion stands (surface `stock` in the UI); out of scope for the notes-block change. |
+
+Also revisited on 2026-08-19: the CH340C's "no longer manufactured" curated note.
+Both the live LCSC and JLCPCB pages showed no EOL marking and ~69,000 units in
+stock, so the curated note was softened to "an earlier catalog record carried a
+no-longer-manufactured flag that current listings do not show", and the LCSC
+page confirmed the CH340C's integrated clock (no external crystal) — previously
+an unverified claim in the C84681 note.
+
 ---
 
 ## 1. ATMEGA328P-AU "not recommended for new designs" — Unverified
@@ -182,7 +209,15 @@ and flags the discrepancy.
 
 ---
 
-## 7. HT7533-1 and HT7550-1 — catalog input voltage and dropout disagree with Holtek's datasheet — Error
+## 7. HT7533-1 and HT7550-1 — catalog input voltage and dropout disagree with Holtek's datasheet — ~~Error~~ RETRACTED
+
+> **Retraction (2026-08-19):** this finding was wrong. The revision checked
+> (Rev 1.50, 2006, from a third-party mirror) was stale; Holtek's current
+> Rev 2.81 (3 December 2025, fetched directly from holtek.com) is titled
+> "30V, 100mA Low Power LDO" and specifies exactly the figures the catalog
+> shows: 30 V maximum input (33 V absolute maximum) and 25 mV typical / 55 mV
+> maximum dropout at 1 mA. The catalog was correct. The original text is kept
+> below as a record of what was claimed and why.
 
 **Where:** `parts-index.json` entries for C14289 (`HT7533-1`) and C16106
 (`HT7550-1`), attributes `Voltage - Supply: 30V` and

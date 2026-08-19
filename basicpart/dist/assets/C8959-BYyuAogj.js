@@ -1,0 +1,90 @@
+var e=`---
+part: C8959
+mpn: DS1302Z+T&R
+manufacturer: Analog Devices Inc./Maxim Integrated
+category: Real Time Clocks
+kind: interface
+package: SOIC-8
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: DS1302 — Trickle-Charge Timekeeping Chip
+  publisher: Analog Devices (Maxim Integrated)
+  document: see datasheet cover
+  url: https://www.analog.com/media/en/technical-documentation/data-sheets/DS1302.pdf
+summary: Keeps the date and time running on a backup cell, and can trickle-charge that cell for you.
+---
+
+# DS1302Z+T&R
+
+## What it is
+
+A real-time clock chip keeps track of the date and time while the rest of your
+system is powered off. The DS1302 counts seconds, minutes, hours, day of the
+week, date, month and year, corrects for leap years up to 2100, and adds 31 bytes
+of battery-backed RAM you can use for anything. [1]
+
+Its distinguishing feature is the programmable trickle charger. It has two power
+pins — one for main power and one for a backup cell — and it can charge a
+rechargeable backup cell from the main supply while that supply is present. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | Real-time clock/calendar with seconds through year and leap-year compensation, plus 31 × 8 battery-backed general-purpose RAM and a programmable trickle charger [1] | The scratchpad RAM is genuinely useful — it survives power loss along with the clock. |
+| Signalling standard | Simple 3-wire synchronous serial interface (CE, I/O, SCLK), TTL-compatible at V<sub>CC</sub> = 5 V; single-byte or burst transfer of up to 31 bytes [1] | Three wires, not I²C or true SPI — you will need a bit-banged driver on most microcontrollers. |
+| Maximum data rate | Not specified as a headline figure; transfers are byte- or burst-oriented over the 3-wire interface [1] | Speed is never the constraint for a clock. |
+| Supply voltage | 2.0 V to 5.5 V full operation, on either of two power pins (V<sub>CC1</sub> backup, V<sub>CC2</sub> primary) [1] | Dual supply pins with automatic switchover are the point of the part. |
+| Isolation or protection | None | — |
+| Operating temperature | 0 °C to +70 °C for the \`DS1302Z+\`, which is this part. (The \`DS1302ZN+\` is the −40 °C to +85 °C industrial version in the same SO-8 package) [1] | **Commercial grade.** The industrial part is one letter different. |
+
+## What the datasheet actually says
+
+**Timekeeping current is 0.2 µA typical at 2.0 V** with the oscillator running,
+and under 1 µA at 5 V. Standby current with the oscillator disabled is 1 nA
+typical. Analog Devices states the part "retains data and clock information on
+less than 1 µW" — a CR2032 will run it for years. [1]
+
+**The trickle charger is programmable and applies to V<sub>CC1</sub>.** You choose
+the series resistance and the number of diodes in the charge path via a register.
+This is only appropriate for a *rechargeable* backup cell — a lithium primary
+coin cell must not be trickle charged, and the charger must be left disabled. [1]
+
+**The clock runs in 12-hour or 24-hour format** with an AM/PM indicator, and
+end-of-month is adjusted automatically for short months and leap years. [1]
+
+**It needs an external 32.768 kHz crystal** on the X1/X2 pins. That crystal's
+accuracy is your clock's accuracy — the catalog's C32346 32.768 kHz crystal at
+±20 ppm gives roughly ±10 minutes per year.
+
+## Watch out for
+
+- **Never trickle-charge a non-rechargeable cell.** The charger defaults to
+  disabled; leave it that way with a CR2032.
+- **0 °C to +70 °C.** Order the DS1302ZN+ for industrial temperatures.
+- **The 3-wire interface is not SPI.** Data is bidirectional on one pin, and CE
+  is active *high* — unlike almost every SPI device.
+- **Accuracy is entirely down to your crystal** and its load capacitors. There is
+  no temperature compensation in this part.
+
+## In this catalog
+
+Preferred Extended part in SOIC-8. At the 2026-07-24 snapshot: 12,675 in stock,
+$1.16 at quantity 1, falling to $0.77 at 1,000. The catalog attributes record
+2 V–5.5 V supply, an external crystal, backup power management and battery
+charging, internal SRAM, 300 nA supply current, 1 nA quiescent current, an SPI
+interface and 0 °C to +70 °C. Two notes: the interface is a 3-wire Maxim protocol
+rather than true SPI, and the 300 nA figure sits between the datasheet's 0.2 µA
+timekeeping current at 2 V and its 0.45 µA typical at 5 V. [2]
+
+## Sources
+
+1. Analog Devices (Maxim Integrated), *DS1302 — Trickle-Charge Timekeeping Chip*.
+   Benefits and Features page 1, Ordering Information, Detailed Description, DC
+   Electrical Characteristics.
+   <https://www.analog.com/media/en/technical-documentation/data-sheets/DS1302.pdf>
+2. JLCPCB / LCSC catalog record for C8959, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/real-time-clocks_analog-devices-inc-maxim-integrated-ds1302z-t-r_C8959.html>
+`;export{e as default};

@@ -1,0 +1,88 @@
+var e=`---
+part: C26860
+mpn: MAX232ESE+T
+manufacturer: Analog Devices Inc./Maxim Integrated
+category: RS232 ICs
+kind: interface
+package: SOIC-16
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: MAX220–MAX249 — +5V-Powered, Multichannel RS-232 Drivers/Receivers
+  publisher: Analog Devices (Maxim Integrated)
+  document: see datasheet cover
+  url: https://www.analog.com/media/en/technical-documentation/data-sheets/MAX220-MAX249.pdf
+summary: Makes real RS-232 voltages from a single 5 V rail — the chip that killed the ±12 V supply.
+---
+
+# MAX232ESE+T
+
+## What it is
+
+RS-232 does not use logic levels. It swings positive and negative — historically
+±12 V — which used to mean a dual-rail power supply just for the serial port. The
+MAX232 solved that in 1987 with an on-chip charge pump that manufactures both
+polarities from a single 5 V supply and four external capacitors. [1]
+
+It contains two transmitters and two receivers, which is enough for a serial port
+with transmit, receive and one handshake pair. The \`E\` in \`MAX232ESE\` is the
+industrial temperature grade. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | Two RS-232 line drivers and two receivers, with integrated charge-pump voltage doubler and inverter [1] | The charge pump is the whole reason the part exists. |
+| Signalling standard | EIA/TIA-232E and ITU V.28 / V.24 [1] | Interoperates with any real serial port or USB-to-serial cable. |
+| Maximum data rate | 200 kbps per the datasheet's electrical characteristics; the catalog records 120 kbps [1] [2] | Both figures are far above the 115,200 baud that RS-232 links normally run at. |
+| Supply voltage | 4.5 V to 5.5 V per the catalog record; a single +5 V supply [2] | Single rail. That is the point. |
+| Isolation or protection | Transmitter output short-circuit current ±22 mA maximum; transmitter output resistance 300 Ω minimum with the supply at 0 V [1] | It survives a shorted or hot-plugged cable, within limits. |
+| Operating temperature | −40 °C to +85 °C for the \`MAX232ESE+\`, which is this part. (The \`MAX232CSE+\` is 0 °C to +70 °C, the \`MAX232MJE\` −55 °C to +125 °C) [1] | The letter after \`232\` is the temperature grade. This one is the industrial part. |
+
+## What the datasheet actually says
+
+**Output swing is ±5.0 V minimum, ±7.3 V typical** with all transmitter outputs
+loaded with 3 kΩ to ground. That is less than the ±12 V of a classic RS-232 port
+but comfortably above the ±3 V the standard requires a receiver to accept. [1]
+
+**Supply current is 5 mA typical, 10 mA maximum** with no load. Not a low-power
+part — the charge pump runs continuously. Other members of the family
+(MAX231, MAX239) draw far less, and some have a 5 µW shutdown mode. [1]
+
+**The MAX232 needs four external capacitors** for the charge pump; the MAX232A
+variant uses smaller ones (0.1 µF rather than 1.0 µF). Analog Devices notes that
+some other family members — MAX225, MAX233, MAX235, MAX245–247 — integrate the
+capacitors and need no external components at all, at higher cost. [1]
+
+**This one datasheet covers 30 part numbers across 26 packages.** Every
+specification row has device-specific columns. Read carefully. [1]
+
+## Watch out for
+
+- **Get the capacitor values right.** MAX232 wants 1.0 µF; MAX232A wants 0.1 µF.
+  Fitting the wrong ones is a classic cause of weak output swing.
+- **Capacitor polarity matters** if you use electrolytics — the charge-pump pins
+  swing negative.
+- **5 V only.** For a 3.3 V system use a 3 V-capable transceiver such as the
+  SP3232EEY (C13482), which is also in this catalog.
+- **Two channels only.** Full hardware handshaking needs more.
+
+## In this catalog
+
+Preferred Extended part in SOIC-16. At the 2026-07-24 snapshot: 17,734 in stock,
+$1.56 at quantity 1, falling to $1.00 at 1,000. The catalog attributes record two
+drivers, two receivers, a charge pump, 4.5 V–5.5 V supply, 5 mA quiescent current
+and −40 °C to +85 °C, all consistent with the datasheet. Its 120 kbps data-rate
+entry is below the datasheet's 200 kbps figure. [2]
+
+## Sources
+
+1. Analog Devices (Maxim Integrated), *MAX220–MAX249 — +5V-Powered, Multichannel
+   RS-232 Drivers/Receivers*. General Description, Benefits and Features,
+   MAX220/MAX232/MAX232A Pin Configuration and Typical Operating Circuit,
+   Electrical Characteristics, Ordering Information.
+   <https://www.analog.com/media/en/technical-documentation/data-sheets/MAX220-MAX249.pdf>
+2. JLCPCB / LCSC catalog record for C26860, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/rs232-ics_analog-devices-inc-maxim-integrated-max232ese-t_C26860.html>
+`;export{e as default};

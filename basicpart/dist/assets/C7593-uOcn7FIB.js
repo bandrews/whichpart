@@ -1,0 +1,92 @@
+var e=`---
+part: C7593
+mpn: NE555DR
+manufacturer: Texas Instruments
+category: 555 Timers / Counters
+kind: analog
+package: SOIC-8
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: NA555, NE555, SA555, SE555 — xx555 Precision Timers
+  publisher: Texas Instruments
+  document: SLFS022K
+  revised: 2026-03
+  url: https://www.ti.com/lit/ds/symlink/ne555.pdf
+summary: The classic timer chip — astable or monostable pulses from microseconds to hours, and a 200 mA output.
+---
+
+# NE555DR
+
+## What it is
+
+The 555 is the timer chip almost everyone meets first. Two comparators, a
+flip-flop and a discharge transistor, arranged so that an external resistor and
+capacitor set a delay or an oscillation frequency. It has been in production
+since 1973 and TI still revises the datasheet. [1]
+
+It does two jobs: *monostable*, where a trigger produces one pulse of a length
+you set, and *astable*, where it free-runs as a square-wave oscillator. What
+keeps it relevant is the output stage — it can sink or source 200 mA directly,
+enough to drive a relay, a small lamp, or a piezo sounder without a transistor. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | Precision timer, astable or monostable, with adjustable duty cycle [1] | One part covers both delay generation and oscillation. |
+| Supply voltage | 4.5 V to 16 V for the NE555 (absolute maximum 18 V) [1] | Comfortable on 5 V or 12 V rails. It is *not* a 3.3 V part — 4.5 V is a hard floor. |
+| Input offset voltage | Not applicable [1] | — |
+| Gain bandwidth | Not applicable; timing range is microseconds to hours [1] | The practical limit is set by your R and C, not by the chip's bandwidth. |
+| Output swing | Low-level output typically 0.1 V at 5 mA and 5 V supply; high-level output typically 3.3 V at −100 mA and 5 V supply [1] | The output does not reach the rails, particularly at high current — worth knowing if you are driving logic. |
+| Supply current | At 5 V with no load: typically 3 mA (output low) or 2 mA (output high), 6 mA maximum [1] | Not a low-power part. For battery work, a CMOS 555 variant is a better fit. |
+| Operating temperature | 0 °C to +70 °C for the NE555 [1] | **Commercial grade only.** The NA555 (−40 to +105 °C) and SA555 (−40 to +85 °C) are the industrial versions. |
+
+## What the datasheet actually says
+
+**The output current rating has two numbers.** Recommended operating conditions
+give ±200 mA; the absolute maximum is ±225 mA. Push it and the output voltage
+sags badly — at 15 V supply and 200 mA sink, the low-level output is 2.5 V, not
+near ground. [1]
+
+**Timing resistors have a maximum value.** A datasheet footnote gives it
+explicitly: at V<sub>CC</sub> = 5 V the total R<sub>A</sub> + R<sub>B</sub>
+should not exceed about 3.4 MΩ, rising to about 10 MΩ at 15 V. Beyond that the
+comparator input current starts to dominate and the timing goes wrong. [1]
+
+**The CONT pin sits at two-thirds of the supply** — typically 3.3 V at a 5 V
+supply, 10 V at 15 V. Bypassing it to ground with 10 nF is standard practice for
+noise immunity, and the datasheet's application circuits show it. [1]
+
+## Watch out for
+
+- **0 °C to +70 °C.** This is the single most-overlooked thing about the NE555
+  specifically. If your product needs to work outdoors or in a cold warehouse,
+  order the NA555 or SA555 instead — same package, same pinout.
+- **Supply current is milliamps, not microamps.** For anything battery-powered,
+  a CMOS 555 (TLC555, LMC555) draws far less.
+- **The output pulls hard.** 200 mA switching edges on a shared supply are a
+  well-known source of noise; decouple the supply pin properly.
+- **The datasheet covers four part numbers** with different temperature and
+  tolerance grades. Every specification column needs reading against the
+  "NE555" heading, not the SE555 one.
+
+## In this catalog
+
+Preferred Extended part in SOIC-8. At the 2026-07-24 snapshot: 210,866 in stock,
+$0.13 at quantity 1, falling to $0.074 at 5,000. The catalog attributes record
+0 °C to +70 °C, 4.5 V–16 V, 200 mA output and 2 mA supply current — all matching
+the datasheet, with the 2 mA figure corresponding to the "output high, no load,
+V<sub>CC</sub> = 5 V" condition. [2]
+
+## Sources
+
+1. Texas Instruments, *NA555, NE555, SA555, SE555 — xx555 Precision Timers*,
+   SLFS022K, September 1973, revised March 2026. Section 1 (Features),
+   Section 5.1 (Absolute Maximum Ratings), Section 5.3 (Recommended Operating
+   Conditions), Section 5.5 (Electrical Characteristics).
+   <https://www.ti.com/lit/ds/symlink/ne555.pdf>
+2. JLCPCB / LCSC catalog record for C7593, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/timers-counters_texas-instruments-ne555dr_C7593.html>
+`;export{e as default};

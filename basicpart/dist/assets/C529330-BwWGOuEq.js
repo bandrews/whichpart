@@ -1,0 +1,84 @@
+var e=`---
+part: C529330
+mpn: STM32G030F6P6TR
+manufacturer: STMicroelectronics
+category: Microcontrollers (MCU/MPU/SOC)
+kind: microcontroller
+package: TSSOP-20
+tier: extended
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: STM32G030x6/x8 — Arm Cortex-M0+ 32-bit MCU
+  publisher: STMicroelectronics
+  document: DS12991 Rev 6
+  revised: 2025-06
+  url: https://www.st.com/resource/en/datasheet/stm32g030f6.pdf
+summary: A current-generation 64 MHz Cortex-M0+ in a hand-solderable 20-pin package, with 32 kB flash and 8 kB RAM.
+---
+
+# STM32G030F6P6TR
+
+## What it is
+
+The STM32G0 is ST's newest general-purpose value line, and the G030F6 is its
+small end: a 64 MHz Cortex-M0+ with 32 kB of flash and 8 kB of RAM in a 20-pin
+TSSOP. It is the part to reach for when an 8-bit micro is not quite enough but a
+48-pin STM32 is overkill, and it has the advantage of being a modern design that
+ST is actively producing rather than a legacy one. [1]
+
+The TSSOP-20 package is worth calling out on its own. At 0.65 mm pitch it is one
+of the few 32-bit micros you can comfortably hand-solder or rework, which makes
+it popular for small boards and prototypes. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Core and maximum clock | Arm Cortex-M0+ at up to 64 MHz, with a memory protection unit [1] | Faster than the older F030 value line, and the M0+ core is more power-efficient per MHz than the M0. |
+| Flash | 32 kB, with readout and write protection [1] | Modest, but the G0 family scales to 64 kB in the same package family if you need more. |
+| RAM | 8 kB, with hardware parity check [1] | Enough for typical sensor and control firmware; not enough for display framebuffers. |
+| Supply voltage | 2.0 V to 3.6 V, with a separate V<sub>BAT</sub> supply for the RTC and backup registers [1] | The 2.0 V floor makes battery operation practical, and V<sub>BAT</sub> lets a coin cell keep the clock running. |
+| GPIO count | 17 in the 20-pin package, all mappable to external interrupt vectors, several 5 V tolerant [1] | Three of the 20 pins go to power and reset, so 17 is what you actually get. |
+| Notable peripherals | 2× USART, 2× I²C with Fast Mode Plus (1 Mbit/s), 2× SPI at 32 Mbit/s (one usable as I²S), 12-bit 0.4 µs ADC with 14 external channels and hardware oversampling to 16 bits, 8 timers including an advanced motor-control timer, calendar RTC, 5-channel DMA, SWD [1] | The ADC's hardware oversampling is genuinely useful — it gets you extra effective resolution without CPU work. |
+| Operating temperature | −40 °C to +85 °C ambient; junction −40 °C to +105 °C. Depends on the order code — the \`6\` in \`P6\` is the −40 °C to +85 °C grade [1] | Standard industrial range for this order code. |
+
+## What the datasheet actually says
+
+**14 of the 16 ADC channels are available in the 20-pin package** — the datasheet
+gives 14 external plus 2 internal channels for the F6 variant, against 16 + 2 on
+the larger packages. That is a lot of analogue inputs for a chip this small. [1]
+
+**The SPIs run at 32 Mbit/s**, nearly double the 18 Mbit/s of the older F030 line,
+and the datasheet notes two *extra* SPIs are available through the USARTs in
+synchronous master mode. [1]
+
+**No USB and no CAN** on the G030 line. If you need either, you are looking at a
+different G0 part number. [1]
+
+## Watch out for
+
+- **This is an ordinary Extended part at JLCPCB.** Check the assembly surcharge
+  and feeder availability before committing — this is the practical difference
+  between it and the Preferred STM32s.
+- **17 I/O goes quickly.** Reserve pins for SWD (two), and for a crystal if you
+  need one, before counting what is left.
+- **\`TR\` means tape and reel.** It is the same silicon as the non-\`TR\` order
+  code, just the packaging format; do not treat it as a different part.
+- **G0 is not pin- or register-compatible with F0.** Firmware ports need real
+  work, not a rename.
+
+## In this catalog
+
+Listed as an ordinary Extended part in the curated recommendations, in TSSOP-20.
+Because it is Extended rather than Basic or Preferred, it does not appear in the
+qualifying catalog snapshot, so no price or stock figures are recorded here. [2]
+
+## Sources
+
+1. STMicroelectronics, *STM32G030x6/x8 — Arm® Cortex®-M0+ 32-bit MCU, up to
+   64 KB Flash, 8 KB RAM, 2x USART, timers, ADC, comm. I/Fs, 2.0-3.6 V*,
+   DS12991 Rev 6, June 2025. Features page 1, Table 2 (family device features and
+   peripheral counts). <https://www.st.com/resource/en/datasheet/stm32g030f6.pdf>
+2. basicp.art curated recommendations, \`src/data/other-components.json\`,
+   catalog snapshot 2026-07-24.
+`;export{e as default};

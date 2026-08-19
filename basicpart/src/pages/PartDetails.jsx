@@ -4,6 +4,7 @@ import { useRoute } from 'preact-iso';
 // Import parts index with full metadata
 import partsIndex from '../data/parts-index.json';
 import friendlyDescriptions from '../data/friendly-descriptions.json';
+import { SpecNotes } from '../components/SpecNotes.jsx';
 
 // Copy icon SVG component
 function CopyIcon({ size = 14 }) {
@@ -233,6 +234,8 @@ export function PartDetails() {
 					</p>
 				</div>
 			)}
+
+			<SpecNotes partNumber={partNumber} category={partInfo?.cat} />
 
 			<div style={{
 				marginTop: 'var(--spacing-xl)',

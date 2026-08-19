@@ -1,0 +1,96 @@
+var e=`---
+part: C7972
+mpn: LMV321IDBVR
+manufacturer: Texas Instruments
+category: Operational Amplifier
+kind: analog
+package: SOT-23-5
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: LMV358, LMV321, LMV324, LMV324S — General-Purpose, Low-Voltage, Rail-to-Rail Output Operational Amplifiers
+  publisher: Texas Instruments
+  document: SLOS263Y
+  revised: 2023-08
+  url: https://www.ti.com/lit/ds/symlink/lmv321.pdf
+summary: A single low-voltage op-amp in a tiny 5-pin package — runs from 2.7 V, swings to the rails, sips 130 µA.
+---
+
+# LMV321IDBVR
+
+## What it is
+
+The LMV321 is a single general-purpose op-amp designed for the world of 3.3 V and
+5 V logic. It runs from a single supply as low as 2.7 V, its output swings within
+about 100 mV of either rail, and it draws around 130 µA. It comes in a SOT-23-5
+package that takes almost no board space. [1]
+
+This is the part for buffering a sensor into a microcontroller ADC, building a
+simple active filter, or scaling a signal — jobs where you want a small,
+cheap, low-voltage amplifier and do not need precision. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | Single general-purpose operational amplifier with rail-to-rail output and no crossover distortion [1] | The absence of crossover distortion is a real advantage over the classic LM358 in low-voltage designs. |
+| Supply voltage | 2.7 V to 5.5 V single supply (absolute maximum 5.5 V) [1] | Purpose-built for 3.3 V and 5 V rails. Note the absolute maximum is only 5.5 V — there is very little margin above a 5 V rail. |
+| Input offset voltage | 1.7 mV typical, 7 mV maximum at 25 °C, rising to 9 mV over −40 °C to +125 °C [1] | Loose. This is a general-purpose part; do not use it to amplify millivolt signals without correction. |
+| Gain bandwidth | 1 MHz unity-gain bandwidth with a 200 pF load, 60° phase margin [1] | Enough for audio-rate and sensor work. |
+| Output swing | Within 10 mV to 100 mV of the positive rail and 60 mV to 180 mV of ground, into 10 kΩ [1] | "Rail-to-rail" always has a residual — these are the actual numbers, and they get worse into heavier loads. |
+| Supply current | 80 µA typical, 170 µA maximum for the LMV321I grade at 2.7 V [1] | Low enough for battery-powered designs that need an always-on amplifier. |
+| Operating temperature | −40 °C to +125 °C [1] | Genuinely wide — an advantage over the commercial-grade classics like the NE5532 and OP07C. |
+
+## What the datasheet actually says
+
+**Rail-to-rail applies to the output, not the input.** The common-mode input
+range at a 2.7 V supply is specified as 0 V to about 1.7 V with CMRR ≥ 50 dB —
+that is, the inputs work down to ground but not up to the positive rail. Design
+your circuit so the inputs sit in the lower part of the supply range. [1]
+
+**Input bias current is 11 nA typical but 250 nA maximum**, rising to 500 nA over
+the full temperature range. With a 100 kΩ source resistance that worst case
+becomes 50 mV of error, which dwarfs the offset voltage. Keep source impedances
+modest. [1]
+
+**Shorting the output to ground is safe; shorting it to V<sub>CC</sub> is not.**
+The datasheet permits an indefinite short to ground at or below 25 °C with
+V<sub>CC</sub> ≤ 5.5 V, but warns that shorts to V<sub>CC</sub> can cause
+excessive heating and eventual destruction. [1]
+
+**TI names an upgrade.** The first line of the feature list points to the
+LMV321A, LMV358A and LMV324A as improved versions. The LMV321 remains in
+production. [1]
+
+## Watch out for
+
+- **5.5 V absolute maximum.** A 5 V rail with a bit of overshoot is uncomfortably
+  close to destroying this part. It is not a 12 V op-amp.
+- **The input range does not include the positive rail.** This is the most common
+  mistake with "rail-to-rail" parts that are only rail-to-rail on the output.
+- **7 mV of offset** makes this unsuitable for DC precision without calibration.
+- **The datasheet covers four devices** (LMV321 single, LMV358 dual, LMV324 and
+  LMV324S quad). Supply-current figures are per package, so read the row that
+  says LMV321I.
+
+## In this catalog
+
+Preferred Extended part in SOT-23-5. At the 2026-07-24 snapshot: 160,262 in
+stock, $0.13 at quantity 1, falling to $0.077 at 6,000. The catalog attributes
+record 7 mV offset, 11 nA bias current, 1 MHz gain bandwidth, 1 V/µs slew rate,
+46 nV/√Hz noise, 63 dB CMRR, 2.7 V–5.5 V supply, rail-to-rail output and −40 °C
+to +125 °C. The 170 µA quiescent-current entry matches the datasheet's *maximum*
+for the LMV321I at 2.7 V; the typical is 80 µA. [2]
+
+## Sources
+
+1. Texas Instruments, *LMV358, LMV321, LMV324, LMV324S — General-Purpose,
+   Low-Voltage, Rail-to-Rail Output Operational Amplifiers*, SLOS263Y, August
+   1999, revised August 2023. Section 1 (Features), Section 6.1 (Absolute Maximum
+   Ratings), Section 6.3 (Recommended Operating Conditions), Section 6.7
+   (Electrical Characteristics: V<sub>CC+</sub> = 2.7 V).
+   <https://www.ti.com/lit/ds/symlink/lmv321.pdf>
+2. JLCPCB / LCSC catalog record for C7972, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/operational-amplifier_texas-instruments-lmv321idbvr_C7972.html>
+`;export{e as default};

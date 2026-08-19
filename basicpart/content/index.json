@@ -111,8 +111,8 @@
       "kind": "power-linear",
       "package": "SOT-89-3",
       "tier": "basic",
-      "summary": "A genuine low-dropout 3.3 V regulator drawing 2.5 µA — for battery designs where a 7805 would be absurd.",
-      "datasheet_url": "http://www.e-ele.net/DataSheet/HT75XX-1.pdf",
+      "summary": "A genuine low-dropout 3.3 V regulator drawing 2.5 µA, from inputs up to 30 V — for battery designs where a 7805 would be absurd.",
+      "datasheet_url": "https://www.holtek.com/webapi/116711/HT75xx-1v281.pdf",
       "file": "components/C14289.md"
     },
     {
@@ -147,8 +147,8 @@
       "kind": "power-linear",
       "package": "SOT-89-3",
       "tier": "preferred",
-      "summary": "The 5 V member of the same CMOS LDO family — low dropout, 2.5 µA quiescent, from up to 24 V in.",
-      "datasheet_url": "http://www.e-ele.net/DataSheet/HT75XX-1.pdf",
+      "summary": "The 5 V member of the same CMOS LDO family — 25 mV dropout at light load, 2.5 µA quiescent, from up to 30 V in.",
+      "datasheet_url": "https://www.holtek.com/webapi/116711/HT75xx-1v281.pdf",
       "file": "components/C16106.md"
     },
     {
@@ -166,12 +166,12 @@
     {
       "part": "C168688",
       "mpn": "918-418K2024S40000",
-      "manufacturer": "not recorded",
+      "manufacturer": "Jing Extension of the Electronic Co.",
       "category": "Connectors",
       "kind": "connector",
       "package": "SMD",
       "tier": "extended",
-      "summary": "A 16-contact USB Type-C receptacle from the curated picks — check the footprint before you trust it.",
+      "summary": "A 16-contact USB Type-C receptacle — 577 in stock at last check, so verify availability along with the footprint.",
       "datasheet_url": null,
       "file": "components/C168688.md"
     },
@@ -298,12 +298,12 @@
     {
       "part": "C2765186",
       "mpn": "TYPE-C 16PIN 2MD(073)",
-      "manufacturer": "not recorded",
+      "manufacturer": "SHOU HAN",
       "category": "Connectors",
       "kind": "connector",
       "package": "SMD",
       "tier": "extended",
-      "summary": "A right-angle 16-contact USB Type-C receptacle rated 3 A — and definitely not a six-pin power-only part.",
+      "summary": "A right-angle 16-contact USB Type-C receptacle with over a million in stock — and definitely not a six-pin power-only part.",
       "datasheet_url": null,
       "file": "components/C2765186.md"
     },
@@ -741,25 +741,25 @@
     },
     {
       "part": "C72041",
-      "mpn": "Blue LED",
-      "manufacturer": "not recorded",
+      "mpn": "19-217/BHC-ZL1M2RY/3T",
+      "manufacturer": "EVERLIGHT",
       "category": "LEDs",
       "kind": "led",
       "package": "0603",
       "tier": "extended",
-      "summary": "The blue 0603 indicator in the curated picks — an ordinary Extended part, with no catalog record behind it.",
+      "summary": "The blue 0603 indicator in the curated picks — an Everlight part, currently listed as unavailable at LCSC.",
       "datasheet_url": null,
       "file": "components/C72041.md"
     },
     {
       "part": "C72043",
-      "mpn": "Green LED",
-      "manufacturer": "not recorded",
+      "mpn": "19-217/GHC-YR1S2/3T",
+      "manufacturer": "EVERLIGHT",
       "category": "LEDs",
       "kind": "led",
       "package": "0603",
       "tier": "extended",
-      "summary": "The green 0603 indicator in the curated picks — an ordinary Extended part, with no catalog record behind it.",
+      "summary": "The green 0603 indicator in the curated picks — an Everlight part, currently listed as unavailable at LCSC.",
       "datasheet_url": null,
       "file": "components/C72043.md"
     },
@@ -891,8 +891,8 @@
       "kind": "interface",
       "package": "LQFP-48(7x7)",
       "tier": "preferred",
-      "summary": "Drives a segment LCD so your microcontroller does not have to — 128 segments over three wires.",
-      "datasheet_url": null,
+      "summary": "Drives a segment LCD so your microcontroller does not have to — 128 segments over three wires, plus a buzzer output.",
+      "datasheet_url": "https://www.seeedstudio.com/document/HT1621.pdf",
       "file": "components/C7532.md"
     },
     {
@@ -1144,7 +1144,7 @@
       "package": "SOIC-18-300mil",
       "tier": "preferred",
       "summary": "Eight low-side switches instead of the ULN2003A's seven — same ratings, one more channel, and a much higher price here.",
-      "datasheet_url": null,
+      "datasheet_url": "https://electronperdido.com/wp-content/uploads/2018/10/ULN2803-datasheet.pdf",
       "file": "components/C9683.md"
     },
     {
