@@ -419,3 +419,150 @@ designer choosing from a table has no way to tell.
 Consider surfacing it in the UI, or at minimum sorting or flagging parts with
 zero or very low stock. A "low stock" badge would cost little and prevent a
 frustrating discovery at order time.
+
+---
+
+# Second review — 2026-08-19
+
+The notes were re-checked against primary sources, and datasheets were recovered
+for a further twelve parts whose notes had been catalog-only. That work produced
+one retraction (issue 6, amended above), a set of corrections to the notes
+themselves — recorded in the git history rather than here, since they were
+defects in this repository's prose rather than in the site's data — and the
+following new findings about the catalog data.
+
+## 13. MB10S — the catalog rates it at twice the current the type is rated for — Error
+
+**Where:** `parts-index.json` entry for C2488 (`MB10S-50MIL`), attribute implying
+1 A average forward current.
+
+**What was checked:** EIC Semiconductor *MB1S – MB10S Mini-Bridge Rectifiers*,
+Rev. 03, 25 October 2006, plus the published summaries of the Diodes Inc and
+onsemi MB10S datasheets.
+
+**Finding:** every retrievable datasheet for the MB10S type rates it well below
+1 A. EIC specifies 0.5 A average forward current on a glass-epoxy board with
+13 × 13 mm pads, and 0.8 A only on an aluminium substrate. Diodes Inc publishes
+0.8 A; onsemi publishes 0.5 A. The rating is a thermal one — the package's
+junction-to-ambient resistance is 85 °C/W even with those generous pads — so it
+genuinely depends on the board, and 1 A exceeds all published figures for any
+board.
+
+**Why it matters:** this is the error most likely to cause a field failure rather
+than merely a poor part choice. Someone sizing a supply for 1 A from the catalog
+figure would be running the bridge at twice its rating.
+
+**Suggested action:** the C2488 note now states 0.5 A as the design figure and
+explains the thermal dependence. The catalog attribute itself would be worth
+correcting if an override path ever exists.
+
+---
+
+## 14. UTC 78L05 and 78L12 — the catalog overstates ripple rejection by 20 dB — Error
+
+**Where:** `parts-index.json` entries for C71136 (`78L05G-AB3-R`) and C75501
+(`78L12G-AB3-R`), attribute `Power Supply Rejection Ratio (PSRR)`, recorded as
+`80dB@(120Hz)` and `65dB@(120Hz)`.
+
+**What was checked:** Unisonic Technologies *78LXX — 3-Terminal 0.1A Positive
+Voltage Regulator*, document QW-R101-001.AC, © 2024.
+
+**Finding:** UTC specifies ripple rejection of 60 dB minimum for the 78L05 (8 V ≤
+V<sub>IN</sub> ≤ 20 V, 120 Hz, 25 °C) and 45 dB minimum for the 78L12 (15 V ≤
+V<sub>IN</sub> ≤ 25 V). Both catalog figures are 20 dB high, in the same
+direction, for both parts.
+
+**Why it matters:** 20 dB is a factor of ten. A design relying on the regulator
+to clean up switching ripple would get a tenth of the assumed attenuation.
+
+**Suggested action:** stated in both component notes. Correcting the attributes
+would need the same override path as issues 4 and 13.
+
+---
+
+## 15. KT-0603W — the catalog's colour temperature is not physically possible — Error
+
+**Where:** `parts-index.json` entry for C2290 (`KT-0603W`), attribute
+`Color Temperature: 40000K~100000K`.
+
+**What was checked:** the range of colour temperatures white LEDs are actually
+manufactured in.
+
+**Finding:** white LEDs run from roughly 2,700 K (warm white) to roughly
+10,000 K (very cool white). Nothing emits at 100,000 K; that figure corresponds
+to no manufacturable light source. The most likely explanation is a
+factor-of-ten transcription error, which would give 4,000–10,000 K and describe
+an ordinary cool white.
+
+**Why it matters:** less severe than the electrical errors above — nobody selects
+an indicator LED on colour temperature alone — but it is a visible nonsense value
+on a page users read, and it undermines confidence in the surrounding figures.
+
+**Suggested action:** the C2290 note flags it rather than repeating it. Worth
+correcting at source if the scrape can be overridden.
+
+---
+
+## 16. Conditions omitted from catalog attributes — Note
+
+Three parts carry attribute values that are real datasheet figures quoted without
+the condition that makes them true. None is wrong, exactly, but each would
+mislead a reader taking the number at face value. All three are now explained in
+the corresponding component notes.
+
+| Part | Attribute | What the datasheet says |
+|---|---|---|
+| C7881 (`ICL7660AIBAZA-T`) | `Output Resistance: 97Ω`, `Switching Frequency: 8kHz`, `Quiescent Current: 100uA` | All three are the V+ = 3 V figures. At 5 V the same part is 60 Ω, 10 kHz and 80 µA — better than the listing suggests. |
+| C75510 (`LM317AG-TN3-R`) | `PSRR: 80dB@(120Hz)` | 80 dB is typical *with a 10 µF capacitor on the adjust pin*. With the pin bare it is 65 dB. The listing omits the capacitor. |
+| C61063 (`XL1509-5.0E1`) | `Voltage - Supply: 4.5V~40V` | 4.5 V is the XL1509 family minimum. XLSEMI specifies the 5 V variant's output only from 7 V upward, which follows from its 1.5 V minimum dropout. |
+
+Also worth recording: C75510's `Voltage Dropout: 5V@(500mA)` matches no dropout
+specification in UTC's datasheet, but does match its electrical-characteristics
+*test condition* (V<sub>IN</sub> − V<sub>OUT</sub> = 5 V, I<sub>OUT</sub> =
+0.5 A). It appears to be a transcription of the wrong cell.
+
+---
+
+## 17. LTV-817S-TA1-C — the catalog ignores the order code's CTR rank — Note
+
+**Where:** `parts-index.json` entry for C109227 (`LTV-817S-TA1-C`), attributes
+`Current Transfer Ratio (CTR) Minimum: 50%` and `Maximum/Saturation Value: 600%`.
+
+**What was checked:** LITE-ON *LTV-817 series Photocoupler*, Spec No.
+DS70-2012-0050, Revision C, section 5 (Rank Table of Current Transfer Ratio).
+
+**Finding:** Lite-On sorts every 817 into CTR ranks — L (50–100 %), A (80–160 %),
+B (130–260 %), C (200–400 %), D (300–600 %) — and an ungraded part spans
+50–600 %. The catalog quotes the ungraded span, but this order code ends in `-C`,
+which corresponds to rank C: a 2:1 spread rather than a 12:1 one.
+
+**Why it matters:** in the *helpful* direction, for once. Designing an
+optocoupler circuit around a 12:1 gain spread is much harder than around 2:1, so
+the catalog understates how usable the part is. But the rank is an inference from
+the order code rather than something the catalog states, so it should be
+confirmed with the supplier before being relied on.
+
+**Suggested action:** stated in the C109227 note, with the caveat.
+
+---
+
+## 18. Datasheet hosts that block automated retrieval — Note
+
+Recorded so the next person does not repeat the work. As of 2026-08-19:
+
+- **Blocked to plain HTTP clients:** LCSC datasheet PDFs (product *pages* remain
+  readable), ST, onsemi, Analog Devices, NXP, Torex, Mouser, Diodes Inc,
+  alldatasheet. Several return HTTP 403; ST and Analog Devices instead close the
+  HTTP/2 stream.
+- **Reachable directly:** Nexperia, Texas Instruments, Vishay, Unisonic, XLSEMI,
+  Winbond, Holtek, Epson, Microchip, Raspberry Pi, WIZnet, MaxLinear.
+- **Useful mirrors** for the blocked hosts: `mm.digikey.com/Volume0/opasdata/…`
+  for Everlight and other passives, `datasheet.octopart.com` for Lite-On,
+  `www.mouser.com/datasheet/…` for Torex, `www.cdiweb.com/datasheets/…` for
+  InvenSense.
+
+Twelve of the parts previously marked catalog-only were moved onto real
+manufacturer datasheets this way, taking the datasheet-backed count from 65 of
+99 to 77 of 99. The remaining 22 are mostly house-brand parts (KENTO LEDs, YXC
+crystals, ISOMICRON optocouplers, FORESEE memories, SHOU HAN and Jing Extension
+connectors) whose only published datasheet is LCSC-hosted.

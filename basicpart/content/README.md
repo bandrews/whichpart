@@ -84,11 +84,17 @@ Where the catalog record and the datasheet disagree, the file says so and
 
 ## Known problems found while writing these
 
-See [`ISSUES.md`](ISSUES.md). It lists twelve findings — mismatches between the
+See [`ISSUES.md`](ISSUES.md). It lists eighteen findings — mismatches between the
 site's data and manufacturer datasheets, claims that could not be verified,
 parts whose datasheets are marked obsolete, and parts listed as available that
 have no stock — plus a status review (2026-08-19) recording which were since
-resolved, which were retracted, and which remain open.
+resolved, which were retracted, and which remain open, and a second review the
+same day that added findings 13 to 18.
+
+The most consequential of the newer findings is issue 13: every retrievable
+datasheet for the MB10S bridge rectifier (C2488) rates it at 0.5 A or 0.8 A,
+while the catalog implies 1 A. That is the one likely to cause a failure rather
+than merely a poor choice.
 
 Two findings have been retracted after re-reading the primary sources, and both
 retractions point the same way: the catalog was right and this repository was
