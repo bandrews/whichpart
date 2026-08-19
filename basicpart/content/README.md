@@ -65,11 +65,11 @@ So:
    document number and revision so a future reader can tell whether the summary
    has gone stale. All 99 component files now have a manufacturer datasheet
    recorded in their front matter. Family files describe a category rather than
-   one order code, so they carry no `datasheet:` field — but most of them
-   now cite a representative manufacturer's document alongside the catalog
-   record, for the figures a catalog attribute string cannot carry: derating
-   curves, per-value temperature coefficients, part-numbering schemes, and the
-   conditions attached to a headline number.
+   one order code, so they carry no `datasheet:` field — but all fourteen now
+   cite a representative manufacturer's document alongside the catalog record,
+   for the figures a catalog attribute string cannot carry: derating curves,
+   per-value temperature coefficients, part-numbering schemes, bin tables, and
+   the conditions attached to a headline number.
 2. **Catalog record second.** Package, price, stock, JLCPCB tier, and the
    attribute strings shown in the site's tables come from the JLCPCB/LCSC
    catalog snapshot in `raw-data/`, and are cited as such.

@@ -1,0 +1,111 @@
+var e=`---
+part: C32078
+mpn: MC34063ADR2G
+manufacturer: onsemi
+category: DC-DC Converters
+kind: power-switching
+package: SOIC-8
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: MC34063A, MC33063A, SC33063A, NCV33063A — Inverting Regulator, Buck, Boost, Switching, 1.5 A
+  publisher: onsemi
+  document: MC34063A/D Rev. 27
+  revised: 2026-08
+  url: https://www.onsemi.com/download/data-sheet/pdf/mc34063a-d.pdf
+summary: One chip that can be wired as a step-down, step-up, or voltage-inverting converter — unusually flexible, and old.
+---
+
+# MC34063ADR2G
+
+## What it is
+
+The MC34063A is a switching-converter control circuit from the early 1980s that
+is still made because it does something few modern parts do: with the same eight
+pins, you can build a buck (step-down), a boost (step-up), or an inverting
+(positive-to-negative) converter, just by rearranging the external components. [1]
+
+Inside are a temperature-compensated reference, a comparator, an oscillator with
+active current limiting, a driver, and an output switch rated to 1.5 A. It is not
+efficient or fast by modern standards, but if you need a negative rail from a
+positive supply and do not want a charge pump, it remains one of the simplest
+answers. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Output voltage | Adjustable, set by an external divider against a 1.25 V comparator threshold held to 1.225–1.275 V at 25 °C and 1.21–1.29 V over the full temperature range [1] | The catalog records an output range of 1.25 V to 40 V. [2] The ±2 % headline is the room-temperature figure; budget a little over ±3 % across temperature. |
+| Output current | Output switch current to 1.5 A [1] | This is the *switch* rating. In boost or inverting configurations, deliverable output current is much lower. |
+| Input voltage range | 3.0 V to 40 V [1] | A very wide range, and one reason it survives in 12 V and 24 V systems. |
+| Switching frequency | Operation to 100 kHz, set by an external timing capacitor [1] | You choose the frequency. Higher means smaller magnetics; 100 kHz is the ceiling. |
+| Efficiency | Not stated as a headline figure. The bipolar output switch drops 1.0 V typical and 1.3 V maximum at 1 A when wired as a Darlington, or 0.45 V typical and 0.7 V maximum when pin 8 is driven through an 82 Ω resistor to V<sub>CC</sub> [1] | Efficiency is modest — this is the price of the flexibility and the age of the design. Which of the two wiring options you choose roughly halves or doubles the switch loss, and the datasheet specifies both. |
+| Operating temperature | 0 °C to +70 °C ambient for the MC34063A; the MC33063A and SC33063A cover −40 °C to +85 °C and the MC33063AV and NCV33063A −40 °C to +125 °C, all in the same datasheet [1] | **Commercial grade** for this part number. |
+
+## What the datasheet actually says
+
+**Current limiting is set by a resistor, and the datasheet gives you the
+number.** A sense resistor between the supply pin and the switch sets the peak
+current at which the oscillator terminates the cycle; the chip acts when the
+voltage across it reaches 300 mV typical, guaranteed between 250 mV and 350 mV.
+So a 0.3 Ω sense resistor limits at roughly 1 A, and the ±17 % spread on the
+threshold is the tolerance you have to design around. Getting this value right is
+the main design decision, and it protects both the chip and the inductor. [1]
+
+**The SOIC-8 package cannot dissipate what a 1.5 A switch produces.** onsemi
+rates the D-suffix SOIC at 625 mW at 25 °C ambient, with a junction-to-ambient
+thermal resistance of 160 °C/W. At 1 A the Darlington switch alone drops about
+1 V, so a converter spending much of each cycle with the switch on is already at
+or past that limit. Either keep the current well below the switch rating in this
+package, use the 82 Ω drive arrangement to halve the drop, or choose the PDIP
+version, which is rated 1.25 W. [1]
+
+**onsemi points at two application notes** — AN920A/D and AN954/D — for design
+guidance. That is unusual and a fair signal: this part needs more design work
+than a modern integrated converter, and the manufacturer knows it. [1]
+
+**The reference is 1.25 V with 2 % precision.** Your feedback divider is
+referenced to that, and its accuracy sets your output accuracy. [1]
+
+**The NCV prefix denotes automotive qualification** (AEC-Q100, PPAP capable) — a
+different part number. [1]
+
+## Watch out for
+
+- **You design the converter, not just place the chip.** Inductor value, timing
+  capacitor, sense resistor and diode all have to be calculated.
+- **The switch drop is significant.** A bipolar Darlington output means about a
+  volt lost across the switch at 1 A — poor efficiency at low output voltages,
+  and real heat in a small package.
+- **1.5 A is the switch rating.** Output current in a boost or inverting
+  configuration is far less.
+- **0 °C to +70 °C** for the MC34063A grade.
+- **For a plain buck, a modern part is better.** The TPS54331 or LM2596 will be
+  smaller, more efficient and easier. Choose the MC34063A for its inverting or
+  boost flexibility.
+
+## In this catalog
+
+Preferred Extended part in SOIC-8. At the 2026-07-24 snapshot: 113,738 in stock,
+$0.52 at quantity 1, falling to $0.26 at 1,000. The catalog attributes record
+3 V–40 V input, 1.25 V–40 V adjustable output, 1.5 A, 100 kHz, buck and boost
+topologies, overcurrent protection and 0 °C to +70 °C ambient, all consistent
+with the datasheet. Two things the attributes cannot convey: the 1.5 A is a
+switch rating that the SOIC-8 package's 625 mW dissipation limit will reach
+first, and the 100 kHz is a ceiling for an oscillator whose frequency you set
+with an external capacitor — with the datasheet's own 1 nF example it runs at
+33 kHz. The catalog also omits the inverting configuration, which the
+datasheet's title and description both name. [1] [2]
+
+## Sources
+
+1. onsemi, *MC34063A, MC33063A, SC33063A, NCV33063A — Inverting Regulator, Buck,
+   Boost, Switching, 1.5 A*, MC34063A/D Rev. 27, August 2026. Description and
+   Features page 1, Maximum Ratings, Electrical Characteristics. (Figures here
+   were re-checked against the Rev. 26 copy of the same document, May 2023,
+   which onsemi still serves.)
+   <https://www.onsemi.com/download/data-sheet/pdf/mc34063a-d.pdf>
+2. JLCPCB / LCSC catalog record for C32078, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/dc-dc-converters_onsemi-mc34063adr2g_C32078.html>
+`;export{e as default};

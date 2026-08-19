@@ -1,0 +1,115 @@
+var e=`---
+part: C21379
+mpn: CD4051BM96
+manufacturer: Texas Instruments
+category: Analog Switches, Multiplexers
+kind: analog
+package: SOIC-16-150mil
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: CD4051B, CD4052B, CD4053B — CMOS Analog Multiplexers/Demultiplexers
+  publisher: Texas Instruments
+  document: SCHS047O
+  revised: 2026-05
+  url: https://www.ti.com/lit/ds/symlink/cd4051b.pdf
+summary: An eight-way analog switch — three address pins pick which of eight signals connects to the common pin.
+---
+
+# CD4051BM96
+
+## What it is
+
+The CD4051B is an eight-to-one analog multiplexer. Three address pins select
+which of eight channels is connected to the common pin, and an inhibit pin turns
+all of them off. Because the switches are CMOS transmission gates, the connection
+is bidirectional: the same part works as a one-to-eight demultiplexer simply by
+driving it from the common side. [1]
+
+The classic use is to give a microcontroller with one ADC input the ability to
+read eight sensors. It also works for routing audio, selecting gain-setting
+resistors, or fanning a single signal out to several destinations. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | 8:1 bidirectional analog multiplexer/demultiplexer with inhibit [1] | One package replaces eight discrete switches and their control logic. |
+| Supply voltage | 3 V to 20 V single supply (performance degrades below 3 V), or ±3 V to ±10 V dual [1] | The wide range and the dual-supply option are what keep this 1970s part in use — it handles signals modern 3.3 V switches cannot. |
+| Input offset voltage | Not applicable [1] | — |
+| Gain bandwidth | −3 dB cutoff typically 20 MHz for the CD4051, measured with a 1 kΩ load on a 10 V supply [1] | Ample for audio and sensor work; not a video-rate part. |
+| Output swing | Analog signals up to 20 V peak-to-peak; digital control levels 3 V to 20 V [1] | The switch passes whatever is within the supply rails — there is no amplifier in the path. |
+| Supply current | Quiescent power dissipation typically 0.2 µW, but the guaranteed maximum quiescent current is 60 µA at 25 °C on a 15 V supply and 600 µA at 85 °C. OFF-channel leakage is ±10 pA typical per the feature list and ±0.3 nA typical in the characteristics table, against a ±100 nA maximum at 25 °C [1] | Typically free to leave powered — but the guarantees are far looser than the headline figures, so budget power and leakage from the maxima if either matters. |
+| Operating temperature | −55 °C to +125 °C [1] | Full military-grade range — unusually wide, and one reason this family survives. |
+
+## What the datasheet actually says
+
+**On-resistance depends heavily on supply voltage, and this is the thing that
+catches people out.** At V<sub>DD</sub> = 15 V, r<sub>ON</sub> is 125 Ω typical
+and 240 Ω maximum. At V<sub>DD</sub> = 5 V it rises to 470 Ω typical and 1,050 Ω
+maximum — four times worse. If you run this part from 5 V and feed a low-impedance
+load, the resistance is a real error term. [1]
+
+**Channel-to-channel matching is good.** The change in on-resistance between any
+two channels is typically 15 Ω at 5 V, 10 Ω at 10 V and 5 Ω at 15 V, so
+multiplexed measurements stay consistent even if the absolute resistance is
+high. [1]
+
+**Total harmonic distortion is specified** — 0.3 % at a 5 V supply, 0.2 % at
+10 V and 0.12 % at 15 V, each with a 1 kHz sine input into 10 kΩ. Audio use is
+practical, but a higher supply gives noticeably better results. All three are
+typical values. [1]
+
+**Break-before-make is guaranteed, and TI says so plainly.** The feature
+description states that "when channels are changed, a break-before-make system
+eliminates channel overlap" — so two inputs are never briefly shorted together
+as the address changes. What the datasheet does *not* give is a break-time
+figure. [1]
+
+**Switching channels is far slower than passing a signal, and the two delays are
+easy to confuse.** A signal already flowing through a selected channel is delayed
+by 30 ns typical and 60 ns maximum on a 5 V supply (10 ns / 20 ns at 15 V).
+*Changing* the address is a different row entirely: 450 ns typical and 720 ns
+maximum at 5 V, 160 ns / 320 ns at 10 V, 120 ns / 240 ns at 15 V. If you are
+scanning channels into an ADC, the address-to-output figure is the one that sets
+your settling budget. [1]
+
+## Watch out for
+
+- **Run it as high as your design allows.** On-resistance, distortion and
+  bandwidth all improve substantially with supply voltage.
+- **Analog signals must stay within the supply rails.** There is no protection
+  for signals outside V<sub>DD</sub>/V<sub>EE</sub>, and forcing them there can
+  latch up the part.
+- **Drive the address pins to full logic levels.** Partially-driven address lines
+  can turn on more than one channel.
+- **The on-resistance is in series with your signal.** Feed it into a high-
+  impedance input (an ADC sample-and-hold, an op-amp) rather than a resistive
+  load.
+
+## In this catalog
+
+Preferred Extended part in SOIC-16 (150 mil). At the 2026-07-24 snapshot: 45,820
+in stock, $0.26 at quantity 1, falling to $0.146 at 5,000. The catalog attributes
+record 125 Ω on-resistance, 8:1 switching, 3 V–20 V supply, 20 MHz bandwidth,
+60 ns propagation delay, 30 pF on-capacitance and −55 °C to +125 °C. Two entries
+need care. The 125 Ω is the datasheet's *typical* at V<sub>DD</sub> = 15 V — the
+maximum there is 240 Ω, and on a 5 V supply the figures become 470 Ω typical and
+1,050 Ω maximum. The 60 ns propagation delay is the 5 V *maximum* for a signal
+passing through an already-selected channel, not the time taken to change
+channels — that is 720 ns maximum at 5 V. (The catalog's CD4052B entry quotes
+320 ns, which is the address-to-output maximum at 10 V, so the two parts' delay
+figures are not measuring the same thing.) [1] [2]
+
+## Sources
+
+1. Texas Instruments, *CD4051B, CD4052B, CD4053B — CMOS Analog
+   Multiplexers/Demultiplexers*, SCHS047O, August 1998, revised May 2026.
+   Section 1 (Features), Section 3 (Description), Section 5.3 (Recommended
+   Operating Conditions), Section 5.5 (Electrical Characteristics), Section 5.6
+   (AC Performance Characteristics).
+   <https://www.ti.com/lit/ds/symlink/cd4051b.pdf>
+2. JLCPCB / LCSC catalog record for C21379, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/analog-switches-multiplexers_texas-instruments-cd4051bm96_C21379.html>
+`;export{e as default};
