@@ -14,7 +14,10 @@ summary: The cheapest user interface there is — and the one thing on a board p
 
 Small light-emitting diodes in surface-mount packages, used to tell a person
 something: power is on, data is moving, a fault has occurred. The catalog holds
-seven, mostly 0603 parts from Hubei KENTO. [1]
+seven — four in 0805 and three in 0603, five from Hubei KENTO and two from
+Foshan NationStar. Between them they cover red, yellow, green and white; there
+is **no blue** at Basic or Preferred tier, which is why the curated picks reach
+into ordinary Extended parts for one. [1]
 
 Electrically an LED is a diode with a forward voltage that depends on its colour,
 because the colour and the voltage both come from the semiconductor's band gap.
@@ -47,9 +50,11 @@ parts from the same reel. For LEDs placed side by side that difference is
 visible. The fix is a larger voltage across the resistor (so the V<sub>F</sub>
 variation is a smaller fraction of it), or constant-current drive.
 
-**3 V LEDs do not work well on 3.3 V rails.** A white or blue LED at the top of
-its 2.6–3.1 V range leaves 0.2 V across the resistor — a tiny, wildly variable
-current. Use a 5 V rail for those colours, or a boost driver.
+**3 V LEDs do not work well on 3.3 V rails.** The catalog's white and green
+parts are specified 2.6 V to 3.1 V (one white to 3.2 V), so a part at the top of
+its range leaves 0.1–0.2 V across the resistor — a tiny, wildly variable current.
+Use a 5 V rail for those colours, or a boost driver. Red and yellow, at 1.6–2.6 V,
+are comfortable on 3.3 V. [1]
 
 **Run them far below the rated current.** 300 mcd at 20 mA is dazzling as a panel
 indicator. At 2 mA it is still clearly visible indoors and uses a tenth of the
