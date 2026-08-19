@@ -1061,6 +1061,11 @@ footprint gets traced from.
 in a blockquote at the top. Confirm the drawing with the supplier before
 committing a footprint.
 
+**Update, same day:** the curated picks now recommend a single USB-C receptacle,
+the SHOU HAN C2765186, and this part is no longer among them. Its note is kept —
+the part detail page still renders for any C-number — but the recommendation no
+longer depends on a drawing whose part number does not match.
+
 ---
 
 ## 33. TYPE-C 16PIN 2MD(073) — LCSC's 5 A current rating is not the manufacturer's — Error

@@ -47,7 +47,10 @@ So:
   memories, sensors, crystals, connectors, and the specific discretes the site
   recommends by name. One file per part, keyed by its LCSC C-number. This is
   every part in the curated "Our Picks" list plus every non-commodity part in
-  the qualifying index — 99 in total.
+  the qualifying index — 99 in total. One of them, C168688, is a part the picks
+  list dropped on 2026-08-19 when the USB-C recommendation narrowed to a single
+  receptacle; its note is kept because the part detail page renders for any
+  C-number.
 - **`families/`** — the commodity groups. One file per family covering what the
   specs in that family mean, which ones actually bite you, and how to read the
   catalog attributes shown in the site's tables. 14 files covering 19 catalog
