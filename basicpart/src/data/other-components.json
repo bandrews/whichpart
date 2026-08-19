@@ -2,7 +2,7 @@
   "meta": {
     "type": "other-components",
     "catalogSnapshotDate": "2026-07-24",
-    "curatedReviewedDate": "2026-07-24",
+    "curatedReviewedDate": "2026-08-19",
     "lastUpdated": "2026-07-24"
   },
   "categories": [
@@ -43,7 +43,7 @@
           "package": "TQFP-32(7x7)",
           "part": "C14877",
           "tier": "preferred",
-          "notes": "Familiar Arduino-compatible MCU; Microchip marks this family not recommended for new designs."
+          "notes": "Familiar Arduino-compatible MCU. Lifecycle status varies by channel: some distributors flag it NRND while MicrochipDirect projects supply into 2040; the ATmega328PB is the successor for new designs."
         }
       ]
     },
@@ -73,28 +73,28 @@
       "items": [
         {
           "name": "12MHz Crystal",
-          "description": "20pF load, ±10ppm nominal tolerance",
+          "description": "20pF load, \u00b110ppm nominal tolerance",
           "package": "SMD3225-4P",
           "part": "C9002",
           "tier": "basic"
         },
         {
           "name": "16MHz Crystal",
-          "description": "9pF load, ±10ppm nominal tolerance",
+          "description": "9pF load, \u00b110ppm nominal tolerance",
           "package": "SMD3225-4P",
           "part": "C13738",
           "tier": "basic"
         },
         {
           "name": "25MHz Crystal",
-          "description": "12pF load, ±10ppm nominal tolerance",
+          "description": "12pF load, \u00b110ppm nominal tolerance",
           "package": "SMD3225-4P",
           "part": "C9006",
           "tier": "basic"
         },
         {
           "name": "32.768kHz Crystal",
-          "description": "12.5pF load, ±20ppm",
+          "description": "12.5pF load, \u00b120ppm",
           "package": "SMD3215-2P",
           "part": "C32346",
           "tier": "basic"
@@ -143,7 +143,7 @@
           "package": "SOP-16",
           "part": "C84681",
           "tier": "extended",
-          "notes": "Useful for legacy designs; this catalog record is ordinary Extended and marked no longer manufactured."
+          "notes": "Ordinary Extended part; an earlier catalog record carried a no-longer-manufactured flag that current JLCPCB/LCSC listings do not show. Verify lifecycle status before use."
         },
         {
           "name": "SP3485EN-L/TR",
@@ -400,14 +400,14 @@
         },
         {
           "name": "AO3400A",
-          "description": "30V 5.7A N-channel MOSFET, 48mΩ at 2.5V gate drive",
+          "description": "30V 5.7A N-channel MOSFET, 48m\u03a9 at 2.5V gate drive",
           "package": "SOT-23",
           "part": "C20917",
           "tier": "basic"
         },
         {
           "name": "AO3401A",
-          "description": "30V 4A P-channel MOSFET, 85mΩ at 2.5V gate drive",
+          "description": "30V 4A P-channel MOSFET, 85m\u03a9 at 2.5V gate drive",
           "package": "SOT-23",
           "part": "C15127",
           "tier": "basic"

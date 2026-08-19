@@ -1,0 +1,90 @@
+var e=`---
+part: C10002
+mpn: LM2596SX-5.0/NOPB
+manufacturer: Texas Instruments
+category: DC-DC Converters
+kind: power-switching
+package: TO-263-5
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: LM2596 SIMPLE SWITCHER Power Converter 150-kHz 3-A Step-Down Voltage Regulator
+  publisher: Texas Instruments
+  document: SNVS124G
+  revised: 2023-03
+  url: https://www.ti.com/lit/ds/symlink/lm2596.pdf
+summary: A fixed 5 V, 3 A buck regulator needing only four external parts — the classic drop-in replacement for a 7805.
+---
+
+# LM2596SX-5.0/NOPB
+
+## What it is
+
+The LM2596 is TI's "SIMPLE SWITCHER" — a buck regulator designed so that
+replacing a linear regulator with a switching one takes almost no design effort.
+This version has a fixed 5 V output, delivers 3 A, and accepts inputs up to
+40 V. TI states it requires only four external components. [1]
+
+It is the part behind the ubiquitous small red buck-converter modules, and the
+obvious upgrade path when a 7805 is getting too hot. Dropping 24 V to 5 V at 1 A,
+a 7805 dissipates 19 W; the LM2596 dissipates a fraction of that. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Output voltage | Fixed 5 V (this order code); the family also offers 3.3 V, 12 V and adjustable versions [1] | Fixed output means no feedback divider, and no risk of setting it wrong. |
+| Output current | 3 A [1] | Real 3 A, not a peak figure — but thermal design decides whether you get it. |
+| Input voltage range | Up to 40 V [1]; the catalog records 4.5 V to 40 V for this fixed-5 V version [2] | The wide input range is what makes it useful on 12 V and 24 V systems. |
+| Switching frequency | 150 kHz, fixed, from an internal oscillator [1] | Low by modern standards, which means a physically large inductor — typically 33–100 µH. |
+| Efficiency | Standby quiescent current typically 80 µA with TTL shutdown asserted [1] | Efficiency in normal operation is far better than a linear regulator, though below a modern synchronous converter. |
+| Operating temperature | −40 °C to +125 °C junction [2] | A junction limit; TO-263 needs a copper pour to reach it at full load. |
+
+## What the datasheet actually says
+
+**TI signposts replacements on the first line of the feature list.** The LMR51430
+(4.5–36 V, 3 A, synchronous) and the TLVM13630 power module are named as newer
+products. The LM2596 remains in production; TI is telling you a better part
+exists if you are starting fresh. A synchronous converter would be noticeably
+more efficient. [1]
+
+**150 kHz is the reason the inductor is big.** Switching frequency and inductor
+size trade off directly. Modern converters at 500 kHz or higher use much smaller
+magnetics — that is most of the practical difference between this part and the
+TPS54331. [1]
+
+**Line and load regulation are ±4 % maximum** on the adjustable version over line
+and load conditions; the fixed versions are tighter. [1]
+
+**TTL shutdown is built in**, so you can switch the rail off from a logic pin
+without adding a series device. [1]
+
+## Watch out for
+
+- **It is not synchronous.** You supply an external catch diode, and its forward
+  drop is a significant share of the losses at 3 A.
+- **Four external components is the marketing figure**, and it is honest — but
+  the inductor is a specific value and current rating, not any inductor.
+- **TO-263 needs copper.** The tab is the thermal path; a small pad will
+  thermally limit you well below 3 A.
+- **Newer parts are more efficient.** If board area and efficiency matter more
+  than familiarity, look at the successors TI names.
+
+## In this catalog
+
+Preferred Extended part in TO-263-5. At the 2026-07-24 snapshot: 15,755 in stock,
+$1.30 at quantity 1, falling to $0.84 at 1,000. The catalog attributes record
+4.5 V–40 V input, fixed 5 V output, 3 A, 150 kHz, 5 mA quiescent current, a
+non-synchronous buck topology and −40 °C to +125 °C junction temperature. The
+5 mA quiescent figure is the operating supply current, not the 80 µA standby
+figure from the datasheet's feature list. [2]
+
+## Sources
+
+1. Texas Instruments, *LM2596 SIMPLE SWITCHER® Power Converter 150-kHz 3-A
+   Step-Down Voltage Regulator*, SNVS124G, November 1999, revised March 2023.
+   Section 1 (Features). <https://www.ti.com/lit/ds/symlink/lm2596.pdf>
+2. JLCPCB / LCSC catalog record for C10002, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/dc-dc-converters_texas-instruments-lm2596sx-5-0-nopb_C10002.html>
+`;export{e as default};

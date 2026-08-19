@@ -1,0 +1,79 @@
+var e=`---
+part: C6847463
+mpn: MT25QU512ABB8E12-0AUT
+manufacturer: Micron Tech
+category: NOR FLASH
+kind: memory
+package: FBGA-24
+tier: preferred
+catalog_snapshot: 2026-07-24
+summary: 64 megabytes of 1.8 V NOR flash rated to 125 °C — an automotive-grade code store, at automotive-grade prices.
+---
+
+# MT25QU512ABB8E12-0AUT
+
+> **Note on sources.** Micron's datasheet for this part could not be retrieved
+> automatically. Every figure below comes from the JLCPCB/LCSC catalog record and
+> is cited as \`[1]\`. See \`ISSUES.md\`.
+
+## What it is
+
+NOR flash that a processor can execute code from directly, in a 512 Mbit
+(64 megabyte) capacity — four times the W25Q128JV and sixteen times a typical
+microcontroller's internal flash. It runs from a 1.8 V supply and is specified to
+125 °C. [1]
+
+Those last two facts place it: this is a part for an application processor or FPGA
+in a demanding environment, not for a hobby board. The price reflects that. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Capacity | 512 Mbit (64 Mbyte) [1] | Large enough for a compressed Linux kernel and root filesystem, or an FPGA bitstream with room to spare. |
+| Interface | SPI [1] | Micron's MT25Q family supports Quad and Dual SPI as well; the catalog records SPI. |
+| Maximum clock | 133 MHz [1] | The same as the W25Q128JV. |
+| Supply voltage | 1.7 V to 2.0 V [1] | **1.8 V only** — the \`U\` in \`MT25QU\` denotes the 1.8 V family. The \`MT25QL\` variant is the 3 V one. |
+| Endurance and retention | 100,000 program/erase cycles; 20 years' data retention [1] | Standard for quality NOR flash, and twice the retention of the SPI NAND in this catalog. |
+| Operating temperature | −40 °C to +125 °C [1] | **The widest temperature range of any part in this catalog.** This is what the price buys. |
+
+## What the specification implies
+
+**125 °C is an automotive-grade rating**, and it is unusual for flash memory.
+Most SPI flash stops at 85 °C or 105 °C. If your product goes under a bonnet, into
+a motor housing, or next to a power stage, this is a narrow field of candidates.
+
+**Execute-in-place is the point of NOR.** Unlike NAND, NOR flash can be read
+randomly at byte granularity, so a processor can run code directly out of it. That
+is why boot flash is almost always NOR.
+
+**The \`U\` matters.** \`MT25QU\` is 1.8 V; \`MT25QL\` is 3 V. They are otherwise very
+similar and the part numbers differ by one letter.
+
+**FBGA-24 is a small, fine-pitch package.** It needs reflow and cannot be
+inspected visually.
+
+## Watch out for
+
+- **Stock was zero at the snapshot date.** See \`ISSUES.md\`.
+- **$24.39 in ones** — by a wide margin the most expensive memory in this
+  catalog, and more than three times the 8 GB eMMC. Temperature rating and
+  automotive qualification are what you are paying for; if you do not need them,
+  the W25Q128JV costs a tenth as much.
+- **1.8 V only.**
+- **Check the exact order code.** The MT25Q family has many variants differing in
+  voltage, temperature grade, package and security features.
+
+## In this catalog
+
+Preferred Extended part in FBGA-24. At the 2026-07-24 snapshot: **0 in stock**,
+with prices listed from $24.39 at quantity 1 down to $23.24 at 30 — an unusually
+flat price curve, which typically signals a specialist, low-volume line. [1]
+
+## Sources
+
+1. JLCPCB / LCSC catalog record for C6847463, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`). This is the source for every
+   figure in the specification table above.
+   <https://www.lcsc.com/product-detail/nor-flash_micron-tech-mt25qu512abb8e12-0aut_C6847463.html>
+`;export{e as default};

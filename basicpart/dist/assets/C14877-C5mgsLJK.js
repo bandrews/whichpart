@@ -1,0 +1,95 @@
+var e=`---
+part: C14877
+mpn: ATMEGA328P-AU
+manufacturer: Microchip Tech
+category: Microcontrollers (MCU/MPU/SOC)
+kind: microcontroller
+package: TQFP-32(7x7)
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: ATmega48A/PA/88A/PA/168A/PA/328/P megaAVR Data Sheet
+  publisher: Microchip Technology
+  document: DS40002061B
+  revised: 2020
+  url: https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/ATmega48A-PA-88A-PA-168A-PA-328-P-DS-DS40002061B.pdf
+summary: The Arduino Uno's microcontroller — 8-bit AVR, 32 kB flash, and the widest supply range of any MCU here.
+---
+
+# ATMEGA328P-AU
+
+## What it is
+
+This is the chip inside the Arduino Uno, in its surface-mount TQFP-32 form. It is
+an 8-bit AVR running at up to 20 MHz with 32 kB of flash, 2 kB of RAM and 1 kB of
+EEPROM — modest numbers, but backed by the largest body of example code,
+libraries and tutorials of any microcontroller in this catalog. [1]
+
+Its genuinely distinctive feature is supply range: 1.8 V to 5.5 V. That makes it
+one of the few micros here that will run directly from a 5 V rail, which matters
+if you are interfacing to 5 V logic or sensors and would rather not add level
+shifting. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Core and maximum clock | 8-bit AVR enhanced RISC, up to 20 MHz / 20 MIPS, 131 instructions, most single-cycle [1] | One instruction per clock means 20 MHz here is not as slow as it sounds against a 48 MHz Cortex-M0 running compiled C. |
+| Flash | 32 kB in-system self-programmable, 10,000 write/erase cycles, 20 years' retention at 85 °C [1] | The endurance figure matters if you plan to reprogram in the field; it is much lower than the EEPROM's. |
+| RAM | 2 kB SRAM [1] | Small. This is the number that bites — string handling and buffers run out fast. |
+| Supply voltage | 1.8 V to 5.5 V [1] | The widest range of any MCU in this catalog, and the reason it is still chosen for 5 V designs. |
+| GPIO count | 23 programmable I/O lines [1] | In TQFP-32 you also get two extra ADC-only inputs (an 8-channel ADC rather than the 6 channels of the 28-pin DIP). |
+| Notable peripherals | 1 kB EEPROM (100,000 cycles), two 8-bit and one 16-bit timer/counter, six PWM channels, 8-channel 10-bit ADC with temperature measurement, USART, SPI master/slave, I²C-compatible two-wire interface, analog comparator, watchdog with its own oscillator, six sleep modes [1] | On-chip EEPROM is unusual in this catalog and saves you a separate memory chip for small amounts of persistent data. |
+| Operating temperature | −40 °C to +85 °C [1] | Standard industrial range. |
+
+## What the datasheet actually says
+
+**20 MHz needs 4.5 V.** This is the single most-missed line in the datasheet. The
+speed grade is 0–4 MHz at 1.8–5.5 V, 0–10 MHz at 2.7–5.5 V, and 0–20 MHz only at
+4.5–5.5 V. If you run this chip from 3.3 V, the guaranteed maximum clock is
+10 MHz, not 20. Plenty of 3.3 V designs run it at 16 MHz anyway and appear to
+work — that is operation outside the specification, not a supported mode. [1]
+
+**Power consumption is genuinely low.** At 1 MHz, 1.8 V and 25 °C the datasheet
+gives 0.2 mA active, 0.1 µA in power-down, and 0.75 µA in power-save with a
+32 kHz RTC still running. For a battery-powered logger that wakes occasionally,
+this is still a competitive part. [1]
+
+**The EEPROM outlasts the flash by 10×** — 100,000 cycles against 10,000 — so
+put anything you rewrite often in EEPROM, not in a flash-emulated store. [1]
+
+## Watch out for
+
+- **Product status depends on which channel you ask.** Mouser flags
+  \`ATMEGA328P-AU\` as NRND; a Findchips review of authorized listings (June 2026)
+  found no NRND or EOL flag; MicrochipDirect shows a projected end-of-life of
+  2040-11. Microchip's own product page could not be read directly during this
+  work. The practical summary: supply is expected for years, but the
+  ATmega328PB is the variant Microchip positions for new designs. See
+  \`ISSUES.md\`.
+- **2 kB of RAM is the practical ceiling.** Arduino sketches that use \`String\`
+  or large libraries hit it well before flash runs out.
+- **The datasheet covers eight part numbers at once.** Every "4/8/16/32 kB" style
+  figure is a list across the family — the ATmega328P is always the last value.
+- **No hardware USB.** Arduino Uno boards use a separate USB-to-serial chip for
+  this reason, and so must your board.
+
+## In this catalog
+
+Preferred Extended part in TQFP-32 (7×7 mm). At the 2026-07-24 snapshot: 30,730
+in stock, $2.41 at quantity 1, falling to $1.64 at 1,000 — making it the most
+expensive 8-bit part here, a price you are paying for ecosystem rather than
+capability. The catalog attributes record 20 MHz, 32 kB flash, 2 kB RAM, 1 kB
+EEPROM, 23 I/O, 10-bit ADC, 1.8 V–5.5 V and −40 °C to +85 °C, all matching the
+datasheet. [2]
+
+## Sources
+
+1. Microchip Technology, *ATmega48A/PA/88A/PA/168A/PA/328/P megaAVR Data Sheet*,
+   DS40002061B, 2020. Features pages 1–2 (memory, peripherals, I/O and packages,
+   operating voltage, temperature range, speed grade, power consumption).
+   <https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/ATmega48A-PA-88A-PA-168A-PA-328-P-DS-DS40002061B.pdf>
+2. JLCPCB / LCSC catalog record for C14877, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/microcontrollers-mcu-mpu-soc_microchip-tech-atmega328p-au_C14877.html>
+`;export{e as default};
