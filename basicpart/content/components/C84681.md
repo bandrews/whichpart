@@ -42,9 +42,9 @@ and, for this particular order code, an uncertain supply position. [2]
 | Function | USB-to-serial bridge; the family also supports USB-to-printer and USB-to-infrared modes [1] | The serial mode is what everyone uses it for. |
 | Signalling standard | Full-speed USB device, conforming to USB Specification 2.0; hardware full-duplex serial with transmit and receive buffers and common modem handshake signals [1] | Full modem control, like the CP2102. |
 | Maximum data rate | 50 bps to 2 Mbps [1] | Higher than the CP2102's 1 Mbps ceiling. |
-| Supply voltage | 5 V or 3.3 V. At 5 V, the V3 pin needs a 4,700 pF or 0.01 µF decoupling capacitor; at 3.3 V, tie V3 to V<sub>CC</sub> and keep every other connected circuit at or below 3.3 V [1] | The V3 pin arrangement is a real wiring difference between the two modes, and easy to get wrong. |
+| Supply voltage | 4.5 V to 5.3 V with V3 decoupled by a 4,700 pF or 0.01 µF capacitor, or 3.3 V to 3.8 V with V3 tied to V<sub>CC</sub> and every other connected circuit kept at or below 3.3 V. Absolute maximum 6.5 V. Supply current 12 mA typical, 30 mA maximum [1] | The V3 pin arrangement is a real wiring difference between the two modes, and easy to get wrong. WCH notes that the current figures are for 5 V operation and should be multiplied by 40 % at 3.3 V. |
 | Isolation or protection | None [1] | No galvanic isolation. |
-| Operating temperature | Not stated in the obtained datasheet [1] | — |
+| Operating temperature | −40 °C to +85 °C ambient, in WCH's absolute maximum ratings table; storage −55 °C to +125 °C [1] | Industrial range. Note it is stated as an absolute maximum rather than a range over which the electrical parameters are specified — those are quoted at 25 °C. |
 
 ## What the datasheet actually says
 
