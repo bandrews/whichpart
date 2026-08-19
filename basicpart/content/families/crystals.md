@@ -53,6 +53,19 @@ pin and trace capacitance. For matched capacitors that means each one is roughly
 directly as each capacitor makes the crystal run slow, and it is probably the
 single most common crystal mistake.
 
+**Check the crystal against what your chip's datasheet actually asks for.** Both
+of the megahertz crystals in this family with an obvious host chip in the same
+catalog differ from that chip's stated crystal specification.
+Raspberry Pi's recommended RP2040 crystal is an Abracon ABM8-272-T3 — 12 MHz,
+10 pF load, 50 Ω maximum resistance, ±30 ppm — and the datasheet warns that even
+a crystal with similar specifications needs testing over temperature. [4] The
+catalog's 12 MHz part is a 20 pF crystal in a band the YXC series allows 80 Ω in,
+so it differs on both counts. [1] [3] Likewise, WIZnet's W5500 specifies an 18 pF
+load; the catalog's 25 MHz part is a 12 pF one. [1] [5] Neither pairing is wrong
+— both will oscillate — but neither is a copy-the-reference-schematic job either.
+The capacitor values have to be recalculated for the crystal you actually buy,
+and where the vendor also names a resistance ceiling, check that too.
+
 **Tolerance and stability add.** A ±10 ppm crystal with ±20 ppm stability is
 ±30 ppm worst case — about 2.6 seconds a day. For a UART at 115,200 baud that is
 irrelevant (UARTs tolerate a percent or two); for a clock, or for USB, it is not.
@@ -106,7 +119,10 @@ debugging a marginal oscillator.
 - **Tolerance and stability add.**
 - **Check whether your chip has integrated load capacitance.**
 - **Megahertz and 32.768 kHz crystals need different circuits.**
-- **Follow the microcontroller vendor's recommended crystal** where one is named.
+- **Follow the microcontroller vendor's recommended crystal** where one is named,
+  and if you substitute, compare load capacitance *and* the resistance ceiling —
+  the catalog's 12 MHz and 25 MHz parts differ from what the RP2040 and W5500
+  respectively ask for. [4] [5]
 - **Check the temperature range as well as the ppm figure.** Five of these parts
   are specified over −40 °C to +85 °C, but the 8 MHz HC-49S part is only
   specified from −20 °C to +70 °C. [1]
@@ -134,3 +150,14 @@ All four crystals in the curated picks have their own files: `C9002` (12 MHz),
    frequency band, and leaves the exact frequency, tolerance and load capacitance
    to the order code.
    <https://datasheet.lcsc.com/datasheet/pdf/a84bd8d530dd46e4b0f6d0ee59d8a89c.pdf>
+4. Raspberry Pi Ltd, *RP2040 Datasheet — A microcontroller by Raspberry Pi*,
+   build-version 3184e62-clean, build-date 2025-02-20. Section 2.16.1.1 and
+   Table 257 (Recommended Crystals), and the accompanying warnings about
+   substitution. Cited for what the RP2040 asks of a crystal, not for anything
+   about the parts in this family.
+   <https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf>
+5. WIZnet Co., Ltd., *W5500 Datasheet*, Version 1.1.0, Section 5.5.3 (Crystal
+   Characteristics): 25 MHz, ±30 ppm at 25 °C, 18 pF load capacitance, 7 pF
+   maximum shunt capacitance, 59.12 µW drive level. Cited for what the W5500 asks
+   of a crystal, not for anything about the parts in this family.
+   <https://docs.wiznet.io/img/products/w5500/W5500_ds_v110e.pdf>

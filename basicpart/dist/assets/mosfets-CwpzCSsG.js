@@ -41,9 +41,13 @@ the on-resistance for the same die area.
 **Threshold voltage is the most misread specification here.** A part with a
 1.45 V maximum threshold is *not* fully on at 1.45 V — it is barely conducting.
 The number to look at is on-resistance at the gate voltage you will actually
-apply. The catalog's AO3400A quotes 26.5 mΩ at 10 V, 32 mΩ at 4.5 V and 48 mΩ at
-2.5 V. [1] The 2.5 V figure is what a 3.3 V microcontroller pin gets you, and it
-is the one to design with.
+apply. Alpha & Omega's AO3400A datasheet guarantees under 26.5 mΩ at 10 V, under
+32 mΩ at 4.5 V and under 48 mΩ at 2.5 V. [2] The catalog carries only the last of
+those — its \`RDS(on)\` attribute for that part reads \`48mΩ@2.5V\` — which is a
+sensible choice, because 2.5 V is the pessimistic case and the 2.5 V figure is
+what a 3.3 V microcontroller pin gets you. [1] But it does mean the catalog
+number alone tells you nothing about how the part behaves at a fuller gate drive:
+for that, and for any other part here, you have to open the datasheet.
 
 **"Logic level" means the on-resistance is specified at 4.5 V or below.** If a
 datasheet only quotes R<sub>DS(on)</sub> at 10 V, the part is not suitable for

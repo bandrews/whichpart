@@ -41,7 +41,7 @@ catalog-only notes, and once more during the review pass that added findings
 | 16 | Conditions omitted from catalog attributes | **Open, surfaced.** More instances found on 2026-08-19 — findings 24, 26, 27 and 29 are all the same shape. |
 | 17 | LTV-817S CTR rank ignored | **Open, surfaced, corroborated.** A second Lite-On document (LTV-217-G) publishes the identical rank table, and C115450 is a second instance of the same behaviour (finding 28). |
 | 18 | Datasheet hosts blocking retrieval | **Resolved for LCSC.** The viewer-page route (finding 18) recovered all 22 remaining parts, taking the datasheet-backed count from 77 of 99 to **99 of 99**. Two of those documents are scanned drawings with no text layer, read by rendering the page as an image. |
-| 34–46 | Findings from the 2026-08-19 review pass | **New.** A second reviewer re-checked every note against its manufacturer's document. One earlier finding was retracted (5), eight new catalog-attribute problems were recorded, and sixteen errors this repository had introduced were corrected — listed together in finding 43. |
+| 34–46 | Findings from the 2026-08-19 review pass | **New.** A second reviewer re-checked every note against its manufacturer's document. One earlier finding was retracted (5), eight new catalog-attribute problems were recorded, and seventeen errors this repository had introduced were corrected — listed together in finding 43. |
 | 19–33 | Findings from the 2026-08-19 datasheet pass | **New.** Fifteen findings recorded while rewriting the last 22 notes against their manufacturers' documents. The two most consequential are 22 (the CJ431's ±0.5 % reference tolerance is not guaranteed for the order code sold) and 26 (the MT25QU512's catalog standby current is twenty times below the grade's guaranteed maximum). Finding 33 — LCSC listing a 3 A connector at 5 A — is the one most likely to cause a hot part. |
 
 Also revisited on 2026-08-19: the CH340C's "no longer manufactured" curated note.
@@ -1031,8 +1031,9 @@ match to the oscillator, and getting it wrong shifts the frequency rather than
 stopping the circuit — which makes it a bug that survives bring-up and shows up
 later as a USB or Ethernet link that works on most boards.
 
-**Suggested action:** none in the data; the pairing advice belongs in the notes,
-and C9002 and C9006 now carry it with the datasheet citations.
+**Suggested action:** none in the data; the pairing advice belongs in the notes.
+C9002 and C9006 now carry it with the datasheet citations, and
+`families/crystals.md` states it for the family as a whole.
 
 ---
 
@@ -1337,6 +1338,7 @@ themselves, all corrected:
 | `families/chip-resistors` | Both ±1 % and ±5 % parts are stocked | All 293 qualifying chip resistors are ±1 % |
 | `families/bridge-rectifiers` | "Mostly MDD" | 24 of 26 are hongjiacheng |
 | `families/led-indicators` | "Mostly 0603" | Four of the seven are 0805 |
+| `families/mosfets` | "The catalog's AO3400A quotes 26.5 mΩ at 10 V, 32 mΩ at 4.5 V and 48 mΩ at 2.5 V" | Only `48mΩ@2.5V` is a catalog attribute; the 26.5 mΩ and 32 mΩ figures come from Alpha & Omega's datasheet, and the note now credits them there |
 | `families/tactile-switches` | The XKB part "records `Gold`" contacts | That attribute is the *cap colour*; XKB's drawing specifies silver-plated stainless steel contacts |
 | `C84681` (CH340C) | Operating temperature "not stated in the obtained datasheet" | WCH's absolute maximum ratings table gives −40 °C to +85 °C ambient and −55 °C to +125 °C storage |
 | Six `74HC` notes | Propagation delays quoted to +85 °C | All six `D`-suffix parts are the −40 °C to +125 °C grade, where the delays are roughly 50 % longer |
