@@ -60,13 +60,21 @@ So:
 1. **Manufacturer datasheet first.** Where a manufacturer datasheet could be
    retrieved, the electrical figures come from it, and the file records the
    document number and revision so a future reader can tell whether the summary
-   has gone stale. 65 of the 99 component files have a manufacturer datasheet
+   has gone stale. 77 of the 99 component files have a manufacturer datasheet
    recorded in their front matter.
 2. **Catalog record second.** Package, price, stock, JLCPCB tier, and the
    attribute strings shown in the site's tables come from the JLCPCB/LCSC
    catalog snapshot in `raw-data/`, and are cited as such.
-3. **Nothing else.** Where a datasheet could not be reached — which is the case
-   for every part whose only datasheet link is LCSC-hosted, since that host
+3. **Industry-type datasheet third, and clearly labelled.** Several parts here
+   are house-brand versions of industry-standard types — `hongjiacheng`'s SS14
+   and BSS138W, `MDD`'s US1M and MB10S. For those, the file cites the catalog
+   record as the specification of record for the part actually supplied, and a
+   named manufacturer's datasheet for the *type* as a second source, saying
+   explicitly where the two disagree. Sometimes they disagree materially: the
+   MB10S is a case where every retrievable datasheet for the type rates it at
+   half the current the catalog claims.
+4. **Nothing else.** Where no datasheet could be reached — which remains the
+   case for every part whose only datasheet link is LCSC-hosted, since that host
    blocks automated retrieval — the file says so at the top, in a blockquote,
    and cites the catalog record for every figure. It does not fill the gap with
    plausible-sounding numbers.

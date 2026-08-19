@@ -50,10 +50,30 @@ omitted only when it would be empty, never reordered.
 |---|---|
 | `## What it is` | Two or three sentences of plain prose. What the part does, who it is for, and what a typical design uses it for. No tables, no abbreviations left unexplained. |
 | `## Key specifications` | A three-column table: **Specification**, **Value**, **Why it matters**. The rows are fixed per `kind` (see below) so parts of the same kind line up. Every value carries a source marker. |
-| `## What the datasheet actually says` | Prose. The two or three things in the datasheet that a datasheet skimmer would miss — conditions attached to headline numbers, derating, the difference between typical and guaranteed. |
+| `## What the datasheet actually says` | Prose. The two or three things in the datasheet that a datasheet skimmer would miss — conditions attached to headline numbers, derating, the difference between typical and guaranteed. **Alternative heading:** where no manufacturer datasheet backs the specification table, this section is titled `## What the specification implies` instead. Those are the only two permitted titles for this slot; see below. |
 | `## Watch out for` | A short bullet list of practical traps: layout requirements, missing protection, obsolescence, footprint ambiguity. Omitted if there is genuinely nothing to flag. |
 | `## In this catalog` | Package, tier, price at the catalog's break points, and stock at the snapshot date, all from the catalog record. |
 | `## Sources` | Numbered list. Every marker used in the body resolves here. |
+
+### The third section's two titles
+
+The third section carries one of exactly two headings, and which one is not a
+stylistic choice:
+
+- `## What the datasheet actually says` — used when the **Key specifications**
+  table is sourced from a manufacturer datasheet. This includes the handful of
+  house-brand parts (`hongjiacheng`, `MDD`) where the datasheet cited is for the
+  industry-standard *type* rather than the exact branded part; those files say so
+  in a blockquote and mark the difference in every affected row.
+- `## What the specification implies` — used when the specification table is
+  sourced only from the JLCPCB/LCSC catalog record, because no manufacturer
+  datasheet could be retrieved. A file may still cite a datasheet under this
+  heading for *family context* (the TP4054 and TP4057 notes cite the TP4056's,
+  for instance) without changing the heading, because the specification figures
+  themselves are still catalog-derived.
+
+A renderer can therefore treat the two titles as the same slot, and can use which
+title appears as a reliable signal of how well-sourced the numbers above it are.
 
 ## Source markers
 
