@@ -16,9 +16,10 @@ Severity is used loosely:
 
 ## Status review — 2026-08-19
 
-Each issue was revisited before the spec notes were wired into the UI, and again
+Each issue was revisited before the spec notes were wired into the UI, again
 after the datasheet pass later the same day that closed the last of the
-catalog-only notes. Current state:
+catalog-only notes, and once more during the review pass that added findings
+34–45. Current state:
 
 | # | Issue | Status |
 |---|---|---|
@@ -26,7 +27,7 @@ catalog-only notes. Current state:
 | 2 | NE5532 datasheet self-contradiction | **Open upstream, surfaced.** The inconsistency is in TI's own document; the correction (12 MHz / 5 V/µs from the spec tables) is stated in the C7426 note, which the part page now displays. |
 | 3 | ULN2803A datasheet unreachable | **Resolved.** The genuine SLRS049H (Rev H, Feb 2017) was obtained via a mirror; C9683 is now datasheet-sourced and every catalog attribute checks out, including the 18-pin DW package (TI's own device table). The ULN2803C remains a 20-pin non-substitute. |
 | 4 | M24C64 ECC tied to process letter | **Open in catalog data, surfaced.** No override path exists for scraped attributes (parts-index.json regenerates from raw-data); the caveat is stated in the C79988 note, now displayed on the part page. |
-| 5 | L78M05 datasheet marked obsolete | **Open, surfaced.** Lifecycle warning is stated prominently in the C58069 note, now displayed on the part page. |
+| 5 | L78M05 datasheet marked obsolete | **Retracted — stale document.** ST's current datasheet for the family is DS0425 Rev 24 (September 2020), which carries no watermark and lists this order code; ST's product page shows the series in volume production. The watermarked 2012 document was the superseded one. See finding 34. |
 | 6 | ADuM1201 data rate understated 25× | **Retracted — false alarm.** The `A` in `ADuM1201ARZ` *is* a speed grade. Analog Devices publishes separate switching-specification tables for the `AR`, `BR` and `CR` grades: 1 Mbps, 10 Mbps and 25 Mbps respectively. The catalog's 1 Mbps was correct for this order code all along, and it was the C9669 note that was wrong. Note rewritten; see the amended issue 6 below. |
 | 7 | HT7533/HT7550 30 V and 25 mV "errors" | **Retracted — false alarm.** The current Holtek datasheet (Rev 2.81, 3 Dec 2025, fetched from holtek.com) is titled "30V, 100mA Low Power LDO" and specifies 30 V input (33 V abs max) and 25 mV typ / 55 mV max dropout at 1 mA. The catalog matched the current revision all along; the earlier finding was based on a stale 2006 mirror (Rev 1.50, 24 V / 100 mV). Both component notes rewritten against Rev 2.81. See the amended issue 7 below. |
 | 8 | AMS1117 temp range / input voltage | **Open, surfaced.** Issue 7's lesson (revisions move) applies here too — the figures may match a newer AMS datasheet revision than the 2012 one obtained. Noted in the component files. |
@@ -40,6 +41,7 @@ catalog-only notes. Current state:
 | 16 | Conditions omitted from catalog attributes | **Open, surfaced.** More instances found on 2026-08-19 — findings 24, 26, 27 and 29 are all the same shape. |
 | 17 | LTV-817S CTR rank ignored | **Open, surfaced, corroborated.** A second Lite-On document (LTV-217-G) publishes the identical rank table, and C115450 is a second instance of the same behaviour (finding 28). |
 | 18 | Datasheet hosts blocking retrieval | **Resolved for LCSC.** The viewer-page route (finding 18) recovered all 22 remaining parts, taking the datasheet-backed count from 77 of 99 to **99 of 99**. Two of those documents are scanned drawings with no text layer, read by rendering the page as an image. |
+| 34–45 | Findings from the 2026-08-19 review pass | **New.** A second reviewer re-checked every note against its manufacturer's document. One earlier finding was retracted (5), eight new catalog-attribute problems were recorded, and fifteen errors this repository had introduced were corrected — listed together in finding 43. |
 | 19–33 | Findings from the 2026-08-19 datasheet pass | **New.** Fifteen findings recorded while rewriting the last 22 notes against their manufacturers' documents. The two most consequential are 22 (the CJ431's ±0.5 % reference tolerance is not guaranteed for the order code sold) and 26 (the MT25QU512's catalog standby current is twenty times below the grade's guaranteed maximum). Finding 33 — LCSC listing a 3 A connector at 5 A — is the one most likely to cause a hot part. |
 
 Also revisited on 2026-08-19: the CH340C's "no longer manufactured" curated note.
@@ -1089,5 +1091,294 @@ maker rates at 3 A.
 **Suggested action:** none in this repository's data — the curated entry is
 already correct. The C2765186 note now closes its old "sources disagree" hedge
 with the manufacturer's citation.
+
+---
+
+## Review pass, 2026-08-19 (later the same day): findings 34–45
+
+A second reviewer re-checked every note in `components/` and `families/` against
+the manufacturers' documents. Most notes came through unchanged. The findings
+below are what did not. They fall into three groups: one retraction of an earlier
+finding, several catalog attributes whose conditions or grades are wrong, and a
+set of errors this repository had introduced itself.
+
+---
+
+## 34. L78M05ABDT-TR — the "obsolete" warning was based on a superseded document — ~~Error~~ RETRACTED (supersedes finding 5)
+
+**What finding 5 said:** every page of ST's L78MxxAB / L78MxxAC datasheet
+(Doc ID 2147 Rev 13, May 2012) carries an `Obsolete Product(s)` watermark, and a
+Basic-tier part whose datasheet is marked obsolete is worth flagging.
+
+**What was checked:** the datasheet LCSC serves for C58069 is
+**DS0425 Rev 24, September 2020**, titled *L78M — Precision 500 mA regulators*.
+It carries no watermark, and its Table 27 (Order code) lists `L78M05ABDT-TR`
+explicitly. ST's own product page for the L78M series, checked on 2026-08-19,
+shows the series in volume production with this order code orderable.
+
+**Finding:** the watermark belongs to a *superseded document*, not to a
+discontinued product. ST replaced the separate `L78MxxAB/AC` datasheet with the
+combined `L78M` one and marked the old document obsolete — the standard meaning
+of that watermark on an ST PDF that has been withdrawn in favour of another.
+
+**Why it matters:** the previous text told designers to think twice before
+putting a Basic part into a long-lived product, on evidence that does not support
+it. That is the same failure mode as findings 6 and 7: a stale document read as
+current.
+
+**Action taken:** the C58069 note is re-sourced from DS0425 Rev 24, its
+blockquote now explains the retraction, and the lifecycle warning is gone. Its
+quiescent current was corrected in the same pass — ST publishes 6 mA as a
+*maximum* with no typical, where the note had called it a typical.
+
+---
+
+## 35. LM324DT — the catalog's 5 mV input offset is the LM124/LM224 limit, not the LM324's — Error
+
+**Where:** `parts-index.json` entry for C71035 (`LM324DT`), attribute
+`Input Offset Voltage: 5mV`.
+
+**What was checked:** STMicroelectronics *LM124, LM224, LM324, LM2902*,
+DS0985 Rev 8, September 2019, Table 3.
+
+**Finding:** ST's offset table splits by grade. At 25 °C the LM124 and LM224 are
+guaranteed to ±5 mV; the **LM324 is guaranteed to ±7 mV**, widening to ±9 mV over
+its temperature range. The catalog shows the tighter figure against an LM324
+order code.
+
+**Why it matters:** offset is the specification people size their error budget
+from. A 40 % optimistic figure matters in a divider-referenced comparator or a
+low-side current-sense amplifier.
+
+**Suggested action:** correct the attribute to 7 mV. The note now states the
+grade split and says to design to 7 mV.
+
+---
+
+## 36. LM393DR2G — the catalog's 25 nA bias current is a feature-page figure, ten times better than the guarantee — Error
+
+**Where:** `parts-index.json` entry for C7955 (`LM393DR2G`), attribute
+`Input Bias Current: 25nA`.
+
+**What was checked:** onsemi *LM393, LM293, LM2903, NCV2903 — Low Offset Voltage
+Dual Comparators*, LM393/D Rev. 34, September 2025 (verified against Rev. 25 as
+well).
+
+**Finding:** 25 nA appears in the Features list. The Electrical Characteristics
+table gives 20 nA typical and **250 nA maximum** at 25 °C, rising to 400 nA
+maximum over temperature.
+
+**Why it matters:** the bias current sets how large a threshold divider you can
+use. At 250 nA through a 100 kΩ Thévenin resistance the threshold shifts 25 mV —
+five times the part's own offset specification, and ten times what the catalog's
+figure would suggest.
+
+**Suggested action:** as with finding 16, the honest fix is to record maxima
+rather than feature-page typicals. The note now gives both, along with the
+common-mode limit of V<sub>CC</sub> − 1.5 V that no attribute carries.
+
+---
+
+## 37. CD4051BM96 and CD4052BM96 — the two parts' propagation-delay attributes measure different things — Note
+
+**Where:** `parts-index.json` entries for C21379 (`Propagation Delay (tpd): 60ns`)
+and C6521 (`Propagation Delay (tpd): 320ns`).
+
+**What was checked:** Texas Instruments *CD4051B, CD4052B, CD4053B*, SCHS047O,
+revised May 2026, Section 5.5.
+
+**Finding:** both figures are in the datasheet, but they are different
+parameters. 60 ns is the **signal-path** delay maximum at V<sub>DD</sub> = 5 V —
+the delay through a channel that is already selected. 320 ns is the
+**address-to-output** delay maximum at 10 V, which is what a channel *change*
+costs. On a 5 V supply that same address-to-output figure is 720 ns.
+
+**Why it matters:** side by side in a table, the CD4052B looks five times slower
+than the CD4051B. It is not. And anyone scanning channels into an ADC needs the
+address-to-output number, which for the CD4051B the catalog does not show.
+
+**Suggested action:** none available in the scraped data. Both notes now separate
+the two delays explicitly.
+
+---
+
+## 38. AO3400A — the catalog labels the gate charge at a voltage the datasheet does not use — Error
+
+**Where:** `parts-index.json` entry for C20917, attributes
+`Gate Charge(Qg): 7nC@10V` and `Pd - Power Dissipation: 1.4W`.
+
+**What was checked:** Alpha & Omega Semiconductor *AO3400A — 30V N-Channel
+MOSFET*, Rev 3.1, July 2023.
+
+**Finding:** two problems. AOS specifies the AO3400A's total gate charge at
+**V<sub>GS</sub> = 4.5 V** (6 nC typical, 7 nC maximum) and publishes no 10 V
+figure at all — unlike the AO3401A, where both 4.5 V and 10 V charges are given.
+And the 1.4 W dissipation is derived from the *ten-second* junction-to-ambient
+thermal resistance; the steady-state figure (125 °C/W maximum) works out at about
+1 W.
+
+**Why it matters:** gate charge sets drive current at high PWM frequencies, and a
+figure attributed to the wrong drive voltage will under-estimate it. The
+dissipation figure matters to anyone sizing a continuous load.
+
+**Suggested action:** drop the `@10V` qualifier, or replace it with `@4.5V`.
+
+---
+
+## 39. AO3401A — the catalog's 47 mΩ at 10 V matches neither the typical nor the maximum — Error
+
+**Where:** `parts-index.json` entry for C15127, attribute
+`RDS(on): 47mΩ@10V、60mΩ@4.5V、85mΩ@2.5V`.
+
+**What was checked:** Alpha & Omega Semiconductor *AO3401A — 30V P-Channel
+MOSFET*, Rev 3.1, December 2023.
+
+**Finding:** at V<sub>GS</sub> = −10 V the datasheet gives 41 mΩ typical and
+50 mΩ maximum. 47 mΩ is the *typical at −4.5 V*. The other two entries in the
+same attribute string (60 mΩ and 85 mΩ) are the guaranteed maxima at −4.5 V and
+−2.5 V, so the row mixes a slipped typical with two maxima.
+
+**Why it matters:** modest in absolute terms, but it is the headline number for a
+switch, and the inconsistency makes the string untrustworthy as a whole.
+
+**Suggested action:** correct to 50 mΩ@10V. Separately, the catalog's operating
+temperature field for this part is empty, while the datasheet gives −55 °C to
++150 °C junction and storage.
+
+---
+
+## 40. TP4056-42-ESOP8 — the catalog's 2 µA is the battery-pin current, not the supply current — Error
+
+**Where:** `parts-index.json` entry for C16581, attribute
+`Supply Current: 2uA`.
+
+**What was checked:** NanJing Top Power ASIC Corp. *TP4056* datasheet, Electrical
+Characteristics and pin descriptions.
+
+**Finding:** the TP4056 draws **150 µA typical (500 µA maximum)** from its input
+while charging and **55 µA typical (100 µA maximum)** once charging has
+terminated. The "less than 2 µA" figure describes what the BAT pin draws back
+through the chip in sleep or chip-disable mode.
+
+**Why it matters:** the two numbers answer different questions — one is what your
+5 V source must supply, the other is how fast the chip discharges the cell when
+the input is gone. A standby power budget built on 2 µA is out by a factor of 25.
+
+**Suggested action:** relabel, or record both. The note now gives all three.
+
+---
+
+## 41. W25Q128JVSIQ — the catalog's 1 µA standby current is the power-down figure — Error
+
+**Where:** `parts-index.json` entry for C97521, attribute
+`Standby Current: 1uA` (with `3ms` page program and `120ms` block erase).
+
+**What was checked:** Winbond *W25Q128JV*, Revision F, 27 March 2018,
+Sections 9.4 and 9.6.
+
+**Finding:** standby current (chip-select high, no instruction) is **10 µA
+typical and 60 µA maximum**. The 1 µA typical / 20 µA maximum figure is the
+*power-down* current, which the host reaches only by issuing the Power-down
+instruction. Two neighbouring attributes also mix best and worst case: the 3 ms
+page-program time is a maximum against a 0.4 ms typical, while the 120 ms block
+erase is a typical against a **1.6 second** maximum.
+
+**Why it matters:** the standby figure is off by an order of magnitude for anyone
+who does not issue the instruction, and firmware that times out a block erase at
+anything under 1.6 s will report spurious failures.
+
+**Suggested action:** record the standby figure, or label the power-down one.
+
+---
+
+## 42. M24C64-RMN6TP and M24C02-WMN6TP — three headline figures hang on a process letter the order code does not carry — Note (extends finding 4)
+
+**Where:** `parts-index.json` entries for C79988 and C7562.
+
+**What was checked:** STMicroelectronics *M24C64-W/R/F/DF*, DocID16891 Rev 33,
+June 2016, and *M24C01, M24C02*, DocID024020 Rev 2, September 2013.
+
+**Finding:** finding 4 recorded that the M24C64's ECC is specified only for
+process letter K. The same qualification turns out to cover two more headline
+figures. The **1 MHz timing table** is footnoted "only for devices identified by
+the process letter K or T"; the **4-million-cycle endurance** and **200-year
+retention** are likewise K/T figures, with earlier devices specified at 1 million
+cycles and 40 years. The M24C02's endurance and retention carry the same footnote
+for letter T. Neither order code encodes the process letter.
+
+The temperature condition is worth stating too: 4 million cycles is specified at
+T<sub>A</sub> ≤ 25 °C. At 85 °C the specification is 1.2 million.
+
+**Why it matters:** a data-logging design sized on 4 million cycles at 1 MHz may
+receive parts guaranteed for a quarter of that at 400 kHz, with no change in the
+part number.
+
+**Suggested action:** none available in the scraped data. Both notes now say what
+is conditional and on what.
+
+---
+
+## 43. Errors this repository introduced, found and fixed in this pass — Note
+
+Not every finding is a catalog problem. These were mistakes in the notes
+themselves, all corrected:
+
+| Note | What it said | What the datasheet says |
+|---|---|---|
+| `C6961` (TL072) | 1.4 mA quiescent current "for both amplifiers" | ST's figure is per amplifier; TI's TL072 datasheet labels the same number "quiescent current per amplifier", so the package draws about 2.8 mA |
+| `C6961` (TL072) | Over-temperature input offset current "4 nA typical" | 4 nA is a *maximum*, and it belongs to the other grade column; the C grade's is 10 nA |
+| `C21379` (CD4051B) | "Break-before-make is not stated as such" | TI states it explicitly: "when channels are changed, a break-before-make system eliminates channel overlap" |
+| `C6521` (CD4052B) | Between-section crosstalk "typically 3 MHz" | 3 MHz is the between-*channel* figure; between sections it is 6 MHz at the common pin and 10 MHz at any channel |
+| `C6952` (TJA1050) | 110 nodes is "more than the SN65HVD230's 120" | It is fewer; the sentence was self-contradicting |
+| `C7955` (LM393) | 300 ns large-signal response "maximum" | It is a typical, with no maximum specified |
+| `C7722` (TPS61040) | "Hysteretic control scheme" | TI describes pulse-frequency modulation with constant peak current control |
+| `C8734` (STM32F103C8T6) | Junction range −40 °C to +125 °C | That is the `7` suffix; the `6` suffix this part carries is −40 °C to +105 °C |
+| `C23922` (STM32F030C8T6) | "All I/Os 5 V tolerant", "11 timers" | ADC-connected pins are marked `TTa`, 3.3 V tolerant only; this device has seven timer peripherals, 11 is the family headline |
+| `families/chip-resistors` | Both ±1 % and ±5 % parts are stocked | All 293 qualifying chip resistors are ±1 % |
+| `families/bridge-rectifiers` | "Mostly MDD" | 24 of 26 are hongjiacheng |
+| `families/led-indicators` | "Mostly 0603" | Four of the seven are 0805 |
+| `families/tactile-switches` | The XKB part "records `Gold`" contacts | That attribute is the *cap colour*; XKB's drawing specifies silver-plated stainless steel contacts |
+| Six `74HC` notes | Propagation delays quoted to +85 °C | All six `D`-suffix parts are the −40 °C to +125 °C grade, where the delays are roughly 50 % longer |
+| `families/zener-diodes`, `schottky-and-rectifier-diodes`, `tvs-esd-protection`, `bipolar-transistors`, `bridge-rectifiers` | House-brand datasheets "are not reachable to automated fetching" | They are, by the route recorded in finding 18; all five family notes are now sourced from them |
+
+---
+
+## 44. The inductor family contains no power inductors, and no saturation current for any part — Note
+
+**Where:** the `Inductors (SMD)` category, 13 parts.
+
+**What was checked:** every attribute string in the category.
+
+**Finding:** the current ratings run from 2 mA to 500 mA, and the
+microhenry-range parts — the ones a switching converter would want — are rated
+between 2 mA and 50 mA with DC resistances from 400 mΩ to 2.5 Ω. No part in the
+category records a saturation current at all.
+
+**Why it matters:** the catalog carries several buck and boost regulators. A
+designer working entirely from Basic and Preferred parts cannot source the
+inductor for any of them here, and the specification that would decide the choice
+is absent from the data.
+
+**Suggested action:** none in the data — this is a fact about JLCPCB's selection,
+now stated plainly in the family note.
+
+---
+
+## 45. ULN2003ADR — TI's absolute-maximum ambient is 70 °C for this order code — Note
+
+**Where:** `parts-index.json` entry for C7512.
+
+**What was checked:** Texas Instruments *ULN200x, ULQ200x*, SLRS027T, revised
+March 2025, Sections 5.1 and 5.3.
+
+**Finding:** the Recommended Operating Conditions give a junction range of −40 °C
+to +125 °C, which is what the note quoted. The Absolute Maximum Ratings table
+separately caps free-air temperature at **+70 °C** for the plain ULN200xA parts
+(the `AI` versions are rated to +105 °C).
+
+**Why it matters:** a Darlington array driving seven loads is a heat source, and
+70 °C ambient is a limit that a warm enclosure can reach.
+
+**Suggested action:** none in the data; the note now carries both figures.
 
 ---
