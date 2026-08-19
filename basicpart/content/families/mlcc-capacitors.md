@@ -37,24 +37,34 @@ effects are large.
 
 **The dielectric code tells you almost everything.**
 
-- **C0G (also written NP0)** is a "class 1" dielectric: stable with temperature,
-  stable with voltage, no ageing, very low loss. Its drawback is capacitance
-  density — you will not find microfarads in C0G. Use it for timing, filters,
-  oscillator load capacitors, and anywhere the *value* matters.
+- **C0G (also written NP0)** is a "class 1" dielectric: 0 ±30 ppm/°C over
+  −55 °C to +125 °C, stable with voltage, no ageing, very low loss. Its drawback
+  is capacitance density — you will not find microfarads in C0G. Use it for
+  timing, filters, oscillator load capacitors, and anywhere the *value*
+  matters. [2]
 - **X7R** is "class 2": far more capacitance in the same package, ±15 % over
   −55 °C to +125 °C, but its capacitance falls as DC voltage is applied and it
   ages slowly. Use it for decoupling and bulk, where "enough" matters more than
-  "exactly".
-- **Y5V** and similar are class 2 taken to an extreme — enormous capacitance,
-  and a value that can fall by most of its nominal over temperature and voltage.
-  Avoid unless you know precisely why you want it.
+  "exactly". [2]
+- **X5R** is X7R's shorter-range sibling: the same ±15 % window, but only over
+  −55 °C to **+85 °C**. It dominates the high-capacitance end of this catalog —
+  of the 22 parts above 1 µF, 19 are X5R, and every part above 4.7 µF is. If your
+  design goes above 85 °C — inside a sealed enclosure, next to a regulator, or in
+  a car — check this field rather than assuming X7R. [1] [2]
+- **Y5V** is class 2 taken to an extreme: +22 % to **−82 %** over a −30 °C to
+  +85 °C range, before any DC bias effect. Enormous capacitance for the size, and
+  a value you cannot rely on. There are two in this catalog; avoid them unless
+  you know precisely why you want one. [1] [2]
 
-**DC bias is the trap.** A 10 µF X7R in an 0805 package rated 16 V, run at 5 V,
-may deliver well under half its nominal capacitance. The datasheet's ±10 %
+**DC bias is the trap.** A small, high-value class 2 capacitor — say the 10 µF
+X5R in an 0603 rated 10 V that this catalog stocks — can deliver well under half
+its nominal capacitance once your working voltage is across it. The ±10 %
 tolerance is measured near zero volts. This is not a defect and it is not
-hidden — manufacturers publish DC-bias curves — but it is invisible if you read
-only the headline number. **If a design needs a known capacitance under bias, use
-a physically larger package, a higher voltage rating, or a C0G part.**
+hidden — every manufacturer publishes DC-bias curves for these parts — but it is
+invisible if you read only the headline number, and the effect is worse the
+smaller the package and the closer the working voltage is to the rating. **If a
+design needs a known capacitance under bias, use a physically larger package, a
+higher voltage rating, or a C0G part.**
 
 **Derate the voltage rating generously.** Running a 16 V X7R at 16 V is legal and
 unwise: capacitance collapses and lifetime shortens. A common working rule is to
@@ -79,10 +89,20 @@ from board edges and flex points.
 | `Tolerance` | e.g. `±10%`, measured at the standard test condition. |
 | `Temperature Coefficient` | The dielectric class, e.g. `X7R` or `C0G`. **Read this first.** |
 
-The part number usually encodes the same information. In `0402B102K500NT`:
-`0402` is the package, `B` is the dielectric code, `102` is the capacitance code
-(10 followed by 2 zeros = 1,000 pF = 1 nF), `K` is ±10 % tolerance, and `500` is
-the 50 V rating.
+The part number usually encodes the same information, in one of two schemes.
+
+Fenghua parts read left to right: in `0402B102K500NT`, `0402` is the package, `B`
+is the dielectric code, `102` is the capacitance code (10 followed by 2 zeros =
+1,000 pF = 1 nF), `K` is ±10 % tolerance, and `500` is the 50 V rating.
+
+Samsung's `CL` series packs the same facts differently. In `CL10A106KP8NNNC`:
+`CL` is the series, `10` is the *size* code (0603 — note that `05` is 0402, `21`
+is 0805 and `31` is 1206, so the number is not the imperial size), `A` is the
+dielectric (`A` = X5R, `B` = X7R, `C` = C0G, `F` = Y5V), `106` is 10 µF, `K` is
+±10 %, and `P` is the voltage code (`Q` = 6.3 V, `P` = 10 V, `O` = 16 V, `A` =
+25 V, `B` = 50 V). The remaining characters are thickness, plating and packaging.
+Two Samsung part numbers can therefore differ only in a letter and be a 6.3 V
+part and a 50 V part. [2]
 
 ## Watch out for
 
@@ -92,6 +112,7 @@ the 50 V rating.
 - **Derate voltage by at least half** for class 2 dielectrics.
 - **Keep large packages away from board flex.**
 - **The tolerance figure describes the test condition, not your circuit.**
+- **X5R stops at 85 °C**, and it is what nearly every part above 1 µF here uses.
 
 ## Sources
 
@@ -100,3 +121,9 @@ the 50 V rating.
    (`raw-data/jlcpcb-basic-parts-2026-07-24.json` and
    `src/data/parts-index.json`). Manufacturer, package, capacitance, voltage,
    tolerance and dielectric figures are the attribute values recorded there.
+2. Samsung Electro-Mechanics, *Multilayer Ceramic Capacitors (MLCC)* product
+   catalog, November 2015. Part Numbering System (size, dielectric, capacitance,
+   tolerance and rated-voltage codes) and the Class I / Class II dielectric
+   tables giving each EIA code's operating temperature range and capacitance
+   change. Retrieved via the LCSC datasheet link for C13585.
+   <https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL31A106KBHNNNE_C13585.pdf>
