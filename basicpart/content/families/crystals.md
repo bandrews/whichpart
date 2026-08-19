@@ -74,7 +74,7 @@ should not transplant component values between the two crystal types. [2]
 **The 32.768 kHz part's drift is parabolic, not linear.** Epson specifies a
 turnover temperature of +25 °C ±5 °C and a parabolic coefficient of
 −0.04 × 10⁻⁶/°C², which means the frequency falls away from its peak in both
-directions: about −4 ppm at 15 °C from turnover, −36 ppm at 30 °C away, −100 ppm
+directions: about −9 ppm at 15 °C from turnover, −36 ppm at 30 °C away, −100 ppm
 at 50 °C away. A clock that keeps good time on a bench can lose several minutes a
 month in a cold room, and no amount of initial trimming fixes that. [2]
 
