@@ -41,7 +41,7 @@ catalog-only notes, and once more during the review pass that added findings
 | 16 | Conditions omitted from catalog attributes | **Open, surfaced.** More instances found on 2026-08-19 — findings 24, 26, 27 and 29 are all the same shape. |
 | 17 | LTV-817S CTR rank ignored | **Open, surfaced, corroborated.** A second Lite-On document (LTV-217-G) publishes the identical rank table, and C115450 is a second instance of the same behaviour (finding 28). |
 | 18 | Datasheet hosts blocking retrieval | **Resolved for LCSC.** The viewer-page route (finding 18) recovered all 22 remaining parts, taking the datasheet-backed count from 77 of 99 to **99 of 99**. Two of those documents are scanned drawings with no text layer, read by rendering the page as an image. |
-| 34–45 | Findings from the 2026-08-19 review pass | **New.** A second reviewer re-checked every note against its manufacturer's document. One earlier finding was retracted (5), eight new catalog-attribute problems were recorded, and fifteen errors this repository had introduced were corrected — listed together in finding 43. |
+| 34–46 | Findings from the 2026-08-19 review pass | **New.** A second reviewer re-checked every note against its manufacturer's document. One earlier finding was retracted (5), eight new catalog-attribute problems were recorded, and sixteen errors this repository had introduced were corrected — listed together in finding 43. |
 | 19–33 | Findings from the 2026-08-19 datasheet pass | **New.** Fifteen findings recorded while rewriting the last 22 notes against their manufacturers' documents. The two most consequential are 22 (the CJ431's ±0.5 % reference tolerance is not guaranteed for the order code sold) and 26 (the MT25QU512's catalog standby current is twenty times below the grade's guaranteed maximum). Finding 33 — LCSC listing a 3 A connector at 5 A — is the one most likely to cause a hot part. |
 
 Also revisited on 2026-08-19: the CH340C's "no longer manufactured" curated note.
@@ -1094,13 +1094,13 @@ with the manufacturer's citation.
 
 ---
 
-## Review pass, 2026-08-19 (later the same day): findings 34–45
+## Review pass, 2026-08-19 (later the same day): findings 34–46
 
 A second reviewer re-checked every note in `components/` and `families/` against
 the manufacturers' documents. Most notes came through unchanged. The findings
 below are what did not. They fall into three groups: one retraction of an earlier
 finding, several catalog attributes whose conditions or grades are wrong, and a
-set of errors this repository had introduced itself.
+set of errors this repository had introduced itself (collected in finding 43).
 
 ---
 
@@ -1338,6 +1338,7 @@ themselves, all corrected:
 | `families/bridge-rectifiers` | "Mostly MDD" | 24 of 26 are hongjiacheng |
 | `families/led-indicators` | "Mostly 0603" | Four of the seven are 0805 |
 | `families/tactile-switches` | The XKB part "records `Gold`" contacts | That attribute is the *cap colour*; XKB's drawing specifies silver-plated stainless steel contacts |
+| `C84681` (CH340C) | Operating temperature "not stated in the obtained datasheet" | WCH's absolute maximum ratings table gives −40 °C to +85 °C ambient and −55 °C to +125 °C storage |
 | Six `74HC` notes | Propagation delays quoted to +85 °C | All six `D`-suffix parts are the −40 °C to +125 °C grade, where the delays are roughly 50 % longer |
 | `families/zener-diodes`, `schottky-and-rectifier-diodes`, `tvs-esd-protection`, `bipolar-transistors`, `bridge-rectifiers` | House-brand datasheets "are not reachable to automated fetching" | They are, by the route recorded in finding 18; all five family notes are now sourced from them |
 
@@ -1380,5 +1381,34 @@ separately caps free-air temperature at **+70 °C** for the plain ULN200xA parts
 70 °C ambient is a limit that a warm enclosure can reach.
 
 **Suggested action:** none in the data; the note now carries both figures.
+
+---
+
+## 46. HT1621B — the datasheet available describes the HT1621, and the two disagree on temperature — Note
+
+**Where:** `parts-index.json` entry for C7532 (`HT1621B`), attribute
+`Operating Temperature: -40℃~+85℃`, and the note's own source [1].
+
+**What was checked:** Holtek *HT1621 — RAM Mapping 32×4 LCD Controller for I/O
+MCU*, Rev. 1.30, 6 August 2003, obtained from a mirror; Holtek's own hosting
+returned an HTML page rather than the PDF for every `HT1621B` path tried, and the
+`pdfUrl` LCSC now serves against this part number points at a third variant, the
+`HT1621S` (a Chinese-language document for a different package family).
+
+**Finding:** the HT1621 document's absolute maximum ratings give an operating
+temperature range of **−25 °C to +75 °C**, with storage −50 °C to +125 °C. The
+catalog records −40 °C to +85 °C. Secondary sources describing Holtek's separate
+HT1621B datasheet quote the wider range, so the likeliest explanation is that the
+`B` variant genuinely differs — but that could not be confirmed from a primary
+source.
+
+**Why it matters:** every other figure in the note is common to the family and
+checks out. This one is the difference between a part specified for a cold
+outdoor enclosure and one that is not, and it cannot be settled from the document
+in hand.
+
+**Suggested action:** none in the data. The C7532 note now states both ranges,
+says which document each comes from, and tells a designer who needs the cold end
+to get the HT1621B datasheet from Holtek directly.
 
 ---

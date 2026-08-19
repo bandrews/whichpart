@@ -44,7 +44,7 @@ DIP/SSOP/LQFP package options; this catalog stocks the LQFP. [1]
 | Maximum data rate | Not the constraint; display timing comes from a built-in 256 kHz RC oscillator, an external 32.768 kHz crystal, or a 256 kHz external source [1] | Three clock options — the RC oscillator means zero external timing parts. |
 | Supply voltage | 2.4 V to 5.2 V [1] | Works on 3 V coin cells and on 5 V logic alike. A separate V<sub>LCD</sub> pin adjusts the LCD drive voltage (contrast). |
 | Isolation or protection | None — there is no isolation barrier in this device, and the datasheet specifies none [1] | Both sides of every pin share one ground. If you need to cross an isolation barrier, that is a separate part such as the ADuM1201 (C9669) or an optocoupler. |
-| Operating temperature | −40 °C to +85 °C per the catalog record [2] | Industrial range. |
+| Operating temperature | The catalog records −40 °C to +85 °C [2]. The datasheet obtained here — Holtek's plain \`HT1621\` — gives a narrower absolute-maximum operating range of −25 °C to +75 °C, with storage −50 °C to +125 °C [1] | The two disagree, and the part ordered is the \`HT1621B\`. Holtek's separate HT1621B document is reported to specify the wider range, but it could not be retrieved to confirm; a design that must work below −25 °C should get that datasheet from Holtek before committing. |
 
 ## What the datasheet actually says
 
@@ -83,6 +83,11 @@ sleep. [1]
   routing them is the bulk of the layout work.
 - **Sourcing the glass is the hard part.** The driver is easy; a matching custom
   LCD is a lead-time item.
+- **The datasheet here is the \`HT1621\`, not the \`HT1621B\`.** Everything quoted
+  above is common to the family, but the two documents differ on operating
+  temperature — see that row. Holtek's own hosting would not serve the \`B\`
+  document to automated fetching, and LCSC now links a third variant (the
+  \`HT1621S\`) against this part number.
 
 ## In this catalog
 

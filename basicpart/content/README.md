@@ -98,13 +98,13 @@ Where the catalog record and the datasheet disagree, the file says so and
 
 ## Known problems found while writing these
 
-See [`ISSUES.md`](ISSUES.md). It lists forty-five findings — mismatches
+See [`ISSUES.md`](ISSUES.md). It lists forty-six findings — mismatches
 between the site's data and manufacturer datasheets, claims that could not be
 verified, parts whose datasheets are marked obsolete, and parts listed as
 available that have no stock — plus a status review (2026-08-19) recording which
 were since resolved, which were retracted, and which remain open. Findings 19 to
 33 came from the pass, on the same day, that rewrote the last 22 catalog-only
-notes against their manufacturers' documents. Findings 34 to 45 came from a
+notes against their manufacturers' documents. Findings 34 to 46 came from a
 review pass that re-checked every note, component and family alike, against its
 manufacturer's document; finding 43 is where the errors this repository had
 introduced itself are collected.
