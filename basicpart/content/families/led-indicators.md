@@ -31,7 +31,7 @@ most LED design decisions.
 | **Illumination colour** and **dominant wavelength** | What it looks like. Dominant wavelength is the perceived colour; peak wavelength is where the emission peaks, and they differ. |
 | **Forward voltage (V<sub>F</sub>)** | The drop across it, always a range. Sets the series resistor. |
 | **Forward current (I<sub>F</sub>)** | The rated current, not a target. |
-| **Luminous intensity** | Brightness in millicandela, measured at the rated current. |
+| **Luminous intensity** | Brightness in millicandela, measured at a stated current — and always a *span*, because LEDs are sorted into brightness bins. |
 | **Viewing angle** | How wide the beam is. 120° is a typical indicator. |
 | **Power rating** | Package limit. |
 | **Colour temperature** | For white LEDs only — and often a very wide range. |
@@ -59,6 +59,24 @@ are comfortable on 3.3 V. [1]
 **Run them far below the rated current.** 300 mcd at 20 mA is dazzling as a panel
 indicator. At 2 mA it is still clearly visible indoors and uses a tenth of the
 power. On a battery product this is one of the easiest savings available.
+
+**The brightness figure is the top of a bin range.** KENTO's datasheet for the
+0805 yellow part specifies 70 mcd minimum and 175 mcd maximum at 20 mA, sorted
+into five bins (70–85, 85–100, 100–120, 120–145, 145–175 mcd). The catalog
+records 175 mcd — the top of the span. Two parts from the same reel can
+legitimately differ by two and a half times in brightness, which is worth knowing
+before you put four of them in a row on a front panel. [1] [2]
+
+**Reverse voltage is the rating people forget an LED has.** KENTO rates these at
+5 V reverse, with 5 µA of reverse leakage at that voltage. An LED fitted
+backwards across a 12 V rail is outside its rating even though no current flows
+in the direction you wanted. Where a signal can reverse — an AC-coupled
+indicator, or a line that floats — add a series diode or an anti-parallel one. [2]
+
+**Check which current each number was measured at.** In the same KENTO
+datasheet the forward voltage is specified at 10 mA and the luminous intensity at
+20 mA. That is normal, and it means you cannot simply read the two off together:
+at 20 mA the forward voltage is a little higher than the quoted range. [2]
 
 **Perceived brightness is not luminous intensity.** The eye is most sensitive to
 green and least to blue. A blue LED and a green LED of equal millicandela do not
@@ -104,3 +122,9 @@ different kind of device.
    snapshot 2026-07-24 (`raw-data/jlcpcb-basic-parts-2026-07-24.json` and
    `src/data/parts-index.json`). Colour, voltage, current, intensity and angle
    figures are the attribute values recorded there.
+2. Hubei KENTO Electronics, *KT-0805Y specification for approval*, Revision A.0,
+   6 December 2018. Section 4 (Absolute Maximum Ratings: power dissipation, peak
+   and DC forward current, reverse voltage, operating temperature) and Section 5
+   and 6 (electrical/optical characteristics and the luminous-intensity bin
+   table). Retrieved via the LCSC datasheet link for C2296.
+   <https://www.lcsc.com/datasheet/lcsc_datasheet_1806151129_Hubei-KENTO-Elec-KT-0805Y_C2296.pdf>
