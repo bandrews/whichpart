@@ -32,7 +32,7 @@ make noise worse.
 |---|---|
 | **Inductance** | The nominal value, at a stated frequency. |
 | **Tolerance** | How far it may be from nominal. |
-| **Saturation current (I<sub>sat</sub>)** | The current at which the core saturates and the inductance collapses. **The one that matters in a converter.** |
+| **Saturation current (I<sub>sat</sub>)** | The current at which the core saturates and the inductance collapses. **The one that matters in a converter** — and one that no part in this catalog's inductor category records. [1] |
 | **Current rating** | Usually a thermal limit — the current that causes a specified temperature rise. |
 | **DC resistance (DCR)** | Copper loss. Directly costs efficiency. |
 | **Self-resonant frequency (SRF)** | Above this the part behaves as a capacitor, not an inductor. |
@@ -49,13 +49,23 @@ make noise worse.
 
 ## What actually matters in practice
 
-**Saturation current, not current rating, sizes a converter's inductor.** The two
-figures mean different things: current rating is usually a thermal limit, and
-saturation current is where the magnetics stop working. In a buck converter the
-peak inductor current is higher than the average output current by half the
-ripple, and it is that peak that must stay below I<sub>sat</sub>. A saturated
-inductor lets current rise almost without limit for the rest of the switching
-cycle — which is how converters destroy themselves.
+**There is no power inductor in this catalog, and that is the most useful thing
+to know about the family.** Every one of the 13 inductors here is a signal part:
+the current ratings run from 2 mA to 500 mA, and the microhenry-range values —
+the ones a buck converter would want — are rated between 2 mA and 50 mA with DC
+resistances of hundreds of milliohms to 2.5 Ω. [1] If you are building a
+switching converter around the regulators in this catalog, the inductor will have
+to come from outside the Basic and Preferred tiers.
+
+**Saturation current, not current rating, sizes a converter's inductor — and no
+part here publishes one.** The two figures mean different things: current rating
+is usually a thermal limit, and saturation current is where the magnetics stop
+working. In a buck converter the peak inductor current is higher than the average
+output current by half the ripple, and it is that peak that must stay below
+I<sub>sat</sub>. A saturated inductor lets current rise almost without limit for
+the rest of the switching cycle — which is how converters destroy themselves. The
+catalog records no saturation current for any part in this category, so that
+number has to come from the manufacturer's datasheet. [1]
 
 **DC resistance is efficiency.** At 2 A through a 2.1 Ω inductor you lose 8.4 W —
 absurd. The catalog's 4.7 µH 0603 part has 2.1 Ω of DCR and a 15 mA current
@@ -65,7 +75,9 @@ current rating together to see what a part is really for.
 **Beads saturate too, and quietly.** A bead rated 200 mA that carries 200 mA has
 almost none of its rated impedance left. On a supply rail this is easy to get
 wrong: the bead does nothing, and the only symptom is that the noise you were
-trying to filter is still there.
+trying to filter is still there. The four beads here span 100 Ω to 600 Ω at
+100 MHz with current ratings from 200 mA to 2 A, so there is room to choose one
+with real headroom. [1]
 
 **A bead is a resistor at high frequency, and that is the point.** Below its
 rated frequency it behaves inductively; near it, resistively — turning
