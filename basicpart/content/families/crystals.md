@@ -18,10 +18,10 @@ percent-level accuracy of an RC oscillator — is why they are still in every
 design that talks to something else. The catalog holds seven, from YXC and Seiko
 Epson. [1]
 
-They fall into two quite different groups. **Megahertz crystals** (12, 16,
-25 MHz here) drive a microcontroller's main oscillator. **32.768 kHz crystals**
-are tuning-fork resonators for real-time clocks, and behave differently in almost
-every respect.
+They fall into two quite different groups. **Megahertz crystals** — 8 MHz,
+11.0592 MHz, 12 MHz, 16 MHz and 25 MHz here — drive a microcontroller's main
+oscillator. **32.768 kHz crystals** are tuning-fork resonators for real-time
+clocks, and behave differently in almost every respect. [1]
 
 ## The specs that matter
 
@@ -35,6 +35,12 @@ every respect.
 | **Operating temperature** | Range over which the stability figure applies. |
 
 ## What actually matters in practice
+
+**The load capacitance differs from part to part, even within this small
+group.** The six megahertz crystals here specify 9 pF, 12 pF or 20 pF, so the
+capacitors that suit one are wrong for another. Swapping a 20 pF-load crystal for
+a 9 pF-load one without changing the capacitors will shift the frequency by tens
+of parts per million. [1]
 
 **Load capacitance is not the capacitor value.** The rule is
 C<sub>L</sub> = (C1 × C2)/(C1 + C2) + C<sub>stray</sub>, where C1 and C2 are the
@@ -88,6 +94,9 @@ debugging a marginal oscillator.
 - **Check whether your chip has integrated load capacitance.**
 - **Megahertz and 32.768 kHz crystals need different circuits.**
 - **Follow the microcontroller vendor's recommended crystal** where one is named.
+- **Check the temperature range as well as the ppm figure.** Five of these parts
+  are specified over −40 °C to +85 °C, but the 8 MHz HC-49S part is only
+  specified from −20 °C to +70 °C. [1]
 
 ## Individual notes in this collection
 
