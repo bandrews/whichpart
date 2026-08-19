@@ -44,10 +44,15 @@ same set of trade-offs. [1]
 current through a 0.55 V Schottky dissipates half that. In a switching converter
 running continuously, that difference is the efficiency figure.
 
-**Reverse leakage is the Schottky tax.** The catalog's SS14 leaks 200 µA at 40 V;
-a silicon US1M leaks 5 µA at 1,000 V. [1] For a converter's catch diode, leakage
-is irrelevant. For battery isolation or a high-impedance node, 200 µA is a real
-and continuous drain — and it rises steeply with temperature, which can run away.
+**Reverse leakage is the Schottky tax, and both the catalog and room
+temperature flatter it.** The catalog records 200 µA at 40 V for the SS14 and
+5 µA at 1,000 V for the silicon US1M. [1] Check those against the manufacturers'
+own sheets and both get worse: hongjiacheng guarantees the SS14 only to 0.5 mA at
+25 °C and **50 mA at 100 °C**, and MDD's US1M rises from 5 µA to 100 µA at
+125 °C. [2] [3] For a converter's catch diode, none of this matters — the diode
+blocks briefly and stays cool. For battery isolation or a high-impedance node it
+matters a great deal, because leakage heats the junction, which raises leakage.
+The individual notes for those two parts work the numbers through.
 
 **Recovery time only matters when the current reverses quickly.** At 50 Hz a
 microsecond of recovery is nothing. At 100 kHz it is a tenth of the cycle, and
@@ -82,9 +87,11 @@ assumes a specified pad area. Halve the copper and you halve what it can carry.
 - **Compute V<sub>F</sub> × I** and check it against the package.
 - **Schottky leakage matters in battery circuits** and worsens with temperature.
 - **Double your reverse-voltage requirement** to allow for switching ringing.
-- **Most of these parts are house-brand** and their LCSC-hosted datasheets are not
-  reachable to automated fetching — the catalog attributes are the specification
-  of record. See `ISSUES.md`.
+- **Most of these parts are house-brand**, chiefly hongjiacheng, so there is no
+  second source inside the catalog. Their datasheets *are* reachable through the
+  LCSC links, and where they have been checked the manufacturer's figures are
+  sometimes worse than the catalog attribute — the SS14's leakage is the clearest
+  case. Read the part's own note before trusting an attribute string. [2]
 
 ## Individual notes in this collection
 
@@ -97,5 +104,14 @@ Four parts from these families have their own files: `C7420316` (SS14 Schottky),
 1. JLCPCB / LCSC catalog records for the Schottky Diodes, Fast Recovery / High
    Efficiency Diodes, Switching Diodes and Diodes – General Purpose categories,
    snapshot 2026-07-24 (`raw-data/jlcpcb-basic-parts-2026-07-24.json` and
-   `src/data/parts-index.json`). All voltage, current, forward-drop, leakage and
-   recovery figures are the attribute values recorded there.
+   `src/data/parts-index.json`). Category counts and all voltage, current,
+   forward-drop, leakage and recovery figures are the attribute values recorded
+   there.
+2. Zhuhai Hongjiacheng Technology Co., Ltd, *SS12 THRU SS16 — Surface Mount
+   Schottky Barrier Rectifier*, as cited in full in the note for C7420316
+   (`content/components/C7420316.md`), for the SS14's guaranteed reverse-current
+   figures at 25 °C and 100 °C.
+3. MDD (Microdiode Semiconductor), *US1A THRU US1M — Surface Mount Ultrafast
+   Rectifier*, as cited in full in the note for C412437
+   (`content/components/C412437.md`), for the US1M's reverse current at 25 °C and
+   125 °C.
