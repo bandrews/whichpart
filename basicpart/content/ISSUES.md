@@ -26,7 +26,7 @@ state:
 | 3 | ULN2803A datasheet unreachable | **Resolved.** The genuine SLRS049H (Rev H, Feb 2017) was obtained via a mirror; C9683 is now datasheet-sourced and every catalog attribute checks out, including the 18-pin DW package (TI's own device table). The ULN2803C remains a 20-pin non-substitute. |
 | 4 | M24C64 ECC tied to process letter | **Open in catalog data, surfaced.** No override path exists for scraped attributes (parts-index.json regenerates from raw-data); the caveat is stated in the C79988 note, now displayed on the part page. |
 | 5 | L78M05 datasheet marked obsolete | **Open, surfaced.** Lifecycle warning is stated prominently in the C58069 note, now displayed on the part page. |
-| 6 | ADuM1201 data rate understated 25× | **Open in catalog data, surfaced.** Same regeneration constraint as issue 4; the 25 Mbps correction is stated in the C9669 note, now displayed on the part page next to the wrong attribute. |
+| 6 | ADuM1201 data rate understated 25× | **Retracted — false alarm.** The `A` in `ADuM1201ARZ` *is* a speed grade. Analog Devices publishes separate switching-specification tables for the `AR`, `BR` and `CR` grades: 1 Mbps, 10 Mbps and 25 Mbps respectively. The catalog's 1 Mbps was correct for this order code all along, and it was the C9669 note that was wrong. Note rewritten; see the amended issue 6 below. |
 | 7 | HT7533/HT7550 30 V and 25 mV "errors" | **Retracted — false alarm.** The current Holtek datasheet (Rev 2.81, 3 Dec 2025, fetched from holtek.com) is titled "30V, 100mA Low Power LDO" and specifies 30 V input (33 V abs max) and 25 mV typ / 55 mV max dropout at 1 mA. The catalog matched the current revision all along; the earlier finding was based on a stale 2006 mirror (Rev 1.50, 24 V / 100 mV). Both component notes rewritten against Rev 2.81. See the amended issue 7 below. |
 | 8 | AMS1117 temp range / input voltage | **Open, surfaced.** Issue 7's lesson (revisions move) applies here too — the figures may match a newer AMS datasheet revision than the 2012 one obtained. Noted in the component files. |
 | 9 | House-brand datasheets unreachable | **Partially mitigated.** LCSC *datasheet PDFs* remain blocked, but LCSC *product pages* are readable — used on 2026-08-19 to recover full specs for the green/blue LEDs, both Type-C connectors and the CH340C. Catalog-record-only notes remain the specification of record for the rest. |
@@ -183,29 +183,53 @@ date.
 
 ---
 
-## 6. ADUM1201ARZ-RL7 — the catalog understates the data rate by 25× — Error
+## 6. ADUM1201ARZ-RL7 — the catalog understates the data rate by 25× — ~~Error~~ RETRACTED
+
+> **Retraction (2026-08-19, second review):** this finding was wrong, and in the
+> opposite direction from issue 7 — here the catalog was right and this
+> repository's own note was wrong. The letter after `ADuM1201` is a *speed*
+> grade, not merely a temperature or package code. Corrected below.
 
 **Where:** `parts-index.json` entry for C9669 (`ADUM1201ARZ-RL7`), attribute
 `Data Rate(Max): 1Mbps`.
 
-**What was checked:** Analog Devices *ADuM1200/ADuM1201 — Dual-Channel Digital
-Isolators*, Rev. L, Features page 1.
+**What was checked (originally):** Analog Devices *ADuM1200/ADuM1201 —
+Dual-Channel Digital Isolators*, Rev. L, Features page 1.
 
-**Finding:** ADI specifies "High data rate: dc to 25 Mbps (NRZ)" and gives supply
-current at 0–2 Mbps, 10 Mbps and 25 Mbps operating points. The catalog's 1 Mbps
-figure is not a number that appears in the datasheet.
+**What the original finding said:** that ADI specifies "High data rate: dc to
+25 Mbps (NRZ)", that 1 Mbps appears nowhere in the datasheet, and that `ARZ` is
+a temperature/package grade rather than a speed grade.
 
-The `ARZ` order code is the part's temperature/package grade, not a speed grade —
-ADI's speed grades for this family are denoted by the `W`/`B`/`C` letter after
-the channel-configuration digits, and none of them is 1 Mbps.
+**What a full read of the datasheet shows:** the Switching Specifications
+section contains *three* separate tables, headed `ADuM1200/ADuM1201AR`,
+`ADuM1200/ADuM1201BR` and `ADuM1200/ADuM1201CR`. They differ substantially:
 
-**Why it matters:** This is the kind of error that causes someone to reject a
-suitable part. Anyone isolating an SPI bus or a fast UART would look at 1 Mbps
-and go elsewhere.
+| Grade | Maximum data rate | Minimum pulse width | Propagation delay (typ/max) | Pulse-width distortion |
+|---|---|---|---|---|
+| `AR` | **1 Mbps** | 1,000 ns | 50 ns / 150 ns | 40 ns |
+| `BR` | 10 Mbps | 100 ns | 20 ns / 60 ns | 3 ns |
+| `CR` | 25 Mbps min, 50 Mbps typ | 20–40 ns | 20 ns / 45 ns | 3 ns |
 
-**Suggested action:** Correct the attribute to 25 Mbps, or drop it and let the
-datasheet link speak. The component note for C9669 quotes the datasheet figure
-and flags the discrepancy.
+The supply-current table carries the same distinction explicitly: its 10 Mbps
+rows are labelled "BR and CR Grades Only" and its 25 Mbps rows "CR Grade Only".
+The front-page "dc to 25 Mbps" headline therefore describes the `CR` part.
+
+The `W` prefix (`WS`, `WT`, `WU`) is what denotes the wider −40 °C to +125 °C
+temperature range; `AR`, `BR` and `CR` are all −40 °C to +105 °C, which is what
+the catalog records for this part.
+
+**Finding:** the catalog's `Data Rate(Max): 1Mbps` is correct for
+`ADUM1201ARZ-RL7`. It matches the `AR` grade's switching specification exactly.
+No data error exists.
+
+**Why it matters:** the original finding would have led someone to design an
+isolated link at up to 25 Mbps around a part guaranteed only to 1 Mbps. That is
+a worse outcome than the conservative figure it set out to correct.
+
+**Action taken:** the C9669 component note has been rewritten to state 1 Mbps as
+the part's data rate, to tabulate all three grades, and to say plainly that the
+`CR` part is the one to order if speed is needed. No catalog data change is
+required.
 
 ---
 

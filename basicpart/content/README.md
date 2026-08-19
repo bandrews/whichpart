@@ -80,10 +80,17 @@ See [`ISSUES.md`](ISSUES.md). It lists twelve findings — mismatches between th
 site's data and manufacturer datasheets, claims that could not be verified,
 parts whose datasheets are marked obsolete, and parts listed as available that
 have no stock — plus a status review (2026-08-19) recording which were since
-resolved, which were retracted, and which remain open. The standout remaining
-data error is the ADuM1201's data rate, understated by 25× (issue 6, confirmed);
-the HT7533/HT7550 finding (issue 7) was retracted after the current Holtek
-datasheet confirmed the catalog's figures.
+resolved, which were retracted, and which remain open.
+
+Two findings have been retracted after re-reading the primary sources, and both
+retractions point the same way: the catalog was right and this repository was
+wrong. Issue 7 (HT7533/HT7550) fell to a current Holtek datasheet that confirmed
+the catalog's figures. Issue 6 (ADuM1201 data rate) fell to a full read of the
+Analog Devices datasheet, which publishes separate switching specifications for
+the `AR`, `BR` and `CR` speed grades — 1 Mbps, 10 Mbps and 25 Mbps. The part in
+this catalog is the `AR` grade, so the catalog's 1 Mbps was correct and the
+component note's 25 Mbps was not. The confirmed data error that remains is the
+MCP6002's temperature grade (issue 10).
 
 ## How the UI reads this content
 
