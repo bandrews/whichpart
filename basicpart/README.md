@@ -42,7 +42,9 @@ scripts/                     # Data processing scripts
 ├── merge-descriptions.js    # Rebuilds friendly descriptions from tasks/
 ├── audit-data.js            # Validates data integrity
 ├── audit-curated-picks.js   # Strictly checks qualifying and Extended picks
-└── validate-data.js         # Schema, coverage, tier, package, and task validation
+├── validate-data.js         # Schema, coverage, tier, package, and task validation
+├── generate-content-index.js # Rebuilds content/index.json from the notes' front matter
+└── validate-content.js      # Checks every note in content/ against content/FORMAT.md
 
 src/data/                    # Transformed data used by the site
 ├── parts-index.json         # Master lookup (all 1500+ parts with full details)

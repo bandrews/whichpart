@@ -1,0 +1,91 @@
+var e=`---
+part: C75501
+mpn: 78L12G-AB3-R
+manufacturer: UTC(Unisonic Tech)
+category: Voltage Regulators - Linear, Low Drop Out (LDO) Regulators
+kind: power-linear
+package: SOT-89
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: 78LXX — 3-Terminal 0.1A Positive Voltage Regulator
+  publisher: Unisonic Technologies Co., Ltd (UTC)
+  document: QW-R101-001.AC
+  revised: 2024
+  url: https://www.unisonic.com.tw/uploadfiles/836/part_no_pdf/78LXX.pdf
+summary: The 12 V member of the 78L family — 100 mA in a SOT-89, and out of stock at the snapshot date.
+---
+
+# 78L12G-AB3-R
+
+## What it is
+
+The 12 V version of the 78L family: a three-terminal fixed regulator rated for
+100 mA, in a SOT-89. Everything in the 78L05 note applies — same architecture,
+same robustness, same inefficiency — with the output at 12 V instead of 5 V. It
+shares a datasheet with the rest of the family. [1]
+
+It earns its place where an analogue circuit, an op-amp on a split supply, or a
+small relay coil needs a clean 12 V from a higher, unregulated source. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Output voltage | Fixed 12 V [1] | No adjustment, no divider. |
+| Output current | 100 mA maximum [1] | Same as the 78L05 — and, as there, the package's heat limit usually bites long before the current rating does. |
+| Input voltage range | 35 V absolute maximum for the 10–18 V members of the family. Output regulation is specified for 14.5 V to 27 V [1] | The catalog's 27 V is the top of the *specified* range, not the survival limit — the opposite convention from the 78L05 entry, which quotes the absolute maximum. Design inside 14.5–27 V either way. [2] |
+| Dropout voltage | 1.7 V typical at 25 °C, measured at 40 mA [1] | You need at least 13.7 V in to get 12 V out. |
+| Quiescent current | 2.0 mA typical, 6.5 mA maximum, at no load [1] | Continuous and significant, exactly as with the 78L05. |
+| Output accuracy | 11.76 V to 12.24 V (±2 %) at 25 °C; 11.64 V to 12.36 V (±3 %) across 14.5–27 V input and 1–40 mA load [1] | The same percentage accuracy as the 5 V part, which is the family's consistent behaviour. |
+| Operating temperature | −40 °C to +125 °C, guaranteed by design rather than fully tested; electrical characteristics are specified over a junction temperature of 0 °C to 150 °C [1] | Wider than the −40 °C to +85 °C the catalog shows. [2] |
+
+## What the datasheet actually says
+
+**The catalog overstates ripple rejection by 20 dB here too.** The listing claims
+65 dB at 120 Hz; UTC specifies 45 dB minimum for the 78L12, tested from 15 V to
+25 V at 25 °C. The pattern is consistent across the family — rejection falls as
+the output voltage rises, because the internal reference is amplified more to
+reach it. [1][2]
+
+**Noise really is worse than the 5 V part.** 80 µV against the 78L05's 40 µV,
+over 10 Hz to 100 kHz, and the catalog reports this one correctly. Combined with
+the lower rejection, a 12 V rail from this part is noticeably less clean than a
+5 V one. Filter it if it feeds anything sensitive. [1][2]
+
+**Heat is again the binding constraint.** SOT-89 is rated for 500 mW with a
+junction-to-ambient thermal resistance of 200 °C/W. From 24 V to 12 V at 100 mA
+the part would dissipate 1.2 W — well over twice what the package can shed. The
+usable current falls steeply as the input-output difference grows. [1]
+
+## Watch out for
+
+- **Stock was zero at the snapshot date.** Check availability before designing it
+  in; see \`ISSUES.md\`. [2]
+- **45 dB of ripple rejection, not the catalog's 65 dB.** [1][2]
+- **1.7 V dropout, 2 mA quiescent** — the standard 78xx limitations.
+- **Noise is twice the 78L05's.** Filter downstream if it matters. [1]
+- **Package dissipation is the real limit**, not the 100 mA rating.
+- **Check the pin order against the suffix.** \`AB3\` is output–ground–input;
+  \`AB3-C\` is ground–input–output in the same SOT-89 package. [1]
+
+## In this catalog
+
+Preferred Extended part in SOT-89, so no feeder-loading fee for Economic PCBA at
+JLCPCB. At the 2026-07-24 snapshot: **0 in stock**, with prices listed from
+$0.104 at quantity 1, falling to $0.084 at 50, $0.066 at 500 and $0.054 at 4,000.
+It is one of 27 parts in the qualifying snapshot showing zero stock; most of the
+others are individual resistor and capacitor values, but all three of the
+catalog's large memory devices are in that list too. See \`ISSUES.md\`. [2]
+
+## Sources
+
+1. Unisonic Technologies Co., Ltd, *78LXX — 3-Terminal 0.1A Positive Voltage
+   Regulator*, document QW-R101-001.AC, © 2024. Ordering Information; Absolute
+   Maximum Ratings; Thermal Data; Electrical Characteristics for UTC78L12.
+   <https://www.unisonic.com.tw/uploadfiles/836/part_no_pdf/78LXX.pdf>
+2. JLCPCB / LCSC catalog record for C75501, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`). Source for package, tier,
+   price, stock and the catalog attribute strings.
+   <https://www.lcsc.com/product-detail/voltage-regulators-linear-low-drop-out-ldo-regulators_utc-unisonic-tech-78l12g-ab3-r_C75501.html>
+`;export{e as default};

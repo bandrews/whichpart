@@ -1,0 +1,108 @@
+var e=`---
+part: C7881
+mpn: ICL7660AIBAZA-T
+manufacturer: RENESAS
+category: Charge Pumps
+kind: power-switching
+package: SOIC-8
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: ICL7660, ICL7660A — CMOS Voltage Converters
+  publisher: Intersil (now Renesas Electronics)
+  document: FN3072, Rev. 7.00
+  revised: 2010-10-05
+  url: https://www.renesas.com/en/document/dst/icl7660-icl7660a-datasheet
+summary: Makes a negative rail from a positive one with two capacitors and no inductor — and does better at 5 V than the catalog suggests.
+---
+
+# ICL7660AIBAZA-T
+
+## What it is
+
+A charge pump — sometimes called a switched-capacitor converter — moves charge
+between capacitors to produce a voltage the input does not have. The ICL7660A's
+usual job is inversion: give it +5 V and it produces −5 V, using two external
+capacitors and no inductor at all. [1]
+
+That matters whenever a mostly-digital board needs a small negative rail: for an
+op-amp that must swing below ground, for an LCD bias, or for a sensor bridge. The
+alternative — a switching converter with an inductor — is bigger, noisier and
+harder to lay out. The same chip can also be wired as a voltage doubler, reaching
+about +18.6 V from a +10 V input. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Output voltage | −1.5 V to −12 V, mirroring the input. Open-circuit conversion efficiency 99.9 % typical [1] | The output magnitude follows the input; this is an inverter, not a regulator. Unloaded it very nearly matches the input; loaded, it sags. |
+| Output current | Set by the output source resistance: 60 Ω typical (100 Ω maximum) at 5 V and 20 mA, rising to 120 Ω maximum over −40 °C to +85 °C. At 3 V and 10 mA it is 97 Ω typical [1] | **This is the number that decides everything.** At 5 V and 20 mA you lose about 1.2 V typically — not the ~2 V the catalog's 97 Ω would imply, because 97 Ω is the *3 V* figure. [2] |
+| Input voltage range | 1.5 V to 12 V for the ICL7660A. Below 3.5 V, tie the LV pin to ground; from 3.5 V up, leave LV open. Absolute maximum supply 13.0 V [1] | The LV pin is not optional configuration — see the warning below. |
+| Switching frequency | 10 kHz typical at 5 V; 8 kHz typical (5 kHz minimum) at 3 V. Lowered by adding a capacitor on the OSC pin, or overridden by an external clock [1] | The catalog's 8 kHz is the 3 V figure. Either way it is low, which keeps quiescent current down but means larger capacitors and ripple at an audible frequency. [2] |
+| Efficiency | 98 % typical power efficiency into 5 kΩ (96 % minimum for the ICL7660A) [1] | Excellent — but measured at light load, where the output resistance costs little. |
+| Operating temperature | −40 °C to +85 °C. The \`I\` in \`ICL7660AIBAZA\` is Intersil's industrial temperature grade; \`C\`-suffixed parts are 0 °C to +70 °C [1] | The order code genuinely encodes the grade, so check it when substituting. |
+
+## What the datasheet actually says
+
+**The catalog's headline numbers are the 3 V ones.** Renesas specifies this part
+twice: once at V+ = 5 V and once at V+ = 3 V. The catalog's 97 Ω output
+resistance, 8 kHz oscillator and 100 µA quiescent current all come from the 3 V
+block. At 5 V the same part shows 60 Ω typical, 10 kHz, and 80 µA typical
+(165 µA maximum). If you are running from 5 V, the part is better than the
+listing suggests. [1][2]
+
+**The LV pin will destroy the chip if you get it wrong.** Tying LV to ground
+bypasses the internal series regulator and helps at low voltages, and the
+datasheet specifies operation that way only from 1.5 V to 3.5 V. Above 3.5 V, LV
+must be left floating "to prevent device latchup". This is the single most common
+way to kill a 7660. [1]
+
+**Do not apply inputs before powering the chip.** The datasheet warns that
+driving any input terminal above V+ or below ground can cause destructive
+latchup, and specifically recommends that signals from externally powered
+sources not be applied before the ICL7660A powers up. [1]
+
+**The A version needs no external diode.** Older ICL7660 designs sometimes added
+a diode for reliable operation; the datasheet states the ICL7660A works without
+one over the full temperature and voltage range, and will also drop into existing
+designs that have one without degrading performance. [1]
+
+**Derate above 50 °C.** The datasheet calls for linear derating of 5.5 mW/°C
+above 50 °C. [1]
+
+## Watch out for
+
+- **Check the LV pin against your supply voltage.** Grounded below 3.5 V, open
+  above it. [1]
+- **Milliamps, not hundreds of milliamps.** Output resistance is not negotiable,
+  and it roughly doubles at the temperature extremes. [1]
+- **It does not regulate.** The output tracks the input and sags with load. If
+  you need a stable negative rail, follow it with a small LDO.
+- **Ripple is at an audible frequency.** Ceramic capacitors are piezoelectric; a
+  charge pump switching at 8–10 kHz can produce a faint whine worth checking in a
+  quiet product.
+- **13 V absolute maximum supply**, with the specified operating range stopping
+  at 12 V. [1]
+
+## In this catalog
+
+Preferred Extended part in SOIC-8, so no feeder-loading fee for Economic PCBA at
+JLCPCB. At the 2026-07-24 snapshot: 12,451 in stock, $0.96 at quantity 1, falling
+to $0.70 at 30, $0.61 at 100 and $0.57 at 1,000. The catalog attributes record an
+inverting function, 1.5 V–12 V operating voltage, −12 V to −1.5 V output, 97 Ω
+output resistance, 100 µA quiescent current, 8 kHz switching, 98 % efficiency,
+cascade support and −40 °C to +85 °C — all real datasheet figures, but the
+resistance, frequency and current are the 3 V values rather than the 5 V ones. [2]
+
+## Sources
+
+1. Intersil (now Renesas Electronics), *ICL7660, ICL7660A — CMOS Voltage
+   Converters*, document FN3072, Rev. 7.00, 2010-10-05. Description; Features;
+   Ordering Information; Absolute Maximum Ratings; Electrical Specifications
+   (both the V+ = 5 V and V+ = 3 V tables); Notes 2, 3 and 5.
+   <https://www.renesas.com/en/document/dst/icl7660-icl7660a-datasheet>
+2. JLCPCB / LCSC catalog record for C7881, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`). Source for package, tier,
+   price, stock and the catalog attribute strings.
+   <https://www.lcsc.com/product-detail/charge-pumps_renesas-icl7660aibaza-t_C7881.html>
+`;export{e as default};

@@ -1,0 +1,106 @@
+var e=`---
+part: C7532
+mpn: HT1621B
+manufacturer: Holtek Semicon
+category: LCD Drivers
+kind: interface
+package: LQFP-48(7x7)
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: HT1621 — RAM Mapping 32×4 LCD Controller for I/O MCU
+  publisher: Holtek Semiconductor
+  document: Rev. 1.30
+  revised: 2003-08-06
+  url: https://www.seeedstudio.com/document/HT1621.pdf
+summary: Drives a segment LCD so your microcontroller does not have to — 128 segments over three wires, plus a buzzer output.
+---
+
+# HT1621B
+
+> **Note on sources.** Holtek's own hosting of this datasheet did not respond to
+> automated fetching; the figures below were verified against a mirror of the
+> genuine Holtek document (Rev. 1.30, 6 August 2003), whose identity is printed
+> on every page.
+
+## What it is
+
+Segment LCDs — the kind in a multimeter, a thermostat or a bathroom scale — are
+awkward to drive directly. They need alternating waveforms on every segment (a
+steady DC voltage destroys them), multiplexed across several common lines, and
+that is a continuous real-time job. The HT1621 does all of it. [1]
+
+You write display data into its 32×4-bit RAM over a three-wire serial interface
+and it generates the waveforms forever afterwards, with no further attention
+from your microcontroller. The \`B\` variant is the same die in the 48-pin
+DIP/SSOP/LQFP package options; this catalog stocks the LQFP. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | Segment LCD controller/driver with 32×4-bit display RAM (128 segments), plus a time base, watchdog, power-down command and a buzzer output [1] | 128 individually controllable segments — enough for a multi-digit numeric display with annunciators. The buzzer output is a free extra for a beeper. |
+| Signalling standard | 3-wire serial interface with read/write address auto-increment and three data-access modes [1] | Three microcontroller pins for the whole display. |
+| Maximum data rate | Not the constraint; display timing comes from a built-in 256 kHz RC oscillator, an external 32.768 kHz crystal, or a 256 kHz external source [1] | Three clock options — the RC oscillator means zero external timing parts. |
+| Supply voltage | 2.4 V to 5.2 V [1] | Works on 3 V coin cells and on 5 V logic alike. A separate V<sub>LCD</sub> pin adjusts the LCD drive voltage (contrast). |
+| Isolation or protection | None — there is no isolation barrier in this device, and the datasheet specifies none [1] | Both sides of every pin share one ground. If you need to cross an isolation barrier, that is a separate part such as the ADuM1201 (C9669) or an optocoupler. |
+| Operating temperature | −40 °C to +85 °C per the catalog record [2] | Industrial range. |
+
+## What the datasheet actually says
+
+**Duty and bias are software-configurable:** 1/2 or 1/3 bias, and 1/2, 1/3 or
+1/4 duty. These must match the LCD glass you are using — the glass's datasheet
+states what it expects, and getting it wrong gives ghosting on segments that
+should be off, or poor contrast on segments that should be on. [1]
+
+**Supply current depends on which clock you choose.** At 3 V with no load and
+the LCD on: 150 µA typical on the internal RC oscillator, 60 µA on a 32.768 kHz
+crystal, 100 µA on an external clock — and all of these double at 5 V. The
+catalog's 60 µA figure is the *crystal-oscillator* condition; budget 150 µA if
+you use the zero-parts internal RC. [1] [2]
+
+**The power-down command drops standby current to 0.1 µA typical at 3 V**
+(5 µA maximum), so a battery instrument can blank the display and pay almost
+nothing. [1]
+
+**There is a watchdog and time base with overflow output**, and two selectable
+buzzer frequencies (2 kHz / 4 kHz) — leftovers from the part's origin as a
+companion to simple I/O microcontrollers, and still occasionally useful. [1]
+
+**Display RAM means you write once.** Update only the digits that change and the
+driver keeps refreshing the rest. That is what frees the microcontroller to
+sleep. [1]
+
+## Watch out for
+
+- **Match duty and bias to your glass.** This is the most common source of a
+  disappointing display.
+- **Never apply DC to an LCD segment.** The driver handles this, but a stuck
+  output or a wiring error will permanently damage the glass.
+- **Budget 150 µA, not 60 µA, if you use the internal RC oscillator.** The
+  catalog's figure assumes an external crystal.
+- **48 pins for 36 signals** — most of the package is display connections, and
+  routing them is the bulk of the layout work.
+- **Sourcing the glass is the hard part.** The driver is easy; a matching custom
+  LCD is a lead-time item.
+
+## In this catalog
+
+Preferred Extended part in LQFP-48 (7×7 mm). At the 2026-07-24 snapshot: 13,346
+in stock, $0.62 at quantity 1, falling to $0.33 at 1,000. The catalog attributes
+record a 32 × 4 bit display configuration, 32 segments, 1/4, 1/3 and 1/2 duty,
+1/3 and 1/2 bias, 2.4 V–5.2 V supply, a 256 kHz frequency, 60 µA supply current
+and a 3-wire serial interface — all matching the datasheet, with the 60 µA
+caveat noted above. [2]
+
+## Sources
+
+1. Holtek Semiconductor, *HT1621 — RAM Mapping 32×4 LCD Controller for I/O MCU*,
+   Rev. 1.30, 6 August 2003. Selection Table, Features, General Description,
+   D.C. Characteristics. Retrieved from a mirror
+   (<https://www.seeedstudio.com/document/HT1621.pdf>) because Holtek's own
+   hosting did not respond to automated fetching.
+2. JLCPCB / LCSC catalog record for C7532, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/lcd-drivers_holtek-semicon-ht1621b_C7532.html>
+`;export{e as default};

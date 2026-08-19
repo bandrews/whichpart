@@ -1,0 +1,107 @@
+var e=`---
+part: C5446
+mpn: XC6206P332MR-G
+manufacturer: Torex Semicon
+category: Voltage Regulators - Linear, Low Drop Out (LDO) Regulators
+kind: power-linear
+package: SOT-23-3L
+tier: basic
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: XC6206 Series — Low ESR Capacitor Compatible Positive Voltage Regulators
+  publisher: Torex Semiconductor Ltd
+  document: ETR0305_006
+  url: https://www.mouser.com/datasheet/2/760/XC6206-846335.pdf
+summary: A 3.3 V, 200 mA LDO drawing about a microamp idle — and a dropout whose guaranteed maximum is nearly three times the headline figure.
+---
+
+# XC6206P332MR-G
+
+## What it is
+
+A three-terminal fixed 3.3 V regulator in a SOT-23, delivering up to 200 mA and
+drawing about a microamp when idle. Torex builds it in CMOS with laser-trimmed
+output voltages, which is where both the very low quiescent current and the tight
+accuracy come from. Along with the AMS1117 it is one of the two regulators you
+see most often on small boards — the difference being that the XC6206 is designed
+for battery use and the AMS1117 is not. [1]
+
+The order code decodes as \`XC6206\` for the family, \`332\` for the 3.3 V output,
+\`MR\` for the SOT-23 package, and \`-G\` which Torex defines as halogen- and
+antimony-free as well as fully EU RoHS compliant. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Output voltage | Fixed 3.3 V. Torex trims the family in 0.1 V steps from 1.2 V to 5.0 V [1] | The \`332\` in the part number. Output-voltage temperature drift is ±100 ppm/°C typical over −40 °C to +85 °C. |
+| Output current | 200 mA minimum guaranteed for the 3.0–3.9 V outputs, while the output stays within 90 % of nominal. A foldback current limiter provides short-circuit protection [1] | A fifth of the AMS1117's rating, but plenty for a microcontroller and a few sensors — and the 200 mA is a guaranteed minimum, not a typical. |
+| Input voltage range | 1.8 V to 6.0 V [1] | **Much lower than the AMS1117's.** This is a 5 V-in part; do not feed it 12 V. |
+| Dropout voltage | For a 3.3 V output: 75 mV typical (350 mV maximum) at 30 mA, and 250 mV typical (**680 mV maximum**) at 100 mA [1] | The 250 mV everyone quotes is the typical at 100 mA. The guaranteed maximum is 680 mV — nearly three times that. Design a battery discharge curve around 680 mV, not 250 mV. |
+| Quiescent current | 1.0 µA typical, 3.0 µA maximum [1] | The reason to choose it. The AMS1117 draws 5 mA — five thousand times more. |
+| Output accuracy | ±2 % for outputs of 1.5 V and above. Torex also builds a high-accuracy version at ±1 % for outputs of 2.0 V and above; the order code as listed does not distinguish them, so design to ±2 %. Load regulation 60 mV maximum from 1 mA to 100 mA; line regulation 0.05 %/V typical, 0.25 %/V maximum [1][2] | ±2 % on 3.3 V is ±66 mV — good enough to use as a rough ADC reference, which the AMS1117 also manages but the 78xx family does not. |
+| Operating temperature | −40 °C to +85 °C ambient [1] | Industrial range. |
+
+## What the datasheet actually says
+
+**The dropout figure has a typical and a maximum, and they are far apart.** At
+100 mA the 3.3 V part is specified at 250 mV typical but 680 mV maximum. If you
+are running from a lithium cell and want to know when the 3.3 V rail collapses,
+the honest answer is around 3.98 V of input, not 3.55 V. Torex specifies dropout
+twice — once at 30 mA and once at 100 mA — precisely because it grows with
+current. [1]
+
+**1 µA of quiescent current changes what is possible.** A design that sleeps most
+of the time and wakes occasionally is dominated by the regulator's standing draw.
+At 5 mA an AMS1117 flattens a 2,000 mAh cell in about two weeks doing nothing; at
+1 µA the XC6206 would take centuries, and the cell's own self-discharge becomes
+the limit. Note the guaranteed maximum is 3 µA, so budget for that. [1]
+
+**The current limiter folds back.** Torex describes the limiter's foldback
+circuit as acting both as the output current limit and as short-circuit
+protection, so a shorted output reduces the current rather than holding it at the
+limit. That protects the chip, but it also means the part will not restart into a
+heavily capacitive load if the inrush looks like a short. [1]
+
+**It is built for ceramic capacitors.** The series is explicitly described as
+low-ESR ceramic compatible — the opposite of older LDOs that needed a minimum ESR
+to stay stable. Follow Torex's recommended value; this is not a part where any
+capacitor will do. [1]
+
+**200 mA in a SOT-23 means thermal limits arrive quickly.** Dropping 5 V to 3.3 V
+at 200 mA dissipates 340 mW, which is a lot for a SOT-23 with no thermal pad.
+Torex notes that the maximum output current is itself bounded by
+P<sub>d</sub> / (V<sub>IN</sub> − V<sub>OUT</sub>). Check your worst case. [1]
+
+## Watch out for
+
+- **6 V input ceiling.** The most common way to destroy one. [1]
+- **Design to 680 mV of dropout, not 250 mV.** [1]
+- **Not a drop-in for an AMS1117.** Different current rating and a much lower
+  input limit, in a different package.
+- **CMOS LDOs care about the output capacitor.** Follow Torex's recommended value
+  and type. [1]
+- **Counterfeits exist.** The XC6206 is widely cloned; the LCSC record naming
+  Torex is worth something. [2]
+
+## In this catalog
+
+Basic part in SOT-23-3L, so no feeder-loading fee for Economic PCBA at JLCPCB. At
+the 2026-07-24 snapshot: 500,959 in stock, $0.133 at quantity 1, falling to
+$0.096 at 150, $0.086 at 500 and $0.080 at 6,000. The catalog attributes record
+fixed 3.3 V, 200 mA, 6 V supply, 1 µA standby current, over-current and
+short-circuit protection, and −40 °C to +85 °C ambient — all confirmed by the
+datasheet, though the catalog carries no dropout or accuracy figure at all. [2]
+
+## Sources
+
+1. Torex Semiconductor Ltd, *XC6206 Series — Low ESR Capacitor Compatible
+   Positive Voltage Regulators*, document ETR0305_006. General Description;
+   Features; Ordering Information; Electrical Characteristics and Electrical
+   Characteristics Chart (rows E-1 to E-5).
+   <https://www.mouser.com/datasheet/2/760/XC6206-846335.pdf>
+2. JLCPCB / LCSC catalog record for C5446, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`). Source for package, tier,
+   price, stock and the catalog attribute strings.
+   <https://www.lcsc.com/product-detail/C5446.html>
+`;export{e as default};

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-19T08:17:11.922Z",
+  "generatedAt": "2026-08-19T17:06:18.382Z",
   "picksDeclaredUpdatedAt": "2026-08-19",
   "summary": {
-    "totalPicks": 59,
+    "totalPicks": 58,
     "qualifyingPicks": 49,
-    "extendedPicks": 10,
-    "validPicks": 59,
+    "extendedPicks": 9,
+    "validPicks": 58,
     "totalIssues": 0,
     "errors": 0,
     "warnings": 0,

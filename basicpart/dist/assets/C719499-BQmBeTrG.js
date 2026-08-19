@@ -1,0 +1,111 @@
+var e=`---
+part: C719499
+mpn: FEMDRM008G-58A39
+manufacturer: FORESEE
+category: eMMC
+kind: memory
+package: FBGA-153
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: Industrial eMMC Datasheet FEMDRM008G-58A39
+  publisher: FORESEE (Longsys Electronics)
+  document: A-00038
+  revised: 2020-06
+  url: https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2211030130_FORESEE-FEMDRM008G-58A39_C719499.pdf
+summary: Managed flash storage in one chip — an 8 GB part with 7.28 GB usable, effectively a soldered-down disk for an embedded Linux board.
+---
+
+# FEMDRM008G-58A39
+
+## What it is
+
+eMMC is raw NAND flash with a controller bonded into the same package,
+presenting itself to the host as a plain block device — in practice, a
+soldered-down memory card. The controller handles everything that makes raw NAND
+awkward: wear levelling, bad-block management, and error correction. The
+datasheet's own phrasing is that the host is "free from considering about NAND
+Flash data operating". [1]
+
+This part pairs one 64 Gbit NAND die with that controller in a 153-ball BGA,
+11.5 × 13.0 × 1.0 mm. It is the storage in the kind of board that boots Linux: a
+single-board computer, an industrial gateway, a smart display. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Capacity | 8 GB nominal, from a single 64 Gbit die. The datasheet's product list gives the **user density as 7.28 GB** — 15,269,888 sectors of 512 bytes — alongside two 4 MB boot partitions and a 4 MB replay-protected memory block [1] | The number on the label is the raw NAND; what your filesystem sees is about 9% smaller, the difference going to spare blocks and controller metadata. Plan your image size against 7.28 GB. |
+| Interface | eMMC 5.1, backward compatible with eMMC 4.41, 4.5 and 5.0. Data bus is 1 bit by default and can be switched to 4 or 8 bits. Modes: HS400, HS200, high-speed DDR and SDR at 52 MHz, and 26 MHz [1] | A standard host interface — Linux and U-Boot drive it with no special driver. The host must explicitly switch to the wider bus and the faster timing after power-up; the defaults are deliberately slow and narrow. |
+| Maximum clock | Bus clock 0 to 200 MHz, giving up to 400 MB/s in HS400. Measured throughput is quoted as up to 230 MB/s read and 105 MB/s write, at 8-bit width and 200 MHz DDR, with 512 kB transfers and no filesystem [1] | 400 MB/s is the interface ceiling; 230/105 MB/s is what the flash behind it actually delivered on the vendor's bench, without filesystem overhead. Expect less in a real system. |
+| Supply voltage | Two rails: V<sub>CC</sub> (NAND) 2.7–3.6 V, and V<sub>CCQ</sub> (controller and host interface) either 1.7–1.95 V or 2.7–3.6 V [1] | The NAND rail must be 3.3 V. The interface rail can be 1.8 V or 3.3 V — but see below, because that choice decides your maximum speed. |
+| Endurance and retention | Not specified [1] | The datasheet gives no program/erase cycle count and no retention figure. What it does give is a way to ask the chip: the standard \`DEVICE_LIFE_TIME_EST_TYP_A/B\` and \`PRE_EOL_INFO\` fields in the extended CSD register, plus a S.M.A.R.T. health report covering original and increased bad blocks, power-up count and power-loss count. If your application writes continuously, get a figure from FORESEE in writing. |
+| Operating temperature | −25 °C to +85 °C operating; −40 °C to +85 °C in storage [1] | Narrower at the cold end than most parts here, and narrower than the raw NAND and NOR flash in this catalog, which both start at −40 °C. |
+
+## What the datasheet actually says
+
+**The fast modes need a 1.8 V interface rail.** The device-type register that the
+controller reports says HS400 and HS200 at 200 MHz are supported at 1.8 V I/O and
+*not supported* at 1.2 V; the reference schematic makes the other half of the
+point explicitly, labelling V<sub>CCQ</sub> = 1.7–1.95 V as "High Perf.
+(HS200/HS400)" and V<sub>CCQ</sub> = 2.7–3.6 V as "Low Perf. — 52 MHz CLK
+SDR/DDR". So a 3.3 V interface is legal and simple, but it caps you at the 52 MHz
+modes and you will never see the quoted 230 MB/s. If throughput matters, the host
+controller has to be able to drive the bus at 1.8 V. [1]
+
+**"8 GB" is the die, not the disk.** The product list is unambiguous: capacity
+8 GB, user density 7.28 GB. On top of that the controller carves out two 4 MB
+boot partitions and a 4 MB replay-protected memory block by default, and the boot
+partition size is only changeable by a vendor command. If you are sizing a root
+filesystem image to the last megabyte, size it to the user area. [1]
+
+**The power-loss protection is real but bounded, and there is a pre-load limit.**
+The datasheet lists a "Sudden-Power-Loss Safeguard" whose promise is specific: after
+a sudden power failure the device "would work properly after power cycling" — that
+is a guarantee about the device surviving, not about your last write landing.
+Separately, if you pre-programme the flash before it is soldered down, the
+Initial Data Acceleration mechanism that protects that data is limited to 3.5 GB
+on this part. [1]
+
+**Idle current is low, but boot is not instant.** In standby the NAND draws
+50 µA and the controller 120 µA, so leaving the chip powered in a sleeping system
+is reasonable; in sleep mode the NAND rail can be switched off entirely and only
+the controller's 120 µA remains. Start-up is the slower half of the story: boot
+acknowledge under 50 ms, boot data under 1 s, initialisation under 1 s. Budget for
+that in anything with a visible start-up time. [1]
+
+## Watch out for
+
+- **Stock was zero at the snapshot date.** See \`ISSUES.md\`. Check availability
+  before committing a design.
+- **Two supply rails, and they must be separated.** The datasheet's design notes
+  say so directly, and they are not interchangeable: V<sub>CC</sub> is 3.3 V only,
+  V<sub>CCQ</sub> is 1.8 V or 3.3 V. [1]
+- **There is a third power pin that is not a supply.** V<sub>DDi</sub> is an
+  internal node; the datasheet says to connect a 1 µF capacitor from it to ground
+  and nothing else. Driving it would be a mistake. [1]
+- **−25 °C cold limit** while operating, against −40 °C for most of this catalog. [1]
+- **No published endurance.** For a write-heavy application, that is a real gap —
+  read the health registers on your prototypes before you commit. [1]
+- **BGA-153 is not a hand-assembly package.** It needs reflow, and X-ray or
+  boundary-scan to inspect.
+
+## In this catalog
+
+Preferred Extended part in FBGA-153. At the 2026-07-24 snapshot: **0 in stock**,
+with prices listed from $6.73 at quantity 1 down to $4.46 at 100. [2]
+
+## Sources
+
+1. FORESEE (Shenzhen Longsys Electronics), *Industrial eMMC Datasheet
+   FEMDRM008G-58A39*, A-00038, Version 1.0, 15 June 2020. Section 1
+   (Introduction), Section 2 (Product List), Section 3 (Key Features), Section 5
+   (Product Specifications — write/read performance and power consumption),
+   Section 6 (Technical Notes — interface timing mode, partition management,
+   partition configuration, reference schematics), Section 7 (Register Value —
+   extended CSD, S.M.A.R.T. health report).
+   <https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2211030130_FORESEE-FEMDRM008G-58A39_C719499.pdf>
+2. JLCPCB / LCSC catalog record for C719499, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/emmc_foresee-femdrm008g-58a39_C719499.html>
+`;export{e as default};

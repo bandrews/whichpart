@@ -1,0 +1,101 @@
+var e=`---
+part: C71136
+mpn: 78L05G-AB3-R
+manufacturer: UTC(Unisonic Tech)
+category: Voltage Regulators - Linear, Low Drop Out (LDO) Regulators
+kind: power-linear
+package: SOT-89-3
+tier: basic
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: 78LXX — 3-Terminal 0.1A Positive Voltage Regulator
+  publisher: Unisonic Technologies Co., Ltd (UTC)
+  document: QW-R101-001.AC
+  revised: 2024
+  url: https://www.unisonic.com.tw/uploadfiles/836/part_no_pdf/78LXX.pdf
+summary: The small 5 V regulator — 100 mA, three terminals, and a design that has not changed since the 1970s.
+---
+
+# 78L05G-AB3-R
+
+## What it is
+
+The 78L05 is the 100 mA member of the 78xx family — the three-terminal regulator
+that has been the default answer to "I need 5 V" since the 1970s. Input, ground,
+output; add two capacitors and you are done. UTC's version is a straightforward
+second source, and the datasheet covers the whole 5 V to 24 V family in one
+document. [1]
+
+It is not efficient and it is not a low-dropout regulator, despite the catalog
+category it is filed under. But it is small, cheap, robust and utterly
+predictable, and for a low-current 5 V rail from a 9 V or 12 V source it remains
+hard to beat on total cost. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Output voltage | Fixed 5 V [1] | No adjustment, no divider, no feedback network to get wrong. |
+| Output current | 100 mA maximum [1] | The \`L\` in \`78L05\` means the low-current version; the plain 7805 is 1 A. In practice the package's heat limit bites first — see below. |
+| Input voltage range | 30 V absolute maximum. Output regulation is specified for 7 V to 20 V [1] | The 30 V figure the catalog shows is a *survival* limit, not a working one. Design inside 7–20 V and the datasheet's numbers apply. [2] |
+| Dropout voltage | 1.7 V typical at 25 °C, measured at 40 mA [1] | You need at least 6.7 V in to get 5 V out. This is emphatically not a low-dropout regulator. |
+| Quiescent current | 2.0 mA typical, 5.5 mA maximum, at no load [1] | Roughly two thousand times the XC6206's. This one number rules the 78xx family out of battery-powered designs. |
+| Output accuracy | 4.90 V to 5.10 V (±2 %) at 25 °C; 4.85 V to 5.15 V (±3 %) across 7–20 V input and 1–40 mA load [1] | ±2 % is respectable for a part this old and this cheap, and it is guaranteed rather than typical. |
+| Operating temperature | −40 °C to +125 °C, guaranteed by design rather than fully tested; electrical characteristics are specified over a junction temperature of 0 °C to 150 °C [1] | Wider than the −40 °C to +85 °C the catalog shows. The catalog figure is the conservative one, so following it will not get you into trouble. [2] |
+
+## What the datasheet actually says
+
+**The catalog overstates ripple rejection by 20 dB.** The listing claims 80 dB at
+120 Hz. UTC's datasheet specifies 60 dB minimum at 120 Hz for the 78L05, tested
+from 8 V to 20 V at 25 °C. Sixty decibels is still perfectly good — it is a
+factor of a thousand — but if you were sizing a design around 80 dB, use 60. [1][2]
+
+**Heat is the real current limit, not the 100 mA rating.** The SOT-89 package is
+rated for 500 mW of dissipation with a junction-to-ambient thermal resistance of
+200 °C/W. A linear regulator dissipates (V<sub>in</sub> − 5 V) × I<sub>out</sub>.
+From 12 V at 50 mA that is 350 mW — already most of the package's budget. From
+30 V at 100 mA it would be 2.5 W, which is five times what the package can shed.
+Do this arithmetic before you trust the 100 mA number. [1]
+
+**Protection is comprehensive.** Thermal overload shutdown and short-circuit
+current limiting are both built in and listed as headline features. Like the rest
+of the family, this part is very hard to destroy. [1]
+
+**The order code tells you the package.** In UTC's scheme, \`78L05G-AB3-R\` means
+5 V output, halogen-free (\`G\`), SOT-89 (\`AB3\`), tape and reel (\`R\`). The pinout
+for \`AB3\` is output–ground–input; the \`AB3-C\` variant reorders those pins to
+ground–input–output in the same package, so the suffix genuinely matters. [1]
+
+## Watch out for
+
+- **1.7 V dropout.** Not usable for battery-to-5 V conversion.
+- **2 mA idle current, drawn continuously** whatever the load. On a battery
+  product that alone is about 48 mAh per day.
+- **60 dB of ripple rejection, not the catalog's 80 dB.** [1][2]
+- **Package dissipation governs everything.** SOT-89 is small: 500 mW.
+- **Check the pin order against the suffix.** \`AB3\` and \`AB3-C\` are the same
+  package with different pinouts. [1]
+- **Use a switching converter for large input-output differences.** The
+  XL1509-5.0 (C61063) in this catalog does the same job from up to 40 V at 2 A
+  without the heat.
+
+## In this catalog
+
+Basic part in SOT-89-3, so no feeder-loading fee for Economic PCBA at JLCPCB. At
+the 2026-07-24 snapshot: 199,523 in stock, $0.099 at quantity 1, falling to
+$0.080 at 50, $0.062 at 500 and $0.051 at 4,000. The catalog attributes record
+5 V fixed output, 100 mA, 30 V supply, 1.7 V dropout at 40 mA, 2 mA standby,
+40 µV noise and over-current, short-circuit and thermal protection — all
+confirmed by the datasheet except the 80 dB PSRR figure discussed above. [2]
+
+## Sources
+
+1. Unisonic Technologies Co., Ltd, *78LXX — 3-Terminal 0.1A Positive Voltage
+   Regulator*, document QW-R101-001.AC, © 2024. Ordering Information; Absolute
+   Maximum Ratings; Thermal Data; Electrical Characteristics for UTC78L05.
+   <https://www.unisonic.com.tw/uploadfiles/836/part_no_pdf/78LXX.pdf>
+2. JLCPCB / LCSC catalog record for C71136, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`). Source for package, tier,
+   price, stock and the catalog attribute strings.
+   <https://www.lcsc.com/product-detail/voltage-regulators-linear-low-drop-out-ldo-regulators_utc-unisonic-tech-78l05g-ab3-r_C71136.html>
+`;export{e as default};

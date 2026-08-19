@@ -1,0 +1,107 @@
+var e=`---
+part: C7420372
+mpn: H5VL10B
+manufacturer: hongjiacheng
+category: ESD and Surge Protection (TVS/ESD)
+kind: protection
+package: DFN1006-2L
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: H5VL10B — Bi-directional 5V Low Capacitance ESD
+  publisher: Zhuhai Hongjiacheng Technology co., Ltd
+  revised: Rev 2.0
+  url: https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2306301553_hongjiacheng-H5VL10B_C7420372.pdf
+summary: A tiny bidirectional 5 V ESD clamp for slower signal lines — too much capacitance for USB data.
+---
+
+# H5VL10B
+
+## What it is
+
+An ESD protection diode: a device that sits across a signal line doing nothing at
+all until a static discharge arrives, at which point it conducts and dumps the
+energy to ground before it can reach whatever you are protecting. This one is
+*bidirectional* — internally two clamps back to back, so it handles discharges of
+either polarity — and it is built for signals that never go above 5 V. [1]
+
+The manufacturer, Zhuhai Hongjiacheng, aims it at hand-held consumer hardware:
+phone accessories, notebooks, keypads and side keys, LCD displays and audio
+players. [1] The DFN1006 package is 1.00 × 0.60 mm and about 0.37 mm tall, small
+enough to place right at a connector pin — which is where ESD protection has to
+be if it is to work at all. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | Single-channel bidirectional ESD protection diode [1] | One line protected per package. Bidirectional suits a signal that swings either side of ground; for a plain ground-referenced logic line a unidirectional part clamps harder in the direction that matters. |
+| Working voltage | 5.0 V maximum reverse standoff (V<sub>RWM</sub>), with reverse leakage guaranteed below 0.1 µA at that voltage. Breakdown voltage at 1 mA is 5.6 V minimum, 6.5 V typical, 8.0 V maximum [1] | The signal must stay below 5 V, including overshoot, or the protector starts loading it during normal operation. The breakdown spread is wide, so do not count on conduction beginning at any particular voltage. |
+| Clamping | 8.0 V maximum at a 1 A surge, 10.0 V maximum at the full 5 A surge, both for an 8/20 µs pulse [1] | Whatever you are protecting has to survive the clamping voltage for the length of the pulse. The often-quoted "10 V" is the worst case at full current; smaller surges are clamped lower. |
+| Capacitance | 15 pF typical, 18 pF maximum, at 0 V bias and 1 MHz [1] | **This is the number that decides where you can use it.** It is fine for buttons, keypads, I²C and other slow lines, and it will visibly degrade USB 2.0 or anything above a few tens of megahertz. |
+| Peak pulse rating | 50 W peak pulse power and 5.0 A peak pulse current, both for an 8/20 µs waveform; ±25 kV air and ±25 kV contact discharge per IEC 61000-4-2; 5 A per IEC 61000-4-5 [1] | IEC 61000-4-2 is the human-body test — a person touching the connector. IEC 61000-4-5 is the surge test, and the 8/20 µs waveform is its standard lightning-derived pulse shape. |
+| Operating temperature | −55 °C to +125 °C [1] | Wide. The datasheet gives the same range for junction and storage temperature — the storage row is captioned "Operating Junction Temperature Range" too, which is a labelling slip rather than a second specification. |
+
+## What the datasheet actually says
+
+**"Low capacitance" is relative, and 15 pF is only the typical.** The front page
+of the datasheet advertises "Low capacitance 15pF(Typ.)", and against an ordinary
+5 V TVS diode that is a fair claim. It is not low against what a fast data line
+needs. The guaranteed figure is the 18 pF maximum, not the 15 pF typical, and
+either number will round off the edges of a USB 2.0 high-speed pair, which wants
+protection nearer 1 pF. This repository's own curated recommendation already says
+so. [1] [3] For USB data, use a low-capacitance protector such as the SRV05-4
+(C85364), whose catalog record lists 3.5 pF. [4]
+
+**The clamping voltage is a curve, not a number.** The datasheet specifies two
+points — 8.0 V at 1 A and 10.0 V at 5 A — and plots the rest in Fig. 4. If your
+realistic threat is a small discharge rather than a full 5 A surge, the voltage
+your circuit actually sees is closer to 8 V than 10 V. [1]
+
+**Forward conduction is defined but never specified.** The symbol table on the
+front page defines forward current I<sub>F</sub> and forward voltage V<sub>F</sub>,
+but no values for either appear anywhere in the document. If your design depends
+on how the part behaves when forward biased, this datasheet will not tell
+you. [1]
+
+## Watch out for
+
+- **Not for USB data or other high-speed lines.** 15 pF typical, 18 pF maximum,
+  is too much. [1]
+- **5 V standoff means the signal must stay below 5 V**, including overshoot and
+  ringing, or leakage climbs above the specified 0.1 µA. [1]
+- **Place it at the connector**, not next to the chip you are protecting. A
+  discharge takes the first path it finds.
+- **Ground return matters.** A long, thin ground trace from the protector adds
+  inductance, and inductance is what turns a fast discharge into a voltage spike
+  that goes around your clamp rather than through it.
+
+## In this catalog
+
+Preferred Extended part in DFN1006-2L. At the 2026-07-24 snapshot: 9,851,038 in
+stock — by far the largest stock figure in the catalog — at $0.0067 at quantity 1,
+falling to $0.0038 at 50,000. The catalog attributes record 5 V standoff, 5.6 V
+breakdown, 10 V clamping, 15 pF, 50 W, 5 A, 100 nA leakage and −55 °C to +125 °C,
+all of which the datasheet supports — though note that it quotes the typical
+capacitance and the *minimum* breakdown voltage, so the pair are not read from
+the same column of the table. [2]
+
+## Sources
+
+1. Zhuhai Hongjiacheng Technology co., Ltd, *H5VL10B — Bi-directional 5V Low
+   Capacitance ESD* (DFN1006-2L Plastic-Encapsulate ESD Protection Diodes),
+   Rev 2.0. Features; Applications; Function Diagram; Maximum Ratings;
+   Electrical Parameter symbol table; Electrical Characteristics; Fig. 4
+   (Clamping Voltage vs. Peak Pulse Current); Package Outline Dimensions. The
+   document carries no document number and no date.
+   <https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2306301553_hongjiacheng-H5VL10B_C7420372.pdf>
+2. JLCPCB / LCSC catalog record for C7420372, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`). Source for package, tier,
+   price, stock and the catalog attribute strings.
+   <https://www.lcsc.com/product-detail/esd-and-surge-protection-tvs-esd_hongjiacheng-h5vl10b_C7420372.html>
+3. basicp.art curated recommendations, \`src/data/other-components.json\`, which
+   already carries the note that this part's capacitance is unsuitable for
+   high-speed USB data lines.
+4. JLCPCB / LCSC catalog record for C85364 (SRV05-4), snapshot 2026-07-24,
+   cited for its 3.5 pF junction capacitance.
+`;export{e as default};
