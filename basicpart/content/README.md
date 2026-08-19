@@ -60,13 +60,21 @@ So:
 1. **Manufacturer datasheet first.** Where a manufacturer datasheet could be
    retrieved, the electrical figures come from it, and the file records the
    document number and revision so a future reader can tell whether the summary
-   has gone stale. 65 of the 99 component files have a manufacturer datasheet
+   has gone stale. 77 of the 99 component files have a manufacturer datasheet
    recorded in their front matter.
 2. **Catalog record second.** Package, price, stock, JLCPCB tier, and the
    attribute strings shown in the site's tables come from the JLCPCB/LCSC
    catalog snapshot in `raw-data/`, and are cited as such.
-3. **Nothing else.** Where a datasheet could not be reached — which is the case
-   for every part whose only datasheet link is LCSC-hosted, since that host
+3. **Industry-type datasheet third, and clearly labelled.** Several parts here
+   are house-brand versions of industry-standard types — `hongjiacheng`'s SS14
+   and BSS138W, `MDD`'s US1M and MB10S. For those, the file cites the catalog
+   record as the specification of record for the part actually supplied, and a
+   named manufacturer's datasheet for the *type* as a second source, saying
+   explicitly where the two disagree. Sometimes they disagree materially: the
+   MB10S is a case where every retrievable datasheet for the type rates it at
+   half the current the catalog claims.
+4. **Nothing else.** Where no datasheet could be reached — which remains the
+   case for every part whose only datasheet link is LCSC-hosted, since that host
    blocks automated retrieval — the file says so at the top, in a blockquote,
    and cites the catalog record for every figure. It does not fill the gap with
    plausible-sounding numbers.
@@ -76,14 +84,27 @@ Where the catalog record and the datasheet disagree, the file says so and
 
 ## Known problems found while writing these
 
-See [`ISSUES.md`](ISSUES.md). It lists twelve findings — mismatches between the
+See [`ISSUES.md`](ISSUES.md). It lists eighteen findings — mismatches between the
 site's data and manufacturer datasheets, claims that could not be verified,
 parts whose datasheets are marked obsolete, and parts listed as available that
 have no stock — plus a status review (2026-08-19) recording which were since
-resolved, which were retracted, and which remain open. The standout remaining
-data error is the ADuM1201's data rate, understated by 25× (issue 6, confirmed);
-the HT7533/HT7550 finding (issue 7) was retracted after the current Holtek
-datasheet confirmed the catalog's figures.
+resolved, which were retracted, and which remain open, and a second review the
+same day that added findings 13 to 18.
+
+The most consequential of the newer findings is issue 13: every retrievable
+datasheet for the MB10S bridge rectifier (C2488) rates it at 0.5 A or 0.8 A,
+while the catalog implies 1 A. That is the one likely to cause a failure rather
+than merely a poor choice.
+
+Two findings have been retracted after re-reading the primary sources, and both
+retractions point the same way: the catalog was right and this repository was
+wrong. Issue 7 (HT7533/HT7550) fell to a current Holtek datasheet that confirmed
+the catalog's figures. Issue 6 (ADuM1201 data rate) fell to a full read of the
+Analog Devices datasheet, which publishes separate switching specifications for
+the `AR`, `BR` and `CR` speed grades — 1 Mbps, 10 Mbps and 25 Mbps. The part in
+this catalog is the `AR` grade, so the catalog's 1 Mbps was correct and the
+component note's 25 Mbps was not. The confirmed data error that remains is the
+MCP6002's temperature grade (issue 10).
 
 ## How the UI reads this content
 
