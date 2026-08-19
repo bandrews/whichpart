@@ -1,0 +1,110 @@
+var e=`---
+part: C9669
+mpn: ADUM1201ARZ-RL7
+manufacturer: Analog Devices
+category: Digital Isolators
+kind: isolation
+package: SOIC-8
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: ADuM1200/ADuM1201 — Dual-Channel Digital Isolators
+  publisher: Analog Devices
+  document: Rev. L
+  url: https://www.analog.com/media/en/technical-documentation/data-sheets/ADuM1200_1201.pdf
+summary: Two logic signals across a 2.5 kV galvanic barrier — one in each direction, in an ordinary 8-pin SOIC.
+---
+
+# ADUM1201ARZ-RL7
+
+## What it is
+
+A digital isolator passes logic signals across an electrical barrier: the two
+sides share no ground and no current path, so a fault on one side cannot reach
+the other. The ADuM1201 carries two channels — one in each direction, which is
+exactly what a UART or an SPI-with-one-return needs. [1]
+
+Optocouplers do the same job, but slowly and with an LED that ages. Analog
+Devices' *i*Coupler technology uses on-chip transformers instead, which is why
+the fastest members of this family manage 25 Mbps where an optocoupler struggles
+past a few hundred kilobits. This particular order code is the slowest grade, at
+1 Mbps — see below. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | Two-channel digital isolator, one channel in each direction (the ADuM1200 is both channels in the same direction) [1] | The \`1201\` suffix is what tells you it is 1-forward, 1-reverse. Get this wrong and the part is useless for your circuit. |
+| Isolation rating | V<sub>ISO</sub> = 2,500 V RMS for 1 minute, per UL 1577. Also approved to IEC/EN/CSA 62368-1, IEC/CSA 61010-1, CQC GB4943.1 and DIN EN IEC 60747-17 (VDE 0884-17) [1] | The regulatory approvals matter as much as the voltage number if the product must be certified. |
+| Channel count and direction | 2 channels, 1 forward and 1 reverse [1] | Enough for a full-duplex UART. Not enough for SPI, which needs at least three. |
+| Maximum data rate | **1 Mbps for the \`A\` grade, which is this part.** Minimum pulse width 1,000 ns, propagation delay 50 ns typical and 150 ns maximum, pulse-width distortion up to 40 ns, channel-to-channel matching up to 50 ns [1] | The datasheet's headline "dc to 25 Mbps" belongs to the \`C\` grade, and 10 Mbps to the \`B\` grade. \`ADUM1201ARZ-RL7\` is the \`A\` grade, so 1 Mbps is the figure to design to — still ample for an isolated UART at 115,200 baud, and still far faster than an optocoupler. |
+| Supply voltage | 3 V or 5 V operation on each side independently, giving 3 V/5 V level translation across the barrier [1] | Each side has its own supply, so it translates voltage as well as isolating. |
+| Operating temperature | −40 °C to +105 °C for this order code, per the ordering guide. The \`W\`-prefixed grades (WS, WT, WU) are the −40 °C to +125 °C parts [1] | The catalog agrees. Note that the letter after \`ADuM1201\` is the *speed* grade, not the temperature grade — temperature is denoted by the \`W\` prefix. [2] |
+
+## What the datasheet actually says
+
+**The suffix letter is a speed grade, and it is easy to read the wrong row.**
+Analog Devices publishes three switching-specification tables for this device —
+one each for the \`AR\`, \`BR\` and \`CR\` grades — and the front-page headline of
+"dc to 25 Mbps" comes from the \`CR\` table. The differences are large:
+
+| Grade | Maximum data rate | Minimum pulse width | Pulse-width distortion |
+|---|---|---|---|
+| \`AR\` (this part) | 1 Mbps | 1,000 ns | 40 ns |
+| \`BR\` | 10 Mbps | 100 ns | 3 ns |
+| \`CR\` | 25 Mbps minimum, 50 Mbps typical | 20–40 ns | 3 ns |
+
+If you need real speed across the barrier, order the \`CR\` part, not this one. [1]
+
+**Supply current scales with data rate, and the higher rows are grade-locked.**
+For the ADuM1201 at DC to 2 Mbps — the only row that applies to this \`A\` grade —
+each side draws 0.8 mA typical and 1.1 mA maximum. The 10 Mbps rows in the same
+table are marked "BR and CR Grades Only" and the 25 Mbps rows "CR Grade Only".
+Isolating a 9,600-baud serial link therefore costs you almost nothing in
+power. [1]
+
+**Common-mode transient immunity exceeds 25 kV/µs.** That is the specification
+that says how fast the two grounds can move relative to each other before the
+data corrupts — the thing that actually matters in a motor drive or a switching
+power supply. [1]
+
+**DC operation is supported.** Unlike some transformer-based isolators, this one
+passes a static level. You do not have to keep the signal toggling. [1]
+
+## Watch out for
+
+- **1201 is one channel each way; 1200 is two the same way.** Check which your
+  circuit needs.
+- **Two channels is not enough for SPI.** You need clock, data out, data in and
+  usually chip select — look at a four-channel part.
+- **Both sides need their own supply.** Isolating the signal is only half the
+  job; an isolated supply (a small transformer or an isolated DC-DC) is the other
+  half, and it is not in this package.
+- **This is the 1 Mbps grade.** Do not design against the datasheet's 25 Mbps
+  headline — that belongs to the \`CR\` part. [1]
+- **Layout the barrier properly.** Analog Devices specifies 4.0 mm minimum
+  external clearance and 4.0 mm minimum creepage; keep the region under the
+  package free of copper, or the board defeats the isolation. [1]
+
+## In this catalog
+
+Preferred Extended part in SOIC-8. At the 2026-07-24 snapshot: 23,441 in stock,
+$2.15 at quantity 1, falling to $1.45 at 1,000 — one of the more expensive parts
+in the catalog, which is what isolation costs. The catalog attributes record 2
+channels (1 forward, 1 reverse), 2,500 V RMS isolation, 2.7 V–5.5 V on both
+sides, 25 kV/µs common-mode transient immunity, 50 ns propagation delay and
+−40 °C to +105 °C. Its 1 Mbps "Data Rate(Max)" entry is correct for this order
+code: it matches the \`AR\` grade's switching specification exactly. An earlier
+revision of \`ISSUES.md\` recorded this as a 25× understatement; that finding has
+been retracted, because the 25 Mbps figure applies to the \`CR\` grade. [2]
+
+## Sources
+
+1. Analog Devices, *ADuM1200/ADuM1201 — Dual-Channel Digital Isolators*, Rev. L.
+   Features page 1 (power, data rate, timing, common-mode transient immunity,
+   safety and regulatory approvals).
+   <https://www.analog.com/media/en/technical-documentation/data-sheets/ADuM1200_1201.pdf>
+2. JLCPCB / LCSC catalog record for C9669, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/digital-isolators_analog-devices-adum1201arz-rl7_C9669.html>
+`;export{e as default};

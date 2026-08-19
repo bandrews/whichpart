@@ -1,0 +1,104 @@
+var e=`---
+part: C5126825
+mpn: F35UQA512M-WWT
+manufacturer: FORESEE
+category: NAND FLASH
+kind: memory
+package: WSON-8-EP(6x8)
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: 512Mbit SPI NAND Flash F35UQA512M
+  publisher: FORESEE (Longsys Electronics)
+  document: LM-00033
+  revised: 2022-02
+  url: https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2210121130_FORESEE-F35UQA512M-WWT_C5126825.pdf
+summary: 512 Mbit (64 MB) of 1.8 V SPI NAND in an eight-pin package, with single-bit error correction built into the chip.
+---
+
+# F35UQA512M-WWT
+
+## What it is
+
+SPI NAND sits between the SPI NOR flash that most microcontrollers boot from and
+the eMMC used in Linux systems. It uses the same simple six-wire SPI connection
+as NOR flash, but stores data in NAND cells — which buys far more capacity per
+dollar, at the cost of asking the host to work around bad blocks. [1]
+
+The datasheet calls this a 512M-bit (64M × 8-bit) serial NAND running from a
+single 1.8 V supply, supporting one-, two- and four-bit SPI transfers at up to
+104 MHz. Inside there is a NAND array, a page buffer, and a small error-correction
+engine that fixes single-bit errors on the fly. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Capacity | 512 Mbit — 64 MB of user data, as 512 blocks of 64 pages, each page 2048 bytes plus a separate 64-byte spare area. Counting the spare area the whole array is 528 Mbit [1] | The headline "512 Mbit" is the usable data, in bytes 64 MB. The spare area is extra, and is where bad-block marks and error-correction codes live — not somewhere you store your own data. |
+| Interface | Standard, Dual and Quad SPI (x1, x2, x4), plus copy-back writes, a 2 kB parameter page, sixty-two 2 kB one-time-programmable pages and a unique ID [1] | Eight pins, the same as NOR flash, so it drops into a similar layout. Quad mode uses the WP# and HOLD# pins as data, so those functions disappear when you use it. |
+| Maximum clock | 104 MHz, and the datasheet quotes the same 104 MHz for standard, dual and quad SPI [1] | No speed penalty for using the wider modes — unusual, and it makes quad mode a straight four-fold gain in read bandwidth. |
+| Supply voltage | 1.7 V to 1.95 V, a single 1.8 V rail (absolute maximum 2.5 V) [1] | **A 1.8 V part only.** It will not work on a 3.3 V SPI bus without level shifting — unlike the 3.3 V W25Q128JV NOR flash elsewhere in this catalog. |
+| Endurance and retention | 100,000 program/erase cycles (typical) and 10 years' data retention, both quoted on the basis of one-bit-per-528-byte error correction [1] | Both numbers are typical, not guaranteed minimums, and both assume error correction is in use. Without it, neither figure applies. |
+| Operating temperature | −40 °C to +85 °C for this order code. The datasheet's product list also offers \`F35UQA512M-WAT\`, the same die and package at −40 °C to +105 °C [1] | Industrial range. The grade is the middle character of the three-letter suffix: \`W\` is −40 to +85 °C, \`A\` is −40 to +105 °C, and the datasheet's numbering chart shows AEC-Q100 grades 2 and 3 exist as well. |
+
+## What the datasheet actually says
+
+**The error correction is exactly one bit, and it is thinner than it sounds.**
+The on-chip engine works on segments of 512 bytes of data plus 16 bytes of spare,
+and in each segment it can *correct* one bad bit and only *detect* two. It is
+enabled by default and can be switched off by command. After every read the
+datasheet tells you to check the status register, because a two-bit error is
+reported rather than fixed — your firmware has to notice and react. Endurance and
+retention are quoted against this one-bit-per-528-byte scheme, so a design that
+disables it gets no supported reliability figure at all. [1]
+
+**Some blocks are bad when the chip arrives.** The datasheet guarantees only 502
+of the 512 blocks are valid — up to ten may be factory-marked as bad, flagged by a
+non-FFh byte at the start of the spare area on the first or second page of the
+block. It does guarantee block 0, the block you would boot from, is good at
+shipment. Because those markers live in erasable flash, you are expected to scan
+for them once and build your own bad-block table before you erase anything.
+More blocks will fail during the part's life, and the datasheet's advice is to
+replace them at the block level after a failed erase or program. [1]
+
+**Pages must be written in order, and the headline timings assume ECC is off.**
+Within a block, pages have to be programmed from the lowest page upwards; random
+page-order writes are prohibited, and any page takes at most four partial writes.
+The catalog's 350 µs page program and 2 ms block erase are typical figures with
+error correction disabled. Turn it on — which is the default — and a page program
+is typically 380 µs and can take 750 µs; a block erase can take 10 ms against its
+2 ms typical. Size your timeouts against the maximums, not the typicals. [1]
+
+## Watch out for
+
+- **Stock was zero at the snapshot date.** See \`ISSUES.md\`.
+- **1.8 V only.** Not a drop-in for 3.3 V NOR flash; you need a 1.8 V-capable
+  host or level shifters on all four data lines. [1]
+- **Not execute-in-place.** NAND is read a page at a time into a buffer, so a
+  microcontroller cannot run code directly out of it the way it can from NOR. [1]
+- **You still handle bad blocks.** The chip corrects bits; it does not manage
+  blocks. That job stays with your firmware or filesystem. [1]
+- **Quad mode costs you the write-protect and hold pins**, which become data
+  lines for the duration of the operation. [1]
+
+## In this catalog
+
+Preferred Extended part in WSON-8 with exposed pad (6×8 mm). At the 2026-07-24
+snapshot: **0 in stock**, with prices listed from $2.03 at quantity 1 down to
+$1.13 at 960. That is four times the capacity of the 128 Mbit W25Q128JV NOR flash
+in this catalog for slightly less money at quantity 1 — the price-per-byte
+argument for NAND, in one line. [2]
+
+## Sources
+
+1. FORESEE (Shenzhen Longsys Electronics), *512Mbit SPI NAND Flash F35UQA512M
+   Datasheet*, LM-00033, Rev 1.1, 10 February 2022. Section 1 (General
+   Description), Section 2 (Features), Section 3 (Product List), Section 7 (Array
+   Organization and Mapping), Section 11 (Software Algorithm — Initial Invalid
+   Blocks, Internal ECC, Addressing for Program Operation), Section 12
+   (Electrical Characteristics).
+   <https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2210121130_FORESEE-F35UQA512M-WWT_C5126825.pdf>
+2. JLCPCB / LCSC catalog record for C5126825, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/nand-flash_foresee-f35uqa512m-wwt_C5126825.html>
+`;export{e as default};

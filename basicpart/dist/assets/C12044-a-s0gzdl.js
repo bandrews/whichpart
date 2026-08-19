@@ -1,0 +1,136 @@
+var e=`---
+part: C12044
+mpn: TP4057-42-SOT26-R
+manufacturer: TOPPOWER(Nanjing Extension Microelectronics)
+category: Battery Management
+kind: battery-management
+package: SOT-23-6
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: TP4057 — 500 mA Linear Li-Ion Battery Charger
+  publisher: NanJing Top Power ASIC Corp.
+  url: https://datasheet.lcsc.com/datasheet/pdf/a06f26a534534913a54f86485e56d5f7.pdf
+summary: Standalone linear lithium charger in SOT-23-6 — 4.2 V within ±1 %, up to 500 mA set by a single resistor.
+---
+
+# TP4057-42-SOT26-R
+
+## What it is
+
+The TP4057 is a complete single-cell lithium-ion charger in a six-pin SOT-23. It
+holds constant current until the cell reaches 4.2 V, then holds 4.2 V while the
+current tails off, and shuts itself off when the current has fallen to a tenth
+of what you programmed. The pass element is an internal P-channel MOSFET, so the
+whole charger needs two external parts: a resistor to set the current and a
+bypass capacitor. [1]
+
+It runs directly from USB or an adapter and has two status outputs, one for
+"charging" and one for "done". Both are open-drain, meaning they can only pull
+their pin down to ground, so an LED wired from the supply through a resistor
+lights when the chip pulls the pin low. It also survives a cell connected
+backwards, which the five-pin TP4054 in this catalog does not. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | Standalone constant-current / constant-voltage linear charger for one lithium-ion cell, with internal pass MOSFET, thermal regulation and reverse-battery protection [1] | Two external components make a working charger. |
+| Charge voltage | 4.2 V preset, specified 4.158 V to 4.242 V (±1 %) for 0 °C ≤ T<sub>A</sub> ≤ +85 °C at I<sub>BAT</sub> = 40 mA [1] | ±1 % is what keeps a lithium cell from being chronically overcharged. Note the condition: the guarantee starts at 0 °C, not at −40 °C. |
+| Charge current | Set by R<sub>PROG</sub> from the PROG pin to ground: R<sub>PROG</sub> = 1000/I<sub>BAT</sub> up to 0.3 A, and R<sub>PROG</sub> = (1000/I<sub>BAT</sub>) × (1.3 − I<sub>BAT</sub>) above it. 1.6 kΩ gives 500 mA (480–520 mA), 2 kΩ gives 400 mA, 10 kΩ gives 100 mA. 500 mA is the maximum, and is also the absolute-maximum BAT pin current [1] | One 1 %-tolerance resistor sets the whole charge rate. The 500 mA ceiling is a hard one here — see below. |
+| Input voltage range | 4.0 V to 9.0 V (5 V typical), absolute maximum 9 V; undervoltage lockout 3.6 V typical (3.4–3.8 V) with 200 mV hysteresis; the charger also stays off until V<sub>CC</sub> rises about 100 mV above the battery (60–140 mV) and shuts down again when V<sub>CC</sub> falls within about 30 mV of it [1] | Fine on USB 5 V. There is no headroom above 9 V at all — the operating maximum *is* the absolute maximum. |
+| Termination and status | C/10 termination: charging stops when current falls to a tenth of the programmed value (10 mA at R<sub>PROG</sub> = 10 kΩ) for longer than 1.8 ms. Automatic recharge at 4.1 V (the table gives the threshold as 100–200 mV below the float voltage). Trickle charge below 2.9 V, specified 10–20 mA with a 10 kΩ resistor (the text describes trickle as a tenth of the programmed current; the table's typical is 15 mA against a 100 mA setting). Two open-drain outputs, CHRG and STDBY, 0.6 V maximum at 5 mA and able to sink 10 mA. No safety timer [1] | The chip decides when to stop; you get two LED drives free. Nothing limits the total charge time if a cell never reaches termination. |
+| Operating temperature | −40 °C to +85 °C ambient; maximum junction temperature 145 °C; the internal thermal loop starts cutting charge current at about 120 °C junction [1] | Wide ambient range, but the thermal loop, not the ambient rating, is what you will hit first. |
+
+## What the datasheet actually says
+
+**500 mA is a number the package cannot usually deliver.** The datasheet says so
+plainly: above 400 mA, poor heat-sinking in SOT-23-6 will cause thermal
+protection to reduce the charge current, and measured current will no longer
+match the formula. Its own worked example programs 400 mA from a 5 V supply into
+a 3.75 V cell and assumes the board carries heat away at 150 °C of die
+temperature rise per watt dissipated; on that basis the current starts backing
+off at only 45 °C ambient, and at 60 °C ambient the same circuit delivers about
+320 mA. The datasheet's measured table for that figure ranges from 125 °C/W with
+2,500 mm² of copper on a two-layer board to 150 °C/W with 50 mm², and 80 °C/W on
+a four-layer board. Copper area, in other words, is the real charge-current
+control. [1]
+
+**The datasheet's own workaround is a series resistor.** It recommends dropping
+some of the dissipation outside the chip — 0.5 Ω to 1 Ω in series with V<sub>CC</sub>,
+aiming for about 4.6 V at the pin, which it calls optimal for getting a large
+charge current. That is the opposite of the usual advice to minimise input
+impedance, and it exists solely because the package cannot dissipate the heat. [1]
+
+**The ±1 % charge voltage is specified from 0 °C up.** The float-voltage row is
+conditioned on 0 °C ≤ T<sub>A</sub> ≤ +85 °C and I<sub>BAT</sub> = 40 mA. Below
+freezing the part still works — the operating range runs to −40 °C — but the
+4.158–4.242 V window is not guaranteed there. [1]
+
+**Recharge and the missing timer.** After termination the part watches the cell
+and restarts a full cycle when it falls to 4.1 V, roughly 80–90 % state of
+charge. There is no safety timer anywhere in the document: if a damaged cell
+never tapers to C/10, the TP4057 will keep charging it indefinitely. [1]
+
+## Watch out for
+
+- **No protection circuit.** The charger does not protect the cell from
+  over-discharge or short circuit. Use a protected cell or add a protection IC.
+- **No battery-temperature sensing and no safety timer.** There is no NTC pin,
+  and nothing bounds the charge time. Anything sold to consumers usually wants
+  at least one of the two.
+- **Programme for the current you can cool, not the one you want.** The
+  datasheet gives the dissipation as (V<sub>CC</sub> − V<sub>BAT</sub>) ×
+  I<sub>BAT</sub>, so 500 mA from 5 V into a 3.6 V cell is 0.7 W inside a
+  SOT-23-6 — and at the datasheet's own worst-case 150 °C/W that implies a
+  105 °C rise above ambient. The part protects itself by folding back, so
+  nothing breaks; the charge simply takes longer than the resistor suggests.
+- **9 V is the absolute maximum, not a margin.** Unlike the TP4054, whose
+  V<sub>CC</sub> absolute maximum is 10 V, the TP4057 has no headroom above its
+  operating limit. Watch for supply transients; the datasheet warns that
+  multilayer ceramic input capacitors can ring on hot-plug and recommends
+  electrolytic or tantalum instead.
+- **The package drawing in the datasheet is mislabelled.** The outline page is
+  headed "S5 package, 5-pin plastic SOT-23-5", left over from the TP4054
+  document; the drawing beneath it shows six leads and the ordering code is
+  TP4057-42-SOT26-R. The part is SOT-23-6.
+- **With no battery fitted, the charging LED blinks.** The datasheet says
+  CHRG outputs a pulse train when nothing is connected to BAT — roughly a
+  0.5 to 2 second period with 10 µF on the pin — so an empty product looks like
+  it is faulting. Three application circuits are given to change that: leaving
+  the 10 µF electrolytic gives blinking red with green lit, a 100 kΩ resistor
+  from BAT to the supply gives red off and green lit, and 5 kΩ gives both LEDs
+  off (at the cost of about 0.2 mA trickling into the cell, which the datasheet
+  says is small enough to be harmless).
+- **Reverse-battery behaviour has its own rule.** Reverse the cell and the chip
+  shuts down with both LEDs off and under 0.8 mA of leakage — but the datasheet
+  says the supply must then be near 5 V and never above 8 V, because the
+  reversed cell adds to the voltage across the die.
+
+## In this catalog
+
+Preferred Extended part in SOT-23-6. At the 2026-07-24 snapshot: 56,182 in stock,
+$0.15 at quantity 1, falling to $0.077 at 6,000. The catalog attributes — 4.2 V,
+500 mA maximum charge current, 4 V–9 V supply, 40 µA quiescent current and
+−40 °C to +85 °C — all match the datasheet, and the 40 µA is specifically its
+standby and shutdown figure; the part draws 150 µA typical while charging. The
+catalog's "battery temperature detection: not supported" is borne out by the
+pinout, which has no thermistor input. Its "0 V battery charge: not supported"
+is not something the datasheet addresses either way: the document describes
+trickle charging below 2.9 V but states no lower limit. [2]
+
+## Sources
+
+1. NanJing Top Power ASIC Corp. (南京拓微集成电路有限公司), *TP4057 — 500 mA
+   Linear Li-Ion Battery Charger*, Chinese-language datasheet. The document
+   carries no document number and no revision marking, so neither is recorded
+   above. Sections used: Features; Absolute Maximum Ratings; Package/Ordering
+   Information; Electrical Characteristics; Pin Functions; Operation; Setting
+   the Charge Current; Charge Termination; Charge Status Indicators; Thermal
+   Limiting; Undervoltage Lockout; Automatic Restart; Power Dissipation;
+   Thermal Considerations; Package Description.
+   <https://datasheet.lcsc.com/datasheet/pdf/a06f26a534534913a54f86485e56d5f7.pdf>
+2. JLCPCB / LCSC catalog record for C12044, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/battery-management_toppower-nanjing-extension-microelectronics-tp4057-42-sot26-r_C12044.html>
+`;export{e as default};

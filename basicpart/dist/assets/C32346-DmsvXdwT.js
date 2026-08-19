@@ -1,0 +1,107 @@
+var e=`---
+part: C32346
+mpn: Q13FC13500004
+manufacturer: Seiko Epson
+category: Crystals
+kind: clock
+package: SMD3215-2P
+tier: basic
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: FC-135R / FC-135 / FC-135 TYPE — kHz Range Crystal Unit
+  publisher: Seiko Epson Corporation
+  url: https://download.epsondevice.com/td/pdf/brief/FC-135_en.pdf
+summary: The 32.768 kHz watch crystal a real-time clock needs — and its accuracy falls off as the square of how far you are from room temperature.
+---
+
+# Q13FC13500004
+
+## What it is
+
+32.768 kHz is the frequency every real-time clock runs at, and the reason is
+arithmetic: 32,768 is 2¹⁵, so a simple 15-stage binary divider turns it into
+exactly one pulse per second. This crystal is the part that generates it. [1]
+
+It is what the DS1302 (C8959) and PCF8563 (C7440) in this catalog need on their
+X1/X2 pins, and what an STM32's LSE oscillator wants for its RTC. Epson's order
+code tells you the rest: \`Q13FC135\` is the FC-135 family, and the digits that
+follow encode the load capacitance and frequency tolerance — here 12.5 pF and
+±20 ppm. The package is 3.2 × 1.5 × 0.9 mm with two pads. [1][2]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Nominal frequency | 32.768 kHz [1] | 2¹⁵ Hz — divides to exactly 1 Hz. |
+| Frequency tolerance | ±20 × 10⁻⁶ (±20 ppm) at +25 °C, measured at a 0.1 µW drive level [1] | About ±10.5 minutes per year. That is the *best* case, at room temperature, before the parabolic drift below. |
+| Load capacitance | 12.5 pF for this order code (the family is also made in 7 pF and 9 pF) [1] | Your oscillator must present this, or the frequency is wrong. Note that some RTCs — the PCF8563 among them — integrate their own load capacitance, so check before adding external capacitors. |
+| Equivalent series resistance | 70 kΩ maximum (motional resistance R1) [1] | Kilohms, not ohms. Tuning-fork crystals at this frequency have very high ESR, which is why their oscillator circuits are designed quite differently from megahertz ones. |
+| Stability over temperature | Parabolic, not linear: turnover temperature +25 °C ±5 °C, parabolic coefficient −0.04 × 10⁻⁶/°C² maximum [1] | The number the catalog does not carry, and the one that dominates real timekeeping accuracy. See below. |
+| Operating temperature | −40 °C to +85 °C (Epson will discuss +105 °C on request). Storage −55 °C to +125 °C [1] | Industrial range. |
+
+## What the datasheet actually says
+
+**Temperature error grows as the square of the distance from 25 °C.** A
+tuning-fork crystal is cut so that frequency peaks at a turnover temperature —
+here +25 °C ±5 °C — and falls off on *both* sides, following
+Δf/f = B × (T − T<sub>i</sub>)² with B no worse than −0.04 ppm/°C². Working that
+through: at 0 °C the error is about −25 ppm, at −20 °C about −81 ppm, and at
+−40 °C about −169 ppm. So a clock that lives outdoors runs slow in summer and in
+winter alike, and the temperature term dwarfs the ±20 ppm room-temperature
+tolerance. Roughly, −169 ppm is about 15 seconds a day. [1]
+
+**Ageing adds a few ppm a year.** Epson specifies ±3 ppm maximum in the first
+year at +25 °C. Ageing is fastest early on, so the second year is better than the
+first — but a design that only just meets its accuracy target when new will not
+keep meeting it. [1]
+
+**Drive level is measured in microwatts.** The FC-135 is specified at 0.5 µW,
+with 1.0 µW as an option Epson asks you to request. Over-driving a tuning-fork
+crystal damages it permanently, which is why RTC oscillator circuits include a
+drive-limiting series resistor and why you must not copy component values from a
+megahertz crystal's circuit. [1]
+
+**Keep the board clear underneath.** Epson's recommended footprint drawing marks
+a shaded exclusion area and states plainly: do not design any circuit patterns
+there. [1]
+
+## Watch out for
+
+- **Budget for the parabolic drift, not the ±20 ppm.** If you need better
+  timekeeping over temperature, you need a temperature-compensated oscillator,
+  not a better crystal. [1]
+- **Do not add load capacitors blindly.** Check whether your RTC already
+  integrates them — the PCF8563 does, the DS1302 does not.
+- **Respect the microwatt drive level.** [1]
+- **Layout matters more here than for a fast crystal**, because the node is
+  extremely high-impedance. Keep traces short, guard with ground, keep switching
+  signals away, and keep the exclusion area clear. [1]
+- **Handle gently.** Tuning-fork crystals are mechanically fragile and can be
+  damaged by board flexing or ultrasonic cleaning.
+
+## In this catalog
+
+Basic part in SMD3215-2P (3.2 × 1.5 mm), so no feeder-loading fee for Economic
+PCBA at JLCPCB. At the 2026-07-24 snapshot: 429,539 in stock, $0.171 at
+quantity 1, falling to $0.117 at 150, $0.102 at 500 and $0.080 at 6,000 — the
+most expensive crystal here, which is what buying Seiko Epson rather than a
+generic brand costs. The catalog attributes record 32.768 kHz, 12.5 pF,
+±20 ppm, 70 kΩ ESR and −40 °C to +85 °C, all of which the datasheet confirms;
+it carries no temperature-stability figure, which for this kind of crystal is
+the specification that matters most. [2]
+
+## Sources
+
+1. Seiko Epson Corporation, *FC-135R / FC-135 / FC-135 TYPE — kHz Range Crystal
+   Unit*, specifications table (nominal frequency, operating and storage
+   temperature, level of drive, frequency tolerance, turnover temperature,
+   parabolic coefficient, load capacitance, motional resistance, motional and
+   shunt capacitance, frequency ageing), product-number scheme, external
+   dimensions and recommended footprint.
+   <https://download.epsondevice.com/td/pdf/brief/FC-135_en.pdf>
+2. JLCPCB / LCSC catalog record for C32346, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`). Source for package, tier,
+   price, stock and the catalog attribute strings; the LCSC listing title gives
+   the order code's 12.5 pF / ±20 ppm options in full.
+   <https://www.lcsc.com/product-detail/crystals_seiko-epson-q13fc13500004_C32346.html>
+`;export{e as default};

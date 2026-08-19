@@ -1,0 +1,126 @@
+var e=`---
+part: C115450
+mpn: LTV-217-B-G
+manufacturer: Lite-On
+category: Transistor, Photovoltaic Output Optoisolators
+kind: isolation
+package: SOP-4-175mil
+tier: basic
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: LTV-217-G (Half Pitch LO Own Brand — 1CH Halogen Free Series) Photocoupler
+  publisher: LITE-ON Technology Corp. / Optoelectronics
+  document: DS70-2009-0016
+  revised: 2012-09-06
+  url: https://datasheet.lcsc.com/datasheet/pdf/0ac19b80a57eb3e7b1a9d9449eed6b45.pdf
+summary: A 70 V, −55 °C optocoupler whose "-B-" order code names a gain rank the catalog's 50–600 % span ignores.
+---
+
+# LTV-217-B-G
+
+## What it is
+
+An optocoupler is an LED and a phototransistor sealed facing each other inside
+one package, with no electrical connection between them. Light crosses the gap;
+current does not. That gives you a signal path across an isolation barrier, which
+is what you need when two parts of a system have different grounds, or when one
+side sits at mains potential. [1]
+
+The LTV-217 is Lite-On's halogen-free, half-pitch, four-pin surface-mount
+photocoupler, built with what the datasheet calls double transfer mould
+technology. It carries a 70 V output transistor and works down to −55 °C, and
+Lite-On aims it at densely populated boards, programmable controllers, system
+appliances and measuring instruments. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | Single-channel optocoupler: infrared LED input, phototransistor output [1] | One signal per package, one direction only. |
+| Isolation rating | The datasheet gives two different figures: 3.75 kV RMS on the features page, 3,000 V RMS in the absolute maximum ratings table. Both are an AC withstand test for one minute at 40–60 % relative humidity, applied as a sine wave with input and output pins each shorted. Isolation resistance 5 × 10¹⁰ Ω minimum, 1 × 10¹¹ Ω typical at 500 V DC [1] | A one-minute type test, not a continuous working voltage. The catalog carries the higher of the two numbers [2]; the conservative choice is to design to 3,000 V. |
+| Channel count and direction | 1 channel, input to output only [1] | For bidirectional signalling you need two devices. |
+| Maximum data rate | Not specified as a data rate. Rise time 2 µs typical and fall time 3 µs typical, both 18 µs maximum, at V<sub>CE</sub> = 10 V, I<sub>C</sub> = 2 mA, R<sub>L</sub> = 100 Ω, f = 100 Hz; turn-on and turn-off time 3 µs typical [1] | Microsecond switching means tens of kilobits per second at best, and the guaranteed maximum is up to nine times the typical. This is not a fast isolator — compare the ADuM1201 (C9669). |
+| Supply voltage | None: the part has no supply pin of its own. Input: forward voltage 1.2 V typical, 1.4 V maximum at 20 mA, forward current up to 50 mA, reverse voltage 6 V, 70 mW. Output: collector-emitter voltage up to 70 V (breakdown 80 V minimum), collector current up to 50 mA, 150 mW; 200 mW for the package as a whole [1] | The input is a diode and needs a series resistor. The output is an open-collector transistor and needs a pull-up. |
+| Operating temperature | −55 °C to +110 °C; storage −55 °C to +150 °C [1] | Matches the catalog attribute, and reaches further below freezing than most photocouplers of this type. [2] |
+
+## What the datasheet actually says
+
+**The "-B-" in the order code is a gain rank, and the catalog ignores it.**
+Current transfer ratio (CTR) is the one number that governs an optocoupler
+design: the output transistor's collector current divided by the current you put
+into the LED, as a percentage. Lite-On sorts every LTV-217 into CTR ranks: A is 80–160 %, B
+is 130–260 %, C is 200–400 %, D is 300–600 %, all measured at I<sub>F</sub> =
+5 mA, V<sub>CE</sub> = 5 V and 25 °C, and an ungraded part spans 50–600 %. The
+catalog quotes that ungraded 50–600 % span, but this order code carries \`B\`,
+which corresponds to rank B — 130–260 %, a 2:1 spread rather than a 12:1 one.
+The rank table is the datasheet's; the mapping from the order code to it is an
+inference, because the document publishes no order-code decoder, and it warns
+that the rank "shall be or shall not be marked" on the package, so you cannot
+always confirm it by inspection. Confirm with your supplier before relying on
+it. [1][2]
+
+**The two isolation numbers do not agree.** The features page claims
+V<sub>ISO</sub> = 3.75 kV RMS for the series; the absolute maximum ratings table
+says 3,000 V RMS, for the same one-minute AC test. The
+document does not reconcile them, and it gives no creepage or clearance figures
+at all. [1]
+
+**The safety approvals are conditional.** The datasheet names UL, cUL, CSA,
+FIMKO and VDE approval, but footnotes VDE as requiring the "V" ordering option —
+and the outline drawing confirms the VDE mark "only appears on devices ordered
+'V' option". This order code has no V. No agency file numbers appear anywhere in
+the document. [1]
+
+**The headline current ratings are 25 °C numbers.** Forward current and
+collector power dissipation both derate with ambient temperature (Figures 1 and
+2), so 50 mA and 150 mW are not available at the top of the +110 °C range. [1]
+
+## Watch out for
+
+- **The CTR rank is the important thing the catalog does not tell you.** Design
+  to 130 % if the rank holds, 50 % if you cannot confirm it. [1][2]
+- **Design for minimum CTR, then add margin for ageing.** An optocoupler's LED
+  output falls over years of operation, so a circuit that only just works when
+  new can fail later. This datasheet quantifies none of that: it gives no
+  degradation curve and no lifetime figure, so the margin is yours to choose. [1]
+- **Worst-case switching is 18 µs, not 2 µs.** Fine for a control signal or a
+  power-supply feedback loop; too slow for a serial data link above a few tens
+  of kilobits. [1]
+- **Two isolation figures, one part.** If the number matters for compliance, get
+  it in writing from Lite-On rather than from either page. [1]
+- **The isolation rating is for the barrier only.** The board has to hold up
+  its end: the copper either side of the package needs the same separation
+  across its surface (creepage) and through the air (clearance), and this
+  datasheet specifies neither.
+- **Check the footprint against the drawing.** Lite-On gives a 4.4 × 2.6 mm
+  body on 1.27 mm lead pitch with a 7.0 mm lead span and a 2.0 mm body height;
+  the catalog calls that SOP-4-175mil. Four-pin optocouplers also exist on
+  2.54 mm pitch, so the pin count alone does not tell you the land pattern. [1][2]
+
+## In this catalog
+
+Basic part in SOP-4 (175 mil), so no assembly surcharge at JLCPCB. At the
+2026-07-24 snapshot: 448,447 in stock, $0.096 at quantity 1, falling to $0.078
+at 50, $0.069 at 150, $0.061 at 500 and $0.057 at 6,000. The catalog attributes
+record 3.75 kV isolation, 1.2 V forward voltage, 50 mA forward and collector
+current, 6 V reverse voltage, 70 V load voltage, 200 mW total dissipation,
+400 mV saturation at 8 mA and 2.4 mA, 2 µs/3 µs switching and −55 °C to +110 °C
+— all matching the datasheet's typical or maximum figures. The one attribute
+that does not match the order code is the current transfer ratio, quoted as
+50 % minimum to 600 % maximum: that is the ungraded span, not rank B's
+130–260 %. [2]
+
+## Sources
+
+1. LITE-ON Technology Corp. / Optoelectronics, *Photocoupler Product Data Sheet
+   — LTV-217-G (Half Pitch LO Own Brand — 1CH Halogen Free Series)*, Spec No.
+   DS70-2009-0016, Revision A, effective date printed as 09/06/2012 (page
+   footers carry "LTV-217-G Series (Rev.-, July 16, 2012)"). Features, Outline
+   Dimensions, Absolute Maximum Rating, Electrical-Optical Characteristics, Rank
+   Table of Current Transfer Ratio, Characteristics Curves.
+   <https://datasheet.lcsc.com/datasheet/pdf/0ac19b80a57eb3e7b1a9d9449eed6b45.pdf>
+2. JLCPCB / LCSC catalog record for C115450, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`). Source for package, tier,
+   price, stock and the catalog attribute strings.
+   <https://www.lcsc.com/product-detail/transistor-photovoltaic-output-optoisolators_lite-on-ltv-217-b-g_C115450.html>
+`;export{e as default};

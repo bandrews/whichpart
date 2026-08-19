@@ -1,0 +1,113 @@
+var e=`---
+part: C109227
+mpn: LTV-817S-TA1-C
+manufacturer: Lite-On
+category: Transistor, Photovoltaic Output Optoisolators
+kind: isolation
+package: SMD-4P
+tier: basic
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: LTV-817 (M, S, S-TA, S-TA1, S-TP) Series Photocoupler
+  publisher: LITE-ON Technology Corp. / Optoelectronics
+  document: DS70-2012-0050, Revision C
+  revised: 2014-12-20
+  url: https://datasheet.octopart.com/LTV-817-Lite-On-datasheet-86706110.pdf
+summary: The archetypal optocoupler in surface mount — and the "-C" on the end of the order code narrows its gain far more than the catalog suggests.
+---
+
+# LTV-817S-TA1-C
+
+## What it is
+
+An optocoupler is an LED and a phototransistor sealed facing each other inside
+one package, with no electrical connection between them. Light crosses the gap;
+current does not. That gives you a signal path across an isolation barrier, which
+is what you need when two parts of a system have different grounds, or when one
+side sits at mains potential. [1]
+
+The 817 is the archetypal optocoupler, and this is Lite-On's surface-mount,
+tape-and-reel version of it. It turns up in switching power supplies — carrying
+output-voltage feedback back across the isolation barrier — in industrial inputs,
+and anywhere a microcontroller must sense or control something at a different
+ground potential. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | Single-channel optocoupler: infrared LED input, phototransistor output [1] | One signal per package, one direction only. |
+| Isolation rating | 5,000 V RMS, AC for one minute at 40–60 % relative humidity. Isolation resistance 5 × 10¹⁰ Ω minimum at 500 V DC [1] | A one-minute withstand test, not a continuous working-voltage rating. For a continuous mains-rated barrier, work from the safety approvals below. |
+| Channel count and direction | 1 channel, input to output only [1] | For bidirectional signalling you need two devices. |
+| Maximum data rate | Not specified as a data rate. Rise time 4 µs typical (18 µs maximum) and fall time 3 µs typical (18 µs maximum) at V<sub>CE</sub> = 2 V, I<sub>C</sub> = 2 mA, R<sub>L</sub> = 100 Ω; cut-off frequency 80 kHz typical [1] | Microsecond switching means tens of kilobits per second at best — and the *maximum* times are four times the typical ones. This is not a fast isolator; compare the ADuM1201 (C9669) at 25 Mbps. |
+| Supply voltage | Input: forward voltage 1.2 V typical (1.4 V maximum) at 20 mA, forward current up to 50 mA, reverse voltage 6 V. Output: collector-emitter breakdown 35 V minimum, collector current up to 50 mA [1] | The input is a diode and needs a series resistor. The output is an open-collector transistor and needs a pull-up. |
+| Operating temperature | −50 °C to +110 °C [1] | Wider at the cold end than the −30 °C the catalog shows. [2] |
+
+## What the datasheet actually says
+
+**The "-C" at the end of the order code is a gain grade, and it changes the
+design.** Lite-On sorts every 817 into current-transfer-ratio ranks: L is
+50–100 %, A is 80–160 %, B is 130–260 %, C is 200–400 %, and D is 300–600 %. An
+ungraded part spans the full 50–600 %. The catalog quotes that ungraded
+50–600 % span, but this order code carries the \`C\` suffix, which corresponds to
+rank C — a 2:1 spread from 200 % to 400 %, not a 12:1 one. That is a much easier
+part to design around. Because the catalog does not carry the rank, confirm it
+with your supplier before you rely on it. [1][2]
+
+**Current transfer ratio is still the number that governs your design.** CTR is
+output current divided by input current, measured at 5 mA in and 5 V across the
+output. Design for the *minimum* of whichever rank you actually receive: pick an
+LED current such that even at the lowest CTR the output transistor saturates.
+
+**CTR degrades over time.** The LED dims as it ages, so a design that only just
+works when new will fail later. The usual practice is to allow substantial
+margin — often half the minimum CTR — in anything expected to last years.
+
+**The output is a transistor, not a logic gate.** It saturates at 100 mV typical
+(200 mV maximum) with 20 mA into the LED and 1 mA of collector current, so the
+"low" level is not quite ground, and a pull-up resistor is what defines the
+"high". Collector dark current is up to 100 nA at 20 V. [1]
+
+**Power dissipation is shared and small.** The LED is rated for 70 mW, the
+transistor for 150 mW, and the whole package for 200 mW — less than the sum,
+because heat from both sides has to leave through the same plastic. [1]
+
+## Watch out for
+
+- **Design for minimum CTR, then add margin for ageing.**
+- **Confirm the CTR rank.** The catalog's 50–600 % is the ungraded span; the \`C\`
+  suffix should mean 200–400 %. [1][2]
+- **Microsecond switching, and the maximum is 18 µs.** Fine for a control signal
+  or a feedback loop; too slow for a serial data link above a few tens of
+  kilobits. [1]
+- **The isolation rating is for the barrier only.** Your PCB must maintain the
+  same creepage and clearance underneath the package, or the board defeats it.
+- **The LED needs a series resistor**, sized for your input voltage.
+- **Check the approvals you actually need.** The series carries UL 1577,
+  VDE DIN EN 60747-5-5, CSA, CQC (to 5,000 m altitude) and Nordic safety
+  approvals, but approval marking depends on the ordered option. [1]
+
+## In this catalog
+
+Basic part in SMD-4P, so no feeder-loading fee for Economic PCBA at JLCPCB. At
+the 2026-07-24 snapshot: 409,005 in stock, $0.075 at quantity 1, falling to
+$0.061 at 100, $0.043 at 1,000 and $0.039 at 10,000. The catalog attributes
+record 5 kV isolation, 50 % minimum and 600 % maximum CTR, 1.2 V forward voltage,
+50 mA forward and collector current, 35 V load voltage, 100 mV saturation and
+4 µs/3 µs switching — all consistent with the datasheet, except that the CTR
+span ignores the order code's rank suffix and the operating temperature is
+quoted as −30 °C rather than −50 °C at the cold end. [2]
+
+## Sources
+
+1. LITE-ON Technology Corp. / Optoelectronics, *LTV-817 (M, S, S-TA, S-TA1,
+   S-TP) Series Photocoupler Product Data Sheet*, Spec No. DS70-2012-0050,
+   Revision C, effective 2014-12-20. Sections 1.1 (Features), 4.1 (Absolute
+   Maximum Ratings), 4.2 (Electrical Optical Characteristics), 5 (Rank Table of
+   Current Transfer Ratio).
+   <https://datasheet.octopart.com/LTV-817-Lite-On-datasheet-86706110.pdf>
+2. JLCPCB / LCSC catalog record for C109227, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`). Source for package, tier,
+   price, stock and the catalog attribute strings.
+   <https://www.lcsc.com/product-detail/C109227.html>
+`;export{e as default};

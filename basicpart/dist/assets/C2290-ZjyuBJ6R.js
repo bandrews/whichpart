@@ -1,0 +1,138 @@
+var e=`---
+part: C2290
+mpn: KT-0603W
+manufacturer: Hubei KENTO Elec
+category: LED Indication - Discrete
+kind: led
+package: "0603"
+tier: basic
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: Specification for Approval — CICADT 0603-0.6DT White Light SMD LED
+  publisher: Hubei KENTO Elec
+  revised: 2018-12
+  url: https://datasheet.lcsc.com/datasheet/pdf/8238ae278d43fbd59fd57ef71ae67c27.pdf
+summary: A white 0603 indicator LED specified at 5 mA — and with up to 3.1 V of forward drop, an awkward fit on a 3.3 V rail.
+---
+
+# KT-0603W
+
+## What it is
+
+A white surface-mount LED in the same 1.6 × 0.8 × 0.6 mm 0603 outline as the red
+one, with the same pad pattern and the same polarity marking. White LEDs are made
+by putting a yellow phosphor over a blue chip, which is why the datasheet
+describes the lens as a *yellow* flat colloid — that is the phosphor you see when
+the LED is off, not the colour it emits. [1]
+
+The important difference from the red part is that KENTO characterises this one
+at 5 mA rather than 20 mA, and at that current the forward voltage sits between
+2.6 V and 3.1 V. That is comfortable from 5 V and awkward from 3.3 V. [1]
+
+As with the red part, the document KENTO supplies is a *Specification for
+Approval* headed "CICADT (0603-0.6DT white light)". It never prints the part
+number KT-0603W; LCSC serves it as the datasheet for C2290. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Colour | White. Typical CIE 1931 chromaticity coordinates x = 0.232, y = 0.200 at 5 mA; colour temperature given as 40,000 K to "above 100,000 K"; spectral half-width typically 15 nm. Yellow flat lens [1] | Those colour-temperature numbers are not a shade you can picture — see below. Expect a cold, blue-leaning white. |
+| Forward voltage | 2.6 V to 3.1 V at 5 mA and 25 °C. No typical value is published, but the datasheet's current-versus-voltage curve puts a typical part at about 2.8 V at 5 mA and about 3.2 V at 20 mA [1] | On 5 V this is easy. On 3.3 V a worst-case part leaves only 200 mV across the resistor, and the drop climbs further with current. |
+| Forward current | Optical figures are all specified at 5 mA. Absolute maxima are 30 mA continuous, 60 mA pulsed (0.1 ms pulse, 1/10 duty cycle) and 100 mW dissipation, all at 25 °C ambient [1] | The catalog's "5 mA" is the measurement condition, not the limit. You may run this part harder than 5 mA — it is simply not characterised there. |
+| Luminous intensity | Minimum 145 mcd, maximum 360 mcd, at 5 mA and 25 °C. No typical value is published [1] | The catalog's headline 360 mcd is the *top* of that span. The guaranteed floor is 145 mcd — the same floor as the red part, which reaches it at four times the current. |
+| Viewing angle | 120° typical at 5 mA, measured as the full angle within which intensity stays above half its on-axis value [1] | Wide. Good for a panel indicator seen from an angle; poor for anything that needs to throw light in one direction. |
+| Operating temperature | −40 °C to +85 °C, storage the same [1] | Industrial range on paper, but the usable current at the top of it is a fraction of the 25 °C rating. |
+
+## What the datasheet actually says
+
+**The absurd colour temperature comes from the datasheet, not from the catalog.**
+Section 5 really does specify the correlated colour temperature as 40,000 K
+minimum and "100,000 K and above" maximum at 5 mA, and the colour bin table
+repeats it: of the seven chromaticity bins DT1 to DT7, five are labelled simply
+"above 100,000 K", one spans 74,676 K to above 100,000, and only DT7 has a
+bounded range of 40,000–74,676 K. Colour temperature is defined by comparison
+with a glowing black body, and it only means something for colours close to what
+a black body can actually produce. This part's chromaticity — x = 0.232,
+y = 0.200 — is not close, which is why the manufacturer cannot put a top number
+on five of its own seven bins. The spectrum plot shows why: the blue emission
+peak near 470 nm reaches full scale while the yellow phosphor hump around 550 nm
+only reaches about a quarter of it. So the honest reading is not "100,000 K" but
+"a blue-heavy, distinctly cold white". If the exact shade matters, ask your
+supplier for a DT bin code, because the part number does not select one. [1]
+
+**5 mA is where it is measured, not what it is limited to.** The absolute maximum
+continuous current is 30 mA and the power budget is 100 mW. At 20 mA, where the
+current-versus-voltage curve puts a typical part at about 3.2 V, dissipation is
+about 64 mW — comfortably inside both. Brightness does not
+scale proportionally, though. KENTO's intensity-versus-current curve flattens as
+current rises: relative to the 20 mA reference point it reads about 0.36 at 5 mA
+and about 0.63 at 10 mA, so going from 5 mA to 20 mA buys roughly 2.8 times the
+light for four times the current. Efficiency is best at low current, which is a
+good reason to leave an indicator at a few milliamps. [1]
+
+**Brightness is binned, and the part number does not pin the bin.** Production is
+sorted into five intensity bins — P22 (145–175 mcd), P23 (175–210), P24
+(210–250), P25 (250–300) and P26 (300–360), each with ±10 % tolerance — and into
+five forward-voltage bins VM to VQ in 100 mV steps from 2.6 V to 3.1 V. A reel
+can hold any of them, so 360 mcd is a best case and 145 mcd is the promise.
+KENTO's cautions add that LEDs from different bins should not be mixed in one
+product, because the colour difference shows. [1]
+
+**The current rating collapses as things warm up.** The derating curve holds
+30 mA only to 25 °C ambient, then falls at roughly 0.38 mA per °C — about 16 mA
+at 60 °C, about 7.5 mA just short of 85 °C, and zero at 85 °C itself. Light
+output falls too, from about 1.1× at −40 °C to about 0.85× at +85 °C. [1]
+
+## Watch out for
+
+- **Always fit a series resistor.** An LED has no internal current limit, and
+  KENTO's cautions say so explicitly: without one, a small change in voltage
+  makes a large change in current and destroys the part. Forward voltage also
+  falls as the LED warms, so current, not voltage, is what you control. [1]
+- **This is a poor fit for a 3.3 V rail.** A VQ-bin part drops 3.1 V at 5 mA,
+  leaving 200 mV across the resistor — and because forward voltage falls as the
+  die heats, the current then rises, which is the wrong direction. The bin spread
+  alone makes brightness unpredictable at that headroom. From 5 V it is
+  straightforward. [1]
+- **Reverse voltage is only 5 V**, and reverse leakage is specified as at most
+  5 µA at that voltage. Anti-parallel LED pairs and AC drive need external
+  protection. [1]
+- **No ESD rating is given.** The absolute maximum table has a row for
+  electrostatic discharge with a unit but no number in it. Treat the part as
+  ESD-sensitive; the datasheet's own advice is wrist straps, grounded equipment
+  and antistatic gloves. [1]
+- **Polarity.** The package drawing numbers the terminals 1 and 2, marks
+  terminal 1 as the anode (+) and terminal 2 as the cathode, and puts the
+  chamfered corner mark at the cathode end. Check that against your footprint —
+  0603 LED cathode markings are not standardised across vendors. [1]
+- **Assembly constraints are tighter than for a passive.** Reflow is 260 °C for
+  at most 10 s and at most two passes; hand soldering is 300 °C for 3 s, once
+  only, with a soldering iron of no more than 25 W. No ultrasonic cleaning. The
+  part is moisture-sensitive: once the foil bag is open it should be used within
+  seven days at 30 °C and 60 % relative humidity or re-baked. [1]
+
+## In this catalog
+
+Basic part in 0603, so no assembly surcharge at JLCPCB. At the 2026-07-24
+snapshot: 2,172,965 in stock, $0.0121 at quantity 1, falling to $0.0058 at
+48,000. [2] The price break at 4,000 is one full reel, which is how KENTO ships
+them. [1]
+
+## Sources
+
+1. Hubei KENTO Elec, *Specification for Approval — CICADT 0603-0.6DT White Light
+   SMD LED*, Revision A.0, issued 6 December 2018. Section 2 (Package Profile &
+   Soldering PAD Suggested), Section 3 (Soldering Profile Suggested), Section 4
+   (Absolute Maximum Ratings), Section 5 (Electrical Optical Characteristics),
+   Section 6 (BIN specifications, including the DT1–DT7 colour bins), Section 7
+   (Typical Electrical-Optical Characteristics Curves), Section 8 (Reel and Tape
+   Dimensions), Section 11 (Cautions). The document carries no document number
+   and does not print the part number KT-0603W; LCSC publishes it as the
+   datasheet for C2290.
+   <https://datasheet.lcsc.com/datasheet/pdf/8238ae278d43fbd59fd57ef71ae67c27.pdf>
+2. JLCPCB / LCSC catalog record for C2290, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`). Source for package, tier,
+   price and stock.
+   <https://www.lcsc.com/product-detail/led-indication-discrete_hubei-kento-elec-kt-0603w_C2290.html>
+`;export{e as default};
