@@ -13,8 +13,9 @@ summary: Four resistors of the same value in one body — for pull-ups and serie
 ## What they are
 
 A resistor array is several identical resistors in a single package. The catalog
-holds five, all UNI-ROYAL parts in `0603x4` or `0402x4` form — four resistors in
-the footprint of one 1206. [1]
+holds five, all UNI-ROYAL parts: four in `0603x4` form and one in `0402x4` —
+four resistors in the footprint of one 1206. All five are ±5 %, four elements,
+eight pins, and rated 62.5 mW per element. [1]
 
 They exist for one reason: when you need the same value many times in one place,
 an array saves board area, placement cost and assembly time. Pull-ups on an
@@ -28,17 +29,26 @@ for a row of LEDs.
 | **Resistance** | The value — the same for every element in the package. |
 | **Number of resistors** | Usually four in this catalog. |
 | **Number of pins** | Eight for four isolated resistors; fewer if the elements share a common terminal. |
-| **Power rating** | **Per element**, and usually with a lower *package* total. See below. |
+| **Power rating** | **Per element** — 62.5 mW here, at 70 °C ambient, derated above that. See below for what the datasheet does *not* say. [1] [2] |
 | **Tolerance** | e.g. ±5 %. |
-| **Temperature coefficient** | e.g. ±200 ppm/°C — often looser than a discrete chip resistor's. |
+| **Temperature coefficient** | ±200 ppm/°C at 10 Ω and above, ±400 ppm/°C below — looser than a discrete chip resistor's ±100 ppm/°C. [2] |
 
 ## What actually matters in practice
 
-**Power is rated twice, and the package total is the binding one.** The catalog
-lists 62.5 mW for these arrays, matching a single 0603 resistor. [1] But four
-elements in one body share a thermal path: dissipating 62.5 mW in *each* of four
-elements simultaneously is generally not permitted. If all four elements will
-carry current at once, check the package total in the manufacturer's datasheet.
+**The power rating is per element, and there is no published package total.**
+The catalog lists 62.5 mW for these arrays, matching a single 0603 resistor, and
+UNI-ROYAL's array specification confirms 1/16 W as the rated power per element at
+70 °C with a derating curve above that. [1] [2] What the document does *not*
+give is a total for the package — and four elements in one body share one thermal
+path, so 4 × 62.5 mW is not something the manufacturer underwrites. If all four
+elements will carry significant current at the same time, derate deliberately
+rather than assuming the per-element figure four times over.
+
+**The voltage limits come from the same document.** Maximum working voltage is
+50 V, maximum overload voltage 100 V, and the dielectric withstanding voltage
+between elements is 300 V for the 0603-size arrays. As with discrete chip
+resistors, the working voltage is √(P × R) or the 50 V ceiling, whichever is
+lower. [2]
 
 **Isolated or common?** An eight-pin, four-resistor array has four independent
 resistors. Some arrays instead bring one end of every resistor to a shared pin,
@@ -55,8 +65,9 @@ accuracy.
 the fine pitch is less forgiving than four discrete parts.
 
 **±200 ppm/°C is loose.** The discrete 1 % resistors in this catalog are
-±100 ppm/°C. [1] If absolute stability matters, use discretes; if *matching*
-matters, the array is better despite the looser absolute figure.
+±100 ppm/°C above 10 Ω. [1] If absolute stability matters, use discretes; if
+*matching* matters, the array is better despite the looser absolute figure —
+elements that drift together mostly cancel in a ratio.
 
 ## How to read the catalog attributes
 
@@ -86,3 +97,10 @@ the value code (47 followed by two zeros = 4,700 Ω).
    snapshot 2026-07-24 (`raw-data/jlcpcb-basic-parts-2026-07-24.json` and
    `src/data/parts-index.json`). Resistance, count, power, tolerance and
    temperature-coefficient figures are the attribute values recorded there.
+2. Uniroyal Electronics Global Co., Ltd (UNI-ROYAL / UniOhm), *Chip Resistor
+   Array — Resistor Array Series ±1 %, ±5 % & 0 Ω*, Edition 1, 12 June 2017.
+   Section 3.3 (Ratings: rated power, working and overload voltage, dielectric
+   withstanding voltage, resistance range, temperature coefficient) and
+   Section 6.0 (Power rating and the voltage-rating formula). Retrieved via the
+   LCSC datasheet link for C1980.
+   <https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_UNI-ROYAL-Uniroyal-Elec-4D03WGJ0472T5E_C1980.pdf>

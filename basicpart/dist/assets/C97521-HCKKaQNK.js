@@ -1,0 +1,106 @@
+var e=`---
+part: C97521
+mpn: W25Q128JVSIQ
+manufacturer: Winbond Elec
+category: NOR FLASH
+kind: memory
+package: SOIC-8-208mil
+tier: basic
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: W25Q128JV — 3V 128M-bit Serial Flash Memory with Dual/Quad SPI
+  publisher: Winbond Electronics
+  document: Revision F
+  revised: 2018-03-27
+  url: https://www.winbond.com/resource-files/w25q128jv%20revf%2003272018%20plus.pdf
+summary: 16 megabytes of SPI flash in an 8-pin package — the default program store for RP2040 and ESP boards.
+---
+
+# W25Q128JVSIQ
+
+## What it is
+
+This is the SPI flash chip that sits next to microcontrollers which have no
+internal program memory — the RP2040 is the obvious example, and most ESP32
+modules use the same family. It holds 128 megabits, which is 16 megabytes, and
+talks over an ordinary SPI bus or a faster four-bit Quad SPI one. [1]
+
+It is also useful simply as bulk storage: fonts, images, audio clips, log files,
+firmware update images. At about $1.60 in volume for 16 MB, it is far cheaper per
+byte than any microcontroller's internal flash. [2]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Capacity | 128 Mbit (16 Mbyte), organised as 65,536 pages of 256 bytes, with 4,096 erasable 4 kB sectors and 256 erasable 64 kB blocks [1] | The 4 kB sector is the smallest thing you can erase. That granularity is what makes wear-levelling and small-record storage practical. |
+| Interface | Standard SPI, Dual SPI, or Quad SPI; JEDEC manufacturer/device ID and SFDP supported [1] | Quad SPI is what makes execute-in-place fast enough to run code from. SFDP means a host can discover the chip's parameters automatically. |
+| Maximum clock | 133 MHz on all three modes, giving 266 MHz equivalent for Dual I/O and 532 MHz for Quad I/O, and a 66 MB/s continuous transfer rate [1] | Fast enough that an RP2040 executing from it is not badly starved. |
+| Supply voltage | 2.7 V to 3.6 V single supply [1] | A 3.3 V part. There is no 5 V or 1.8 V mode on this device. |
+| Endurance and retention | Minimum 100,000 program-erase cycles per sector, more than 20 years' data retention [1] | Per *sector*, so spreading writes across sectors multiplies the life of the chip. |
+| Operating temperature | −40 °C to +85 °C for the industrial grade; a −40 °C to +105 °C grade also exists [1] | The catalog lists this part at −40 °C to +85 °C. [2] |
+
+## What the datasheet actually says
+
+**Idle current has two figures, and they differ tenfold.** Leaving chip-select
+high puts the part in standby at 10 µA typical and 60 µA maximum. Sending the
+Power-down instruction takes it to 1 µA typical and 20 µA maximum. For a battery
+product that reads the flash occasionally and sleeps the rest of the time, that
+instruction is worth issuing — and a power budget built on "1 µA" without it will
+be out by an order of magnitude. Reading at 104 MHz costs 12 mA typical. [1]
+
+**There is no hardware reset pin on the 8-pin package.** Winbond footnotes this
+explicitly: the hardware \`/RESET\` pin exists only on the TFBGA and 16-pin SOIC
+versions. This part is the 8-pin SOIC, so you must use the software reset
+sequence. It is a real difference if you are recovering from a hung transfer. [1]
+
+**Continuous Read needs as few as 8 clocks to address memory**, which Winbond
+says "allows true XIP (execute in place) operation". That is the feature the
+RP2040 relies on. [1]
+
+**Security features are extensive:** software and hardware write protect, power
+supply lock-down, one-time-programmable protection, top/bottom and per-block
+array protection, a 64-bit unique ID, and three 256-byte security registers with
+OTP locks. The unique ID is a convenient device serial number you do not have to
+program. [1]
+
+**Erase and program suspend/resume** is supported, so a long erase does not have
+to block a time-critical read. [1]
+
+## Watch out for
+
+- **Megabits, not megabytes.** 128 Mbit is 16 MB.
+- **Erases are slow, coarse, and their worst case is far from their typical.** A
+  32 kB block erase takes 120 ms typically but is only guaranteed to finish within
+  1.6 seconds; a 4 kB sector erase is 45 ms typical against a 400 ms maximum, and
+  a full chip erase 40 s typical against 200 s. Firmware timeouts and watchdog
+  budgets have to be built on the maxima. You also cannot rewrite a single byte in
+  place. [1]
+- **No hardware reset on this package.** Plan for software reset.
+- **Quad SPI needs all four data pins routed** and matched reasonably — at
+  133 MHz the layout starts to matter.
+
+## In this catalog
+
+Basic part in SOIC-8 (208 mil), so no assembly surcharge at JLCPCB. At the
+2026-07-24 snapshot: 139,328 in stock, $2.52 at quantity 1, falling to $1.59 at
+10,000. The catalog attributes record 128 Mbit, SPI at 133 MHz, 2.7 V–3.6 V,
+100,000 program/erase cycles, 20-year retention, 3 ms page program time, 120 ms
+32 kB block erase, 1 µA standby current and −40 °C to +85 °C. Three of those mix
+best and worst cases, which is worth untangling: the 3 ms page-program time is
+the *maximum* (typical 0.4 ms), the 120 ms block erase is the *typical* (maximum
+1.6 s), and the 1 µA is the power-down current — standby, with chip-select simply
+held high, is 10 µA typical and 60 µA maximum. [1] [2]
+
+## Sources
+
+1. Winbond Electronics, *W25Q128JV — 3V 128M-bit Serial Flash Memory with
+   Dual/Quad SPI*, Revision F, 27 March 2018. Section 1 (General Descriptions),
+   Section 2 (Features), Section 3 (Package Types and Pin Configurations),
+   Section 9.4 (DC Electrical Characteristics), Section 9.6 (AC Electrical
+   Characteristics).
+   <https://www.winbond.com/resource-files/w25q128jv%20revf%2003272018%20plus.pdf>
+2. JLCPCB / LCSC catalog record for C97521, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/nor-flash_winbond-elec-w25q128jvsiq_C97521.html>
+`;export{e as default};

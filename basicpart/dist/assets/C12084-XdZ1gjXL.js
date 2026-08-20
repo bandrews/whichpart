@@ -1,0 +1,96 @@
+var e=`---
+part: C12084
+mpn: SN65HVD230DR
+manufacturer: Texas Instruments
+category: CAN Transceivers
+kind: interface
+package: SOIC-8
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: SN65HVD230, SN65HVD231, SN65HVD232 — 3.3-V CAN Bus Transceivers
+  publisher: Texas Instruments
+  document: SLOS346O
+  revised: 2018-04
+  url: https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf
+summary: Puts a 3.3 V microcontroller's CAN controller onto a real CAN bus, with slope control and a standby mode.
+---
+
+# SN65HVD230DR
+
+## What it is
+
+A CAN transceiver is the physical-layer chip that sits between your
+microcontroller's CAN controller and the two-wire differential bus. The
+SN65HVD230 is the 3.3 V version, which matters because most modern
+microcontrollers with built-in CAN run at 3.3 V and older transceivers wanted
+5 V. [1]
+
+Beyond the basic job, it has two useful extras: an Rs pin that lets you slow the
+output edges with a single resistor to reduce radiated emissions, and a
+low-current standby mode. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | CAN bus transceiver, differential driver and receiver, with slope control and standby [1] | One chip and a pair of termination resistors is the whole physical layer. |
+| Signalling standard | Compatible with ISO 11898-2 [1] | Interoperates with any other standards-compliant CAN node, regardless of manufacturer. |
+| Maximum data rate | Designed for data rates up to 1 Mbit/s [1] | Classic CAN's ceiling. This part does not do CAN FD's faster data phase. |
+| Supply voltage | 3 V to 3.6 V (absolute maximum 6 V) [1] | A single 3.3 V rail. There is no 5 V mode. |
+| Isolation or protection | Bus pin ESD protection exceeds ±16 kV human-body model; bus terminals rated −2 V to 7 V common mode in operation, −4 V to 16 V absolute maximum, and ±25 V transient through 100 Ω; thermal shutdown; open-circuit fail-safe; glitch-free power-up and power-down for hot plugging [1] | The ±16 kV bus ESD rating is the reason you can run this to a connector without extra protection. |
+| Operating temperature | −40 °C to +85 °C [1] | Industrial range, which suits the vehicle and machine applications CAN is used for. |
+
+## What the datasheet actually says
+
+**High input impedance allows up to 120 nodes on a bus.** The differential input
+resistance is 40–100 kΩ, and TI calls out the node count explicitly. Standard CAN
+transceivers typically manage 32 nodes, so this is a meaningful difference for
+large installations. [1]
+
+**Slope control is a resistor, not a register.** Connecting a resistor from the
+Rs pin to ground — anywhere from 0 to 100 kΩ — sets the driver transition time,
+and TI gives two reference points: 10 kΩ produces roughly 15 V/µs, 100 kΩ roughly
+2 V/µs. Slower edges radiate less, at the cost of the bus length and bit rate you
+can support. Tying Rs to ground gives the fastest edges and full speed; pulling it
+above 0.75 × V<sub>CC</sub> puts the device into standby. [1]
+
+**Standby draws 370 µA typical, 600 µA maximum.** That is the SN65HVD230's
+low-power mode, and it is listen-only rather than off: the driver stops but the
+receiver stays awake so bus traffic can wake the system. If you need far less,
+the SN65HVD231 in the same datasheet offers a 40 nA typical sleep mode (1 µA
+maximum) in which the receiver is switched off too — same package, different part
+number. [1]
+
+**Bus pins tolerate −2 V to 7 V common mode in normal operation.** Real vehicle
+buses see ground offsets between nodes; this is the specification that says how
+much the part will take. [1]
+
+## Watch out for
+
+- **You still need the CAN controller.** This chip is only the physical layer —
+  your microcontroller must have a CAN peripheral (or you must add one).
+- **Termination is your job.** A CAN bus needs 120 Ω at each far end. Fitting it
+  on every node is a classic and hard-to-debug mistake.
+- **Not CAN FD.** For the faster data phase you want a transceiver rated for it.
+- **The datasheet covers three parts.** HVD230 has standby, HVD231 has sleep,
+  HVD232 has neither and no slope control. Check which column you are reading.
+
+## In this catalog
+
+Preferred Extended part in SOIC-8. At the 2026-07-24 snapshot: 58,943 in stock,
+$0.69 at quantity 1, falling to $0.41 at 1,000. The catalog attributes record
+1 Mbit/s, 3 V–3.6 V supply, 370 µA quiescent current, 17 mA supply current and
+−40 °C to +85 °C, all matching the datasheet. [2]
+
+## Sources
+
+1. Texas Instruments, *SN65HVD230, SN65HVD231, SN65HVD232 — 3.3-V CAN Bus
+   Transceivers*, SLOS346O, March 2001, revised April 2018. Section 1 (Features),
+   Section 8.1 (Absolute Maximum Ratings), Section 8.3 (Recommended Operating
+   Conditions), Section 8.6 (Electrical Characteristics).
+   <https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf>
+2. JLCPCB / LCSC catalog record for C12084, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/can-transceivers_texas-instruments-sn65hvd230dr_C12084.html>
+`;export{e as default};

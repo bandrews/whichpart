@@ -32,10 +32,10 @@ make noise worse.
 |---|---|
 | **Inductance** | The nominal value, at a stated frequency. |
 | **Tolerance** | How far it may be from nominal. |
-| **Saturation current (I<sub>sat</sub>)** | The current at which the core saturates and the inductance collapses. **The one that matters in a converter.** |
+| **Saturation current (I<sub>sat</sub>)** | The current at which the core saturates and the inductance collapses. **The one that matters in a converter** — and one that no part in this catalog's inductor category records. [1] |
 | **Current rating** | Usually a thermal limit — the current that causes a specified temperature rise. |
 | **DC resistance (DCR)** | Copper loss. Directly costs efficiency. |
-| **Self-resonant frequency (SRF)** | Above this the part behaves as a capacitor, not an inductor. |
+| **Self-resonant frequency (SRF)** | Above this the part behaves as a capacitor, not an inductor. The catalog does not carry it, but Sunlord's datasheet does: the 4.7 µH 0603 part resonates at 33 MHz and the 10 µH at 17 MHz. [2] |
 | **Q at frequency** | Quality factor — matters in tuned circuits, not in power. |
 
 ### Ferrite beads
@@ -49,23 +49,38 @@ make noise worse.
 
 ## What actually matters in practice
 
-**Saturation current, not current rating, sizes a converter's inductor.** The two
-figures mean different things: current rating is usually a thermal limit, and
-saturation current is where the magnetics stop working. In a buck converter the
-peak inductor current is higher than the average output current by half the
-ripple, and it is that peak that must stay below I<sub>sat</sub>. A saturated
-inductor lets current rise almost without limit for the rest of the switching
-cycle — which is how converters destroy themselves.
+**There is no power inductor in this catalog, and that is the most useful thing
+to know about the family.** Every one of the 13 inductors here is a signal part:
+the current ratings run from 2 mA to 500 mA, and the microhenry-range values —
+the ones a buck converter would want — are rated between 2 mA and 50 mA with DC
+resistances of hundreds of milliohms to 2.5 Ω. [1] If you are building a
+switching converter around the regulators in this catalog, the inductor will have
+to come from outside the Basic and Preferred tiers.
+
+**Saturation current, not current rating, sizes a converter's inductor — and no
+part here publishes one.** The two figures mean different things: current rating
+is usually a thermal limit, and saturation current is where the magnetics stop
+working. In a buck converter the peak inductor current is higher than the average
+output current by half the ripple, and it is that peak that must stay below
+I<sub>sat</sub>. A saturated inductor lets current rise almost without limit for
+the rest of the switching cycle — which is how converters destroy themselves. The
+catalog records no saturation current for any part in this category — and
+neither does Sunlord's own SDFL datasheet, whose only current column is a maximum
+rated current. What it publishes instead is an inductance-versus-DC-current
+curve per size, which is where the real derating lives. [1] [2]
 
 **DC resistance is efficiency.** At 2 A through a 2.1 Ω inductor you lose 8.4 W —
 absurd. The catalog's 4.7 µH 0603 part has 2.1 Ω of DCR and a 15 mA current
-rating; it is a signal inductor, not a power one. [1] Read the DCR and the
-current rating together to see what a part is really for.
+rating; it is a signal inductor, not a power one, and Sunlord's datasheet
+confirms both figures exactly. [1] [2] Read the DCR and the current rating
+together to see what a part is really for.
 
 **Beads saturate too, and quietly.** A bead rated 200 mA that carries 200 mA has
 almost none of its rated impedance left. On a supply rail this is easy to get
 wrong: the bead does nothing, and the only symptom is that the noise you were
-trying to filter is still there.
+trying to filter is still there. The four beads here span 100 Ω to 600 Ω at
+100 MHz with current ratings from 200 mA to 2 A, so there is room to choose one
+with real headroom. [1]
 
 **A bead is a resistor at high frequency, and that is the point.** Below its
 rated frequency it behaves inductively; near it, resistively — turning
@@ -112,5 +127,13 @@ Ferrite beads:
 
 1. JLCPCB / LCSC catalog records for the Inductors (SMD) and Ferrite Beads
    categories, snapshot 2026-07-24 (`raw-data/jlcpcb-basic-parts-2026-07-24.json`
-   and `src/data/parts-index.json`). Inductance, saturation, resistance and
-   impedance figures are the attribute values recorded there.
+   and `src/data/parts-index.json`). Inductance, current rating, resistance and
+   impedance figures are the attribute values recorded there — the category
+   carries no saturation-current attribute.
+2. Shenzhen Sunlord Electronics, *Multilayer Chip Ferrite Inductor — SDFL
+   Series*, revised 15 May 2021. Product identification, and the SDFL1608
+   specification table giving inductance, minimum quality factor, test
+   frequency, minimum self-resonant frequency, maximum DC resistance and maximum
+   rated current for each value — plus the inductance-versus-DC-current curves
+   that stand in for a saturation-current figure.
+   <https://media.digikey.com/pdf/Data%20Sheets/Shenzhen%20Sunlord/SDFL_Series.pdf>

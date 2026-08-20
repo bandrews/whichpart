@@ -1,0 +1,104 @@
+var e=`---
+part: C6521
+mpn: CD4052BM96
+manufacturer: Texas Instruments
+category: Analog Switches, Multiplexers
+kind: analog
+package: SOIC-16
+tier: preferred
+catalog_snapshot: 2026-07-24
+datasheet:
+  title: CD4051B, CD4052B, CD4053B — CMOS Analog Multiplexers/Demultiplexers
+  publisher: Texas Instruments
+  document: SCHS047O
+  revised: 2026-05
+  url: https://www.ti.com/lit/ds/symlink/cd4052b.pdf
+summary: Two four-way analog switches that share their address pins — the differential sibling of the CD4051B.
+---
+
+# CD4052BM96
+
+## What it is
+
+The CD4052B is the two-section version of the CD4051B family. Instead of one
+eight-way switch it gives you two independent four-way switches whose address
+pins are shared, so both sections always select the same numbered channel. An
+inhibit pin turns both off. [1]
+
+That shared addressing is exactly what you want for switching a differential
+signal, a stereo audio pair, or any two-wire sensor: one address change moves
+both halves of the signal together. Like the rest of the family, the switches are
+bidirectional, so it also works as a one-to-four demultiplexer. [1]
+
+## Key specifications
+
+| Specification | Value | Why it matters |
+|---|---|---|
+| Function | Two 4:1 bidirectional analog multiplexers/demultiplexers sharing address and inhibit lines [1] | Handles differential or stereo signals as a pair, with no risk of the two halves getting out of step. |
+| Supply voltage | 3 V to 20 V single supply (performance degrades below 3 V), or ±3 V to ±10 V dual [1] | The dual-supply option lets it pass signals that swing below ground — useful for audio and sensor bridges. |
+| Input offset voltage | Not applicable [1] | — |
+| Gain bandwidth | −3 dB cutoff typically 25 MHz for the CD4052 with a 1 kΩ load [1] | Slightly wider than the CD4051B, because each section switches fewer channels. |
+| Output swing | Analog signals up to 20 V peak-to-peak; digital control levels 3 V to 20 V [1] | The switch passes whatever lies within the supply rails. |
+| Supply current | Quiescent power dissipation typically 0.2 µW, but the guaranteed maximum quiescent current is 60 µA at 25 °C on a 15 V supply and 600 µA at 85 °C. OFF-channel leakage is ±10 pA typical per the feature list, against a ±100 nA maximum at 25 °C [1] | Typically negligible — but the guarantees are much looser than the headline figures, so size power and leakage budgets from the maxima. |
+| Operating temperature | −55 °C to +125 °C [1] | Full military-grade range. |
+
+## What the datasheet actually says
+
+**On-resistance is the same story as the CD4051B, and just as supply-dependent.**
+125 Ω typical and 240 Ω maximum at V<sub>DD</sub> = 15 V; 470 Ω typical and
+1,050 Ω maximum at 5 V. Running from 5 V costs you roughly four times the series
+resistance. [1]
+
+**Crosstalk between the two sections is specified separately** for the CD4052,
+and it is better than the between-channel figure rather than worse. TI quotes the
+frequency at which crosstalk reaches −40 dB: 6 MHz measured at the common pin and
+10 MHz measured at any channel for signals crossing between the two sections,
+against 3 MHz between any two channels within a section. Higher is better here,
+so it is crosstalk *within* a section that limits you first. If your two halves
+carry signals that must not contaminate each other, you have roughly 6 MHz of
+headroom before that −40 dB point. [1]
+
+**Distortion improves with supply.** Total harmonic distortion is typically
+0.3 % at 5 V, 0.2 % at 10 V and 0.12 % at 15 V, measured with a 1 kHz sine into
+10 kΩ. [1]
+
+**Changing channels takes hundreds of nanoseconds.** The 30 ns figure people
+remember is the delay through an already-selected channel. Moving the address
+lines is a separate specification: 450 ns typical and 720 ns maximum at 5 V,
+160 ns / 320 ns at 10 V and 120 ns / 240 ns at 15 V. Anything that scans channels
+into an ADC needs to budget from that row. [1]
+
+## Watch out for
+
+- **The two sections are not independently addressable.** If you need that, use
+  two CD4051Bs or a different part — the shared address is the whole design.
+- **Run it at the highest supply your signals allow** for better resistance,
+  bandwidth and distortion.
+- **Signals must stay inside the rails.** Exceeding them risks latch-up.
+- **Series resistance is in your signal path.** Drive a high-impedance load.
+
+## In this catalog
+
+Preferred Extended part in SOIC-16. At the 2026-07-24 snapshot: 75,616 in stock,
+$0.28 at quantity 1, falling to $0.157 at 5,000. The catalog attributes record
+125 Ω on-resistance, two channels of 4:1 switching, 3 V–20 V supply, 25 MHz
+bandwidth, 320 ns propagation delay, 18 pF on-capacitance and −55 °C to +125 °C.
+Two entries need care. As with the CD4051B, the 125 Ω is the *typical* at
+V<sub>DD</sub> = 15 V — the maximum is 240 Ω there and 1,050 Ω on a 5 V supply.
+The 320 ns is the address-to-output maximum at 10 V; the equivalent figure at 5 V
+is 720 ns. (The catalog's CD4051B entry quotes 60 ns, which is the signal-path
+delay rather than the switching time, so the two parts' delay figures are not
+comparable as listed.) [1] [2]
+
+## Sources
+
+1. Texas Instruments, *CD4051B, CD4052B, CD4053B — CMOS Analog
+   Multiplexers/Demultiplexers*, SCHS047O, August 1998, revised May 2026.
+   Section 1 (Features), Section 3 (Description), Section 5.3 (Recommended
+   Operating Conditions), Section 5.5 (Electrical Characteristics), Section 5.6
+   (AC Performance Characteristics).
+   <https://www.ti.com/lit/ds/symlink/cd4052b.pdf>
+2. JLCPCB / LCSC catalog record for C6521, snapshot 2026-07-24
+   (\`raw-data/jlcpcb-basic-parts-2026-07-24.json\`).
+   <https://www.lcsc.com/product-detail/analog-switches-multiplexers_texas-instruments-cd4052bm96_C6521.html>
+`;export{e as default};

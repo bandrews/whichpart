@@ -64,7 +64,12 @@ So:
    retrieved, the electrical figures come from it, and the file records the
    document number and revision so a future reader can tell whether the summary
    has gone stale. All 99 component files now have a manufacturer datasheet
-   recorded in their front matter.
+   recorded in their front matter. Family files describe a category rather than
+   one order code, so they carry no `datasheet:` field — but all fourteen now
+   cite a representative manufacturer's document alongside the catalog record,
+   for the figures a catalog attribute string cannot carry: derating curves,
+   per-value temperature coefficients, part-numbering schemes, bin tables, and
+   the conditions attached to a headline number.
 2. **Catalog record second.** Package, price, stock, JLCPCB tier, and the
    attribute strings shown in the site's tables come from the JLCPCB/LCSC
    catalog snapshot in `raw-data/`, and are cited as such.
@@ -93,13 +98,16 @@ Where the catalog record and the datasheet disagree, the file says so and
 
 ## Known problems found while writing these
 
-See [`ISSUES.md`](ISSUES.md). It lists thirty-three findings — mismatches
+See [`ISSUES.md`](ISSUES.md). It lists forty-six findings — mismatches
 between the site's data and manufacturer datasheets, claims that could not be
 verified, parts whose datasheets are marked obsolete, and parts listed as
 available that have no stock — plus a status review (2026-08-19) recording which
 were since resolved, which were retracted, and which remain open. Findings 19 to
 33 came from the pass, on the same day, that rewrote the last 22 catalog-only
-notes against their manufacturers' documents.
+notes against their manufacturers' documents. Findings 34 to 46 came from a
+review pass that re-checked every note, component and family alike, against its
+manufacturer's document; finding 43 is where the errors this repository had
+introduced itself are collected.
 
 The ones worth knowing about:
 
@@ -119,16 +127,23 @@ The ones worth knowing about:
   at 100 °C, against the catalog's 200 µA. Irrelevant in a buck converter,
   serious in a reverse-polarity blocking diode.
 
-Four findings have now been retracted after re-reading the primary sources, and
-all four point the same way: the catalog was right and this repository was wrong.
+Five findings have now been retracted after re-reading the primary sources, and
+they all point the same way: the catalog, or the manufacturer's current document,
+was right and this repository was wrong.
 Issue 7 (HT7533/HT7550) fell to a current Holtek datasheet. Issue 6 (ADuM1201
 data rate) fell to the Analog Devices datasheet's per-grade switching tables.
 Issue 13 — the MB10S's current rating, previously the most serious finding here
 — fell to MDD's own datasheet, which rates the part at the full 1 A the catalog
 implies, referenced to case temperature. Issue 15 (the KT-0603W's absurd colour
 temperature) turned out to be transcribed faithfully from a manufacturer who
-really does print it. The confirmed data errors that remain are the MCP6002's
-temperature grade (issue 10) and the newer findings listed above.
+really does print it. And issue 5 — the L78M05's "obsolete" datasheet — fell to
+ST's current DS0425 Rev 24, which carries no such watermark and lists the exact
+order code; the watermarked document was the superseded one (finding 34).
+
+The confirmed data errors that remain are the MCP6002's temperature grade
+(issue 10), the LM324's offset grade and the LM393's bias current (findings 35
+and 36), the two MOSFET attribute problems (38 and 39), the TP4056 and W25Q128JV
+current figures (40 and 41), and the newer findings listed above.
 
 ## How the UI reads this content
 
