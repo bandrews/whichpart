@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-10-02",
+    "title": "Catalog refresh and clearer specifications",
+    "catalogSnapshotDate": "2026-10-02",
+    "curatedReviewedDate": "2026-08-19",
+    "summary": "Refreshed the complete JLCPCB Basic and Preferred Extended catalog: 1,586 parts, including 351 Basic and 1,235 Preferred Extended.",
+    "changes": [
+      "Updated 1,574 stock counts and 1,582 price records. No parts were added or removed, and no tiers or packages changed.",
+      "Corrected diode categorization so an IC mentioning ESD protection is not treated as a diode.",
+      "Corrected channel labels on 40 TVS parts and the current label for C27147. Removed the disputed current rating from C2500 rather than choosing between conflicting source values.",
+      "Clarified MOSFET gate-voltage coverage and LED test-current guidance. Preserved manufacturer-backed limits and historical review dates."
+    ],
+    "caveat": "Catalog collection is separate from editorial or datasheet review. Our Picks retains its August 19, 2026 review date. Prices and stock are snapshots; verify current availability, ratings, and suitability before ordering.",
+    "sources": [
+      {
+        "label": "Full refresh review and unresolved source conflicts",
+        "url": "https://github.com/bandrews/whichpart/blob/8bc98652a231a55e3a0064b5439824d35d6d4cb7/basicpart/REFRESH-REVIEW-2026-10-02.md"
+      },
+      {
+        "label": "Catalog refresh commit",
+        "url": "https://github.com/bandrews/whichpart/commit/8bc98652a231a55e3a0064b5439824d35d6d4cb7"
+      }
+    ]
+  }
+]

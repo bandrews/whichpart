@@ -14,7 +14,7 @@ export function Footer() {
 			<p class="footer-meta">
 				{catalogUpdated && (
 					<>
-						Parts catalog updated <time dateTime={catalogUpdated}>{catalogUpdated}</time>.
+						Parts catalog updated <a href="/changelog" aria-label={`View changelog for catalog updated ${catalogUpdated}`}><time dateTime={catalogUpdated}>{catalogUpdated}</time></a>.
 						{' '}
 					</>
 				)}

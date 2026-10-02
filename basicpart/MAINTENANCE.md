@@ -27,7 +27,16 @@ publish the reviewed result.
    review; catalog collection does not constitute a fresh datasheet review.
    Keep content-note snapshot dates truthful rather than bulk-advancing them.
 7. Update the curated data's `catalogSnapshotDate` to the newly collected source
-   date, then run `npm run refresh:from-raw`.
+   date. Add a newest-first entry in `src/data/changelog.json` for the actual
+   refresh date (amend the existing entry for another refresh on the same day).
+   Include verified changes, the catalog snapshot date, the unchanged or newly
+   reviewed Our Picks date, caveats, and durable source links. Link a dated
+   review record or prior immutable evidence; do not invent historical entries
+   or advance editorial dates without review. A refresh with no catalog changes
+   should say so. This log is served at `/changelog` from the footer date.
+8. Run `npm run refresh:from-raw`; changelog tests require its newest entry to
+   match the current snapshot and curated-review dates. After publication, test
+   the footer link, direct `/changelog` load, and browser Back/Forward.
 
 ## Publication gates
 

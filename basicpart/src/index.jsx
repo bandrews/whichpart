@@ -13,6 +13,7 @@ import { Transistors } from './pages/Transistors.jsx';
 import { OtherComponents } from './pages/OtherComponents.jsx';
 import { AllBasicParts } from './pages/AllBasicParts.jsx';
 import { PartDetails } from './pages/PartDetails.jsx';
+import { Changelog } from './pages/Changelog.jsx';
 import { NotFound } from './pages/NotFound.jsx';
 
 import './styles/global.css';
@@ -31,6 +32,7 @@ export function App() {
 						<Route path="/electrolytic" component={ElectrolyticCapacitors} />
 						<Route path="/diodes" component={Diodes} />
 						<Route path="/transistors" component={Transistors} />
+						<Route path="/changelog" component={Changelog} />
 						<Route path="/picks" component={OtherComponents} />
 						<Route path="/all" component={AllBasicParts} />
 						<Route path="/part/:id" component={PartDetails} />
