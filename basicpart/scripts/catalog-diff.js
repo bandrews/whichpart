@@ -122,12 +122,25 @@ function main() {
 	const removed = [];
 	const tierChanges = [];
 	const priceChanges = [];
+	const specificationChanges = [];
 
 	for (const [partNumber, newPart] of newData.byPart) {
 		const oldPart = oldData.byPart.get(partNumber);
 		if (!oldPart) {
 			added.push(partSummary(newPart));
 			continue;
+		}
+		const changedFields = ['manufacturerPart', 'manufacturer', 'category', 'package', 'description', 'attributes']
+			.filter(field => JSON.stringify(oldPart[field]) !== JSON.stringify(newPart[field]));
+		if (changedFields.length) {
+			specificationChanges.push({
+				partNumber,
+				manufacturerPart: newPart.manufacturerPart,
+				changedFields,
+				changes: Object.fromEntries(changedFields.map(field => [field, {
+					old: oldPart[field], new: newPart[field],
+				}])),
+			});
 		}
 		if (oldPart.tier !== newPart.tier) {
 			tierChanges.push({
@@ -161,6 +174,7 @@ function main() {
 			removed: removed.length,
 			tierChanges: tierChanges.length,
 			priceChanges: priceChanges.length,
+			specificationChanges: specificationChanges.length,
 			priceIncreases: comparablePriceChanges.filter(change => change.percentChange > 0).length,
 			priceDecreases: comparablePriceChanges.filter(change => change.percentChange < 0).length,
 			unchangedFirstPrice: comparablePriceChanges.filter(change => change.percentChange === 0).length,
@@ -175,6 +189,7 @@ function main() {
 			.sort((a, b) => a.percentChange - b.percentChange)
 			.slice(0, 25),
 		priceChanges,
+		specificationChanges,
 	};
 
 	fs.writeFileSync(outputPath, JSON.stringify(manifest, null, 2));

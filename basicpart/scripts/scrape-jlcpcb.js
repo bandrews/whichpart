@@ -28,7 +28,7 @@ async function sleep(ms) {
 }
 
 async function fetchPageData(page, currentPage) {
-	const result = await page.evaluate(async ({ apiUrl, currentPage, pageSize }) => {
+	const requestPage = async ({ apiUrl, currentPage, pageSize }) => {
 		const payload = {
 			currentPage,
 			pageSize,
@@ -57,6 +57,7 @@ async function fetchPageData(page, currentPage) {
 			method: 'POST',
 			headers: { 'content-type': 'application/json' },
 			body: JSON.stringify(payload),
+			signal: AbortSignal.timeout(60000),
 		});
 		if (!response.ok) {
 			throw new Error(`JLCPCB API returned HTTP ${response.status}`);
@@ -66,7 +67,9 @@ async function fetchPageData(page, currentPage) {
 			throw new Error(`Unexpected JLCPCB API response code: ${body.code}`);
 		}
 		return body.data.componentPageInfo;
-	}, { apiUrl: PARTS_API, currentPage, pageSize: PAGE_SIZE });
+	};
+	const params = { apiUrl: page ? PARTS_API : new URL(PARTS_API, PARTS_URL).href, currentPage, pageSize: PAGE_SIZE };
+	const result = page ? await page.evaluate(requestPage, params) : await requestPage(params);
 
 	const tierNames = {
 		base: 'basic',
@@ -131,20 +134,24 @@ async function scrapeBasicParts() {
 		fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 	}
 
-	const browser = await chromium.launch({ headless: true });
-	// const browser = await chromium.launch({ headless: false, slowMo: 500 }); // Debug mode
-	const context = await browser.newContext({
+	const transport = process.env.JLCPCB_SCRAPER_TRANSPORT || 'browser';
+	if (!['browser', 'http'].includes(transport)) {
+		throw new Error(`Unknown JLCPCB_SCRAPER_TRANSPORT: ${transport}`);
+	}
+	// The public catalog endpoint can also be fetched without a browser session.
+	// HTTP mode keeps the same request, normalization, and completeness checks.
+	const browser = transport === 'browser' ? await chromium.launch({ headless: true }) : null;
+	const context = browser ? await browser.newContext({
 		userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
-	});
-
-	const page = await context.newPage();
+	}) : null;
+	const page = context ? await context.newPage() : null;
 	const allParts = new Map();
 
 	try {
 		console.log(`Loading ${PARTS_URL}...`);
-		await page.goto(PARTS_URL, { waitUntil: 'networkidle', timeout: 60000 });
+		if (page) await page.goto(PARTS_URL, { waitUntil: 'networkidle', timeout: 60000 });
 
-		if (process.env.SCRAPER_DEBUG_SCREENSHOTS === '1') {
+		if (page && process.env.SCRAPER_DEBUG_SCREENSHOTS === '1') {
 			const screenshotPath = path.join(OUTPUT_DIR, 'page-initial.png');
 			await page.screenshot({ path: screenshotPath, fullPage: true });
 			console.log(`Saved debug screenshot to ${screenshotPath}`);
@@ -242,7 +249,7 @@ async function scrapeBasicParts() {
 		console.error('Error:', error);
 		throw error;
 	} finally {
-		await browser.close();
+		if (browser) await browser.close();
 	}
 }
 

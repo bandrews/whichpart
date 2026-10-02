@@ -90,6 +90,18 @@ npm run refresh
 npm run refresh:from-raw
 ```
 
+The default scraper uses Playwright. On a runner without a working browser,
+Node 22+ can query the same public catalog endpoint directly:
+
+```bash
+JLCPCB_SCRAPER_TRANSPORT=http npm run refresh
+```
+
+HTTP mode uses exactly the same filters, response normalization, pagination,
+tier checks, and complete-snapshot checks. It does not require an account or
+paid API. If JLCPCB rejects the request or changes its schema, stop rather than
+publishing partial data or weakening validation.
+
 The refresh refuses to write an incomplete snapshot or build with missing
 descriptions, stale qualifying picks, tier mismatches, or package mismatches.
 It writes:
@@ -98,6 +110,8 @@ It writes:
 - `data-audit-manifest.json` for transformed-data checks.
 - `curated-picks-audit.json` for the hand-maintained recommendations.
 - `dist/`, which is the deployable site.
+
+See [MAINTENANCE.md](MAINTENANCE.md) for repeatable weekly review, publication, and live-verification gates.
 
 ### Manual review after every snapshot
 

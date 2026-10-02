@@ -94,8 +94,8 @@ may assume the other. Compare against the manufacturer's drawing every time.
 |---|---|
 | \`Illumination Color\` | Red, green, blue, white. |
 | \`Voltage - Forward(Vf)\` | A range, e.g. \`1.8V~2.4V\`. Design for the whole range. |
-| \`Forward Current\` | Rated current, e.g. \`20mA\`. |
-| \`Luminous Intensity\` | Brightness at the rated current, e.g. \`300mcd\`. |
+| \`Test Current\` | Current used to characterize the optical/electrical figures; not the continuous-current limit. [3] |
+| \`Luminous Intensity\` | Brightness at the specified test current, e.g. \`300mcd\`. [3] |
 | \`Viewing Angle\` | e.g. \`120°\`. |
 | \`Wavelength - Dominant\` | Perceived colour, e.g. \`615nm~630nm\`. |
 | \`Peak Wavelength\` | Emission peak — a different, larger number. |
@@ -130,4 +130,8 @@ different kind of device.
    and 6 (electrical/optical characteristics and the luminous-intensity bin
    table). Retrieved via the LCSC datasheet link for C2296.
    <https://www.lcsc.com/datasheet/lcsc_datasheet_1806151129_Hubei-KENTO-Elec-KT-0805Y_C2296.pdf>
+
+3. JLCPCB LED Indication - Discrete catalog records, snapshot 2026-10-02
+   (\`raw-data/jlcpcb-basic-parts-2026-10-02.json\`). All seven entries label
+   their characterization current as Test Current.
 `;export{e as default};

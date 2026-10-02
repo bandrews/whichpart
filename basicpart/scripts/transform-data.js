@@ -9,6 +9,7 @@
  */
 
 import fs from 'fs';
+import { isDiodePart } from './catalog-categories.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -371,14 +372,8 @@ function transformDiodes(parts) {
 	];
 	const data = {};
 
-	const diodes = parts.filter(p =>
-		p.category?.toLowerCase().includes('diode') ||
-		p.firstSort?.toLowerCase().includes('diode') ||
-		p.description?.toLowerCase().includes('schottky') ||
-		p.description?.toLowerCase().includes('zener') ||
-		p.description?.toLowerCase().includes('tvs') ||
-		p.description?.toLowerCase().includes('esd')
-	);
+	// Category identity wins over incidental phrases such as an IC's ESD protection.
+	const diodes = parts.filter(isDiodePart);
 
 	console.log(`  Found ${diodes.length} diodes`);
 

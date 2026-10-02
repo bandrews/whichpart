@@ -13,10 +13,16 @@ const tasksDir = path.join(__dirname, '..', 'tasks');
 const outputFile = path.join(__dirname, '..', 'src', 'data', 'friendly-descriptions.json');
 
 const generatedDate = new Date().toISOString().split('T')[0];
+const rawDir = path.join(__dirname, '..', 'raw-data');
+const latestSnapshot = fs.readdirSync(rawDir)
+  .filter(file => /^jlcpcb-basic-parts-\d{4}-\d{2}-\d{2}\.json$/.test(file))
+  .sort().at(-1);
+if (!latestSnapshot) throw new Error('No catalog snapshot found; run npm run scrape first');
+const catalogSnapshotDate = latestSnapshot.slice('jlcpcb-basic-parts-'.length, -'.json'.length);
 const merged = {
   _meta: {
     generated: generatedDate,
-    catalogSnapshotDate: generatedDate,
+    catalogSnapshotDate,
     description: 'Human-friendly part descriptions for basicp.art',
   },
 };

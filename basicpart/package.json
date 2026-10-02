@@ -16,8 +16,9 @@
 		"audit:curated:strict": "node scripts/audit-curated-picks.js --strict",
 		"content:index": "node scripts/generate-content-index.js",
 		"content:validate": "node scripts/generate-content-index.js --check && node scripts/validate-content.js",
-		"refresh:from-raw": "npm run diff && npm run transform && npm run index && npm run descriptions && npm run validate && npm run audit && npm run audit:curated:strict && npm run content:validate && npm run build",
-		"refresh": "npm run scrape && npm run refresh:from-raw"
+		"refresh:from-raw": "npm test && npm run diff && npm run transform && npm run index && npm run descriptions && npm run validate && npm run audit && npm run audit:curated:strict && npm run content:validate && npm run build",
+		"refresh": "npm run scrape && npm run refresh:from-raw",
+		"test": "node --test scripts/*.test.js"
 	},
 	"dependencies": {
 		"preact": "^10.29.7",

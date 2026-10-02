@@ -31,7 +31,7 @@ the on-resistance for the same die area.
 | **Drain-source voltage (V<sub>DS</sub>)** | The most it will block. |
 | **Continuous drain current (I<sub>D</sub>)** | Maximum current, always with a stated gate voltage and thermal assumption. |
 | **On-resistance (R<sub>DS(on)</sub>)** | Resistance when on, quoted at one or more gate voltages. **The number that matters most.** |
-| **Gate threshold voltage (V<sub>GS(th)</sub>)** | Where it *starts* to conduct — not where it is fully on. Separately, check the gate-source *absolute maximum*: the catalog does not carry it, and on these small parts it is often ±12 V rather than the ±20 V people assume. [2] |
+| **Gate threshold voltage (V<sub>GS(th)</sub>)** | Where it *starts* to conduct — not where it is fully on. Separately, check the gate-source *absolute maximum*: catalog coverage is incomplete, and on these small parts it is often ±12 V rather than the ±20 V people assume. [2][3] |
 | **Gate charge (Q<sub>g</sub>)** | How much charge the gate needs. Sets the switching loss and the drive current at high frequency. |
 | **Input capacitance (C<sub>iss</sub>)** | Related to Q<sub>g</sub>; affects switching speed. |
 | **Power dissipation (P<sub>d</sub>)** | Package limit. |
@@ -73,9 +73,9 @@ drain that conducts regardless of the gate. That is what makes the BSS138 level
 shifter work, and what makes a naively-wired MOSFET fail to block reverse
 current.
 
-**The gate itself has a voltage limit, and the catalog does not show it.** No
-attribute in this family records the gate-source maximum, so it has to come from
-the datasheet. Alpha & Omega rates both the AO3400A and AO3401A at ±12 V — which
+**The gate itself has a voltage limit.** Some catalog records include Vgs, but
+coverage is incomplete; verify the gate-source absolute maximum in the
+manufacturer datasheet. [3] Alpha & Omega rates both the AO3400A and AO3401A at ±12 V — which
 means driving either one's gate from a 12 V rail sits exactly on the limit, with
 nothing left for transients. Above about 10 V of gate drive, add a Zener clamp or
 a divider. [2]
@@ -100,8 +100,8 @@ a divider. [2]
 - **Allow for on-resistance rising with temperature.**
 - **P-channel high-side switching needs a gate driver or a small transistor.**
 - **The body diode conducts** whatever the gate does.
-- **Check the gate-source maximum in the datasheet.** It is not in the catalog
-  attributes, and ±12 V is common here.
+- **Check the gate-source maximum in the datasheet.** Catalog coverage is incomplete,
+  and ±12 V is common here. [2][3]
 
 ## Individual notes in this collection
 
@@ -119,4 +119,8 @@ Three parts from this family have their own files: \`C20917\` (AO3400A N-channel
    Maximum Ratings (gate-source voltage, continuous and pulsed drain current) and
    Electrical Characteristics (on-resistance at each gate voltage, and at
    T<sub>J</sub> = 125 °C). <http://www.aosmd.com/res/data_sheets/AO3400A.pdf>
+
+3. JLCPCB MOSFET catalog records, snapshot 2026-10-02
+   (\`raw-data/jlcpcb-basic-parts-2026-10-02.json\`). The Vgs attribute is present
+   for six parts, including C20917, but is not available for every MOSFET.
 `;export{e as default};
