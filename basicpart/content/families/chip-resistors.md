@@ -17,7 +17,7 @@ is the form almost every modern board uses: a ceramic rectangle with a resistive
 film on top and metal terminations at each end. There are 293 of them in this
 catalog, all thick-film parts from UNI-ROYAL, spanning four package sizes. [1]
 
-They are the highest-count family here, and the one you place most of. The
+They are one of the largest families here, and the one you place most of. The
 individual part is not interesting; what matters is knowing which of the five
 numbers on the datasheet actually constrains your design.
 
@@ -58,10 +58,10 @@ warm enclosure or next to a regulator has less headroom than the number
 suggests. [2]
 
 **Temperature coefficient rarely matters, until it does — and it is much worse
-at low values.** ±100 ppm/°C over a 50 °C swing is 0.5 %, five times a 1 % part's
-initial tolerance. In a divider where both resistors are the same type and at the
-same temperature, the effects largely cancel. In a current-sense circuit they do
-not — and current sensing is exactly where you use the low-value parts whose
+at low values.** ±100 ppm/°C over a 50 °C swing is 0.5 %, half a 1 % part's
+initial tolerance. Divider drift depends on how closely the two temperature
+coefficients track; the same part type and temperature do not guarantee
+matching coefficients. Current sensing uses the low-value parts whose
 coefficient is worst. UNI-ROYAL specifies 100 ppm/°C only above 10 Ω; from 1 Ω to
 10 Ω it is 200 ppm/°C, and below 1 Ω, 800 ppm/°C rising to 1,500 ppm/°C for the
 smallest values. A 0.1 Ω shunt at 800 ppm/°C drifts 4 % over a 50 °C rise. The

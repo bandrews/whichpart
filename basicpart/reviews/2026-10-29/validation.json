@@ -1,0 +1,73 @@
+{
+  "verifiedAt": "2026-10-29T15:57:41.827844+00:00",
+  "fullRefreshPipeline": "passed",
+  "finalRegressionTests": {
+    "passed": 19,
+    "failed": 0
+  },
+  "descriptionCoverage": 1586,
+  "dataAudit": {
+    "totalIssues": 0,
+    "errors": 0,
+    "warnings": 0,
+    "byType": {},
+    "byFile": {}
+  },
+  "curatedLocalAudit": {
+    "totalPicks": 58,
+    "qualifyingPicks": 49,
+    "extendedPicks": 9,
+    "validPicks": 58,
+    "totalIssues": 0,
+    "errors": 0,
+    "warnings": 0,
+    "byType": {}
+  },
+  "contentNotes": {
+    "valid": 113,
+    "warnings": 0
+  },
+  "independentLiveChecks": {
+    "exitStatus": 0,
+    "verified": 15,
+    "methods": {
+      "search-api": 14,
+      "product-page": 1
+    },
+    "reviewItems": []
+  },
+  "browserSmokeChecks": {
+    "homeFooter": "2026-10-29",
+    "changelogDirectReload": true,
+    "changelogBackForward": true,
+    "basicPartLinkCount": 351,
+    "allQualifyingPartLinkCount": 1586,
+    "exactSearch": "C25197",
+    "partPriceDisplayed": "$0.012 (rounded from raw $0.0124)",
+    "rp2040Detail": "Extended, local manufacturer note present, no invented qualifying price",
+    "consoleErrors": [],
+    "ourPicksCount": 58,
+    "WS2812": "WS2812B-B/W, V5 >280us reset, Standard PCBA only",
+    "reviewedLeakage": "C78395 shows 2mA maximum with source/conditions"
+  },
+  "builtAsset": "/assets/index-D8Qt50Ki.js",
+  "builtAssetSha256": "8bf2cdcc1376b4cb6d801efde7ca4a65d0eb17033fa91dba291d74317d74c8c4",
+  "warnings": [
+    "Existing large complete-catalog JS bundle size advisory"
+  ],
+  "publication": "Prepared for user-requested commit and push to origin/main. The completion message records the actual remote and deployment results.",
+  "proposedManifest": {
+    "records": 22,
+    "resolved": 19,
+    "excludedHumanSelection": 3,
+    "pending": 0
+  },
+  "npmAudit": {
+    "vulnerabilities": 0
+  },
+  "ourPicks": {
+    "humanSelectionOnly": true,
+    "preservedPartNumbers": 58
+  },
+  "reviewedCatalogRatings": 14
+}

@@ -7,7 +7,7 @@ Generated: 2026-01-12
 | Category | Issues Found | Severity |
 |----------|-------------|----------|
 | Resistors | 3 wrong parts | **Critical** - wrong component type |
-| Diodes | 74 package variants | Low - pin-compatible variants |
+| Diodes | 74 package variants | Historical finding — see corrected package guidance below |
 
 ---
 
@@ -64,14 +64,18 @@ These are **actual bugs** where resistor network arrays were incorrectly listed 
 
 These are all **SOD-123FL** parts listed under **SOD-123**, or **SOT-23-6L** listed under **SOT-23-6**.
 
-- **SOD-123FL** = "Flat Lead" variant of SOD-123 (pin-compatible, same footprint)
-- **SOT-23-6L** = Lead variant of SOT-23-6 (pin-compatible)
+**Superseded on 2026-10-29:** the original claim that these suffix variants
+share a footprint was not justified. SOD-123FL and SOD-123 have distinct package
+and recommended land-pattern drawings. Their similar names do not establish
+mechanical interchangeability. Check the exact manufacturer's dimensions,
+polarity, pads, and thermal requirements before substituting. Evaluate
+SOT-23-6L against its own manufacturer's drawing independently.
 
-**Recommendation:** These are arguably acceptable since the packages are pin-compatible. You may choose to:
-
-1. **Keep as-is** - Users will get a compatible part
-2. **Add SOD-123FL as a column** - More precise but adds UI complexity
-3. **Update transform to treat FL variants as equivalent** - Group them intentionally
+The transform now preserves exact package strings. Follow the current
+[package guidance](README.md#4-package-variants-for-diodes), supported by
+[Nexperia SOD123FL](https://assets.nexperia.com/documents/package-information/SOD123FL.pdf)
+and [SOD123](https://assets.nexperia.com/documents/package-information/SOD123.pdf)
+drawings. The table below records the historical labels, not approved substitutions.
 
 <details>
 <summary>Full list of diode package variant issues (click to expand)</summary>
@@ -196,4 +200,4 @@ The filter caught "Resistor Networks, Arrays" because it contains "resistor". Th
 1. **Review this manifest** - Confirm the 3 resistor changes look correct
 2. **Run `npm run transform`** - Regenerate resistors.json with the fix
 3. **Run `node scripts/audit-data.js`** - Verify no more critical issues
-4. **Decide on diode variants** - Keep as-is or add SOD-123FL handling
+4. **Preserve exact diode packages** - the earlier equivalence advice is superseded; use the current package-specific guidance.

@@ -6,7 +6,7 @@
  *
  * What it enforces:
  *   - front matter parses, carries the required keys, and agrees with the
- *     filename and with the one catalog snapshot the collection covers
+ *     filename and with a valid per-note catalog snapshot date
  *   - body sections use the permitted headings, in the permitted order
  *   - the Key specifications table carries exactly the rows FORMAT.md fixes
  *     for the note's `kind`, in order
@@ -24,6 +24,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validSnapshotDate } from './content-snapshots.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const contentDir = join(here, '..', 'content');
@@ -335,6 +336,7 @@ function checkNote(dir, name) {
 	for (const key of required) {
 		if (!front[key]) fail(file, `front matter is missing "${key}"`);
 	}
+	if (!validSnapshotDate(front.catalog_snapshot)) fail(file, 'catalog_snapshot must be a valid ISO calendar date');
 
 	if (isComponent && front.part !== name.replace(/\.md$/, '')) {
 		fail(file, `front-matter part "${front.part}" does not match the filename`);
@@ -417,9 +419,6 @@ for (const dir of ['components', 'families']) {
 		if (front && front.catalog_snapshot) snapshots.add(front.catalog_snapshot);
 	}
 }
-if (snapshots.size > 1) {
-	errors.push(`notes disagree about catalog_snapshot: ${[...snapshots].join(', ')}`);
-}
 
 for (const message of warnings) console.warn(`WARN  ${message}`);
 if (errors.length) {
@@ -427,4 +426,4 @@ if (errors.length) {
 	console.error(`\n${errors.length} error(s) in ${count} note files.`);
 	process.exit(1);
 }
-console.log(`content/: ${count} note files valid (snapshot ${[...snapshots][0]}), ${warnings.length} warning(s).`);
+console.log(`content/: ${count} note files valid (snapshots ${[...snapshots].sort().join(', ')}), ${warnings.length} warning(s).`);

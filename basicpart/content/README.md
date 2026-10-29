@@ -5,9 +5,11 @@ basicp.art covers. Each file explains what a part actually is, pulls out the
 handful of numbers that decide whether it will work in your design, and says
 what the datasheet warns you about.
 
-Nothing in these files is invented. Every number is taken from a manufacturer
-datasheet or from the JLCPCB/LCSC catalog record, and every file ends with a
-numbered source list so you can check any figure yourself.
+These notes aim to trace numeric claims to manufacturer datasheets or explicitly
+identified JLCPCB/LCSC records. They can contain mistakes; every file ends with a
+numbered source list so claims can be checked and corrected. Individual notes
+retain their own catalog evidence date. Refreshing one note does not advance
+the dates of the others.
 
 **Now surfaced in the UI.** Part detail pages (`/part/:id`) display the
 matching note — the part's own file when one exists, otherwise its family's

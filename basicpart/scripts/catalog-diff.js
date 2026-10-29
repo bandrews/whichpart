@@ -123,6 +123,7 @@ function main() {
 	const tierChanges = [];
 	const priceChanges = [];
 	const specificationChanges = [];
+	let stockChanges = 0;
 
 	for (const [partNumber, newPart] of newData.byPart) {
 		const oldPart = oldData.byPart.get(partNumber);
@@ -149,6 +150,7 @@ function main() {
 				newTier: newPart.tier,
 			});
 		}
+		if (oldPart.stock !== newPart.stock) stockChanges++;
 		if (JSON.stringify(oldPart.prices || []) !== JSON.stringify(newPart.prices || [])) {
 			priceChanges.push(priceChange(oldPart, newPart));
 		}
@@ -174,6 +176,7 @@ function main() {
 			removed: removed.length,
 			tierChanges: tierChanges.length,
 			priceChanges: priceChanges.length,
+			stockChanges,
 			specificationChanges: specificationChanges.length,
 			priceIncreases: comparablePriceChanges.filter(change => change.percentChange > 0).length,
 			priceDecreases: comparablePriceChanges.filter(change => change.percentChange < 0).length,

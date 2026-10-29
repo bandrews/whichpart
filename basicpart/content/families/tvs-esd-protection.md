@@ -37,8 +37,8 @@ Both live in this category and they solve different problems.
 
 ## What actually matters in practice
 
-**Capacitance decides where you can use it.** A 100 pF TVS on a USB 2.0
-high-speed pair will destroy the signal; on a button input it is irrelevant. The
+**Capacitance decides where you can use it.** A 100 pF TVS can heavily load a USB 2.0
+high-speed pair; on a button input it is irrelevant. The
 spread here is enormous: of the 92 parts that record a junction capacitance, the
 lowest are hongjiacheng's ultra-small-capacitance ESD diodes at 0.3 pF maximum,
 the familiar SRV05-4 array sits at 3.5 pF typical, and the largest run to 900 pF.
@@ -49,8 +49,9 @@ else.** [1] [2]
 5 V standoff part on a 5 V rail is marginal: rail tolerance and ripple can push
 it into conduction, where it draws current continuously and heats up.
 
-**Clamping voltage is what your chip sees, and it depends on the current.** A
-part that clamps to 12 V protects a 3.3 V input; one that clamps to 40 V may not.
+**Clamping voltage is what your chip sees, and it depends on the current.** Even a 12 V clamp can exceed a 3.3 V input’s permitted transient voltage.
+Compare the residual voltage, pulse current, and layout-induced overshoot with
+the protected circuit’s limits.
 Note that a clamping figure is meaningless without the current it was measured
 at: hongjiacheng's 3.3 V ESD diode clamps to 11 V at 1 A but 25 V at 5 A, from the
 same table. Compare clamping voltages at comparable currents, not standoff

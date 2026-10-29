@@ -1,5 +1,61 @@
 [
   {
+    "date": "2026-10-29",
+    "title": "Catalog refresh and verified specification corrections",
+    "catalogSnapshotDate": "2026-10-29",
+    "curatedReviewedDate": "2026-08-19",
+    "summary": "Refreshed all 1,586 qualifying JLCPCB parts: 351 Basic and 1,235 Preferred Extended. No additions, removals, or tier changes since October 13.",
+    "changes": [
+      "Updated 1,550 stock counts and 1,480 price records; independently rechecked the three largest first-price increases and decreases.",
+      "Independently checked the 14 substantive rating changes against the exact linked manufacturer sheets. Corrected leakage and resistor-description errors and restored typical/maximum, pulse-current, and pin-pair conditions in the displayed specifications.",
+      "Confirmed RP2040 C2040 remains ordinary Extended. Corrected its RAM-boot and clock guidance, LM2596 replacement wording, the selected ADuM1201 speed grade, ESD guidance, lifecycle notes, and the resistor drift example.",
+      "Updated the existing WS2812 selection to its exact WS2812B-B/W identity and V5-linked datasheet, including the longer reset timing and Standard PCBA-only restriction. Aligned the W5500 package label.",
+      "Preserved all 58 Our Picks selections and recorded that additions require explicit human selection. Strengthened refresh validation and updated the build dependencies."
+    ],
+    "caveat": "Catalog collection, targeted specification review, and human selection are separate activities. The selected Our Picks membership and its August 19, 2026 selection-review date are preserved. Source snapshots remain available; prices and stock may change, and these targeted corrections do not certify every electrical claim in the catalog.",
+    "sources": [
+      {
+        "label": "October 29 refresh and independently reviewed corrections",
+        "url": "https://github.com/bandrews/whichpart/blob/main/basicpart/REFRESH-REVIEW-2026-10-29.md"
+      },
+      {
+        "label": "JLCPCB RP2040 C2040 product page",
+        "url": "https://jlcpcb.com/partdetail/RaspberryPi-RP2040/C2040"
+      },
+      {
+        "label": "October 29 exact-part API checks",
+        "url": "https://github.com/bandrews/whichpart/blob/main/basicpart/raw-data/jlcpcb-part-checks-2026-10-29.json"
+      },
+      {
+        "label": "Independent review of every Luna finding",
+        "url": "https://github.com/bandrews/whichpart/blob/main/basicpart/reviews/2026-10-29/independent-review.md"
+      }
+    ]
+  },
+  {
+    "date": "2026-10-13",
+    "title": "Catalog refresh and Schottky / multiplexer attribute updates",
+    "catalogSnapshotDate": "2026-10-13",
+    "curatedReviewedDate": "2026-08-19",
+    "summary": "Refreshed the complete JLCPCB Basic and Preferred Extended catalog: 1,586 parts, including 351 Basic and 1,235 Preferred Extended.",
+    "changes": [
+      "Updated 1,520 stock counts and 1,379 price records. No parts were added or removed, and no tiers or categories changed.",
+      "Aligned C7420316 (SS14) package metadata with JLCPCB's normalized SMA(DO-214AC) spelling.",
+      "Reviewed 160 upstream attribute updates across 154 Schottky diodes (adding Power Dissipation, surge current, and temperature fields), 5 TVS parts, and C21379 (CD4051BM96), where newly populated 720 ns / 450 ns turn-on and turn-off fields match TI SCHS047O's 5 V maximum inhibit-to-output delays."
+    ],
+    "caveat": "Catalog collection is separate from editorial or datasheet review. Our Picks retains its August 19, 2026 review date. Prices and stock are snapshots; verify current availability, ratings, and suitability before ordering.",
+    "sources": [
+      {
+        "label": "October 13, 2026 refresh review and unresolved source conflicts",
+        "url": "https://github.com/bandrews/whichpart/blob/main/basicpart/REFRESH-REVIEW-2026-10-13.md"
+      },
+      {
+        "label": "TI CD4051B/CD4052B/CD4053B datasheet (SCHS047O, rev. May 2026)",
+        "url": "https://www.ti.com/lit/ds/symlink/cd4051b.pdf"
+      }
+    ]
+  },
+  {
     "date": "2026-10-02",
     "title": "Catalog refresh and clearer specifications",
     "catalogSnapshotDate": "2026-10-02",

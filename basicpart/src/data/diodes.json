@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "diode",
-    "lastUpdated": "2026-10-02",
+    "lastUpdated": "2026-10-29",
     "columns": [
       "SOD-123",
       "SOD-123FL",
@@ -34,10 +34,6 @@
       "SMA(DO-214AC)": {
         "part": "C2480",
         "tier": "basic"
-      },
-      "SMA_DO-214AC": {
-        "part": "C7420316",
-        "tier": "preferred"
       }
     },
     "MB10S-50MIL": {
@@ -365,7 +361,7 @@
     "B0540WS": {
       "display": "B0540WS",
       "type": "schottky",
-      "description": "-55℃~+125℃ 1 Independent 20uA@40V 40V 5.5A 500mA 510mV@500mA SOD-323 Schottky Diodes ROHS",
+      "description": "-55℃~+125℃ 1 Independent 200mW 20uA@40V 40V 5.5A 500mA 510mV@500mA SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C7420326",
         "tier": "preferred"
@@ -401,7 +397,7 @@
     "BAT46W": {
       "display": "BAT46W",
       "type": "schottky",
-      "description": "100V 150mA 2uA@100V 450mV@10mA 750mA Standalone SOD-123 Schottky Diodes ROHS",
+      "description": "100V 150mA 2uA@100V 450mV@10mA 500mW 750mA Standalone SOD-123 Schottky Diodes ROHS",
       "SOD-123": {
         "part": "C7420332",
         "tier": "preferred"
@@ -563,7 +559,7 @@
     "H5VU25U": {
       "display": "H5VU25U",
       "type": "tvs",
-      "description": "14V 1uA 4A 56W 5V 6V Four channels TVS Unidirectional DFN2510-10L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 0.5pF 14V 1uA 4A 56W 5V 6V Four channels IEC 61000-4-2、IEC 61000-4-5 TVS Unidirectional DFN2510-10L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN2510-10L": {
         "part": "C7420374",
         "tier": "preferred"
@@ -599,7 +595,7 @@
     "BAS40": {
       "display": "BAS40",
       "type": "schottky",
-      "description": "1 Independent 1V@40mA 200mA 200nA 40V 600mA SOT-23 Schottky Diodes ROHS",
+      "description": "1 Independent 1V@40mA 200mA 200mW 200nA 40V 600mA SOT-23 Schottky Diodes ROHS",
       "SOT-23": {
         "part": "C7502685",
         "tier": "preferred"
@@ -608,7 +604,7 @@
     "BAS70": {
       "display": "BAS70",
       "type": "schottky",
-      "description": "-55℃~+125℃ 1 Independent 100mA 100nA 1V@15mA 70V 70mA SOT-23 Schottky Diodes ROHS",
+      "description": "-55℃~+125℃ 1 Independent 100mA 100nA 1V@15mA 200mW 70V 70mA SOT-23 Schottky Diodes ROHS",
       "SOT-23": {
         "part": "C7502686",
         "tier": "preferred"
@@ -617,7 +613,7 @@
     "BAS70-04": {
       "display": "BAS70-04",
       "type": "schottky",
-      "description": "-55℃~+125℃ 1 Pair Series Connection 100mA 100nA 1V@15mA 70V 70mA SOT-23 Schottky Diodes ROHS",
+      "description": "-55℃~+125℃ 1 Pair Series Connection 100mA 100nA 1V@15mA 200mW 70V 70mA SOT-23 Schottky Diodes ROHS",
       "SOT-23": {
         "part": "C7502687",
         "tier": "preferred"
@@ -626,7 +622,7 @@
     "BAS40-04": {
       "display": "BAS40-04",
       "type": "schottky",
-      "description": "1 Pair Series Connection 1V@40mA 200mA 200nA 40V 600mA SOT-23 Schottky Diodes ROHS",
+      "description": "1 Pair Series Connection 1V@40mA 200mA 200mW 200nA 40V 600mA SOT-23 Schottky Diodes ROHS",
       "SOT-23": {
         "part": "C7502688",
         "tier": "preferred"
@@ -635,7 +631,7 @@
     "BAS40-05": {
       "display": "BAS40-05",
       "type": "schottky",
-      "description": "1 Pair Common Cathode 1V@40mA 200mA 200nA 40V 600mA SOT-23 Schottky Diodes ROHS",
+      "description": "-55℃~+125℃ 1 Pair Common Cathode 1V@40mA 200mA 200mW 200nA 40V 600mA SOT-23 Schottky Diodes ROHS",
       "SOT-23": {
         "part": "C7502689",
         "tier": "preferred"
@@ -644,7 +640,7 @@
     "BAT54A": {
       "display": "BAT54A",
       "type": "schottky",
-      "description": "1 Pair Common Anode 1V@100mA 200mA 2uA 30V 600mA SOT-23 Schottky Diodes ROHS",
+      "description": "1 Pair Common Anode 1V@100mA 200mA 200mW 2uA 30V 600mA SOT-23 Schottky Diodes ROHS",
       "SOT-23": {
         "part": "C7502690",
         "tier": "preferred"
@@ -689,7 +685,7 @@
     "BAT60B": {
       "display": "BAT60B",
       "type": "schottky",
-      "description": "10V 25uA 3A 5A 600mV@1A Standalone SOD-323 Schottky Diodes ROHS",
+      "description": "10V 25uA 350mW 3A 5A 600mV@1A Standalone SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C7502695",
         "tier": "preferred"
@@ -698,7 +694,7 @@
     "B0520WS": {
       "display": "B0520WS",
       "type": "schottky",
-      "description": "-55℃~+125℃ 1 Independent 20V 250uA 390mV@500mA 5.5A 500mA SOD-323 Schottky Diodes ROHS",
+      "description": "-55℃~+125℃ 1 Independent 200mW 20V 250uA 390mV@500mA 5.5A 500mA SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C7502696",
         "tier": "preferred"
@@ -707,7 +703,7 @@
     "B0530WS": {
       "display": "B0530WS",
       "type": "schottky",
-      "description": "-55℃~+125℃ 1 Independent 30V 450mV@0.5A 5.5A 500mA 500uA SOD-323 Schottky Diodes ROHS",
+      "description": "-55℃~+125℃ 1 Independent 200mW 30V 450mV@0.5A 5.5A 500mA 500uA SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C7502697",
         "tier": "preferred"
@@ -716,7 +712,7 @@
     "RB551V-30": {
       "display": "RB551V-30",
       "type": "schottky",
-      "description": "100uA 2A 30V 470mV@500mA 500mA Standalone SOD-323 Schottky Diodes ROHS",
+      "description": "100uA 250mW 2A 30V 470mV@500mA 500mA Standalone SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C7502698",
         "tier": "preferred"
@@ -734,7 +730,7 @@
     "RB751S-40": {
       "display": "RB751S-40",
       "type": "schottky",
-      "description": "200mA 30mA 370mV@1mA 40V 500nA@30V Standalone SOD-523 Schottky Diodes ROHS",
+      "description": "-55℃~+125℃ 150mW 200mA 30mA 370mV@1mA 40V 500nA@30V Standalone SOD-523 Schottky Diodes ROHS",
       "SOD-523": {
         "part": "C7502700",
         "tier": "preferred"
@@ -743,7 +739,7 @@
     "RB520S-30": {
       "display": "RB520S-30",
       "type": "schottky",
-      "description": "1A 1uA 200mA 30V 600mV@200mA Standalone SOD-523 Schottky Diodes ROHS",
+      "description": "150mW 1A 1uA 200mA 30V 600mV@200mA Standalone SOD-523 Schottky Diodes ROHS",
       "SOD-523": {
         "part": "C7502701",
         "tier": "preferred"
@@ -752,7 +748,7 @@
     "RB521S-30": {
       "display": "RB521S-30",
       "type": "schottky",
-      "description": "1A 200mA 30V 30uA 500mV@200mA Standalone SOD-523 Schottky Diodes ROHS",
+      "description": "150mW 1A 200mA 30V 30uA 500mV@200mA Standalone SOD-523 Schottky Diodes ROHS",
       "SOD-523": {
         "part": "C7502702",
         "tier": "preferred"
@@ -761,7 +757,7 @@
     "RB521S-40": {
       "display": "RB521S-40",
       "type": "schottky",
-      "description": "1 Independent 1A 200mA 40V 540mV@200mA 90uA SOD-523 Schottky Diodes ROHS",
+      "description": "1 Independent 150mW 1A 200mA 40V 540mV@200mA 90uA SOD-523 Schottky Diodes ROHS",
       "SOD-523": {
         "part": "C7502703",
         "tier": "preferred"
@@ -770,7 +766,7 @@
     "BAT54W": {
       "display": "BAT54W",
       "type": "schottky",
-      "description": "-55℃~+150℃ 200mA 2uA 30V 600mA 800mV@100mA Standalone SOD-123 Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 200mA 2uA 30V 500mW 600mA 800mV@100mA Standalone SOD-123 Schottky Diodes ROHS",
       "SOD-123": {
         "part": "C7502705",
         "tier": "preferred"
@@ -779,7 +775,7 @@
     "SD103AW": {
       "display": "SD103AW",
       "type": "schottky",
-      "description": "1 Independent 350mA 40V 5uA 600mV@200mA SOD-123 Schottky Diodes ROHS",
+      "description": "1 Independent 2A 350mA 400mW 40V 5uA 600mV@200mA SOD-123 Schottky Diodes ROHS",
       "SOD-123": {
         "part": "C7502706",
         "tier": "preferred"
@@ -797,7 +793,7 @@
     "B0530W": {
       "display": "B0530W",
       "type": "schottky",
-      "description": "-55℃~+125℃ 130uA 30V 430mV@500mA 5.5A 500mA Standalone SOD-123 Schottky Diodes ROHS",
+      "description": "-55℃~+125℃ 130uA 30V 430mV@500mA 5.5A 500mA 500mW Standalone SOD-123 Schottky Diodes ROHS",
       "SOD-123": {
         "part": "C7502708",
         "tier": "preferred"
@@ -815,7 +811,7 @@
     "B16W": {
       "display": "B16W",
       "type": "schottky",
-      "description": "1 Independent 100uA 10A 1A 60V 700mV@1A SOD-123 Schottky Diodes ROHS",
+      "description": "1 Independent 100uA 10A 1A 500mW 60V 700mV@1A SOD-123 Schottky Diodes ROHS",
       "SOD-123": {
         "part": "C7502710",
         "tier": "preferred"
@@ -851,7 +847,7 @@
     "B5819WT": {
       "display": "B5819WT",
       "type": "schottky",
-      "description": "1.5A 350mA 40V 5uA@30V 600mV@200mA Standalone SOD-523 Schottky Diodes ROHS",
+      "description": "1.5A 200mW 350mA 40V 5uA@30V 600mV@200mA Standalone SOD-523 Schottky Diodes ROHS",
       "SOD-523": {
         "part": "C7502714",
         "tier": "preferred"
@@ -989,15 +985,6 @@
       "description": "-55℃~+150℃ 1 Pair Common Anode 1.2V@100mA 100mA 150mW 2A 4ns 500nA 80V SOT-23 Switching Diodes ROHS",
       "SOT-23": {
         "part": "C7502730",
-        "tier": "preferred"
-      }
-    },
-    "1SS226": {
-      "display": "1SS226",
-      "type": "switching",
-      "description": "-65℃~+150℃ 1 Pair Series Connection 100mA 150mW 1V@100mA 2.5uA 2A 4ns 80V SOT-23 Switching Diodes ROHS",
-      "SOT-23": {
-        "part": "C7502731",
         "tier": "preferred"
       }
     },
@@ -1688,7 +1675,7 @@
     "SS520": {
       "display": "SS520",
       "type": "schottky",
-      "description": "200V 50uA@200V 5A 950mV@5A Standalone SMA(DO-214AC) Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 120A 200V 50uA@200V 5A 950mV@5A Standalone SMA(DO-214AC) Schottky Diodes ROHS",
       "SMA(DO-214AC)": {
         "part": "C18199170",
         "tier": "preferred"
@@ -1769,7 +1756,7 @@
     "SS56B": {
       "display": "SS56B",
       "type": "schottky",
-      "description": "200uA@60V 5A 60V 700mV@5A Standalone SMB Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 120A 200uA@60V 5A 60V 700mV@5A Standalone SMB Schottky Diodes ROHS",
       "SMB": {
         "part": "C18199180",
         "tier": "preferred"
@@ -1796,7 +1783,7 @@
     "SS310B": {
       "display": "SS310B",
       "type": "schottky",
-      "description": "100V 3A 50uA@100V 850mV@3A Standalone SMB Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 100V 3A 50uA@100V 80A 850mV@3A Standalone SMB Schottky Diodes ROHS",
       "SMB": {
         "part": "C18199183",
         "tier": "preferred"
@@ -1823,7 +1810,7 @@
     "SS210B": {
       "display": "SS210B",
       "type": "schottky",
-      "description": "100V 20uA@100V 2A 850mV@2A Standalone SMB Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 100V 20uA@100V 2A 50A 850mV@2A Standalone SMB Schottky Diodes ROHS",
       "SMB": {
         "part": "C18199186",
         "tier": "preferred"
@@ -2039,7 +2026,7 @@
     "SK106C": {
       "display": "SK106C",
       "type": "schottky",
-      "description": "10A 500uA@60V 60V 700mV@10A Standalone SMC Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 10A 175A 500uA@60V 60V 700mV@10A Standalone SMC Schottky Diodes ROHS",
       "SMC": {
         "part": "C18199210",
         "tier": "preferred"
@@ -3011,7 +2998,7 @@
     "SMF5.0A": {
       "display": "SMF5.0A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 200W@10/1000us 21.7A@10/1000us 400uA 5V 7V 9.2V IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 200W@10/1000us 21.7A@10/1000us 400uA 5V 7V 9.2V IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077497",
         "tier": "preferred"
@@ -3020,7 +3007,7 @@
     "SMF5.0CA": {
       "display": "SMF5.0CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 200W@10/1000us 21.7A@10/1000us 400uA 5V 7V 9.2V Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 200W@10/1000us 21.7A@10/1000us 400uA 5V 7V 9.2V Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077498",
         "tier": "preferred"
@@ -3029,7 +3016,7 @@
     "SMF6.0A": {
       "display": "SMF6.0A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 10.3V 19.4A@10/1000us 200W@10/1000us 400uA 6V 7.37V IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 10.3V 19.4A@10/1000us 200W@10/1000us 400uA 6V 7.37V IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077499",
         "tier": "preferred"
@@ -3038,7 +3025,7 @@
     "SMF6.5CA": {
       "display": "SMF6.5CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 11.2V 17.9A@10/1000us 200W@10/1000us 250uA 6.5V 7.98V Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 11.2V 17.9A@10/1000us 200W@10/1000us 250uA 6.5V 7.98V Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077501",
         "tier": "preferred"
@@ -3047,7 +3034,7 @@
     "SMF7.0CA": {
       "display": "SMF7.0CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 100uA 12V 16.7A@10/1000us 200W@10/1000us 7V 8.6V Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 100uA 12V 16.7A@10/1000us 200W@10/1000us 7V 8.6V Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077502",
         "tier": "preferred"
@@ -3065,7 +3052,7 @@
     "SMF9.0CA": {
       "display": "SMF9.0CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 11.1V 13A@10/1000us 15.4V 200W@10/1000us 5uA 9V Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 11.1V 13A@10/1000us 15.4V 200W@10/1000us 5uA 9V Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077504",
         "tier": "preferred"
@@ -3092,7 +3079,7 @@
     "SMF12CA": {
       "display": "SMF12CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 10.1A@10/1000us 12V 14.7V 19.9V 2.5uA 200W@10/1000us Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 10.1A@10/1000us 12V 14.7V 19.9V 2.5uA 200W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077507",
         "tier": "preferred"
@@ -3101,7 +3088,7 @@
     "SMF13CA": {
       "display": "SMF13CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 13V 15.9V 1uA 200W@10/1000us 21.5V 9.3A@10/1000us Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 13V 15.9V 1uA 200W@10/1000us 21.5V 9.3A@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077508",
         "tier": "preferred"
@@ -3110,7 +3097,7 @@
     "SMF15A": {
       "display": "SMF15A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 15V 18.5V 1uA 200W@10/1000us 24.4V 8.2A@10/1000us IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 15V 18.5V 1uA 200W@10/1000us 24.4V 8.2A@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077509",
         "tier": "preferred"
@@ -3119,7 +3106,7 @@
     "SMF15CA": {
       "display": "SMF15CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 15V 18.5V 1uA 200W@10/1000us 24.4V 8.2A@10/1000us Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 15V 18.5V 1uA 200W@10/1000us 24.4V 8.2A@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077510",
         "tier": "preferred"
@@ -3128,7 +3115,7 @@
     "SMF16CA": {
       "display": "SMF16CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 16V 19.7V 1uA 200W@10/1000us 26V 7.7A@10/1000us Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 16V 19.7V 1uA 200W@10/1000us 26V 7.7A@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077511",
         "tier": "preferred"
@@ -3155,7 +3142,7 @@
     "SMF24A": {
       "display": "SMF24A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 200W@10/1000us 24V 29.5V 38.9V 5.1A@10/1000us IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 200W@10/1000us 24V 29.5V 38.9V 5.1A@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077514",
         "tier": "preferred"
@@ -3164,7 +3151,7 @@
     "SMF24CA": {
       "display": "SMF24CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 200W@10/1000us 24V 29.5V 38.9V 5.1A@10/1000us Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 200W@10/1000us 24V 29.5V 38.9V 5.1A@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077515",
         "tier": "preferred"
@@ -3182,7 +3169,7 @@
     "SMF28CA": {
       "display": "SMF28CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 200W@10/1000us 28V 34.4V 4.4A@10/1000us 45.4V Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 200W@10/1000us 28V 34.4V 4.4A@10/1000us 45.4V Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077517",
         "tier": "preferred"
@@ -3191,7 +3178,7 @@
     "SMF30A": {
       "display": "SMF30A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 200W@10/1000us 30V 36.8V 4.1A 48.4V IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 200W@10/1000us 30V 36.8V 4.1A 48.4V IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C19077518",
         "tier": "preferred"
@@ -3227,7 +3214,7 @@
     "SMAJ5.0CA": {
       "display": "SMAJ5.0CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 400W@10/1000us 43.5A@10/1000us 5V 7V 800uA 9.2V Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 400W@10/1000us 43.5A@10/1000us 5V 7V 800uA 9.2V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077524",
         "tier": "preferred"
@@ -3245,7 +3232,7 @@
     "SMAJ6.0CA": {
       "display": "SMAJ6.0CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 10.3V 38.8A@10/1000us 400W@10/1000us 6V 7.37V 800uA Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 10.3V 38.8A@10/1000us 400W@10/1000us 6V 7.37V 800uA Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077526",
         "tier": "preferred"
@@ -3254,7 +3241,7 @@
     "SMAJ6.5CA": {
       "display": "SMAJ6.5CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 11.2V 35.7A@10/1000us 400W@10/1000us 500uA 6.5V 7.98V Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 11.2V 35.7A@10/1000us 400W@10/1000us 500uA 6.5V 7.98V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077527",
         "tier": "preferred"
@@ -3281,7 +3268,7 @@
     "SMAJ12A": {
       "display": "SMAJ12A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 12V 14.7V 19.9V 1uA 20.1A@10/1000us 400W@10/1000us IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 12V 14.7V 19.9V 1uA 20.1A@10/1000us 400W@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077531",
         "tier": "preferred"
@@ -3290,7 +3277,7 @@
     "SMAJ12CA": {
       "display": "SMAJ12CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 12V 14.7V 19.9V 1uA 20.1A@10/1000us 400W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 12V 14.7V 19.9V 1uA 20.1A@10/1000us 400W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077532",
         "tier": "preferred"
@@ -3317,7 +3304,7 @@
     "SMAJ15A": {
       "display": "SMAJ15A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 15V 16.4A@10/1000us 18.5V 1uA 24.4V 400W@10/1000us IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 15V 16.4A@10/1000us 18.5V 1uA 24.4V 400W@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077535",
         "tier": "preferred"
@@ -3326,7 +3313,7 @@
     "SMAJ15CA": {
       "display": "SMAJ15CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 15V 16.4A@10/1000us 18.5V 1uA 24.4V 400W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 15V 16.4A@10/1000us 18.5V 1uA 24.4V 400W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077536",
         "tier": "preferred"
@@ -3344,7 +3331,7 @@
     "SMAJ18A": {
       "display": "SMAJ18A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 13.7A 18V 1uA 22.1V 29.2V 400W IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 13.7A 18V 1uA 22.1V 29.2V 400W IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077538",
         "tier": "preferred"
@@ -3380,7 +3367,7 @@
     "SMAJ24CA": {
       "display": "SMAJ24CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 10.3A@10/1000us 1uA 24V 29.5V 38.9V 400W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 10.3A@10/1000us 1uA 24V 29.5V 38.9V 400W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077542",
         "tier": "preferred"
@@ -3389,7 +3376,7 @@
     "SMAJ26A": {
       "display": "SMAJ26A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 26V 31.9V 400W@10/1000us 42.1V 9.5A@10/1000us IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 26V 31.9V 400W@10/1000us 42.1V 9.5A@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077543",
         "tier": "preferred"
@@ -3398,7 +3385,7 @@
     "SMAJ26CA": {
       "display": "SMAJ26CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 26V 31.9V 400W@10/1000us 42.1V 9.5A@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 26V 31.9V 400W@10/1000us 42.1V 9.5A@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077544",
         "tier": "preferred"
@@ -3407,7 +3394,7 @@
     "SMAJ28A": {
       "display": "SMAJ28A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 28V 34.4V 400W@10/1000us 45.4V 8.8A@10/1000us IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 28V 34.4V 400W@10/1000us 45.4V 8.8A@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077545",
         "tier": "preferred"
@@ -3425,7 +3412,7 @@
     "SMAJ30A": {
       "display": "SMAJ30A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 30V 36.8V 400W@10/1000us 48.4V 8.3A@10/1000us IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 30V 36.8V 400W@10/1000us 48.4V 8.3A@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077547",
         "tier": "preferred"
@@ -3452,7 +3439,7 @@
     "SMAJ36A": {
       "display": "SMAJ36A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 36V 400W@10/1000us 44.2V 58.1V 6.9A@10/1000us IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 36V 400W@10/1000us 44.2V 58.1V 6.9A@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077550",
         "tier": "preferred"
@@ -3461,7 +3448,7 @@
     "SMAJ36CA": {
       "display": "SMAJ36CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 36V 400W@10/1000us 44.2V 58.1V 6.9A@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 36V 400W@10/1000us 44.2V 58.1V 6.9A@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077551",
         "tier": "preferred"
@@ -3470,7 +3457,7 @@
     "SMAJ40CA": {
       "display": "SMAJ40CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 400W@10/1000us 40V 49.1V 6.2A@10/1000us 64.5V Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 400W@10/1000us 40V 49.1V 6.2A@10/1000us 64.5V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C19077552",
         "tier": "preferred"
@@ -3524,7 +3511,7 @@
     "SMBJ5.0A": {
       "display": "SMBJ5.0A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 5V 600W@10/1000us 65.22A@10/1000us 7V 800uA 9.2V IEC 61000-4-2 TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 5V 600W@10/1000us 65.22A@10/1000us 7V 800uA 9.2V IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077558",
         "tier": "preferred"
@@ -3560,7 +3547,7 @@
     "SMBJ7.0CA": {
       "display": "SMBJ7.0CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 12V 200uA 50A@10/1000us 600W@10/1000us 7V 8.6V Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 12V 200uA 50A@10/1000us 600W@10/1000us 7V 8.6V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077564",
         "tier": "preferred"
@@ -3578,7 +3565,7 @@
     "SMBJ12CA": {
       "display": "SMBJ12CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 12V 14.7V 19.9V 30.15A@10/1000us 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 12V 14.7V 19.9V 30.15A@10/1000us 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077566",
         "tier": "preferred"
@@ -3596,7 +3583,7 @@
     "SMBJ13CA": {
       "display": "SMBJ13CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 13V 15.9V 21.5V 27.91A@10/1000us 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 13V 15.9V 21.5V 27.91A@10/1000us 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077568",
         "tier": "preferred"
@@ -3614,7 +3601,7 @@
     "SMBJ15CA": {
       "display": "SMBJ15CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 15V 18.5V 24.4V 24.59A@10/1000us 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 15V 18.5V 24.4V 24.59A@10/1000us 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077570",
         "tier": "preferred"
@@ -3632,7 +3619,7 @@
     "SMBJ16CA": {
       "display": "SMBJ16CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 16V 19.7V 23.08A@10/1000us 26V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 16V 19.7V 23.08A@10/1000us 26V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077572",
         "tier": "preferred"
@@ -3650,7 +3637,7 @@
     "SMBJ18CA": {
       "display": "SMBJ18CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 18V 20.55A 22.1V 29.2V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 18V 20.55A 22.1V 29.2V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077574",
         "tier": "preferred"
@@ -3677,7 +3664,7 @@
     "SMBJ22CA": {
       "display": "SMBJ22CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 16.9A@10/1000us 22V 26.9V 35.5V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 16.9A@10/1000us 22V 26.9V 35.5V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077577",
         "tier": "preferred"
@@ -3695,7 +3682,7 @@
     "SMBJ24CA": {
       "display": "SMBJ24CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 15.42A@10/1000us 24V 29.5V 38.9V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 15.42A@10/1000us 24V 29.5V 38.9V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077579",
         "tier": "preferred"
@@ -3713,7 +3700,7 @@
     "SMBJ26CA": {
       "display": "SMBJ26CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 14.25A@10/1000us 26V 31.9V 42.1V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 14.25A@10/1000us 26V 31.9V 42.1V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077581",
         "tier": "preferred"
@@ -3722,7 +3709,7 @@
     "SMBJ28A": {
       "display": "SMBJ28A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 13.22A@10/1000us 28V 34.4V 45.4V 5uA 600W@10/1000us IEC 61000-4-2 TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 13.22A@10/1000us 28V 34.4V 45.4V 5uA 600W@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077582",
         "tier": "preferred"
@@ -3731,7 +3718,7 @@
     "SMBJ28CA": {
       "display": "SMBJ28CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 13.22A@10/1000us 28V 34.4V 45.4V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 13.22A@10/1000us 28V 34.4V 45.4V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077583",
         "tier": "preferred"
@@ -3740,7 +3727,7 @@
     "SMBJ30A": {
       "display": "SMBJ30A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 12.4A@10/1000us 30V 36.8V 48.4V 5uA 600W@10/1000us IEC 61000-4-2 TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 12.4A@10/1000us 30V 36.8V 48.4V 5uA 600W@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077584",
         "tier": "preferred"
@@ -3758,7 +3745,7 @@
     "SMBJ33CA": {
       "display": "SMBJ33CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 11.26A@10/1000us 33V 40.6V 53.3V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 11.26A@10/1000us 33V 40.6V 53.3V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077587",
         "tier": "preferred"
@@ -3767,7 +3754,7 @@
     "SMBJ36A": {
       "display": "SMBJ36A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 10.33A 36V 44.2V 58.1V 5uA 600W@10/1000us IEC 61000-4-2 TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 10.33A 36V 44.2V 58.1V 5uA 600W@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077588",
         "tier": "preferred"
@@ -3776,7 +3763,7 @@
     "SMBJ36CA": {
       "display": "SMBJ36CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 10.33A@10/1000us 36V 44.2V 58.1V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 10.33A@10/1000us 36V 44.2V 58.1V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077589",
         "tier": "preferred"
@@ -3785,7 +3772,7 @@
     "SMBJ40CA": {
       "display": "SMBJ40CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 40V 49.1V 5uA 600W@10/1000us 64.5V 9.3A@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 40V 49.1V 5uA 600W@10/1000us 64.5V 9.3A@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077590",
         "tier": "preferred"
@@ -3794,7 +3781,7 @@
     "SMBJ48CA": {
       "display": "SMBJ48CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 48V 58.9V 5uA 600W@10/1000us 7.75A@10/1000us 77.4V Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 48V 58.9V 5uA 600W@10/1000us 7.75A@10/1000us 77.4V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077591",
         "tier": "preferred"
@@ -3803,7 +3790,7 @@
     "SMBJ58CA": {
       "display": "SMBJ58CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 58V 5uA 6.41A@10/1000us 600W@10/1000us 71.2V 93.6V Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 58V 5uA 6.41A@10/1000us 600W@10/1000us 71.2V 93.6V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077592",
         "tier": "preferred"
@@ -3839,7 +3826,7 @@
     "P6SMB6.8CA": {
       "display": "P6SMB6.8CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 10.5V 1mA 5.8V 57.1A@10/1000us 600W@10/1000us 7.14V Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 10.5V 1mA 5.8V 57.1A@10/1000us 600W@10/1000us 7.14V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077596",
         "tier": "preferred"
@@ -3848,7 +3835,7 @@
     "P6SMB15CA": {
       "display": "P6SMB15CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 12.8V 15.75V 21.2V 28.3A@10/1000us 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 12.8V 15.75V 21.2V 28.3A@10/1000us 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C19077597",
         "tier": "preferred"
@@ -3902,7 +3889,7 @@
     "SMCJ15CA": {
       "display": "SMCJ15CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 15V 18.5V 1uA 24.4V 61.5A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 15V 18.5V 1uA 24.4V 61.5A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C19077603",
         "tier": "preferred"
@@ -3920,7 +3907,7 @@
     "SMCJ26CA": {
       "display": "SMCJ26CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 26V 31.9V 35.7A@10/1000us 42.1V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 26V 31.9V 35.7A@10/1000us 42.1V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C19077605",
         "tier": "preferred"
@@ -3929,7 +3916,7 @@
     "SMCJ28CA": {
       "display": "SMCJ28CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 28V 33.1A@10/1000us 34.4V 45.4V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 28V 33.1A@10/1000us 34.4V 45.4V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C19077606",
         "tier": "preferred"
@@ -3938,7 +3925,7 @@
     "SMCJ30CA": {
       "display": "SMCJ30CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 30V 31A@10/1000us 36.8V 48.4V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 30V 31A@10/1000us 36.8V 48.4V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C19077607",
         "tier": "preferred"
@@ -3956,7 +3943,7 @@
     "SMCJ36CA": {
       "display": "SMCJ36CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 25.9A@10/1000us 36V 44.2V 58.1V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 25.9A@10/1000us 36V 44.2V 58.1V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C19077609",
         "tier": "preferred"
@@ -3983,7 +3970,7 @@
     "BAT54X": {
       "display": "BAT54X",
       "type": "schottky",
-      "description": "1V@100mA 200mA 2uA@25V 30V 600mA Standalone SOD-523 Schottky Diodes ROHS",
+      "description": "150mW 1V@100mA 200mA 2uA@25V 30V 600mA Standalone SOD-523 Schottky Diodes ROHS",
       "SOD-523": {
         "part": "C19627026",
         "tier": "preferred"
@@ -3992,7 +3979,7 @@
     "H3V3L06B": {
       "display": "H3V3L06B",
       "type": "tvs",
-      "description": "-55℃~+125℃ 10V 12pF 200nA 3.3V 6V 80W@8/20us 8A@8/20us Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 DFN0603-2L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 1 10V 12pF 200nA 3.3V 6V 80W@8/20us 8A@8/20us Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 DFN0603-2L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN0603-2L": {
         "part": "C20615778",
         "tier": "preferred"
@@ -4001,7 +3988,7 @@
     "H5VN06B": {
       "display": "H5VN06B",
       "type": "tvs",
-      "description": "-55℃~+125℃ 100W@8/20us 12.5V 15pF 500nA 5V 8A@8/20us 9V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 DFN0603-2L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 1 100W@8/20us 12.5V 22pF 500nA 5V 8A@8/20us 9V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 DFN0603-2L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN0603-2L": {
         "part": "C20615779",
         "tier": "preferred"
@@ -4010,7 +3997,7 @@
     "H5VU06B": {
       "display": "H5VU06B",
       "type": "tvs",
-      "description": "-55℃~+125℃ 0.5pF 125W@8/20us 200nA 25V 5A@8/20us 5V 9V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 DFN0603-2L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 0.5pF 1 125W@8/20us 200nA 25V 5A@8/20us 5V 9V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 DFN0603-2L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN0603-2L": {
         "part": "C20615780",
         "tier": "preferred"
@@ -4136,7 +4123,7 @@
     "H7VH16U": {
       "display": "H7VH16U",
       "type": "tvs",
-      "description": "-55℃~+125℃ 10V 115A@8/20us 2.3kW@8/20us 20V 500nA 7V 900pF ESD IEC 61000-4-2、IEC 61000-4-5 Unidirectional DFN1610-2L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 10V 115A@8/20us 2.3kW@8/20us 20V 500nA 7V 900pF ESD IEC 61000-4-2、IEC 61000-4-5 Single-channel Unidirectional DFN1610-2L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN1610-2L": {
         "part": "C20615796",
         "tier": "preferred"
@@ -4145,7 +4132,7 @@
     "H10VH16U": {
       "display": "H10VH16U",
       "type": "tvs",
-      "description": "-55℃~+155℃ 1.58kW@8/20us 100nA 10V 13.5V 22V 550pF 72A@8/20us ESD IEC 61000-4-2、IEC 61000-4-5 Unidirectional DFN1610-2L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 1.58kW@8/20us 100nA 10V 13.5V 22V 550pF 72A@8/20us ESD IEC 61000-4-2、IEC 61000-4-5 Unidirectional DFN1610-2L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN1610-2L": {
         "part": "C20615797",
         "tier": "preferred"
@@ -4154,7 +4141,7 @@
     "H12VH16U": {
       "display": "H12VH16U",
       "type": "tvs",
-      "description": "-55℃~+155℃ 100A@8/20us 12V 17.8V 2.5kW@8/20us 200nA 25V 280pF ESD IEC 61000-4-2、IEC 61000-4-5 Unidirectional DFN1610-2L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 100A@8/20us 12V 17.8V 2.5kW@8/20us 200nA 25V 280pF ESD IEC 61000-4-2、IEC 61000-4-5 Single-channel Unidirectional DFN1610-2L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN1610-2L": {
         "part": "C20615798",
         "tier": "preferred"
@@ -4172,7 +4159,7 @@
     "H5VU25UC": {
       "display": "H5VU25UC",
       "type": "tvs",
-      "description": "-55℃~+125℃ 0.4pF、0.8pF 10V 15V 1uA 5A@8/20us 5V 75W@8/20us ESD IEC 61000-4-2、IEC 61000-4-5 Unidirectional DFN2510-10L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 0.8pF 10V 15V 1uA 5A@8/20us 5V 75W@8/20us ESD Four channels IEC 61000-4-2、IEC 61000-4-5 Unidirectional DFN2510-10L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN2510-10L": {
         "part": "C20615800",
         "tier": "preferred"
@@ -4325,7 +4312,7 @@
     "H3V3LD5B": {
       "display": "H3V3LD5B",
       "type": "tvs",
-      "description": "-55℃~+125℃ 100W@8/20us 12.5pF 12V 200nA 3.3V 6.5V 8A@8/20us Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 SOD-523 ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 100W@8/20us 12.5pF 12V 200nA 3.3V 6.5V 8A@8/20us Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 Single-channel SOD-523 ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-523": {
         "part": "C20615817",
         "tier": "preferred"
@@ -4334,7 +4321,7 @@
     "H5VND5B": {
       "display": "H5VND5B",
       "type": "tvs",
-      "description": "-55℃~+155℃ 120W@8/20us 15V 200nA 20pF 5V 8A@8/20us 8V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 SOD-523 ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 120W@8/20us 15V 200nA 20pF 5V 8A@8/20us 8V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 Single-channel SOD-523 ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-523": {
         "part": "C20615818",
         "tier": "preferred"
@@ -4343,7 +4330,7 @@
     "H5VND5UB": {
       "display": "H5VND5UB",
       "type": "tvs",
-      "description": "-55℃~+125℃ 165W@8/20us 18.6V 1uA 5V 6A@8/20us 6V 80pF ESD IEC 61000-4-2、IEC 61000-4-5 Unidirectional SOD-523 ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 165W@8/20us 18.6V 1uA 5V 6V 80pF 9A@8/20us ESD IEC 61000-4-2、IEC 61000-4-5 Single-channel Unidirectional SOD-523 ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-523": {
         "part": "C20615819",
         "tier": "preferred"
@@ -4451,7 +4438,7 @@
     "H3V3U06B": {
       "display": "H3V3U06B",
       "type": "tvs",
-      "description": "-55℃~+125℃ 0.5pF 125W@8/20us 200nA 25V 3.3V 5A@8/20us 9V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 DFN0603-2L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 0.5pF 1 125W@8/20us 200nA 25V 3.3V 5A@8/20us 9V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 DFN0603-2L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN0603-2L": {
         "part": "C20617908",
         "tier": "preferred"
@@ -4763,15 +4750,6 @@
         "tier": "preferred"
       }
     },
-    "MM3Z5V1B": {
-      "display": "MM3Z5V1B",
-      "type": "zener",
-      "description": "-55℃~+150℃ 1 Independent 130Ω 2uA@1.5V 300mW 5.1V 5V~5.2V SOD-323 Zener Diodes ROHS",
-      "SOD-323": {
-        "part": "C22379454",
-        "tier": "preferred"
-      }
-    },
     "MM1Z18B": {
       "display": "MM1Z18B",
       "type": "zener",
@@ -4955,7 +4933,7 @@
     "BAT54CW": {
       "display": "BAT54CW",
       "type": "schottky",
-      "description": "1 Pair Common Cathode 1V@100mA 200mA 2uA@25V 30V 600mA SOT-323 Schottky Diodes ROHS",
+      "description": "1 Pair Common Cathode 1V@100mA 200mA 200mW 2uA@25V 30V 600mA SOT-323 Schottky Diodes ROHS",
       "SOT-323": {
         "part": "C22392482",
         "tier": "preferred"
@@ -4964,7 +4942,7 @@
     "H12VS06B": {
       "display": "H12VS06B",
       "type": "tvs",
-      "description": "-55℃~+125℃ 12V 16.5V 24V 3.5A@8/20us 3.5pF 500nA 85W@8/20us Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 DFN0603-2L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 1 12V 16.5V 24V 3.5A@8/20us 3.5pF 500nA 85W@8/20us Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 DFN0603-2L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN0603-2L": {
         "part": "C22395515",
         "tier": "preferred"
@@ -4973,7 +4951,7 @@
     "H24VN10U": {
       "display": "H24VN10U",
       "type": "tvs",
-      "description": "-55℃~+125℃ 1 100nA 220W@8/20us 24V 25pF 30V 44V 5A@8/20us ESD IEC 61000-4-2、IEC 61000-4-5 Unidirectional DFN1006-2L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 100nA 220W@8/20us 24V 25pF 30V 44V 5A@8/20us ESD IEC 61000-4-2、IEC 61000-4-5 Single-channel Unidirectional DFN1006-2L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN1006-2L": {
         "part": "C22395516",
         "tier": "preferred"
@@ -5000,7 +4978,7 @@
     "H5VU10U": {
       "display": "H5VU10U",
       "type": "tvs",
-      "description": "-55℃~+125℃ 0.8pF 1 16V 200nA 55W@8/20us 5A@8/20us 5V 9V ESD IEC 61000-4-2、IEC 61000-4-5 Unidirectional DFN1006-2L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 0.8pF 16V 200nA 55W@8/20us 5A@8/20us 5V 9V ESD IEC 61000-4-2、IEC 61000-4-5 Single-channel Unidirectional DFN1006-2L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN1006-2L": {
         "part": "C22395519",
         "tier": "preferred"
@@ -5900,7 +5878,7 @@
     "SD107WS": {
       "display": "SD107WS",
       "type": "schottky",
-      "description": "-40℃~+125℃ 100mA 1uA@25V 2A 30V 800mV@100mA Standalone SOD-323 Schottky Diodes ROHS",
+      "description": "-40℃~+125℃ 100mA 1uA@25V 250mW 2A 30V 800mV@100mA Standalone SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C22466346",
         "tier": "preferred"
@@ -5909,7 +5887,7 @@
     "DSL34": {
       "display": "DSL34",
       "type": "schottky",
-      "description": "-55℃~+150℃ 1 Independent 3A 40V 450mV@3A 500uA@40V SOD-123FL Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 1 Independent 3A 40V 450mV@3A 500uA@40V 60A SOD-123FL Schottky Diodes ROHS",
       "SOD-123FL": {
         "part": "C22466347",
         "tier": "preferred"
@@ -5927,7 +5905,7 @@
     "DSL14": {
       "display": "DSL14",
       "type": "schottky",
-      "description": "-55℃~+150℃ 1A 200uA@40V 40V 450mV@1A Standalone SOD-123FL Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 1A 200uA@40V 30A 40V 450mV@1A Standalone SOD-123FL Schottky Diodes ROHS",
       "SOD-123FL": {
         "part": "C22466349",
         "tier": "preferred"
@@ -5936,7 +5914,7 @@
     "BAT54C": {
       "display": "BAT54C",
       "type": "schottky",
-      "description": "1 Pair Common Cathode 1V@100mA 200mA 2uA@25V 30V 600mA SOT-23 Schottky Diodes ROHS",
+      "description": "1 Pair Common Cathode 1V@100mA 200mA 200mW 2uA@25V 30V 600mA SOT-23 Schottky Diodes ROHS",
       "SOT-23": {
         "part": "C22466350",
         "tier": "preferred"
@@ -5999,7 +5977,7 @@
     "SD103AWT": {
       "display": "SD103AWT",
       "type": "schottky",
-      "description": "-40℃~+125℃ 1uA@10V 2A 350mA 40V 600mV@200mA Standalone SOD-523 Schottky Diodes ROHS",
+      "description": "-40℃~+125℃ 150mW 1uA@10V 2A 350mA 40V 600mV@200mA Standalone SOD-523 Schottky Diodes ROHS",
       "SOD-523": {
         "part": "C22466357",
         "tier": "preferred"
@@ -6008,7 +5986,7 @@
     "BAT43W": {
       "display": "BAT43W",
       "type": "schottky",
-      "description": "-40℃~+125℃ 200mA 30V 450mV@15mA 4A 500nA@25V Standalone SOD-123 Schottky Diodes ROHS",
+      "description": "-40℃~+125℃ 200mA 30V 450mV@15mA 4A 500mW 500nA@25V Standalone SOD-123 Schottky Diodes ROHS",
       "SOD-123": {
         "part": "C22466358",
         "tier": "preferred"
@@ -6017,7 +5995,7 @@
     "1SS357": {
       "display": "1SS357",
       "type": "schottky",
-      "description": "100mA 1A 45V 5uA@40V 600mV@100mA Standalone SOD-323 Schottky Diodes ROHS",
+      "description": "100mA 1A 200mW 45V 5uA@40V 600mV@100mA Standalone SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C22466359",
         "tier": "preferred"
@@ -6026,7 +6004,7 @@
     "BAT42WS": {
       "display": "BAT42WS",
       "type": "schottky",
-      "description": "200mA 30V 4A 500nA@25V 650mV@50mA Standalone SOD-323 Schottky Diodes ROHS",
+      "description": "200mA 200mW 30V 4A 500nA@25V 650mV@50mA Standalone SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C22466360",
         "tier": "preferred"
@@ -6035,7 +6013,7 @@
     "B5818WS": {
       "display": "B5818WS",
       "type": "schottky",
-      "description": "-55℃~+150℃ 1 Independent 10A 1A 1mA@30V 30V 550mV@1A SOD-323 Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 1 Independent 10A 1A 1mA@30V 250mW 30V 550mV@1A SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C22466361",
         "tier": "preferred"
@@ -6044,7 +6022,7 @@
     "BAT42W": {
       "display": "BAT42W",
       "type": "schottky",
-      "description": "-40℃~+125℃ 200mA 30V 4A 500nA@25V 650mV@50mA Standalone SOD-123 Schottky Diodes ROHS",
+      "description": "-40℃~+125℃ 200mA 30V 4A 500mW 500nA@25V 650mV@50mA Standalone SOD-123 Schottky Diodes ROHS",
       "SOD-123": {
         "part": "C22466362",
         "tier": "preferred"
@@ -6053,7 +6031,7 @@
     "SD103CWS": {
       "display": "SD103CWS",
       "type": "schottky",
-      "description": "-55℃~+150℃ 1.5A 20V 350mA 5uA@10V 600mV@200mA Standalone SOD-323 Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 1.5A 200mW 20V 350mA 5uA@10V 600mV@200mA Standalone SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C22466363",
         "tier": "preferred"
@@ -6062,7 +6040,7 @@
     "BAS70-06": {
       "display": "BAS70-06",
       "type": "schottky",
-      "description": "-55℃~+125℃ 1 Pair Common Anode 100mA 1V@15mA 200nA@50V 70V 70mA SOT-23 Schottky Diodes ROHS",
+      "description": "-55℃~+125℃ 1 Pair Common Anode 100mA 1V@15mA 200mW 200nA@50V 70V 70mA SOT-23 Schottky Diodes ROHS",
       "SOT-23": {
         "part": "C22466364",
         "tier": "preferred"
@@ -6071,7 +6049,7 @@
     "B5818W": {
       "display": "B5818W",
       "type": "schottky",
-      "description": "-55℃~+150℃ 1A 1mA@30V 30V 550mV@1A 9A Standalone SOD-123 Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 1A 1mA@30V 30V 500mW 550mV@1A 9A Standalone SOD-123 Schottky Diodes ROHS",
       "SOD-123": {
         "part": "C22466365",
         "tier": "preferred"
@@ -6080,7 +6058,7 @@
     "BAS70W-05": {
       "display": "BAS70W-05",
       "type": "schottky",
-      "description": "1 Pair Common Cathode 100mA 100nA@50V 1V@15mA 70V 70mA SOT-323 Schottky Diodes ROHS",
+      "description": "1 Pair Common Cathode 100mA 100nA@50V 1V@15mA 200mW 70V 70mA SOT-323 Schottky Diodes ROHS",
       "SOT-323": {
         "part": "C22466366",
         "tier": "preferred"
@@ -6089,7 +6067,7 @@
     "BAT46X": {
       "display": "BAT46X",
       "type": "schottky",
-      "description": "-40℃~+125℃ 100V 150mA 1V@250mA 300uA@1.5V 750mA Standalone SOD-523 Schottky Diodes ROHS",
+      "description": "-40℃~+125℃ 100V 150mA 150mW 1V@250mA 300uA@1.5V 750mA Standalone SOD-523 Schottky Diodes ROHS",
       "SOD-523": {
         "part": "C22466367",
         "tier": "preferred"
@@ -6098,7 +6076,7 @@
     "BAT54": {
       "display": "BAT54",
       "type": "schottky",
-      "description": "1 Independent 1V@100mA 200mA 2uA@25V 30V 600mA SOT-23 Schottky Diodes ROHS",
+      "description": "1 Independent 1V@100mA 200mA 200mW 2uA@25V 30V 600mA SOT-23 Schottky Diodes ROHS",
       "SOT-23": {
         "part": "C22466368",
         "tier": "preferred"
@@ -6107,7 +6085,7 @@
     "1SS389": {
       "display": "1SS389",
       "type": "schottky",
-      "description": "-40℃~+125℃ 100mA 10V 1A 20uA@10V 500mV@100mA Standalone SOD-523 Schottky Diodes ROHS",
+      "description": "-40℃~+125℃ 100mA 10V 150mW 1A 20uA@10V 500mV@100mA Standalone SOD-523 Schottky Diodes ROHS",
       "SOD-523": {
         "part": "C22466369",
         "tier": "preferred"
@@ -6116,7 +6094,7 @@
     "BAS40X": {
       "display": "BAS40X",
       "type": "schottky",
-      "description": "1V@40mA 200mA 200nA@30V 40V 600mA Standalone SOD-523 Schottky Diodes ROHS",
+      "description": "150mW 1V@40mA 200mA 200nA@30V 40V 600mA Standalone SOD-523 Schottky Diodes ROHS",
       "SOD-523": {
         "part": "C22466370",
         "tier": "preferred"
@@ -6125,7 +6103,7 @@
     "BAT720": {
       "display": "BAT720",
       "type": "schottky",
-      "description": "1 Independent 100uA@35V 2A 40V 500mA 550mV@500mA SOT-23 Schottky Diodes ROHS",
+      "description": "1 Independent 100uA@35V 2A 350mW 40V 500mA 550mV@500mA SOT-23 Schottky Diodes ROHS",
       "SOT-23": {
         "part": "C22466371",
         "tier": "preferred"
@@ -6134,7 +6112,7 @@
     "RB520S-40": {
       "display": "RB520S-40",
       "type": "schottky",
-      "description": "-40℃~+125℃ 10uA@40V 1A 200mA 40V 550mV@100mA Standalone SOD-523 Schottky Diodes ROHS",
+      "description": "-40℃~+125℃ 10uA@40V 150mW 1A 200mA 40V 550mV@100mA Standalone SOD-523 Schottky Diodes ROHS",
       "SOD-523": {
         "part": "C22466372",
         "tier": "preferred"
@@ -6143,7 +6121,7 @@
     "BAT54SW": {
       "display": "BAT54SW",
       "type": "schottky",
-      "description": "1 Pair Series Connection 1V@100mA 200mA 2uA@25V 30V 600mA SOT-323 Schottky Diodes ROHS",
+      "description": "1 Pair Series Connection 1V@100mA 200mA 200mW 2uA@25V 30V 600mA SOT-323 Schottky Diodes ROHS",
       "SOT-323": {
         "part": "C22466373",
         "tier": "preferred"
@@ -6152,7 +6130,7 @@
     "BAT54AW": {
       "display": "BAT54AW",
       "type": "schottky",
-      "description": "1 Pair Common Anode 1V@100mA 200mA 2uA@25V 30V 600mA SOT-323 Schottky Diodes ROHS",
+      "description": "1 Pair Common Anode 1V@100mA 200mA 200mW 2uA@25V 30V 600mA SOT-323 Schottky Diodes ROHS",
       "SOT-323": {
         "part": "C22466374",
         "tier": "preferred"
@@ -6161,7 +6139,7 @@
     "B1040WS": {
       "display": "B1040WS",
       "type": "schottky",
-      "description": "1A 40V 50uA@40V 580mV@1A 5A Standalone SOD-323 Schottky Diodes ROHS",
+      "description": "1A 250mW 40V 50uA@40V 580mV@1A 5A Standalone SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C22466375",
         "tier": "preferred"
@@ -6170,7 +6148,7 @@
     "BAT54TW": {
       "display": "BAT54TW",
       "type": "schottky",
-      "description": "-55℃~+150℃ 1V@100mA 200mA 2uA@25V 3 Independent 30V 600mA SOT-363 Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 1V@100mA 200mA 200mW 2uA@25V 3 Independent 30V 600mA SOT-363 Schottky Diodes ROHS",
       "SOT-363": {
         "part": "C22466376",
         "tier": "preferred"
@@ -6179,7 +6157,7 @@
     "B1040W": {
       "display": "B1040W",
       "type": "schottky",
-      "description": "1A 40V 50uA@40V 580mV@1A 5A Standalone SOD-123 Schottky Diodes ROHS",
+      "description": "1A 350mW 40V 50uA@40V 580mV@1A 5A Standalone SOD-123 Schottky Diodes ROHS",
       "SOD-123": {
         "part": "C22466377",
         "tier": "preferred"
@@ -6188,7 +6166,7 @@
     "BAS40WS": {
       "display": "BAS40WS",
       "type": "schottky",
-      "description": "1V@40mA 200mA 20nA@30V 40V 600mA Standalone SOD-323 Schottky Diodes ROHS",
+      "description": "1V@40mA 200mA 200mW 20nA@30V 40V 600mA Standalone SOD-323 Schottky Diodes ROHS",
       "SOD-323": {
         "part": "C28646260",
         "tier": "preferred"
@@ -6260,7 +6238,7 @@
     "SSL345F": {
       "display": "SSL345F",
       "type": "schottky",
-      "description": "300uA@45V 3A 450mV@3A 45V 80A Standalone SMAF Schottky Diodes ROHS",
+      "description": "-55℃~+125℃ 300uA@45V 3A 450mV@3A 45V 80A Standalone SMAF Schottky Diodes ROHS",
       "SMAF": {
         "part": "C28646284",
         "tier": "preferred"
@@ -6323,7 +6301,7 @@
     "DSK320": {
       "display": "DSK320",
       "type": "schottky",
-      "description": "200V 3A 50uA@200V 950mV@3A Standalone SOD-123FL Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 200V 3A 50uA@200V 80A 950mV@3A Standalone SOD-123FL Schottky Diodes ROHS",
       "SOD-123FL": {
         "part": "C28646292",
         "tier": "preferred"
@@ -6350,7 +6328,7 @@
     "SS215": {
       "display": "SS215",
       "type": "schottky",
-      "description": "150V 2A 50uA@150V 950mV@2A Standalone SMA Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 150V 2A 50A 50uA@150V 950mV@2A Standalone SMA Schottky Diodes ROHS",
       "SMA": {
         "part": "C28646295",
         "tier": "preferred"
@@ -6404,7 +6382,7 @@
     "SK106B": {
       "display": "SK106B",
       "type": "schottky",
-      "description": "100uA@60V 10A 60V 700mV@10A Standalone SMB Schottky Diodes ROHS",
+      "description": "-55℃~+150℃ 100uA@60V 10A 250A 60V 700mV@10A Standalone SMB Schottky Diodes ROHS",
       "SMB": {
         "part": "C28646301",
         "tier": "preferred"
@@ -6431,7 +6409,7 @@
     "SMF36A": {
       "display": "SMF36A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 200W@10/1000us 3.44A 36V 44.2V 58.1V IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 200W@10/1000us 3.44A 36V 44.2V 58.1V IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C41376086",
         "tier": "preferred"
@@ -6440,7 +6418,7 @@
     "SMF13A": {
       "display": "SMF13A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 13V 15.9V 1uA 200W@10/1000us 21.5V 9.3A IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 13V 15.9V 1uA 200W@10/1000us 21.5V 9.3A IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C41376087",
         "tier": "preferred"
@@ -6449,7 +6427,7 @@
     "SMF7.0A": {
       "display": "SMF7.0A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 100uA 12V 16.67A 200W@10/1000us 7V 8.6V IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 100uA 12V 16.67A 200W@10/1000us 7V 8.6V IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C41376088",
         "tier": "preferred"
@@ -6458,7 +6436,7 @@
     "SMF6.5A": {
       "display": "SMF6.5A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 11.2V 17.86A 200W@10/1000us 250uA 6.5V 7.98V IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 11.2V 17.86A 200W@10/1000us 250uA 6.5V 7.98V IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C41376089",
         "tier": "preferred"
@@ -6467,7 +6445,7 @@
     "SMF26A": {
       "display": "SMF26A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 200W@10/1000us 26V 31.9V 4.8A 42.1V IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 200W@10/1000us 26V 31.9V 4.8A 42.1V IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C41376090",
         "tier": "preferred"
@@ -6476,7 +6454,7 @@
     "SMF28A": {
       "display": "SMF28A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 200W@10/1000us 28V 34.4V 4.41A 45.4V IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 200W@10/1000us 28V 34.4V 4.41A 45.4V IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C41376091",
         "tier": "preferred"
@@ -6485,7 +6463,7 @@
     "SMF60CA": {
       "display": "SMF60CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 2.1A 200W@10/1000us 60V 73.7V 96.8V Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 2.1A 200W@10/1000us 60V 73.7V 96.8V Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C41376092",
         "tier": "preferred"
@@ -6494,7 +6472,7 @@
     "SMCJ6.0CA": {
       "display": "SMCJ6.0CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 10.3V 145.7A 6V 7.37V 800uA Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 10.3V 145.7A 6V 7.37V 800uA Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41376094",
         "tier": "preferred"
@@ -6503,7 +6481,7 @@
     "SMBJ14CA": {
       "display": "SMBJ14CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 14V 17.2V 23.2V 25.86A 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 14V 17.2V 23.2V 25.86A 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C41376097",
         "tier": "preferred"
@@ -6512,7 +6490,7 @@
     "SMBJ43CA": {
       "display": "SMBJ43CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 43V 52.8V 5uA 600W@10/1000us 69.4V 8.65A Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 43V 52.8V 5uA 600W@10/1000us 69.4V 8.65A Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C41376098",
         "tier": "preferred"
@@ -6521,7 +6499,7 @@
     "SMBJ64CA": {
       "display": "SMBJ64CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 103V 5.83A 5uA 600W@10/1000us 64V 78.6V Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 103V 5.83A 5uA 600W@10/1000us 64V 78.6V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C41376099",
         "tier": "preferred"
@@ -6530,7 +6508,7 @@
     "SMBJ8.0CA": {
       "display": "SMBJ8.0CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 13.6V 44.12A 50uA 600W@10/1000us 8V 9.83V Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 13.6V 44.12A 50uA 600W@10/1000us 8V 9.83V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C41376100",
         "tier": "preferred"
@@ -6539,7 +6517,7 @@
     "SMBJ51CA": {
       "display": "SMBJ51CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 51V 5uA 600W@10/1000us 62.7V 7.28A 82.4V Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 51V 5uA 600W@10/1000us 62.7V 7.28A 82.4V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C41376101",
         "tier": "preferred"
@@ -6548,7 +6526,7 @@
     "SMBJ58A": {
       "display": "SMBJ58A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 58V 5uA 6.41A 600W@10/1000us 71.2V 93.6V IEC 61000-4-2 TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 58V 5uA 6.41A 600W@10/1000us 71.2V 93.6V IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C41376102",
         "tier": "preferred"
@@ -6557,7 +6535,7 @@
     "SMBJ170A": {
       "display": "SMBJ170A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 170V 2.18A 209V 275V 5uA 600W@10/1000us IEC 61000-4-2 TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 170V 2.18A 209V 275V 5uA 600W@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C41376104",
         "tier": "preferred"
@@ -6566,7 +6544,7 @@
     "SMBJ90CA": {
       "display": "SMBJ90CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 111V 146V 4.11A 5uA 600W@10/1000us 90V Bidirectional IEC 61000-4-2 TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 111V 146V 4.11A 5uA 600W@10/1000us 90V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AA(SMB) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AA(SMB)": {
         "part": "C41376398",
         "tier": "preferred"
@@ -6575,7 +6553,7 @@
     "SMAJ33A": {
       "display": "SMAJ33A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 33V 40.6V 400W 53.3V 7.5A@10/1000us IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 33V 40.6V 400W 53.3V 7.5A@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41376399",
         "tier": "preferred"
@@ -6584,7 +6562,7 @@
     "SMAJ43CA": {
       "display": "SMAJ43CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 400W@10/1000us 43V 5.8A@10/1000us 52.8V 69.4V Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 400W@10/1000us 43V 5.8A@10/1000us 52.8V 69.4V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41376400",
         "tier": "preferred"
@@ -6593,7 +6571,7 @@
     "SMAJ48A": {
       "display": "SMAJ48A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 400W 48V 5.2A@10/1000us 58.9V 77.4V IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 400W 48V 5.2A@10/1000us 58.9V 77.4V IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41376401",
         "tier": "preferred"
@@ -6602,7 +6580,7 @@
     "SMAJ43A": {
       "display": "SMAJ43A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 400W 43V 5.8A@10/1000us 52.8V 69.4V IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 400W 43V 5.8A@10/1000us 52.8V 69.4V IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41376402",
         "tier": "preferred"
@@ -6611,7 +6589,7 @@
     "SMAJ22A": {
       "display": "SMAJ22A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 11.3A 1uA 22V 26.9V 35.5V 400W IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 11.3A 1uA 22V 26.9V 35.5V 400W IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41376403",
         "tier": "preferred"
@@ -6620,7 +6598,7 @@
     "SMAJ51CA": {
       "display": "SMAJ51CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 4.9A 400W@10/1000us 51V 62.7V 82.4V Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 4.9A 400W@10/1000us 51V 62.7V 82.4V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41376404",
         "tier": "preferred"
@@ -6629,7 +6607,7 @@
     "SMAJ16A": {
       "display": "SMAJ16A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 15.4A 16V 19.7V 1uA 26V 400W IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 15.4A 16V 19.7V 1uA 26V 400W IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41376405",
         "tier": "preferred"
@@ -6638,7 +6616,7 @@
     "SMAJ14A": {
       "display": "SMAJ14A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 14V 17.2A@10/1000us 17.2V 1uA 23.2V 400W IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 14V 17.2A@10/1000us 17.2V 1uA 23.2V 400W IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41376406",
         "tier": "preferred"
@@ -6647,7 +6625,7 @@
     "SMAJ10A": {
       "display": "SMAJ10A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 10V 12.3V 17V 23.5A 400W 5uA IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 10V 12.3V 17V 23.5A 400W 5uA IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41376407",
         "tier": "preferred"
@@ -6656,7 +6634,7 @@
     "SMAJ20A": {
       "display": "SMAJ20A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 12.3A@10/1000us 1uA 20V 24.5V 32.4V 400W IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 12.3A@10/1000us 1uA 20V 24.5V 32.4V 400W IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41376408",
         "tier": "preferred"
@@ -6665,7 +6643,7 @@
     "SMAJ200A": {
       "display": "SMAJ200A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.2A 1uA 200V 247V 324V 400W IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.2A 1uA 200V 247V 324V 400W IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41376409",
         "tier": "preferred"
@@ -6926,7 +6904,7 @@
     "SMCJ100CA": {
       "display": "SMCJ100CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 100V 123V 162V 1uA 9.3A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 100V 123V 162V 1uA 9.3A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411744",
         "tier": "preferred"
@@ -6935,7 +6913,7 @@
     "SMCJ43CA": {
       "display": "SMCJ43CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 21.7A 43V 52.8V 69.4V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 21.7A 43V 52.8V 69.4V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411745",
         "tier": "preferred"
@@ -6944,7 +6922,7 @@
     "SMCJ70CA": {
       "display": "SMCJ70CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 113V 13.3A 1uA 70V 86V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 113V 13.3A 1uA 70V 86V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411746",
         "tier": "preferred"
@@ -6953,7 +6931,7 @@
     "SMCJ24CA": {
       "display": "SMCJ24CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 24V 29.5V 38.6A 38.9V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 24V 29.5V 38.6A 38.9V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411747",
         "tier": "preferred"
@@ -6962,7 +6940,7 @@
     "SMCJ12CA": {
       "display": "SMCJ12CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 12V 14.7V 19.9V 1uA 75.4A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 12V 14.7V 19.9V 1uA 75.4A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411748",
         "tier": "preferred"
@@ -6971,7 +6949,7 @@
     "SMCJ64CA": {
       "display": "SMCJ64CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 103V 14.6A 1uA 64V 78.6V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 103V 14.6A 1uA 64V 78.6V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411749",
         "tier": "preferred"
@@ -6980,7 +6958,7 @@
     "SMCJ45CA": {
       "display": "SMCJ45CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 20.6A 45V 55.3V 72.7V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 20.6A 45V 55.3V 72.7V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411750",
         "tier": "preferred"
@@ -6989,7 +6967,7 @@
     "SMCJ51CA": {
       "display": "SMCJ51CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 18.2A 1uA 51V 62.7V 82.4V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 18.2A 1uA 51V 62.7V 82.4V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411751",
         "tier": "preferred"
@@ -6998,7 +6976,7 @@
     "SMCJ5.0CA": {
       "display": "SMCJ5.0CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 163A 5V 7V 800uA 9.2V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 163A 5V 7V 800uA 9.2V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411752",
         "tier": "preferred"
@@ -7007,7 +6985,7 @@
     "SMCJ18CA": {
       "display": "SMCJ18CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 18V 1uA 22.1V 29.2V 51.4A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 18V 1uA 22.1V 29.2V 51.4A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411753",
         "tier": "preferred"
@@ -7016,7 +6994,7 @@
     "SMCJ20CA": {
       "display": "SMCJ20CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 20V 24.5V 32.4V 46.3A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 20V 24.5V 32.4V 46.3A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411754",
         "tier": "preferred"
@@ -7025,7 +7003,7 @@
     "SMCJ75CA": {
       "display": "SMCJ75CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 12.4A 121V 1uA 75V 92.1V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 12.4A 121V 1uA 75V 92.1V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411755",
         "tier": "preferred"
@@ -7034,7 +7012,7 @@
     "SMCJ60CA": {
       "display": "SMCJ60CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 15.5A 1uA 60V 73.7V 96.8V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 15.5A 1uA 60V 73.7V 96.8V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411756",
         "tier": "preferred"
@@ -7043,7 +7021,7 @@
     "SMCJ150CA": {
       "display": "SMCJ150CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 150V 185V 1uA 243V 6.2A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 150V 185V 1uA 243V 6.2A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411757",
         "tier": "preferred"
@@ -7052,7 +7030,7 @@
     "SMCJ22CA": {
       "display": "SMCJ22CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 22V 26.9V 35.5V 42.3A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 22V 26.9V 35.5V 42.3A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411759",
         "tier": "preferred"
@@ -7061,7 +7039,7 @@
     "SMCJ10CA": {
       "display": "SMCJ10CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 10V 12.3V 17V 5uA 88.3A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 10V 12.3V 17V 5uA 88.3A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411760",
         "tier": "preferred"
@@ -7070,7 +7048,7 @@
     "SMCJ54CA": {
       "display": "SMCJ54CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 17.3A 1uA 54V 66.3V 87.1V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 17.3A 1uA 54V 66.3V 87.1V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411761",
         "tier": "preferred"
@@ -7079,7 +7057,7 @@
     "SMCJ13CA": {
       "display": "SMCJ13CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 13V 15.9V 1uA 21.5V 69.8A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 13V 15.9V 1uA 21.5V 69.8A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411763",
         "tier": "preferred"
@@ -7088,7 +7066,7 @@
     "SMCJ16CA": {
       "display": "SMCJ16CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 16V 19.7V 1uA 26V 57.7A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 16V 19.7V 1uA 26V 57.7A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411764",
         "tier": "preferred"
@@ -7097,7 +7075,7 @@
     "SMCJ48CA": {
       "display": "SMCJ48CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 19.4A 1uA 48V 58.9V 77.4V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 19.4A 1uA 48V 58.9V 77.4V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C41411765",
         "tier": "preferred"
@@ -7214,7 +7192,7 @@
     "SMAJ150A": {
       "display": "SMAJ150A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.6A 150V 185V 1uA 243V 400W IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.6A 150V 185V 1uA 243V 400W IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C41411781",
         "tier": "preferred"
@@ -7223,7 +7201,7 @@
     "SMF20A": {
       "display": "SMF20A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 200W@10/1000us 20V 24.5V 32.4V 6.2A IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 200W@10/1000us 20V 24.5V 32.4V 6.2A IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C41411782",
         "tier": "preferred"
@@ -7232,7 +7210,7 @@
     "SMF14CA": {
       "display": "SMF14CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 14V 17.2V 1uA 200W@10/1000us 23.2V 8.6A Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 14V 17.2V 1uA 200W@10/1000us 23.2V 8.6A Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C41411783",
         "tier": "preferred"
@@ -7241,7 +7219,7 @@
     "SMCJ28A": {
       "display": "SMCJ28A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 28V 33.1A 34.4V 45.4V IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 28V 33.1A 34.4V 45.4V IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371538",
         "tier": "preferred"
@@ -7250,7 +7228,7 @@
     "SMCJ100A": {
       "display": "SMCJ100A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 100V 123V 162V 1uA 9.3A IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 100V 123V 162V 1uA 9.3A IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371542",
         "tier": "preferred"
@@ -7259,7 +7237,7 @@
     "SMCJ78A": {
       "display": "SMCJ78A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 11.9A 126V 1uA 78V 95.8V IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 11.9A 126V 1uA 78V 95.8V IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371543",
         "tier": "preferred"
@@ -7268,7 +7246,7 @@
     "SMCJ22A": {
       "display": "SMCJ22A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 22V 26.9V 35.5V 42.3A IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 22V 26.9V 35.5V 42.3A IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371544",
         "tier": "preferred"
@@ -7277,7 +7255,7 @@
     "SMCJ26A": {
       "display": "SMCJ26A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 26V 28.9V 35.7A 42.1V IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 26V 28.9V 35.7A 42.1V IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371545",
         "tier": "preferred"
@@ -7286,7 +7264,7 @@
     "SMCJ58A": {
       "display": "SMCJ58A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 16.1A 1uA 58V 71.2V 93.6V IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 16.1A 1uA 58V 71.2V 93.6V IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371547",
         "tier": "preferred"
@@ -7295,7 +7273,7 @@
     "SMCJ33A": {
       "display": "SMCJ33A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 1uA 28.2A 33V 36.7V 53.3V IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 1uA 28.2A 33V 36.7V 53.3V IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371548",
         "tier": "preferred"
@@ -7304,7 +7282,7 @@
     "SMCJ51A": {
       "display": "SMCJ51A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 18.2A 1uA 51V 56.7V 82.4V IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 18.2A 1uA 51V 56.7V 82.4V IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371549",
         "tier": "preferred"
@@ -7313,7 +7291,7 @@
     "SMCJ15A": {
       "display": "SMCJ15A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 15V 18.5V 1uA 24.4V 61.5A IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 15V 18.5V 1uA 24.4V 61.5A IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371550",
         "tier": "preferred"
@@ -7322,7 +7300,7 @@
     "SMDJ30CA": {
       "display": "SMDJ30CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 2uA 30V 36.8V 3kW@10/1000us 48.4V 62A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 2uA 30V 36.8V 3kW@10/1000us 48.4V 62A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371552",
         "tier": "preferred"
@@ -7331,7 +7309,7 @@
     "SMDJ33CA": {
       "display": "SMDJ33CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 33V 36.7V 3kW@10/1000us 53.3V 56.3A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 33V 36.7V 3kW@10/1000us 53.3V 56.3A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371555",
         "tier": "preferred"
@@ -7340,7 +7318,7 @@
     "SMDJ36CA": {
       "display": "SMDJ36CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 2uA 36V 3kW@10/1000us 44.2V 51.6A 58.1V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 2uA 36V 3kW@10/1000us 44.2V 51.6A 58.1V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371556",
         "tier": "preferred"
@@ -7349,7 +7327,7 @@
     "SMDJ40CA": {
       "display": "SMDJ40CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 3kW@10/1000us 40V 44.4V 46.5A 64.5V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 3kW@10/1000us 40V 44.4V 46.5A 64.5V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371557",
         "tier": "preferred"
@@ -7358,7 +7336,7 @@
     "SMDJ85CA": {
       "display": "SMDJ85CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 137V 1uA 21.9A 3kW@10/1000us 85V 94.4V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 137V 1uA 21.9A 3kW@10/1000us 85V 94.4V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371558",
         "tier": "preferred"
@@ -7367,7 +7345,7 @@
     "SMDJ26CA": {
       "display": "SMDJ26CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 26V 2uA 31.9V 3kW@10/1000us 42.1V 71.3A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 26V 2uA 31.9V 3kW@10/1000us 42.1V 71.3A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371716",
         "tier": "preferred"
@@ -7376,7 +7354,7 @@
     "SMDJ45CA": {
       "display": "SMDJ45CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 2uA 3kW@10/1000us 41.3A 45V 55.3V 72.7V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 2uA 3kW@10/1000us 41.3A 45V 55.3V 72.7V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371719",
         "tier": "preferred"
@@ -7385,7 +7363,7 @@
     "SMDJ28A": {
       "display": "SMDJ28A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 28V 31.1V 3kW 45.4V 66.1A IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 28V 31.1V 3kW 45.4V 66.1A IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371721",
         "tier": "preferred"
@@ -7394,7 +7372,7 @@
     "SMDJ24CA": {
       "display": "SMDJ24CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 24V 29.5V 2uA 38.9V 3kW@10/1000us 77.1A Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 24V 29.5V 2uA 38.9V 3kW@10/1000us 77.1A Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371722",
         "tier": "preferred"
@@ -7403,7 +7381,7 @@
     "SMDJ16A": {
       "display": "SMDJ16A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 115.4A 16V 19.7V 26V 2uA 3kW IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 115.4A 16V 19.7V 26V 2uA 3kW IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371723",
         "tier": "preferred"
@@ -7412,7 +7390,7 @@
     "SMDJ58A": {
       "display": "SMDJ58A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 32.1A 3kW 58V 64.4V 93.6V IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 32.1A 3kW 58V 64.4V 93.6V IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371724",
         "tier": "preferred"
@@ -7421,7 +7399,7 @@
     "SMDJ15CA": {
       "display": "SMDJ15CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 123A 15V 18.5V 24.4V 2uA 3kW@10/1000us Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 123A 15V 18.5V 24.4V 2uA 3kW@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371725",
         "tier": "preferred"
@@ -7430,7 +7408,7 @@
     "5.0SMDJ28CA": {
       "display": "5.0SMDJ28CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 110.1A 28V 34.4V 45.4V 5kW@10/1000us 5uA Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 110.1A 28V 34.4V 45.4V 5kW@10/1000us 5uA Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371727",
         "tier": "preferred"
@@ -7439,7 +7417,7 @@
     "5.0SMDJ30CA": {
       "display": "5.0SMDJ30CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 103A 30V 33.3V 48.4V 5kW@10/1000us 5uA Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 103A 30V 33.3V 48.4V 5kW@10/1000us 5uA Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42371730",
         "tier": "preferred"
@@ -7502,7 +7480,7 @@
     "SMBJ150CA": {
       "display": "SMBJ150CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 150V 185V 2.47A 243V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 TVS SMB(DO-214AA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 150V 185V 2.47A 243V 5uA 600W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS SMB(DO-214AA) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMB(DO-214AA)": {
         "part": "C42371743",
         "tier": "preferred"
@@ -7511,7 +7489,7 @@
     "SMBJ150A": {
       "display": "SMBJ150A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 150V 167V 2.47A 243V 5uA 600W@10/1000us IEC 61000-4-2 TVS Unidirectional SMB(DO-214AA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 150V 167V 2.47A 243V 5uA 600W@10/1000us IEC 61000-4-2 Single-channel TVS Unidirectional SMB(DO-214AA) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMB(DO-214AA)": {
         "part": "C42371745",
         "tier": "preferred"
@@ -7520,7 +7498,7 @@
     "SMF20CA": {
       "display": "SMF20CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 200W@10/1000us 20V 24.5V 32.4V 6.2A Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 200W@10/1000us 20V 24.5V 32.4V 6.2A Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C42371747",
         "tier": "preferred"
@@ -7529,7 +7507,7 @@
     "SMF40CA": {
       "display": "SMF40CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 200W@10/1000us 3.1A 40V 49.1V 64.5V Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 200W@10/1000us 3.1A 40V 49.1V 64.5V Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C42371749",
         "tier": "preferred"
@@ -7538,7 +7516,7 @@
     "SMF7.5A": {
       "display": "SMF7.5A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 12.9V 15.5A 200W@10/1000us 50uA 7.5V 9.21V IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 12.9V 15.5A 200W@10/1000us 50uA 7.5V 9.21V IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C42371750",
         "tier": "preferred"
@@ -7547,7 +7525,7 @@
     "SMF150CA": {
       "display": "SMF150CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 150V 185V 1uA 200W@10/1000us 243V 800mA Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 150V 185V 1uA 200W@10/1000us 243V 800mA Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C42371752",
         "tier": "preferred"
@@ -7556,7 +7534,7 @@
     "SMF58CA": {
       "display": "SMF58CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 2.1A 200W@10/1000us 58V 71.2V 93.6V Bidirectional IEC 61000-4-2 TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 2.1A 200W@10/1000us 58V 71.2V 93.6V Bidirectional IEC 61000-4-2 Single-channel TVS SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C42371753",
         "tier": "preferred"
@@ -7565,7 +7543,7 @@
     "SMF48A": {
       "display": "SMF48A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 2.6A 200W@10/1000us 48V 58.9V 77.4V IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 2.6A 200W@10/1000us 48V 58.9V 77.4V IEC 61000-4-2 Single-channel TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-123FL": {
         "part": "C42371754",
         "tier": "preferred"
@@ -7619,7 +7597,7 @@
     "SMAJ7.0A": {
       "display": "SMAJ7.0A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 12V 200uA 33.3A 400W 7V 8.6V IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 12V 200uA 33.3A 400W 7V 8.6V IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C42394395",
         "tier": "preferred"
@@ -7628,7 +7606,7 @@
     "SMAJ14CA": {
       "display": "SMAJ14CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 14V 17.2A 17.2V 1uA 23.2V 400W Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 14V 17.2A 17.2V 1uA 23.2V 400W Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C42394396",
         "tier": "preferred"
@@ -7637,7 +7615,7 @@
     "SMAJ22CA": {
       "display": "SMAJ22CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 11.27A 1uA 22V 26.9V 35.5V 400W@10/1000us Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 11.27A 1uA 22V 26.9V 35.5V 400W@10/1000us Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C42394397",
         "tier": "preferred"
@@ -7646,7 +7624,7 @@
     "SMAJ60A": {
       "display": "SMAJ60A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 4.1A 400W 60V 73.7V 96.8V IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 4.1A 400W 60V 73.7V 96.8V IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C42394398",
         "tier": "preferred"
@@ -7655,7 +7633,7 @@
     "SMAJ60CA": {
       "display": "SMAJ60CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 4.1A 400W@10/1000us 60V 73.7V 96.8V Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 4.1A 400W@10/1000us 60V 73.7V 96.8V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C42394399",
         "tier": "preferred"
@@ -7664,7 +7642,7 @@
     "SMAJ64A": {
       "display": "SMAJ64A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 103V 1uA 3.9A 400W 64V 78.6V IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 103V 1uA 3.9A 400W 64V 78.6V IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C42394400",
         "tier": "preferred"
@@ -7673,7 +7651,7 @@
     "SMAJ85CA": {
       "display": "SMAJ85CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 104V 137V 1uA 2.9A 400W@10/1000us 85V Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 104V 137V 1uA 2.9A 400W@10/1000us 85V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C42394401",
         "tier": "preferred"
@@ -7682,7 +7660,7 @@
     "SMAJ90CA": {
       "display": "SMAJ90CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 111V 146V 1uA 2.74A 400W@10/1000us 90V Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 111V 146V 1uA 2.74A 400W@10/1000us 90V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C42394402",
         "tier": "preferred"
@@ -7691,7 +7669,7 @@
     "SMAJ90A": {
       "display": "SMAJ90A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 111V 146V 1uA 2.7A 400W 90V IEC 61000-4-2 TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 111V 146V 1uA 2.7A 400W 90V IEC 61000-4-2 Single-channel TVS Unidirectional DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C42394403",
         "tier": "preferred"
@@ -7700,7 +7678,7 @@
     "SMAJ300CA": {
       "display": "SMAJ300CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1uA 300V 371V 400W@10/1000us 486V 820mA Bidirectional IEC 61000-4-2 TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1uA 300V 371V 400W@10/1000us 486V 820mA Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AC(SMA) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AC(SMA)": {
         "part": "C42394406",
         "tier": "preferred"
@@ -7709,7 +7687,7 @@
     "P6SMB7.5A": {
       "display": "P6SMB7.5A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 11.3V 500uA 53.1A 6.4V 600W 7.88V IEC 61000-4-2 TVS Unidirectional SMB ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 11.3V 500uA 53.1A 6.4V 600W 7.88V IEC 61000-4-2 Single-channel TVS Unidirectional SMB ESD and Surge Protection (TVS/ESD) ROHS",
       "SMB": {
         "part": "C42394408",
         "tier": "preferred"
@@ -7718,7 +7696,7 @@
     "P6SMB39A": {
       "display": "P6SMB39A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 11.1A 33.3V 40.95V 53.9V 5uA 600W IEC 61000-4-2 TVS Unidirectional SMB ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 11.1A 33.3V 40.95V 53.9V 5uA 600W IEC 61000-4-2 Single-channel TVS Unidirectional SMB ESD and Surge Protection (TVS/ESD) ROHS",
       "SMB": {
         "part": "C42394410",
         "tier": "preferred"
@@ -7727,7 +7705,7 @@
     "P6SMB200A": {
       "display": "P6SMB200A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 171V 2.2A 210V 274V 5uA 600W IEC 61000-4-2 TVS Unidirectional SMB ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 171V 2.2A 210V 274V 5uA 600W IEC 61000-4-2 Single-channel TVS Unidirectional SMB ESD and Surge Protection (TVS/ESD) ROHS",
       "SMB": {
         "part": "C42394412",
         "tier": "preferred"
@@ -7736,7 +7714,7 @@
     "SMBJ400CA": {
       "display": "SMBJ400CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 400V 494V 5uA 600W@10/1000us 648V 930mA Bidirectional IEC 61000-4-2 TVS SMB(DO-214AA) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 400V 494V 5uA 600W@10/1000us 648V 930mA Bidirectional IEC 61000-4-2 Single-channel TVS SMB(DO-214AA) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMB(DO-214AA)": {
         "part": "C42394417",
         "tier": "preferred"
@@ -7745,7 +7723,7 @@
     "SMCJ6.0A": {
       "display": "SMCJ6.0A",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 10.3V 145.7A 6V 7.37V 800uA IEC 61000-4-2 TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 10.3V 145.7A 6V 7.37V 800uA IEC 61000-4-2 Single-channel TVS Unidirectional SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42394420",
         "tier": "preferred"
@@ -7754,7 +7732,7 @@
     "SMCJ85CA": {
       "display": "SMCJ85CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 1.5kW@10/1000us 104V 11A 137V 1uA 85V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 1.5kW@10/1000us 104V 11A 137V 1uA 85V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42394428",
         "tier": "preferred"
@@ -7763,7 +7741,7 @@
     "SMDJ60CA": {
       "display": "SMDJ60CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 2uA 31A 3kW@10/1000us 60V 73.7V 96.8V Bidirectional IEC 61000-4-2 TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 2uA 31A 3kW@10/1000us 60V 73.7V 96.8V Bidirectional IEC 61000-4-2 Single-channel TVS SMC(DO-214AB) ESD and Surge Protection (TVS/ESD) ROHS",
       "SMC(DO-214AB)": {
         "part": "C42394438",
         "tier": "preferred"
@@ -7772,7 +7750,7 @@
     "5.0SMDJ85CA": {
       "display": "5.0SMDJ85CA",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 104V 137V 36.5A 5kW@10/1000us 5uA 85V Bidirectional IEC 61000-4-2 TVS DO-214AB(SMC) ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 104V 137V 36.5A 5kW@10/1000us 5uA 85V Bidirectional IEC 61000-4-2 Single-channel TVS DO-214AB(SMC) ESD and Surge Protection (TVS/ESD) ROHS",
       "DO-214AB(SMC)": {
         "part": "C42394457",
         "tier": "preferred"
@@ -7997,7 +7975,7 @@
     "H36VND3U": {
       "display": "H36VND3U",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 300W@8/20us 30pF 36V 45V 500nA 5A@8/20us 60V ESD IEC 61000-4-2、IEC 61000-4-5 Unidirectional SOD-323 ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 300W@8/20us 30pF 36V 45V 500nA 5A@8/20us 60V ESD IEC 61000-4-2、IEC 61000-4-5 Single-channel Unidirectional SOD-323 ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-323": {
         "part": "C42413887",
         "tier": "preferred"
@@ -8006,7 +7984,7 @@
     "H5VL10BH": {
       "display": "H5VL10BH",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 10V 200nA 3.5A@8/20us 36W@8/20us 5.5pF 5V 8V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 DFN1006-2L ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+150℃ 10V 200nA 3.5A@8/20us 36W@8/20us 5.5pF 5V 8V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 Single-channel DFN1006-2L ESD and Surge Protection (TVS/ESD) ROHS",
       "DFN1006-2L": {
         "part": "C42413893",
         "tier": "preferred"
@@ -8015,7 +7993,7 @@
     "H5VND5BA": {
       "display": "H5VND5BA",
       "type": "tvs",
-      "description": "-55℃~+125℃ 1 120W@8/20us 15V 200nA 20pF 5V 8A@8/20us 8V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 SOD-523 ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 120W@8/20us 15V 200nA 20pF 5V 8A@8/20us 8V Bidirectional ESD IEC 61000-4-2、IEC 61000-4-5 Single-channel SOD-523 ESD and Surge Protection (TVS/ESD) ROHS",
       "SOD-523": {
         "part": "C42413899",
         "tier": "preferred"
@@ -8024,7 +8002,7 @@
     "SM08": {
       "display": "SM08",
       "type": "tvs",
-      "description": "-55℃~+150℃ 1 13.4V 13.4V 15A 1uA 240pF 350W 8V ESD IEC 61000-4-2 Unidirectional SOT-23 ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 15A 2 240pF 24V 2uA 350W@8/20us 8.5V 8V ESD IEC 61000-4-2 Unidirectional SOT-23 ESD and Surge Protection (TVS/ESD) ROHS",
       "SOT-23": {
         "part": "C42413902",
         "tier": "preferred"
@@ -8033,7 +8011,7 @@
     "SM12": {
       "display": "SM12",
       "type": "tvs",
-      "description": "-55℃~+125℃ 1 11A 12V 13.3V 130pF 19V 1uA 350W ESD IEC 61000-4-2 Unidirectional SOT-23 ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 11A 12V 13.3V 130pF 19V 1uA 350W ESD IEC 61000-4-2 Single-channel Unidirectional SOT-23 ESD and Surge Protection (TVS/ESD) ROHS",
       "SOT-23": {
         "part": "C42413903",
         "tier": "preferred"
@@ -8042,7 +8020,7 @@
     "SM18": {
       "display": "SM18",
       "type": "tvs",
-      "description": "-55℃~+125℃ 1 100pF 18V 1uA 20V 29V 350W 9A ESD IEC 61000-4-2 Unidirectional SOT-23 ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 100pF 18V 1uA 20V 29V 350W 9A ESD IEC 61000-4-2 Single-channel Unidirectional SOT-23 ESD and Surge Protection (TVS/ESD) ROHS",
       "SOT-23": {
         "part": "C42413904",
         "tier": "preferred"
@@ -8051,7 +8029,7 @@
     "SM24": {
       "display": "SM24",
       "type": "tvs",
-      "description": "-55℃~+125℃ 1 1uA 24V 26.7V 350W 43V 7A 80pF ESD IEC 61000-4-2 Unidirectional SOT-23 ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 1uA 24V 26.7V 350W 43V 7A 80pF ESD IEC 61000-4-2 Single-channel Unidirectional SOT-23 ESD and Surge Protection (TVS/ESD) ROHS",
       "SOT-23": {
         "part": "C42413905",
         "tier": "preferred"
@@ -8060,7 +8038,7 @@
     "SM36": {
       "display": "SM36",
       "type": "tvs",
-      "description": "-55℃~+125℃ 1 1uA 350W 36V 40V 4A@8/20us 60V 60pF ESD IEC 61000-4-2 Unidirectional SOT-23 ESD and Surge Protection (TVS/ESD) ROHS",
+      "description": "-55℃~+125℃ 1uA 350W 36V 40V 4A@8/20us 60V 60pF ESD IEC 61000-4-2 Single-channel Unidirectional SOT-23 ESD and Surge Protection (TVS/ESD) ROHS",
       "SOT-23": {
         "part": "C42413906",
         "tier": "preferred"
@@ -8081,6 +8059,24 @@
       "description": "- Switching Diodes ROHS",
       "-": {
         "part": "C7502728",
+        "tier": "preferred"
+      }
+    },
+    "1SS226": {
+      "display": "1SS226",
+      "type": "switching",
+      "description": "-65℃~+150℃ 1 Pair Series Connection 100mA 150mW 1V@100mA 2.5uA 2A 4ns 80V SOT-23 Switching Diodes ROHS",
+      "SOT-23": {
+        "part": "C7502731",
+        "tier": "preferred"
+      }
+    },
+    "MM3Z5V1B": {
+      "display": "MM3Z5V1B",
+      "type": "zener",
+      "description": "-55℃~+150℃ 1 Independent 130Ω 2uA@1.5V 300mW 5.1V 5V~5.2V SOD-323 Zener Diodes ROHS",
+      "SOD-323": {
+        "part": "C22379454",
         "tier": "preferred"
       }
     },

@@ -18,6 +18,7 @@
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { snapshotMetadata } from './content-snapshots.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const contentDir = join(here, '..', 'content');
@@ -123,6 +124,7 @@ const components = noteFiles('components').map(({ file, name, front }) => {
 		kind: front.kind,
 		package: front.package,
 		tier: front.tier,
+		catalog_snapshot: front.catalog_snapshot,
 		summary: front.summary,
 		datasheet_url: datasheetUrl(front),
 		file,
@@ -138,6 +140,7 @@ const families = noteFiles('families')
 		categories: Array.isArray(front.categories) ? front.categories : [],
 		kind: front.kind,
 		summary: front.summary,
+		catalog_snapshot: front.catalog_snapshot,
 		file,
 		datasheet_url: datasheetUrl(front),
 	}))
@@ -146,14 +149,11 @@ const families = noteFiles('families')
 const snapshots = new Set(
 	[...noteFiles('components'), ...noteFiles('families')].map((n) => n.front.catalog_snapshot),
 );
-if (snapshots.size !== 1) {
-	throw new Error(`notes disagree about catalog_snapshot: ${[...snapshots].join(', ')}`);
-}
 
 const index = {
 	meta: {
 		type: 'component-spec-notes',
-		catalogSnapshotDate: [...snapshots][0],
+		...snapshotMetadata([...snapshots]),
 		generated: 'from basicpart/content',
 		componentCount: components.length,
 		familyCount: families.length,

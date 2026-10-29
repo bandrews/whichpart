@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "other-components",
-    "catalogSnapshotDate": "2026-10-02",
+    "catalogSnapshotDate": "2026-10-29",
     "curatedReviewedDate": "2026-08-19",
     "lastUpdated": "2026-07-24"
   },
@@ -43,7 +43,7 @@
           "package": "TQFP-32(7x7)",
           "part": "C14877",
           "tier": "preferred",
-          "notes": "Familiar Arduino-compatible MCU. Lifecycle status varies by channel: some distributors flag it NRND while MicrochipDirect projects supply into 2040; the ATmega328PB is the successor for new designs."
+          "notes": "Familiar Arduino-compatible MCU. Microchip lists ATmega328P as not recommended for new designs. ATmega328PB is an in-production related device; verify hardware and software compatibility before substituting."
         }
       ]
     },
@@ -56,7 +56,7 @@
           "package": "SMD",
           "part": "C2765186",
           "tier": "extended",
-          "notes": "The suggested USB-C receptacle. Ordinary Extended part. Sixteen contacts, not a six-pin power-only receptacle, but USB 2.0 only \u2014 the SuperSpeed positions are absent. SHOU HAN's drawing rates it at 3 A at 5 V and 10,000 mating cycles; the LCSC listing's 5 A is not supported by the manufacturer. The sixteen contacts come out on twelve pads, and the shell legs need drilled holes despite the SMD package label, so check the footprint against the drawing."
+          "notes": "The suggested USB-C receptacle. Ordinary Extended part. Sixteen contacts, not a six-pin power-only receptacle, but USB 2.0 only — the SuperSpeed positions are absent. SHOU HAN's drawing rates it at 3 A at 5 V and 10,000 mating cycles; the LCSC listing's 5 A is not supported by the manufacturer. The sixteen contacts come out on twelve pads, and the shell legs need drilled holes despite the SMD package label, so check the footprint against the drawing."
         }
       ]
     },
@@ -65,28 +65,28 @@
       "items": [
         {
           "name": "12MHz Crystal",
-          "description": "20pF load, \u00b110ppm nominal tolerance",
+          "description": "20pF load, ±10ppm nominal tolerance",
           "package": "SMD3225-4P",
           "part": "C9002",
           "tier": "basic"
         },
         {
           "name": "16MHz Crystal",
-          "description": "9pF load, \u00b110ppm nominal tolerance",
+          "description": "9pF load, ±10ppm nominal tolerance",
           "package": "SMD3225-4P",
           "part": "C13738",
           "tier": "basic"
         },
         {
           "name": "25MHz Crystal",
-          "description": "12pF load, \u00b110ppm nominal tolerance",
+          "description": "12pF load, ±10ppm nominal tolerance",
           "package": "SMD3225-4P",
           "part": "C9006",
           "tier": "basic"
         },
         {
           "name": "32.768kHz Crystal",
-          "description": "12.5pF load, \u00b120ppm",
+          "description": "12.5pF load, ±20ppm",
           "package": "SMD3215-2P",
           "part": "C32346",
           "tier": "basic"
@@ -147,7 +147,7 @@
         {
           "name": "W5500",
           "description": "SPI Ethernet controller with integrated MAC and PHY",
-          "package": "LQFP-48(7x7)",
+          "package": "LQFP-48_7x7",
           "part": "C32843",
           "tier": "extended",
           "notes": "Popular all-in-one Ethernet choice that does not require an MCU with an onboard Ethernet MAC."
@@ -372,11 +372,12 @@
           "tier": "basic"
         },
         {
-          "name": "WS2812B",
+          "name": "WS2812B-B/W",
           "description": "Individually addressable RGB LED",
-          "package": "5050",
+          "package": "SMD5050-4P",
           "part": "C114586",
-          "tier": "extended"
+          "tier": "extended",
+          "notes": "Standard PCBA only in the October 29, 2026 JLCPCB listing. Use the exact V5-linked datasheet and timing; generic WS2812 revisions differ."
         }
       ]
     },
@@ -392,14 +393,14 @@
         },
         {
           "name": "AO3400A",
-          "description": "30V 5.7A N-channel MOSFET, 48m\u03a9 at 2.5V gate drive",
+          "description": "30V 5.7A N-channel MOSFET, 48mΩ at 2.5V gate drive",
           "package": "SOT-23",
           "part": "C20917",
           "tier": "basic"
         },
         {
           "name": "AO3401A",
-          "description": "30V 4A P-channel MOSFET, 85m\u03a9 at 2.5V gate drive",
+          "description": "30V 4A P-channel MOSFET, 85mΩ at 2.5V gate drive",
           "package": "SOT-23",
           "part": "C15127",
           "tier": "basic"
@@ -442,7 +443,7 @@
         {
           "name": "SS14",
           "description": "1A 40V Schottky rectifier",
-          "package": "SMA_DO-214AC",
+          "package": "SMA(DO-214AC)",
           "part": "C7420316",
           "tier": "preferred"
         },
@@ -465,7 +466,7 @@
           "package": "QFN-24-EP(4x4)",
           "part": "C24112",
           "tier": "preferred",
-          "notes": "Useful for legacy ecosystem compatibility; TDK marks the MPU-6050 discontinued."
+          "notes": "Legacy/repair and ecosystem-compatibility choice. TDK marks MPU-6050 discontinued; remaining stock does not imply ongoing production."
         }
       ]
     }

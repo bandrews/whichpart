@@ -1,0 +1,1087 @@
+{
+  "reviewDate": "2026-10-29",
+  "generatedAt": "2026-10-29T15:00:48.692341+00:00",
+  "status": "implemented-and-independently-reviewed",
+  "comparisonBaseline": "raw-data/jlcpcb-basic-parts-2026-10-13.json",
+  "appliedRefresh": {
+    "catalogSummary": {
+      "oldTotal": 1586,
+      "newTotal": 1586,
+      "oldTierCounts": {
+        "basic": 351,
+        "preferred": 1235
+      },
+      "newTierCounts": {
+        "basic": 351,
+        "preferred": 1235
+      },
+      "added": 0,
+      "removed": 0,
+      "tierChanges": 0,
+      "priceChanges": 1480,
+      "stockChanges": 1550,
+      "specificationChanges": 363,
+      "priceIncreases": 1016,
+      "priceDecreases": 298,
+      "unchangedFirstPrice": 166
+    },
+    "snapshot": "raw-data/jlcpcb-basic-parts-2026-10-29.json",
+    "changes": [
+      "Collected complete catalog with explicit source preferred flags",
+      "Updated generated price/stock/specification records and dated changelog",
+      "Rebuilt all static assets",
+      "Added shared API validation, pagination regression tests, and exact-part verification command",
+      "Documented maintenance commands and added stock-change count to catalog diff"
+    ],
+    "curatedReviewedDate": "2026-08-19",
+    "noteBaselineDate": "2026-07-24",
+    "publication": "Prepared for the user-requested commit and push to origin/main; final Git/deployment result is reported in the chat."
+  },
+  "coverage": {
+    "componentNotes": 99,
+    "componentNotesCovered": 99,
+    "familyNotes": 14,
+    "familyNotesCovered": 14,
+    "curatedPicks": 58,
+    "qualifyingPicks": 49,
+    "ordinaryExtendedPicks": 9,
+    "automatedDescriptionCoverage": 1586,
+    "limitations": [
+      "All 16 Luna finding records were independently assessed against source files and supporting evidence. This does not certify every unrelated numeric statement in the 99 component notes.",
+      "The exact manufacturer PDFs for all 14 changed-rating parts were retrieved in the independent follow-up; earlier PDF-access limitations are superseded for those parts.",
+      "Three curation-opportunity records are excluded by the user’s human-selection rule. No Our Picks additions or substitutions were made."
+    ]
+  },
+  "rp2040": {
+    "partNumber": "C2040",
+    "checkedAt": "2026-10-29T14:51:03.293Z",
+    "expectedTier": "extended",
+    "sourceUrl": "https://jlcpcb.com/partdetail/C2040",
+    "status": "verified",
+    "issues": [],
+    "snapshotFirstUnitPrice": null,
+    "priceBreaksMatchSnapshot": null,
+    "current": {
+      "partNumber": "C2040",
+      "manufacturerPart": "RP2040",
+      "manufacturer": "Raspberry Pi",
+      "category": "Microcontrollers (MCU/MPU/SOC)",
+      "firstSort": "Microcontrollers (MCU/MPU/SOC)",
+      "secondSort": "Embedded Processors & Controllers",
+      "package": "LQFN-56(7x7)",
+      "description": "12bit 133MHz 30 LQFN-56(7x7) Microcontrollers (MCU/MPU/SOC) ROHS",
+      "attributes": [
+        {
+          "attribute_name_en": "Operating Temperature",
+          "attribute_value_name": "-20℃~+85℃"
+        },
+        {
+          "attribute_name_en": "CPU Maximum Speed",
+          "attribute_value_name": "133MHz"
+        },
+        {
+          "attribute_name_en": "Program Memory Type",
+          "attribute_value_name": "External"
+        },
+        {
+          "attribute_name_en": "Voltage - Supply",
+          "attribute_value_name": "1.8V~3.3V"
+        },
+        {
+          "attribute_name_en": "RAM Size",
+          "attribute_value_name": "264KB"
+        },
+        {
+          "attribute_name_en": "Core Size",
+          "attribute_value_name": "32 Bit"
+        },
+        {
+          "attribute_name_en": "CPU Core",
+          "attribute_value_name": "ARM Cortex-M0+"
+        },
+        {
+          "attribute_name_en": "Number of I/O",
+          "attribute_value_name": "30"
+        },
+        {
+          "attribute_name_en": "ADC (Bit)",
+          "attribute_value_name": "12bit"
+        },
+        {
+          "attribute_name_en": "Oscillator Type",
+          "attribute_value_name": "Built-in+External"
+        }
+      ],
+      "stock": 65709,
+      "prices": [
+        {
+          "startNumber": 1,
+          "endNumber": 9,
+          "productPrice": 1.0874
+        },
+        {
+          "startNumber": 10,
+          "endNumber": 29,
+          "productPrice": 1.0007
+        },
+        {
+          "startNumber": 30,
+          "endNumber": 99,
+          "productPrice": 0.9188
+        },
+        {
+          "startNumber": 100,
+          "endNumber": 499,
+          "productPrice": 0.8582
+        },
+        {
+          "startNumber": 500,
+          "endNumber": 999,
+          "productPrice": 0.7386
+        },
+        {
+          "startNumber": 1000,
+          "endNumber": -1,
+          "productPrice": 0.7255
+        }
+      ],
+      "minOrder": 1,
+      "lcscUrl": "https://www.lcsc.com/product-detail/microcontrollers-mcu-mpu-soc_raspberry-pi-rp2040_C2040.html",
+      "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2201101600_Raspberry-Pi-RP2040_C2040.pdf",
+      "libraryType": "expand",
+      "preferredComponentFlag": false,
+      "tier": "extended"
+    }
+  },
+  "liveCheckSummary": {
+    "verified": 15
+  },
+  "manualPageChecks": [
+    {
+      "partNumber": "C114586",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C114586",
+      "observedAt": "2026-10-29T15:00:48.692341+00:00",
+      "manufacturerPart": "WS2812B-B/W",
+      "package": "SMD5050-4P",
+      "publicTierLabel": "Extended",
+      "pcbaType": "Standard Only",
+      "stockDisplayed": 303221,
+      "firstUnitPrice": 0.1042,
+      "status": "Product existence/identity/service confirmed; exact search discrepancy and datasheet review remain recorded."
+    }
+  ],
+  "reviewers": [
+    {
+      "file": "reviews/2026-10-29/luna-digital.json",
+      "model": "gpt-6-luna",
+      "scope": "Audit of microcontroller, memory/RTC, interface/digital isolation, sensor, and connector component notes and matching curated picks/descriptions. Includes all RP2040 C2040 and ordinary Extended recommendations in these areas, plus component notes whose kind falls in the audited areas. Deepened follow-up checked local 2026-10-29 qualifying snapshot against the audited notes and checked RP2040 boot/clock claims against Raspberry Pi primary documentation; assessed possible uncovered hobbyist picks.",
+      "coverageLimitations": [
+        "Reviewed the full component-note inventory and selection metadata/descriptions for the requested categories; this was a targeted editorial and lifecycle audit, not a fresh datasheet-by-datasheet electrical validation of every specification row.",
+        "The refreshed 2026-10-29 raw catalog is present, but this review did not treat the repository’s in-progress catalog refresh as final source for current stock, tier, or pricing. Root refresh work should reconcile those values.",
+        "Follow-up cross-checked catalog identity and cited technical claims on the digital notes; it did not independently re-derive every cited electrical limit from primary PDFs for all ~30 notes. C719499 and C5126825 electrical claims reviewed against their existing FORESEE datasheet citations; current catalog description attributes were checked against the 2026-10-29 raw snapshot.",
+        "Candidate assessment: C52717 is a plausible additional simple-MCU pick; DS1302Z+T&R (C8959) remains a niche legacy RTC option due to its non-I²C three-wire protocol and 0–70 °C grade, so I did not recommend it as a general pick. C79988 (M24C64-RMN6TP) could fill an EEPROM capacity gap between existing 2-Kbit and 256-Kbit entries, but the note identifies process-letter dependence for 1-MHz timing and endurance; this should be presented only with that qualification if added.",
+        "Cross-checked all 36 component notes whose kind is microcontroller, memory, interface, isolation, sensor, or connector against the 2026-10-29 raw snapshot: each of the 30 qualifying entries matched manufacturer part, category, package, and tier; the six ordinary Extended notes are correctly absent from the qualifying snapshot (C168688, C2040, C2765186, C32843, C529330, C84681). This identity check does not validate every electrical table value."
+      ]
+    },
+    {
+      "file": "reviews/2026-10-29/luna-analog.json",
+      "model": "gpt-6-luna",
+      "scope": "Luna audit of component notes, curated selections, summaries, and friendly descriptions for power/battery/linear and switching regulators, analog op-amps/comparators/switches, 555 timers, logic buffers/gates/shift registers, Darlington arrays, and optoisolators.",
+      "coverageLimitations": [
+        "Reviewed all 49 individually documented component notes matching the specified electrical families, plus the matching curated-pick entries and description-source files. Read content/ISSUES.md as prior audit context; findings already surfaced there were not treated as independently current without rereading the applicable notes.",
+        "Manufacturer datasheet claims were checked against cited manufacturer documents and current official manufacturer pages where available. JLCPCB/LCSC tier, stock, and price are snapshot facts in the repository dated 2026-07-24; this pass did not treat them as live availability, and the separate catalog refresh should supply current identities and tiers.",
+        "No production content or data was changed. Proposed edits are limited to the review findings below.",
+        "Cross-checked current catalog identity, manufacturer part number, package, and tier for all 48 in-snapshot reviewed note parts against the 2026-10-29 raw catalog; all matched. C7484 is an Extended curated buffer, so its absence from the Basic/Preferred raw snapshot is expected. Compared key catalog attributes against the notes and found that known grade/condition errors in the existing issue log are explicitly caveated in current notes; no further electrical-claim mismatch was confirmed in this pass.",
+        "Checked the four JLCPCB expansion-library candidates using the project exact-part API and its preferredComponentFlag: C12044, C5625, C6521 and C9683 all return expand + preferredComponentFlag=true, so all are Preferred. Their public part-detail pages show a generic “Extended” heading that does not distinguish Preferred from ordinary Extended; it is not evidence of tier conflict."
+      ]
+    },
+    {
+      "file": "reviews/2026-10-29/luna-passives-docs.json",
+      "model": "gpt-6-luna",
+      "scope": "All 14 content/families notes; component notes, task descriptions, and curated entries for crystals, LEDs, MOSFETs, diodes, bridge rectifiers, and TVS/ESD protection; general site copy, README.md, MAINTENANCE.md, content/FORMAT.md, content/README.md, and DATA-CHANGES-MANIFEST.md. Follow-up audit of the 14 rating-change records extracted from the 2026-10-29 catalog snapshot is appended below.",
+      "coverageLimitations": [
+        "All 14 family notes were read. Category counts and catalog-specific examples were assessed as claims anchored to their stated 2026-07-24 snapshot; this review did not freshly recalculate every family statistic against all 1,586 records.",
+        "All 19 scoped component notes and corresponding curated entries were reviewed. Task description strings were checked for all 19 part IDs, with manufacturer-level verification focused on the explicit headline claims and sampled component specifications rather than a fresh independent audit of every sentence and every datasheet table.",
+        "Source links in the existing notes were considered alongside targeted primary-source checks; no claim is made that every linked source URL or every catalog price/stock figure was re-fetched.",
+        "For the 14 new rating-change records, the supplied LCSC PDF URLs returned HTML rather than PDF data through the available fetch route, and the web reader could not open those URLs. The report therefore keeps catalog-change evidence separate from manufacturer confirmation. Manufacturer evidence is cited only where a searchable manufacturer-hosted or manufacturer-issued document could be retrieved; the rest remain unverified discrepancies, not resolved errors."
+      ]
+    }
+  ],
+  "summary": {
+    "proposedRecords": 22,
+    "byPriority": {
+      "P2": 15,
+      "P3": 7
+    },
+    "byCategory": {
+      "editorial-correction": 9,
+      "curation-opportunity": 3,
+      "availability-caveat": 1,
+      "source-verification": 3,
+      "metadata-correction": 1,
+      "identity-and-service-correction": 1,
+      "documentation-correction": 1,
+      "toolchain-maintenance": 1,
+      "validation-improvement": 1,
+      "numerical-correction": 1
+    }
+  },
+  "findings": [
+    {
+      "id": "LUNA-001",
+      "priority": "P2",
+      "status": "resolved",
+      "files": [
+        "content/components/C24112.md",
+        "src/data/other-components.json"
+      ],
+      "partIds": [
+        "C24112"
+      ],
+      "currentClaim": "The MPU-6050 note says no manufacturer lifecycle notice could be retrieved and frames discontinuation as unconfirmed distributor-side supply risk. The curated pick separately states TDK marks it discontinued.",
+      "proposedChange": "Align the note with TDK’s official lifecycle status: mark MPU-6050 discontinued, cite TDK’s product page and 2023 end-of-life notice, and state the announced last-time-buy date (2024-01-31) and last-time-ship date (2024-12-31). Keep the ecosystem-compatibility rationale, but label it explicitly as a legacy/repair choice rather than a new-design recommendation.",
+      "reason": "The current note contradicts the pick and understates a confirmed manufacturer discontinuance. The old disclaimer says no manufacturer notice was retrievable, which is now stale evidence and could lead a hobbyist to treat this as merely distributor-dependent NRND. TDK’s current product page marks the device discontinued and the official PCN identifies it for discontinuance.",
+      "evidence": [
+        {
+          "url": "https://product.tdk.com/ja/search/sensor/mortion-inertial/imu/info?part_no=MPU-6050",
+          "fact": "TDK product page lists MPU-6050 product status as discontinued and recommends ICM-42670-P as an alternative while warning compatibility is not guaranteed."
+        },
+        {
+          "url": "https://invensense.tdk.com/wp-content/uploads/2023/09/PCN-000614.pdf",
+          "fact": "TDK/InvenSense PCN-000614 dated 2023-07-23 lists MPU-6050 among products to be discontinued, with last-time-buy 2024-01-31 and last-time-ship 2024-12-31."
+        }
+      ],
+      "confidence": "high",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-digital.json",
+      "category": "editorial-correction",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed",
+        "resolution": "Applied manufacturer lifecycle guidance. Independently read TDK’s product status and the complete manufacturer-issued PCN-000614 PDF; its LTB/LTS dates are 2024-01-31 / 2024-12-31."
+      }
+    },
+    {
+      "id": "LUNA-002",
+      "priority": "P2",
+      "status": "resolved",
+      "files": [
+        "content/components/C14877.md",
+        "src/data/other-components.json"
+      ],
+      "partIds": [
+        "C14877"
+      ],
+      "currentClaim": "The note says product status depends on distributor channel and that Microchip’s product page could not be read; the curated note repeats an apparent conflict between distributor NRND flags and a projected 2040 end-of-life date.",
+      "proposedChange": "Replace the distributor-only uncertainty with Microchip’s own guidance: ATmega328P is listed as “Not Recommended for new designs” in the current Silicon Products table on Microchip’s AN2468 landing page; describe ATmega328PB as the currently in-production, Microchip-recommended related variant, and avoid saying it is a drop-in successor without noting design/software compatibility must be checked.",
+      "reason": "An authoritative Microchip source resolves the key question: the ATmega328P is explicitly not recommended for new designs, while the 328PB has an in-production product page. The current wording buries this manufacturer guidance under a broad channel disagreement and cites a projected availability date that is not equivalent to a new-design recommendation.",
+      "evidence": [
+        {
+          "url": "https://www.microchip.com/en-us/application-notes/an2468",
+          "fact": "Microchip’s AN2468 marks ATmega328P “Not Recommended for new designs” and lists ATmega328PB separately as the related device."
+        },
+        {
+          "url": "https://www.microchip.com/en-us/product/atmega328pb",
+          "fact": "Microchip’s current ATmega328PB product page states Status: In Production and marks the device as recommended by Microchip."
+        }
+      ],
+      "confidence": "high",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-digital.json",
+      "category": "editorial-correction",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed-with-attribution-clarified",
+        "resolution": "Independently checked the current Silicon Products table on the AN2468 web page, not the 2019 application-note PDF. It explicitly marks ATmega328P NRND. ATmega328PB page says In Production. Corrected note and existing pick."
+      }
+    },
+    {
+      "id": "LUNA-003",
+      "priority": "P2",
+      "status": "resolved",
+      "files": [
+        "content/components/C2040.md"
+      ],
+      "partIds": [
+        "C2040"
+      ],
+      "currentClaim": "The RP2040 note says “Nothing runs without” external flash and the specification table presents 200 MHz as an “up to” clock when VREG is set to 1.15 V.",
+      "proposedChange": "Clarify that external QSPI flash is required for persistent stand-alone program storage and normal cold boot from a stored application, but the Boot ROM can load a UF2 program into SRAM over USB and run it without external flash; such code is volatile and must be reloaded after reset/power loss. Change the clock row to state 133 MHz is the maximum guaranteed across process, voltage and temperature; explain that Raspberry Pi documents 200 MHz as achievable with elevated DVDD/VREG VSEL 1.15 V, outside the 133 MHz all-conditions maximum and not a guaranteed operating point.",
+      "reason": "The Boot ROM documentation explicitly permits UF2 to be written to RAM, so “nothing runs without” flash is factually too absolute for hobbyists and debugging. The datasheet also separates the 133 MHz guaranteed maximum across PVT from the 200 MHz elevated-voltage achievable figure; the current row overstates 200 MHz as a normal maximum even though the prose later calls it an overclock.",
+      "evidence": [
+        {
+          "url": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf",
+          "fact": "Section 2.8.4 says a UF2 file is downloaded and written to Flash or RAM, then the device automatically reboots; Section 2.15.3 states clk_sys max is 133 MHz across all PVT variations, with 200 MHz achievable at elevated core supply and VREG VSEL 1.15 V."
+        },
+        {
+          "url": "https://www.raspberrypi.com/documentation/microcontrollers/microcontroller-chips.html",
+          "fact": "Raspberry Pi describes no built-in flash and states code can run from SRAM; it identifies 133 MHz as the RP2040 core speed."
+        }
+      ],
+      "confidence": "high",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-digital.json",
+      "category": "editorial-correction",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed-with-scope-narrowed",
+        "resolution": "Read RP2040 sections 2.8.4 and 2.15.3: UF2 can load RAM; 133 MHz covers all PVT, 200 MHz requires elevated DVDD. Corrected absolute flash claim and clock row. Wording concerns power loss, not an unsupported claim that every reset destroys SRAM."
+      }
+    },
+    {
+      "id": "LUNA-004",
+      "priority": "P3",
+      "status": "excluded-human-selection",
+      "files": [
+        "src/data/other-components.json",
+        "content/components/C52717.md"
+      ],
+      "partIds": [
+        "C52717"
+      ],
+      "currentClaim": "Our Picks has AVR and Cortex-M choices but no compact TSSOP-20 STM8 option. C52717 is already in the qualifying Preferred catalog and has a component note.",
+      "proposedChange": "Consider adding STM8S003F3P6TR (C52717) as a clearly labeled budget 8-bit MCU option, with the existing note’s qualifications: 2.95–5.5 V supply, 8 KB flash, 1 KB RAM, 128-byte true EEPROM and a 16 MHz core. Identify it as a distinct ST proprietary-core/toolchain path rather than suggesting it is a drop-in replacement for the Cortex-M or AVR picks.",
+      "reason": "This is a concrete low-cost, hand-solderable alternative for simple control projects, backed by a current ST product page marked Active/in volume production. The catalog confirms exact C-number, TSSOP-20 package, and Preferred tier. It expands the beginner-relevant choice set while making the 8-bit and 2.95 V limitations clear.",
+      "evidence": [
+        {
+          "url": "https://www.st.com/en/microcontrollers-microprocessors/stm8s003f3.html",
+          "fact": "ST labels STM8S003F3 Active/in volume production and documents 8 KB flash, 1 KB RAM, 128-byte true EEPROM, 16 MHz core, and 2.95–5.5 V supply."
+        }
+      ],
+      "confidence": "medium",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-digital.json",
+      "category": "curation-opportunity",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "not-a-correctness-defect",
+        "resolution": "An optional curation suggestion, not an error. Its small-MCU rationale does not authorize selection. Excluded under the human-only Our Picks rule."
+      }
+    },
+    {
+      "id": "LUNA-005",
+      "priority": "P2",
+      "status": "resolved",
+      "files": [
+        "content/components/C12084.md"
+      ],
+      "partIds": [
+        "C12084"
+      ],
+      "currentClaim": "The SN65HVD230 table’s “Why it matters” text says its ±16 kV bus ESD rating is why it can run to a connector without extra protection.",
+      "proposedChange": "State that ±16 kV is the datasheet Human Body Model (HBM) component-level ESD rating for CANH/CANL/GND, not an IEC 61000-4-2 connector immunity rating. Advise choosing external TVS/common-mode protection from the system’s IEC immunity, cable, surge and EMC requirements; do not imply the HBM number alone establishes connector-level protection.",
+      "reason": "HBM and IEC contact/air-discharge tests use different waveforms and energy. The datasheet itself labels the rating HBM and does not establish that a board meets connector-level IEC immunity. The current practical advice can encourage users to omit the protection their actual environment or product test requires.",
+      "evidence": [
+        {
+          "url": "https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf",
+          "fact": "TI Rev. O datasheet section 8.2 specifies ±16,000 V HBM for CANH, CANL and GND, ±4,000 V HBM for all pins, and ±1,000 V CDM; it does not state an IEC 61000-4-2 connector rating."
+        },
+        {
+          "url": "https://www.ti.com/product/SN65HVD230",
+          "fact": "TI product page likewise names the protection rating as ±16 kV HBM."
+        }
+      ],
+      "confidence": "high",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-digital.json",
+      "category": "editorial-correction",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed",
+        "resolution": "Read TI’s ESD table: CANH/CANL/GND ±16 kV is HBM. It does not certify an assembled connector to IEC 61000-4-2. Replaced the unsupported omit-protection advice."
+      }
+    },
+    {
+      "id": "LUNA-006",
+      "priority": "P3",
+      "status": "excluded-human-selection",
+      "files": [
+        "src/data/other-components.json",
+        "content/components/C79988.md"
+      ],
+      "partIds": [
+        "C79988"
+      ],
+      "currentClaim": "Our Picks has small 2-Kbit and large 256-Kbit I²C EEPROM options, but no intermediate-capacity part; C79988 is a qualifying Preferred 64-Kbit EEPROM with an existing note.",
+      "proposedChange": "Consider adding M24C64-RMN6TP (C79988) as the intermediate I²C EEPROM option, describing it as 8 KiB and retaining the component note’s qualification that 1-MHz operation and the higher endurance claims depend on unidentifiable process letters. Use the current catalog snapshot for price/stock before publication.",
+      "reason": "It provides a genuinely useful size between the existing 256-byte and 32-KiB EEPROM recommendations and matches their 8-pin SOIC format. It is already in the qualifying catalog, and the existing note explains the process-letter caveat rather than overstating the figures.",
+      "evidence": [
+        {
+          "url": "https://www.st.com/resource/en/datasheet/m24c64-r.pdf",
+          "fact": "ST’s M24C64 datasheet identifies a 64-Kbit serial I²C EEPROM and marks 1-MHz and endurance specifications with process-letter conditions; the existing C79988 note documents this distinction."
+        }
+      ],
+      "confidence": "medium",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-digital.json",
+      "category": "curation-opportunity",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "not-a-correctness-defect",
+        "resolution": "64 Kbit equals 8 KiB and lies between the existing capacities, but usefulness is a selection judgment. No addition or substitution is authorized; excluded."
+      }
+    },
+    {
+      "id": "LA-001",
+      "priority": "P2",
+      "status": "resolved",
+      "files": [
+        "content/components/C10002.md"
+      ],
+      "partIds": [
+        "C10002"
+      ],
+      "currentClaim": "The summary calls the fixed-5 V LM2596 a “classic drop-in replacement for a 7805.”",
+      "proposedChange": "Replace “drop-in replacement” with wording such as “a straightforward switching alternative to a 7805 when you can redesign for its 5-pin switching circuit.”",
+      "reason": "The LM2596 datasheet's fixed-output application requires an inductor, catch diode, input and output capacitors, and its order code is in a 5-pin TO-263 package. TI's LM7805 family datasheet shows a 3-pin TO-263 package with different pin functions. The current phrase can imply mechanical and electrical pin compatibility that does not exist, despite the note's body correctly explaining that an LM2596 needs switch-mode support parts.",
+      "evidence": [
+        {
+          "url": "https://www.ti.com/lit/ds/symlink/lm2596.pdf",
+          "fact": "TI's LM2596 datasheet gives a 5-pin TO-263 package and a fixed-output application circuit with an inductor, diode, and capacitors."
+        },
+        {
+          "url": "https://www.ti.com/lit/ds/symlink/lm7800.pdf",
+          "fact": "TI's LM7805 datasheet gives a 3-pin TO-263 package and distinct input, ground, and output pin functions."
+        }
+      ],
+      "confidence": "high",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-analog.json",
+      "category": "editorial-correction",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed",
+        "resolution": "Read TI LM2596 pinout and typical application: five-pin buck regulator with inductor/diode/capacitors. Replaced the mechanically/electrically misleading drop-in 7805 claim."
+      }
+    },
+    {
+      "id": "LA-002",
+      "priority": "P2",
+      "status": "resolved",
+      "files": [
+        "content/components/C109227.md",
+        "content/components/C115450.md"
+      ],
+      "partIds": [
+        "C109227",
+        "C115450"
+      ],
+      "currentClaim": "The Lite-On LTV-817 note C109227 compares its tens-of-kilobits practical switching to “the ADuM1201 (C9669) at 25 Mbps.” The LTV-217 note C115450 only says to compare with C9669 and does not state a rate.",
+      "proposedChange": "Correct C109227’s comparison to say the cataloged ADuM1201ARZ-RL7 (C9669) is rated for 1 Mbps; mention that 25 Mbps applies to the CR speed grade if useful. Leave C115450’s comparison as-is.",
+      "reason": "C9669 is ADUM1201ARZ-RL7; Analog Devices specifies its AR grade at a maximum data rate of 1 Mbps. The 25 Mbps figure belongs to the CR grade. C115450.md already contains no numeric rate in its comparison and is accurate; only C109227.md needs correction.",
+      "evidence": [
+        {
+          "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ADuM1200_1201.pdf",
+          "fact": "Analog Devices' switching-specification table assigns 1 Mbps to ADuM1201AR and 25 Mbps to ADuM1201CR."
+        },
+        {
+          "url": "https://www.analog.com/en/products/adum1201.html",
+          "fact": "ADI's product page lists ADUM1201ARZ-RL7 among orderable ADuM1201 variants; the AR grade is the cataloged order code in C9669."
+        }
+      ],
+      "confidence": "high",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-analog.json",
+      "category": "editorial-correction",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed-with-scope-narrowed",
+        "resolution": "Read ADI Rev. L switching tables: AR is 1 Mbps, CR is 25 Mbps. C109227 contains the false 25 Mbps comparison and is fixed. Independently checked C115450: it contains no rate claim and needed no speed correction."
+      }
+    },
+    {
+      "id": "LA-003",
+      "priority": "P3",
+      "status": "excluded-human-selection",
+      "files": [
+        "src/data/other-components.json",
+        "content/components/C12044.md",
+        "content/components/C14289.md",
+        "content/components/C5625.md",
+        "content/components/C6521.md",
+        "content/components/C71035.md"
+      ],
+      "partIds": [
+        "C12044",
+        "C14289",
+        "C5625",
+        "C6521",
+        "C71035"
+      ],
+      "currentClaim": "Our Picks covers one 1 A TP4056 charger, an AMS1117 and an XC6206 among regulators, a single 8:1 CD4051 analog switch, and a single extended 1G125 buffer; the following documented parts are absent from the picks.",
+      "proposedChange": "Consider a compact enthusiast add-on shortlist: C12044 TP4057 for lower-current 500 mA single-cell charging; C14289 HT7533-1 for very-low-quiescent-current 3.3 V from higher input voltages; C6521 CD4052BM96 for two coordinated 4:1 analog mux channels; and C5625 74HC245D for an octal bidirectional tri-state bus. Keep C71035 LM324DT as a conditional four-channel option, not a general-purpose default. The exact-part API confirms C12044, C5625, and C6521 are Preferred, and C14289 is Basic despite generic Extended labels on public detail pages.",
+      "reason": "These add distinct use cases rather than near-duplicate headline picks. The TP4057 manufacturer document describes a 500 mA single-cell CC/CV charger with reverse-battery protection and programmed current, while its catalog says no battery-temperature detection and no 0 V battery charging; like the picked TP4056, it is not power-path management. Holtek gives the HT7533 a 2.5 µA supply current and up-to-30 V input, which complements the picked XC6206 (6 V max) but is only a 100 mA family with 70 mA guaranteed minimum at 3.3 V. CD4052 is two independent 4:1 paths, distinct from the picked single 8:1 CD4051; its 125 Ω typical on-resistance is specified at 15 V and signals must stay within its supply rails. 74HC245 provides eight bidirectional 3-state lines, but HC CMOS thresholds do not make it a guaranteed 3.3 V-to-5 V translator and output drive is limited. LM324DT gives four channels but is commercial grade (0–70 °C) and 7 mV maximum offset, already explained in its note. Evaluated C32574 TP4054 as well, but did not shortlist it: its component note gives 400 mA typical at the worked setting, with 250–450 mA over temperature and thermal-current backoff, so it is less distinct than TP4057; Top Power’s product page calls the device 400 mA while the JLC listing labels it 450 mA maximum. Oct. 29 snapshot stock: 34,527 (C12044), 177,879 (C14289), 46,445 (C5625), and 53,113 (C6521). Exact-part API checks confirm C12044, C5625 and C6521 are Preferred (expand plus preferredComponentFlag=true); the public detail pages use “Extended” generically for both Preferred and ordinary Extended.",
+      "evidence": [
+        {
+          "url": "https://www.toppwr.com/uploadfile/file/20240913/66e3cef054ad8.pdf",
+          "fact": "Manufacturer TP4057 document describes single-cell linear CC/CV charging, 500 mA programmable current, reverse-battery protection, 4.2 V and SOT-23-6."
+        },
+        {
+          "url": "https://jlcpcb.com/partdetail/12599-TP4057_42_SOT26R/C12044",
+          "fact": "JLCPCB lists C12044 as TP4057-42-SOT26-R, SOT-23-6, 500 mA maximum, no battery-temperature detection and no 0 V battery charge."
+        },
+        {
+          "url": "https://www.holtek.com/webapi/116711/HT75xx-1v281.pdf",
+          "fact": "Holtek Rev. 2.81 identifies HT7533-1 and supports its 3.3 V, low-power LDO characteristics."
+        },
+        {
+          "url": "https://jlcpcb.com/partdetail/C14289",
+          "fact": "JLCPCB lists C14289 as Holtek HT7533-1, Basic, SOT-89-3, 3.3 V, 100 mA, 2.5 µA and 30 V input."
+        },
+        {
+          "url": "https://www.nexperia.com/product/74HC245BZ",
+          "fact": "Nexperia describes 74HC245 as an 8-bit transceiver with 3-state outputs, direction and output-enable controls, 2–6 V supply, and HC CMOS input levels."
+        },
+        {
+          "url": "https://jlcpcb.com/partdetail/Nexperia-74HC245D653/C5625",
+          "fact": "JLCPCB identifies C5625 as Nexperia 74HC245D,653 in SOIC-20-300mil with 8-bit, bidirectional, tri-state attributes; the exact-part API confirms Preferred."
+        },
+        {
+          "url": "https://www.ti.com/lit/ds/symlink/cd4052b.pdf",
+          "fact": "TI specifies CD4052B as two 4:1 channels, 3–20 V single supply or ±3–±10 V dual supply, 125 Ω typical on-resistance at 15 V and 25 MHz typical bandwidth."
+        },
+        {
+          "url": "https://jlcpcb.com/partdetail/C6521",
+          "fact": "JLCPCB identifies C6521 as TI CD4052BM96, SOIC-16, with 2 channels, 4:1 switching, 3–20 V, 125 Ω and 25 MHz; the exact-part API confirms Preferred."
+        },
+        {
+          "url": "https://www.st.com/resource/en/datasheet/lm124.pdf",
+          "fact": "ST order table lists LM324DT as a 0–70 °C SO-14 order code; the note covers the LM324 offset grade and 7 mV maximum."
+        },
+        {
+          "url": "https://www.toppwr.com/product/?sortid=293",
+          "fact": "Top Power manufacturer product page describes TP4054 as a 400 mA linear Li-ion charger, while JLCPCB listing for C32574 states 450 mA maximum; its component note explains the worked-setting and thermal conditions."
+        },
+        {
+          "url": "https://jlcpcb.com/parts/basic_parts",
+          "fact": "Exact-part API check via project helper: C12044, C5625 and C6521 each return componentLibraryType=expand and preferredComponentFlag=true (Preferred). Public detail page “Extended” heading is generic and does not indicate the preferred flag."
+        }
+      ],
+      "confidence": "medium",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-analog.json",
+      "category": "curation-opportunity",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "not-a-correctness-defect",
+        "resolution": "The catalog supports the candidates’ identities/tiers, but selecting distinct use cases is editorial judgment. Three Preferred candidates and Basic HT7533 were suggestions, not defects. All additions excluded under the human-selection rule."
+      }
+    },
+    {
+      "id": "LA-004",
+      "priority": "P3",
+      "status": "resolved",
+      "files": [
+        "raw-data/jlcpcb-basic-parts-2026-10-29.json",
+        "content/components/C9683.md"
+      ],
+      "partIds": [
+        "C9683"
+      ],
+      "currentClaim": "C9683 ULN2803ADWR note records 2,405 units in the July 24 snapshot and calls it Preferred Extended; the October 29 raw snapshot and exact-part API both show 2 units in stock and Preferred tier.",
+      "proposedChange": "Keep the July snapshot figure explicitly dated, as it is; if reconsidering this as a recommendation, add a current availability caveat or wait for inventory recovery. The October 29 snapshot and exact-part API both list 2 units.",
+      "reason": "This is a selection and availability caveat, not a stale-data error: the component note explicitly dates its 2,405-unit figure to July 24, while the October 29 snapshot and exact-part API show 2 units. Exact-part API confirms Preferred (expand plus preferredComponentFlag=true), so the public detail page’s generic “Extended” heading is not evidence of a tier change. The seven-channel ULN2003ADR remains much more available at 365,185 units in the October 29 snapshot.",
+      "evidence": [
+        {
+          "url": "https://www.ti.com/product/ULN2803A",
+          "fact": "TI identifies ULN2803A as an 8-channel, 50 V Darlington array."
+        },
+        {
+          "url": "https://www.ti.com/product/ULN2003A",
+          "fact": "TI identifies ULN2003A as a 7-channel counterpart rated 500 mA per channel."
+        },
+        {
+          "url": "https://jlcpcb.com/parts/basic_parts",
+          "fact": "Exact-part API check via project helper: C9683 returns componentLibraryType=expand and preferredComponentFlag=true, tier=preferred, stock=2. The public detail page’s “Extended” label is generic."
+        }
+      ],
+      "confidence": "high",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-analog.json",
+      "category": "availability-caveat",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "valid-availability-update-not-historical-error",
+        "resolution": "Verified the October 29 snapshot stock is two and the July count was explicitly historical. Kept that historical statement and added a dated current availability note. No false tier-conflict claim or new pick."
+      }
+    },
+    {
+      "id": "LUNA-PASS-001",
+      "priority": "P2",
+      "status": "resolved",
+      "files": [
+        "DATA-CHANGES-MANIFEST.md",
+        "README.md"
+      ],
+      "partIds": [],
+      "currentClaim": "The older data-change manifest calls SOD-123FL and SOT-23-6L pin-compatible variants with the same footprint, and calls the variants acceptable on that basis. README.md now warns that SOD-123FL has different mechanical and land-pattern requirements from SOD-123 and says not to treat them as drop-in replacements.",
+      "proposedChange": "Mark the 2026-01-12 package-variant discussion in DATA-CHANGES-MANIFEST.md as superseded, remove the pin-compatible/same-footprint statements, and replace them with a pointer to the current package-specific guidance in README.md. Revisit the SOT-23-6L line independently rather than implying the SOD-123FL conclusion applies to it.",
+      "reason": "The repository currently gives contradictory package-substitution guidance in two user-readable documents. Nexperia identifies SOD123FL as its own package type, and manufacturer package drawings provide distinct recommended land patterns; compatibility cannot be established from lead count or package naming alone.",
+      "evidence": [
+        {
+          "url": "https://www.nexperia.com/packages/SOD123FL.html",
+          "fact": "Nexperia lists SOD123FL as a separate package type and links a dedicated package-information document."
+        },
+        {
+          "url": "https://assets.nexperia.com/documents/package-information/SOD123FL.pdf",
+          "fact": "The package information gives SOD123FL-specific package and footprint dimensions."
+        }
+      ],
+      "confidence": "high",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-passives-docs.json",
+      "category": "editorial-correction",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed-with-qualification",
+        "resolution": "Compared Nexperia package drawings: SOD123FL and SOD123 have distinct outline and land-pattern dimensions. Removed blanket interchangeability claims; SOT-23-6L requires its own drawing rather than an inferred verdict."
+      }
+    },
+    {
+      "id": "LUNA-PASS-002",
+      "priority": "P2",
+      "status": "resolved",
+      "files": [
+        "content/components/C115450.md",
+        "content/components/C13482.md",
+        "content/components/C13738.md",
+        "content/components/C14289.md",
+        "content/components/C15127.md",
+        "content/components/C20917.md",
+        "content/components/C2286.md",
+        "content/components/C2290.md",
+        "content/components/C2488.md",
+        "content/components/C3113.md",
+        "content/components/C5605.md",
+        "content/components/C58069.md",
+        "content/components/C5947.md",
+        "content/components/C6186.md",
+        "content/components/C6187.md",
+        "content/components/C6855.md",
+        "content/components/C6961.md",
+        "content/components/C71035.md",
+        "content/components/C7426.md",
+        "content/components/C7512.md",
+        "content/components/C7950.md",
+        "content/components/C7955.md",
+        "content/components/C8963.md",
+        "content/components/C9002.md",
+        "content/components/C9006.md",
+        "content/components/C97521.md",
+        "content/components/C9864.md"
+      ],
+      "partIds": [
+        "C115450",
+        "C13482",
+        "C13738",
+        "C14289",
+        "C15127",
+        "C20917",
+        "C2286",
+        "C2290",
+        "C2488",
+        "C3113",
+        "C5605",
+        "C58069",
+        "C5947",
+        "C6186",
+        "C6187",
+        "C6855",
+        "C6961",
+        "C71035",
+        "C7426",
+        "C7512",
+        "C7950",
+        "C7955",
+        "C8963",
+        "C9002",
+        "C9006",
+        "C97521",
+        "C9864"
+      ],
+      "currentClaim": "27 component notes state 'no assembly surcharge at JLCPCB'. Two notes identified in the initial pass already use precise Economic PCBA feeder-loading wording and are excluded.",
+      "proposedChange": "Replace the broad phrase in all 27 listed notes with 'no feeder-loading fee for Economic PCBA', tied to the applicable dated tier. Preserve already-correct wording in C32346 and C412437.",
+      "reason": "JLCPCB's published pricing separates assembly setup, extended-component, and other fees. Its documented exemption for Preferred Extended parts is specifically the feeder-loading fee in Economic PCBA. The broad 'no assembly surcharge' promise can be read as a guarantee about the total order price or all PCBA services.",
+      "evidence": [
+        {
+          "url": "https://jlcpcb.com/help/article/pcb-assembly-price",
+          "fact": "JLCPCB describes a distinct Extended Components Fee for Economic PCBA and describes other charges separately."
+        },
+        {
+          "url": "https://jlcpcb.com/help/article/pcb-assembly-faqs",
+          "fact": "JLCPCB says Preferred Extended parts are exempt from the Feeders Loading fee for Economic PCB assembly."
+        }
+      ],
+      "confidence": "high",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-passives-docs.json",
+      "category": "editorial-correction",
+      "rootReview": "Expanded to all exact phrase matches in the 99 component notes; verified targets independently.",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed-with-scope-corrected",
+        "resolution": "Read JLCPCB’s fee page and FAQ: Standard PCBA charges feeder loading for both Basic and Extended, while the stated exemption concerns Economic PCBA. Located/corrected all 27 broad phrases, including a wrapped line; two already-correct notes were excluded."
+      }
+    },
+    {
+      "id": "LUNA-PASS-003",
+      "priority": "P2",
+      "status": "resolved",
+      "files": [
+        "content/components/C85364.md",
+        "content/families/tvs-esd-protection.md"
+      ],
+      "partIds": [
+        "C85364"
+      ],
+      "currentClaim": "C85364.md says 3.5 pF typical is low enough not to distort USB 2.0 or Ethernet; its specification row later advises designing against the 5 pF maximum. The family note generally treats very low capacitance as the key criterion for high-speed lines.",
+      "proposedChange": "Qualify the application statement: describe 3.5 pF typical / 5 pF maximum as a low-capacitance option intended for high-speed interfaces, while directing users to validate the selected line's signal-integrity budget, layout, and system-level ESD performance. Avoid an unconditional assurance that it will not distort USB 2.0 or Ethernet.",
+      "reason": "The cited manufacturer sheet characterizes capacitance and protection ratings, but a component capacitance value alone does not guarantee signal integrity or standards compliance in a particular implementation. The existing note itself reports a 5 pF maximum, which is the more conservative value for design assessment.",
+      "evidence": [
+        {
+          "url": "https://protekdevices.com/wp-content/uploads/datasheets/srv05_4.pdf",
+          "fact": "ProTek specifies I/O-to-ground capacitance as 3.5 pF typical and 5 pF maximum; it does not guarantee signal integrity for a specific USB or Ethernet implementation."
+        }
+      ],
+      "confidence": "medium",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-passives-docs.json",
+      "category": "editorial-correction",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed-as-qualification",
+        "resolution": "Read the ProTek sheet: 3.5 pF typical / 5 pF max and intended USB/Ethernet applications are supported. Blanket no-distortion or universal product-compliance claims are not; qualified the summary/body and system-test guidance. Also corrected the related family guide’s unsupported claim that a 12 V clamp necessarily protects a 3.3 V input; compatibility depends on the protected circuit and pulse conditions."
+      }
+    },
+    {
+      "id": "LUNA-RATING-001",
+      "priority": "P2",
+      "status": "resolved",
+      "files": [
+        "raw-data/jlcpcb-basic-parts-2026-10-29.json",
+        "reviews/2026-10-29/changed-ratings.json",
+        "content/families/chip-resistors.md",
+        "tasks/descriptions-resistors.json"
+      ],
+      "partIds": [
+        "C25190"
+      ],
+      "currentClaim": "The 2026-10-29 API snapshot changes C25190's Temperature Coefficient from ±200 ppm/°C to ±100 ppm/°C, while its bundled catalog description remains ±200 ppm/°C. JLCPCB's currently indexed part-detail record also reports ±200 ppm/°C. UNI-ROYAL's series datasheet table gives ±100 ppm/°C for 0603 values above 10 Ω; C25190 is 27 Ω. The short task description says only '27Ω 1% Resistor (0603)' and does not state a TCR.",
+      "proposedChange": "Do not silently update any descriptive text to ±100 or ±200 ppm/°C. Keep the per-part conflict visible in the refresh review and seek confirmation for this exact order code; if the value is resolved, align the API attribute and generated description with the confirmed value. No task-description edit is needed because it contains no TCR claim.",
+      "reason": "The new API field conflicts both with its own description string and the current JLCPCB detail page, while the generic UNI-ROYAL series table supports the API's ±100 ppm/°C for this package/value range. The exact catalog order code is not unambiguously resolved by those conflicting records.",
+      "evidence": [
+        {
+          "url": "https://jlcpcb.com/partdetail/25933-0603WAF270JT5E/C25190",
+          "fact": "JLCPCB's indexed product page currently reports ±200 ppm/°C in both description and attributes."
+        },
+        {
+          "url": "https://www.uni-royal.cn/images/userfile/file/1590821906c56505e6d9ab55c7.pdf",
+          "fact": "UNI-ROYAL's thick-film resistor series table states ±100 ppm/°C for 0603 resistance values above 10 Ω; it is series-level evidence, not an order-code-specific certificate."
+        },
+        {
+          "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311845_UNI-ROYAL-Uniroyal-Elec-0603WAF270JT5E_C25190.pdf",
+          "fact": "The supplied exact-part datasheet link; it could not be retrieved through this review's PDF fetch path, so its exact-order-code contents were not independently inspected."
+        }
+      ],
+      "confidence": "high",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-passives-docs.json",
+      "category": "source-verification",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "resolved-from-exact-linked-datasheet",
+        "resolution": "Retrieved the exact C25190-linked UNI-ROYAL sheet. Section 11 gives ±100 ppm/°C for 0603 >10 Ω; this part is 27 Ω. Corrected the 200 ppm description through a guarded display review and retained the original supplier data."
+      }
+    },
+    {
+      "id": "LUNA-RATING-002",
+      "priority": "P2",
+      "status": "resolved",
+      "files": [
+        "raw-data/jlcpcb-basic-parts-2026-10-29.json",
+        "reviews/2026-10-29/changed-ratings.json",
+        "tasks/descriptions-tvs-esd.json"
+      ],
+      "partIds": [
+        "C78395"
+      ],
+      "currentClaim": "The new API snapshot changes C78395 Reverse Leakage Current from 1 µA to 1 mA. The current JLCPCB product page/index reports 1 µA; Brightking-family datasheet evidence for the bidirectional device states that the leakage limit doubles for devices with V_RWM ≤ 10 V, but the exact LCSC-linked document for this order code was not retrievable here. Its task description does not state leakage.",
+      "proposedChange": "Retain both values as a source discrepancy and request or inspect the exact Brightking C78395 datasheet revision before revising the source attribute. Do not amend the short task description, which makes no leakage claim.",
+      "reason": "The new value differs by three orders of magnitude from the current product page. A family datasheet footnote may explain a doubled bidirectional limit, but available evidence does not establish whether the exact product specification is 1 mA, 1 µA, or a conditional limit for this part.",
+      "evidence": [
+        {
+          "url": "https://lcsc.com/product-detail/C78395.html",
+          "fact": "The current LCSC page search result reports 1 µA reverse leakage for C78395."
+        },
+        {
+          "url": "https://www.mouser.com/datasheet/2/447/P6SMB_0-1604913.pdf",
+          "fact": "Brightking's P6SMB family sheet says reverse leakage for bidirectional types with V_RWM 10 V or less is double the table limit; exact applicability to the LCSC-linked C78395 revision remains to confirm."
+        },
+        {
+          "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_1810181007_Brightking-P6SMB6-8CA-TR13_C78395.pdf",
+          "fact": "The supplied exact-part datasheet link; this review could not retrieve it as a PDF."
+        }
+      ],
+      "confidence": "medium",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-passives-docs.json",
+      "category": "source-verification",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "resolved-with-additional-footnote-correction",
+        "resolution": "Retrieved the exact Brightking C78395 PDF. The row gives 1000 µA, but the footnote doubles IR for bidirectional VRWM ≤10 V. Applied 2 mA max at 5.8 V/25 °C, rejecting both the old 1 µA prose and unqualified 1 mA attribute as final design limits."
+      }
+    },
+    {
+      "id": "LUNA-RATING-003",
+      "priority": "P3",
+      "status": "resolved",
+      "files": [
+        "tasks/descriptions-tvs-esd.json",
+        "raw-data/jlcpcb-basic-parts-2026-10-29.json",
+        "reviews/2026-10-29/changed-ratings.json"
+      ],
+      "partIds": [
+        "C42413902"
+      ],
+      "currentClaim": "The short description for SM08 is '8V Uni-directional ESD Protection (SOT-23)' and omits channel count. The 2026-10-29 catalog snapshot changes Number of Channels from 1 to 2, and its generated description string now includes '2'.",
+      "proposedChange": "After checking the exact SM08 datasheet topology and whether JLC's channel field means two protected signal lines, update the task description to '8V 2-channel unidirectional ESD protection (SOT-23)' if confirmed. Until then, do not infer the functional channel count solely from the changed catalog attribute.",
+      "reason": "Channel count is a useful choice criterion and the snapshot supplies a new value, but the exact datasheet could not be opened in this audit. Other changed SM08 attributes (temperature range, breakdown/clamping, leakage, and pulse waveform) are not present in its short task description, so they do not require description edits.",
+      "evidence": [
+        {
+          "url": "https://www.lcsc.com/product-detail/esd-and-surge-protection-tvs-esd_hongjiacheng-sm08_C42413902.html",
+          "fact": "The catalog page URL for the part; the supplied fresh snapshot reports 2 channels."
+        },
+        {
+          "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_2501211440_hongjiacheng-SM08_C42413902.pdf",
+          "fact": "The supplied exact-part datasheet link; it could not be retrieved as a PDF through this review's fetch path."
+        }
+      ],
+      "confidence": "medium",
+      "reviewer": "gpt-6-luna",
+      "report": "reviews/2026-10-29/luna-passives-docs.json",
+      "category": "source-verification",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed-from-diagram",
+        "resolution": "Retrieved and rendered the exact SM08 sheet. The diagram shows protected pins 1/2 and common anode pin 3; added the two-channel description. Table also resolves 13.4 V@1 A vs 24 V@15 A (8/20 µs), not conflicting clamp values."
+      }
+    },
+    {
+      "id": "REFRESH-001",
+      "priority": "P2",
+      "category": "metadata-correction",
+      "status": "resolved",
+      "reviewer": "root",
+      "files": [
+        "src/data/other-components.json",
+        "content/components/C32843.md",
+        "content/index.json"
+      ],
+      "partIds": [
+        "C32843"
+      ],
+      "currentClaim": "W5500 is labeled LQFP-48(7x7) locally; the exact API result uses LQFP-48_7x7. Its tier remains ordinary Extended.",
+      "proposedChange": "Align the current display/package metadata with JLCPCB’s spelling, regenerate the content index, and record that this is a label normalization, not evidence of a mechanical package change.",
+      "reason": "The former strict curated audit skipped ordinary Extended identities; the new live check detects this drift.",
+      "evidence": [
+        {
+          "file": "raw-data/jlcpcb-part-checks-2026-10-29.json",
+          "fact": "C32843 exact lookup: manufacturerPart W5500, libraryType expand, preferredComponentFlag false, package LQFP-48_7x7."
+        }
+      ],
+      "confidence": "high",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed",
+        "resolution": "Current exact API lookup agrees with W5500 identity/tier and the LQFP-48_7x7 package spelling. Updated existing metadata and rebuilt note index; no physical substitution."
+      }
+    },
+    {
+      "id": "REFRESH-002",
+      "priority": "P2",
+      "category": "identity-and-service-correction",
+      "status": "resolved",
+      "reviewer": "root",
+      "files": [
+        "src/data/other-components.json",
+        "content/components/C114586.md",
+        "content/index.json"
+      ],
+      "partIds": [
+        "C114586"
+      ],
+      "currentClaim": "The pick and note name generic WS2812B, package 5050, and cite an older generic Adafruit-hosted sheet. Exact C-number search returns no result, but the live product page identifies WS2812B-B/W, SMD5050-4P, Standard Only assembly.",
+      "proposedChange": "Reconcile the note and pick to exact WS2812B-B/W identity and package; label the Standard Only assembly restriction. Replace/verify the generic electrical/protocol claims against the exact linked current sheet before changing ratings. Keep C114586 visible as a known listing; do not infer discontinuance or swap a different WS2812 revision from a failed search. Record a reviewed manual disposition for the API miss.",
+      "reason": "The suffix/revision and assembly service matter to timing, electrical requirements, and purchasing. Direct product-page inspection resolves existence and stock, while the API lookup remains unresolved.",
+      "evidence": [
+        {
+          "url": "https://jlcpcb.com/partdetail/C114586",
+          "fact": "Browser inspection on 2026-10-29: WS2812B-B/W, SMD5050-4P, Extended, Standard Only, 303221 in stock; first displayed unit price $0.1042."
+        },
+        {
+          "url": "https://jlc-prod-smt.oss-eu-central-1.aliyuncs.com/smtDataManualFile/8791060521166077952-C114586.pdf",
+          "fact": "Exact-part datasheet link observed on the product page; full electrical re-review still required."
+        },
+        {
+          "file": "raw-data/jlcpcb-part-checks-2026-10-29.json",
+          "fact": "Exact API search returned total 0; not treated as tier or lifecycle evidence."
+        }
+      ],
+      "confidence": "high",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed-and-resolved",
+        "resolution": "Read the live C114586 page and its exact linked eight-page Worldsemi V5 PDF. Corrected identity, package, Standard Only restriction, >280 µs reset, 2.7 V VIH test condition, optical figures, and unsupported older-revision claims. Added a strict Standard-only page fallback rather than treating search absence as a tier change."
+      }
+    },
+    {
+      "id": "REFRESH-003",
+      "priority": "P3",
+      "category": "documentation-correction",
+      "status": "resolved",
+      "reviewer": "root",
+      "files": [
+        "README.md"
+      ],
+      "partIds": [],
+      "currentClaim": "README says ordinary Extended picks link directly to JLCPCB because they lack local detail pages.",
+      "proposedChange": "Document the actual behavior: curated Extended picks with component notes have local detail pages, while lacking qualifying price/stock records. External JLCPCB links remain available from their detail views.",
+      "reason": "JlcLink uses hasPartPage; PartDetails supports a curated pick/spec note when no parts-index record exists. The README describes older behavior.",
+      "evidence": [
+        {
+          "file": "src/components/JlcLink.jsx",
+          "fact": "hasPartPage controls local details for curated Extended picks."
+        },
+        {
+          "file": "src/pages/PartDetails.jsx",
+          "fact": "Fallback uses curatedPickFor and specEntryFor without a qualifying index record."
+        }
+      ],
+      "confidence": "high",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed",
+        "resolution": "Code and browser behavior show curated Extended notes have local detail pages. Corrected README."
+      }
+    },
+    {
+      "id": "REFRESH-004",
+      "priority": "P3",
+      "category": "toolchain-maintenance",
+      "status": "resolved",
+      "reviewer": "root",
+      "files": [
+        "package.json",
+        "package-lock.json"
+      ],
+      "partIds": [],
+      "currentClaim": "The installed lockfile audit reports advisories through Vite and source-map-js (six affected dependency nodes, including three high and three low severity nodes).",
+      "proposedChange": "Review fixed toolchain versions, update the lockfile with compatible fixes, and rerun the build and audits in a separate maintenance change. Do not run an unreviewed force upgrade as part of this data refresh.",
+      "reason": "These are build/development dependencies. The saved audit is evidence for follow-up, not a claim that the generated static site exposes each advisory.",
+      "evidence": [
+        {
+          "url": "https://github.com/advisories/GHSA-68fv-2mgg-jv7q",
+          "fact": "source-map-js indexed-section offset denial of service advisory."
+        },
+        {
+          "file": "reviews/2026-10-29/npm-audit.json",
+          "fact": "Saved npm audit JSON from the current lockfile."
+        }
+      ],
+      "confidence": "high",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "resolved",
+        "resolution": "Updated Vite to the compatible 8.3.5 release and source-map-js to 1.2.2 through the lockfile. npm audit now reports zero vulnerabilities; build and regression checks pass."
+      }
+    },
+    {
+      "id": "REFRESH-005",
+      "priority": "P2",
+      "category": "validation-improvement",
+      "status": "resolved",
+      "reviewer": "root",
+      "files": [
+        "scripts/audit-curated-picks.js",
+        "README.md"
+      ],
+      "partIds": [],
+      "currentClaim": "The strict curated audit reports qualifying package-label mismatches as warnings and exits nonzero only for errors, although documentation describes package identity as enforced.",
+      "proposedChange": "Make package mismatches fail strict mode or document an explicit, reviewed normalization policy. Add a regression case that changes a qualifying pick’s package and expects a failing strict audit.",
+      "reason": "A future refresh could otherwise pass the stated strict gate with a mislabeled qualifying package. There are no current qualifying-package mismatches in this run.",
+      "evidence": [
+        {
+          "file": "scripts/audit-curated-picks.js",
+          "fact": "package_label_mismatch severity is warning; strict mode tests summary.errors only."
+        }
+      ],
+      "confidence": "high",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed-and-regression-tested",
+        "resolution": "Package mismatches now count as strict-audit errors. Added regression coverage and a human-selection membership guard for Our Picks."
+      }
+    },
+    {
+      "id": "REFRESH-006",
+      "priority": "P2",
+      "category": "numerical-correction",
+      "status": "resolved",
+      "reviewer": "root",
+      "files": [
+        "content/families/chip-resistors.md"
+      ],
+      "partIds": [],
+      "currentClaim": "The resistor family guide says ±100 ppm/°C over 50 °C is 0.5%, five times a 1% initial tolerance. It also calls 293 chip resistors the highest-count family, although the catalog contains 324 TVS/ESD parts.",
+      "proposedChange": "Replace five times with half of the 1% initial tolerance, and describe chip resistors as one of the largest categories rather than the largest. Keep temperature drift separate from initial tolerance and avoid implying a guaranteed error cancellation between unmatched resistors.",
+      "reason": "100 × 50 ppm = 5000 ppm = 0.5%; 0.5% / 1% = 0.5, not 5. The category ranking is contradicted by the catalog counts. This was also confirmed on the rendered resistor detail page.",
+      "evidence": [
+        {
+          "file": "content/families/chip-resistors.md",
+          "fact": "Temperature-coefficient example contains the factor-of-ten comparison error."
+        },
+        {
+          "file": "raw-data/jlcpcb-basic-parts-2026-10-29.json",
+          "fact": "Category counts: 293 Chip Resistor parts versus 324 TVS/ESD parts."
+        }
+      ],
+      "confidence": "high",
+      "independentReview": {
+        "reviewer": "primary agent",
+        "date": "2026-10-29",
+        "verdict": "confirmed",
+        "resolution": "Independently recalculated 100 ppm/°C × 50 °C = 0.5%, which is half of 1%, and checked category counts (293 resistors vs 324 TVS). Fixed the arithmetic/ranking and qualified tracking assumptions."
+      }
+    }
+  ],
+  "humanSelectionPolicy": "Only a human may select additions to Our Picks; all 58 existing C-numbers preserved.",
+  "resolutionSummary": {
+    "resolved": 19,
+    "excludedHumanSelection": 3,
+    "pending": 0,
+    "lunaFindingsIndependentlyReviewed": 16
+  },
+  "resolvedAt": "2026-10-29T15:48:01.433199+00:00"
+}

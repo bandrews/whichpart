@@ -6,6 +6,16 @@ No JLCPCB account, paid API, or new credential is needed to read the catalog.
 An existing GitHub connection with repository write permission is needed to
 publish the reviewed result.
 
+## Human selection of Our Picks
+
+Only a human may select additions to Our Picks. Never promote a catalog arrival
+or an agent suggestion into `src/data/other-components.json` during a refresh
+or a general fix request. Preserve the membership in
+`src/data/our-picks-selection.json`; update that list only for specific changes
+selected by a human. Existing descriptions, identities, tiers, packages, and
+assembly restrictions may be corrected during authorized maintenance. The
+strict curated audit rejects membership changes and package mismatches.
+
 ## Collect and review
 
 1. Run `npm ci` (use a writable `--cache` directory if necessary).
@@ -13,7 +23,21 @@ publish the reviewed result.
    available via `npm run scrape` if Playwright Chromium is installed.
 3. Run `npm run diff`. Check additions, removals, tier changes, price movements,
    and `specificationChanges`, including renamed or changed electrical ratings.
-   Recheck unusually large price moves against the public API before publishing.
+   Run `npm run verify:catalog` to independently check every curated pick outside
+   the qualifying snapshot, removed catalog parts, and the three largest price
+   increases/decreases. Append exact C-numbers to check additional parts, e.g.
+   `npm run verify:catalog -- C2040`. The dated `raw-data/jlcpcb-part-checks-*.json`
+   report preserves current identities, tier flags, stock, and all price breaks.
+   A failed lookup is unresolved, not proof of a new tier or discontinuance.
+   For an existing Extended pick omitted by search, a strict product-page
+   fallback verifies its exact SKU/MPN/package only when the page explicitly
+   says both Extended and Standard Only. It records that method separately,
+   leaves the unavailable API flag/price/stock unset, and fails on conflicting
+   or missing evidence. A generic Extended badge alone is insufficient.
+   Resolve `review-required` and `unresolved` checks before publication; a local
+   review build may still be generated while editorial proposals are pending.
+   Quote ticks can change between collection and verification; investigate large
+   differences rather than overwriting the original collected evidence.
 4. Review additions and removals against `tasks/descriptions-*.json`. Every
    qualifying C-number needs a source-backed, nonempty description; remove stale
    task entries. Never invent a description just to pass coverage validation.
@@ -21,6 +45,11 @@ publish the reviewed result.
    `src/data/other-components.json`. Manufacturer datasheets take precedence over
    distributor prose. When sources disagree, avoid the disputed numeric claim
    and record the discrepancy for review; do not silently choose a rating.
+   Manufacturer-backed display corrections and test-condition clarifications
+   live in `src/data/specification-reviews.json`. The index generator checks
+   exact MPN/package and expected source values before applying them, preserving
+   original attributes/description in `catalogOriginal`. If source values
+   change, re-review the correction instead of bypassing its guard.
 6. Qualifying curated picks must match current package and tier. Do not mark a
    missing pick Extended without checking its current status. Preserve ordinary
    Extended warnings. Only advance `curatedReviewedDate` after actual editorial
@@ -42,6 +71,11 @@ publish the reviewed result.
 
 - Stop on a failed scrape, changed API schema, incomplete/duplicate pages,
   missing tier, or unexpected total. Never weaken checks to make a run pass.
+- Tier classification uses both `componentLibraryType` and
+  `preferredComponentFlag`: `base` is Basic; `expand` plus `true` is Preferred;
+  `expand` plus `false` is ordinary Extended and must not enter the qualifying
+  snapshot. A generic “Extended” label on a public detail page does not by itself
+  contradict a true preferred flag. New snapshots retain both source fields.
 - All regression tests, schema/description coverage, transformed-data audits,
   strict curated audit, content index/format validation, and production build
   must pass. Review warnings as well as errors.

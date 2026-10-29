@@ -1,0 +1,213 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@preact/preset-vite": {
+      "name": "@preact/preset-vite",
+      "severity": "low",
+      "isDirect": true,
+      "via": [
+        "@prefresh/vite",
+        "vite",
+        "vite-prerender-plugin"
+      ],
+      "effects": [],
+      "range": "",
+      "nodes": [
+        "node_modules/@preact/preset-vite"
+      ],
+      "fixAvailable": false
+    },
+    "@prefresh/vite": {
+      "name": "@prefresh/vite",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "vite"
+      ],
+      "effects": [],
+      "range": "",
+      "nodes": [
+        "node_modules/@prefresh/vite"
+      ],
+      "fixAvailable": true
+    },
+    "postcss": {
+      "name": "postcss",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "source-map-js"
+      ],
+      "effects": [
+        "vite"
+      ],
+      "range": "",
+      "nodes": [
+        "node_modules/postcss"
+      ],
+      "fixAvailable": false
+    },
+    "source-map-js": {
+      "name": "source-map-js",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1241209,
+          "name": "source-map-js",
+          "dependency": "source-map-js",
+          "title": "source-map-js allows event-loop denial of service through indexed source-map section offsets",
+          "url": "https://github.com/advisories/GHSA-68fv-2mgg-jv7q",
+          "severity": "high",
+          "cwe": [
+            "CWE-1284"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=1.0.0 <1.2.2"
+        }
+      ],
+      "effects": [
+        "postcss"
+      ],
+      "range": "",
+      "nodes": [
+        "node_modules/source-map-js"
+      ],
+      "fixAvailable": false
+    },
+    "vite": {
+      "name": "vite",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1242624,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "launch-editor: escapeCmdArgs() omits % escaping on Windows",
+          "url": "https://github.com/advisories/GHSA-698v-4r3x-3vcv",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-78"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=8.0.0 <=8.1.5"
+        },
+        {
+          "source": 1242653,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "launch-editor: Editor CLI flag misinterpretation causing arbitrary command execution for some editors",
+          "url": "https://github.com/advisories/GHSA-r825-w8mm-5pxw",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-88"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=8.0.0 <=8.1.5"
+        },
+        {
+          "source": 1242660,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "launch-editor: `fs.existsSync()` existence check can be bypassed on Windows",
+          "url": "https://github.com/advisories/GHSA-587h-7wmj-h5pm",
+          "severity": "high",
+          "cwe": [
+            "CWE-77"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=8.0.0 <=8.1.5"
+        },
+        {
+          "source": 1242726,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "Vite: Cross origin script execution through Vite custom middleware",
+          "url": "https://github.com/advisories/GHSA-9jrq-w75r-8gcw",
+          "severity": "low",
+          "cwe": [
+            "CWE-80"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=8.0.0 <=8.1.5"
+        },
+        {
+          "source": 1242732,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "Vite: Files outside `server.fs.allow` could be served when project paths match system paths on non-Windows machine",
+          "url": "https://github.com/advisories/GHSA-rq7h-c2jc-7f22",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-22",
+            "CWE-284"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=8.0.0 <=8.1.5"
+        },
+        "postcss"
+      ],
+      "effects": [
+        "@preact/preset-vite",
+        "@prefresh/vite",
+        "vite-prerender-plugin"
+      ],
+      "range": "",
+      "nodes": [
+        "node_modules/vite"
+      ],
+      "fixAvailable": false
+    },
+    "vite-prerender-plugin": {
+      "name": "vite-prerender-plugin",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "vite"
+      ],
+      "effects": [],
+      "range": "",
+      "nodes": [
+        "node_modules/vite-prerender-plugin"
+      ],
+      "fixAvailable": true
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 3,
+      "moderate": 0,
+      "high": 3,
+      "critical": 0,
+      "total": 6
+    },
+    "dependencies": {
+      "prod": 3,
+      "dev": 121,
+      "optional": 34,
+      "peer": 1,
+      "peerOptional": 0,
+      "total": 124
+    }
+  }
+}

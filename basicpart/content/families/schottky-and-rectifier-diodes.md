@@ -79,6 +79,7 @@ assumes a specified pad area. Halve the copper and you halve what it can carry.
 | `Reverse Leakage Current (Ir)` | Blocking-state leakage, with the voltage it was measured at. |
 | `Reverse Recovery Time (trr)` | On fast-recovery and switching parts. |
 | `Diode Configuration` | `Independent` for a single diode; `1 Pair Series Connection` and similar for duals. |
+| `Power Dissipation` | Package thermal limit on small-signal Schottky parts (typically 150–500 mW where populated; `-` on power packages where current derating governs). [4] |
 | `Operating Junction Temperature Range` | Usually `-55℃~+150℃`. |
 
 ## Watch out for
@@ -115,3 +116,6 @@ Four parts from these families have their own files: `C7420316` (SS14 Schottky),
    Rectifier*, as cited in full in the note for C412437
    (`content/components/C412437.md`), for the US1M's reverse current at 25 °C and
    125 °C.
+4. JLCPCB Schottky Diodes catalog records, snapshot 2026-10-13
+   (`raw-data/jlcpcb-basic-parts-2026-10-13.json`). Adds `Power Dissipation`
+   across 154 Schottky records (58 with 150–500 mW ratings, 98 with `-`).

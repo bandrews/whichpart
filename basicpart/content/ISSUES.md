@@ -23,7 +23,7 @@ catalog-only notes, and once more during the review pass that added findings
 
 | # | Issue | Status |
 |---|---|---|
-| 1 | ATMEGA328P NRND attribution | **Resolved (editorially).** Evidence stays split by channel: Mouser shows NRND, a Findchips review of authorized listings (June 2026) found no flag, MicrochipDirect projects EOL 2040-11. The curated note no longer attributes NRND to Microchip; it now describes the split and points at the ATmega328PB. |
+| 1 | ATMEGA328P NRND attribution | **Resolved 2026-10-29.** Microchip’s current AN2468 Silicon Products table explicitly lists ATmega328P as NRND. The note and existing pick now cite manufacturer guidance. |
 | 2 | NE5532 datasheet self-contradiction | **Open upstream, surfaced.** The inconsistency is in TI's own document; the correction (12 MHz / 5 V/µs from the spec tables) is stated in the C7426 note, which the part page now displays. |
 | 3 | ULN2803A datasheet unreachable | **Resolved.** The genuine SLRS049H (Rev H, Feb 2017) was obtained via a mirror; C9683 is now datasheet-sourced and every catalog attribute checks out, including the 18-pin DW package (TI's own device table). The ULN2803C remains a 20-pin non-substitute. |
 | 4 | M24C64 ECC tied to process letter | **Open in catalog data, surfaced.** No override path exists for scraped attributes (parts-index.json regenerates from raw-data); the caveat is stated in the C79988 note, now displayed on the part page. |
@@ -53,31 +53,15 @@ an unverified claim in the C84681 note.
 
 ---
 
-## 1. ATMEGA328P-AU "not recommended for new designs" — Unverified
+## 1. ATMEGA328P-AU lifecycle — Resolved 2026-10-29
 
-**Where:** `src/data/other-components.json`, Microcontrollers →
-`ATMEGA328P-AU` (C14877), `notes` field:
-> "Familiar Arduino-compatible MCU; Microchip marks this family not recommended
-> for new designs."
-
-**What was checked:** Microchip's own product page for ATmega328P and the
-MicrochipDirect product page both returned navigation shells rather than
-lifecycle data when fetched, so neither could be read. A web search surfaced a
-genuine split: some authorized distributors (Mouser) do flag `ATMEGA328P-AU` as
-NRND, while MicrochipDirect is reported to show a projected end-of-life date in
-2040 and Rochester Electronics lists the part as active.
-
-**Finding:** The claim attributes the NRND designation specifically to
-*Microchip*. That attribution could not be confirmed from a Microchip primary
-source, and other Microchip-channel evidence points the other way.
-
-**Suggested action:** Either soften the note to something like "some
-distributors flag this part NRND; check your supplier's status before
-committing", or replace it with a link to a Microchip lifecycle document if one
-can be found. Leaving it as-is risks stating a manufacturer position that the
-manufacturer may not hold.
-
----
+The earlier distributor-only uncertainty is superseded. Microchip's current
+[AN2468 landing page](https://www.microchip.com/en-us/application-notes/an2468)
+explicitly labels ATmega328P Not Recommended for new designs in its Silicon
+Products table. Its [ATmega328PB page](https://www.microchip.com/en-us/product/atmega328pb)
+lists that related device In Production. Continued stock or projected supply
+is not a new-design recommendation, and compatibility requires separate review.
+The component note and existing pick now reflect this evidence.
 
 ## 2. NE5532 — the TI datasheet contradicts itself, and the catalog follows the prose — Note
 

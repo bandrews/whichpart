@@ -1,0 +1,276 @@
+{
+  "scope": "Luna audit of component notes, curated selections, summaries, and friendly descriptions for power/battery/linear and switching regulators, analog op-amps/comparators/switches, 555 timers, logic buffers/gates/shift registers, Darlington arrays, and optoisolators.",
+  "reviewedFiles": [
+    "basicpart/README.md",
+    "basicpart/content/README.md",
+    "basicpart/content/FORMAT.md",
+    "basicpart/src/data/other-components.json",
+    "basicpart/src/data/friendly-descriptions.json",
+    "basicpart/tasks/descriptions-mixed-components.json",
+    "basicpart/tasks/descriptions-transistors.json",
+    "basicpart/content/components/C3113.md",
+    "basicpart/content/components/C5446.md",
+    "basicpart/content/components/C5590.md",
+    "basicpart/content/components/C5593.md",
+    "basicpart/content/components/C5605.md",
+    "basicpart/content/components/C5613.md",
+    "basicpart/content/components/C5625.md",
+    "basicpart/content/components/C5947.md",
+    "basicpart/content/components/C6186.md",
+    "basicpart/content/components/C6187.md",
+    "basicpart/content/components/C6521.md",
+    "basicpart/content/components/C6961.md",
+    "basicpart/content/components/C7377.md",
+    "basicpart/content/components/C7426.md",
+    "basicpart/content/components/C7433.md",
+    "basicpart/content/components/C7484.md",
+    "basicpart/content/components/C7512.md",
+    "basicpart/content/components/C7593.md",
+    "basicpart/content/components/C7722.md",
+    "basicpart/content/components/C7859.md",
+    "basicpart/content/components/C7881.md",
+    "basicpart/content/components/C7950.md",
+    "basicpart/content/components/C7955.md",
+    "basicpart/content/components/C7972.md",
+    "basicpart/content/components/C9669.md",
+    "basicpart/content/components/C9683.md",
+    "basicpart/content/components/C9864.md",
+    "basicpart/content/components/C9865.md",
+    "basicpart/content/components/C10002.md",
+    "basicpart/content/components/C12044.md",
+    "basicpart/content/components/C14289.md",
+    "basicpart/content/components/C16106.md",
+    "basicpart/content/components/C16581.md",
+    "basicpart/content/components/C18229.md",
+    "basicpart/content/components/C21379.md",
+    "basicpart/content/components/C32078.md",
+    "basicpart/content/components/C32574.md",
+    "basicpart/content/components/C34465.md",
+    "basicpart/content/components/C58069.md",
+    "basicpart/content/components/C61063.md",
+    "basicpart/content/components/C71035.md",
+    "basicpart/content/components/C71136.md",
+    "basicpart/content/components/C74192.md",
+    "basicpart/content/components/C75501.md",
+    "basicpart/content/components/C75510.md",
+    "basicpart/content/components/C109227.md",
+    "basicpart/content/components/C115450.md",
+    "basicpart/content/components/C42432160.md",
+    "basicpart/content/components/C42432283.md",
+    "basicpart/raw-data/jlcpcb-basic-parts-2026-10-29.json",
+    "basicpart/src/data/parts-index.json"
+  ],
+  "reviewedPartIds": [
+    "C3113",
+    "C5446",
+    "C5590",
+    "C5593",
+    "C5605",
+    "C5613",
+    "C5625",
+    "C5947",
+    "C6186",
+    "C6187",
+    "C6521",
+    "C6961",
+    "C7377",
+    "C7426",
+    "C7433",
+    "C7484",
+    "C7512",
+    "C7593",
+    "C7722",
+    "C7859",
+    "C7881",
+    "C7950",
+    "C7955",
+    "C7972",
+    "C9669",
+    "C9683",
+    "C9864",
+    "C9865",
+    "C10002",
+    "C12044",
+    "C14289",
+    "C16106",
+    "C16581",
+    "C18229",
+    "C21379",
+    "C32078",
+    "C32574",
+    "C34465",
+    "C58069",
+    "C61063",
+    "C71035",
+    "C71136",
+    "C74192",
+    "C75501",
+    "C75510",
+    "C109227",
+    "C115450",
+    "C42432160",
+    "C42432283",
+    "C7484"
+  ],
+  "coverageLimitations": [
+    "Reviewed all 49 individually documented component notes matching the specified electrical families, plus the matching curated-pick entries and description-source files. Read content/ISSUES.md as prior audit context; findings already surfaced there were not treated as independently current without rereading the applicable notes.",
+    "Manufacturer datasheet claims were checked against cited manufacturer documents and current official manufacturer pages where available. JLCPCB/LCSC tier, stock, and price are snapshot facts in the repository dated 2026-07-24; this pass did not treat them as live availability, and the separate catalog refresh should supply current identities and tiers.",
+    "No production content or data was changed. Proposed edits are limited to the review findings below.",
+    "Cross-checked current catalog identity, manufacturer part number, package, and tier for all 48 in-snapshot reviewed note parts against the 2026-10-29 raw catalog; all matched. C7484 is an Extended curated buffer, so its absence from the Basic/Preferred raw snapshot is expected. Compared key catalog attributes against the notes and found that known grade/condition errors in the existing issue log are explicitly caveated in current notes; no further electrical-claim mismatch was confirmed in this pass.",
+    "Checked the four JLCPCB expansion-library candidates using the project exact-part API and its preferredComponentFlag: C12044, C5625, C6521 and C9683 all return expand + preferredComponentFlag=true, so all are Preferred. Their public part-detail pages show a generic “Extended” heading that does not distinguish Preferred from ordinary Extended; it is not evidence of tier conflict."
+  ],
+  "findings": [
+    {
+      "id": "LA-001",
+      "priority": "P2",
+      "status": "proposed",
+      "files": [
+        "basicpart/content/components/C10002.md"
+      ],
+      "partIds": [
+        "C10002"
+      ],
+      "currentClaim": "The summary calls the fixed-5 V LM2596 a “classic drop-in replacement for a 7805.”",
+      "proposedChange": "Replace “drop-in replacement” with wording such as “a straightforward switching alternative to a 7805 when you can redesign for its 5-pin switching circuit.”",
+      "reason": "The LM2596 datasheet's fixed-output application requires an inductor, catch diode, input and output capacitors, and its order code is in a 5-pin TO-263 package. TI's LM7805 family datasheet shows a 3-pin TO-263 package with different pin functions. The current phrase can imply mechanical and electrical pin compatibility that does not exist, despite the note's body correctly explaining that an LM2596 needs switch-mode support parts.",
+      "evidence": [
+        {
+          "url": "https://www.ti.com/lit/ds/symlink/lm2596.pdf",
+          "fact": "TI's LM2596 datasheet gives a 5-pin TO-263 package and a fixed-output application circuit with an inductor, diode, and capacitors."
+        },
+        {
+          "url": "https://www.ti.com/lit/ds/symlink/lm7800.pdf",
+          "fact": "TI's LM7805 datasheet gives a 3-pin TO-263 package and distinct input, ground, and output pin functions."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "LA-002",
+      "priority": "P2",
+      "status": "proposed",
+      "files": [
+        "basicpart/content/components/C109227.md",
+        "basicpart/content/components/C115450.md"
+      ],
+      "partIds": [
+        "C109227",
+        "C115450"
+      ],
+      "currentClaim": "The Lite-On LTV-817 note C109227 compares its tens-of-kilobits practical switching to “the ADuM1201 (C9669) at 25 Mbps.” The LTV-217 note C115450 only says to compare with C9669 and does not state a rate.",
+      "proposedChange": "Correct C109227’s comparison to say the cataloged ADuM1201ARZ-RL7 (C9669) is rated for 1 Mbps; mention that 25 Mbps applies to the CR speed grade if useful. Leave C115450’s comparison as-is.",
+      "reason": "C9669 is ADUM1201ARZ-RL7; Analog Devices specifies its AR grade at a maximum data rate of 1 Mbps. The 25 Mbps figure belongs to the CR grade. C115450.md already contains no numeric rate in its comparison and is accurate; only C109227.md needs correction.",
+      "evidence": [
+        {
+          "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ADuM1200_1201.pdf",
+          "fact": "Analog Devices' switching-specification table assigns 1 Mbps to ADuM1201AR and 25 Mbps to ADuM1201CR."
+        },
+        {
+          "url": "https://www.analog.com/en/products/adum1201.html",
+          "fact": "ADI's product page lists ADUM1201ARZ-RL7 among orderable ADuM1201 variants; the AR grade is the cataloged order code in C9669."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "LA-003",
+      "priority": "P3",
+      "status": "proposed",
+      "files": [
+        "basicpart/src/data/other-components.json",
+        "basicpart/content/components/C12044.md",
+        "basicpart/content/components/C14289.md",
+        "basicpart/content/components/C5625.md",
+        "basicpart/content/components/C6521.md",
+        "basicpart/content/components/C71035.md"
+      ],
+      "partIds": [
+        "C12044",
+        "C14289",
+        "C5625",
+        "C6521",
+        "C71035"
+      ],
+      "currentClaim": "Our Picks covers one 1 A TP4056 charger, an AMS1117 and an XC6206 among regulators, a single 8:1 CD4051 analog switch, and a single extended 1G125 buffer; the following documented parts are absent from the picks.",
+      "proposedChange": "Consider a compact enthusiast add-on shortlist: C12044 TP4057 for lower-current 500 mA single-cell charging; C14289 HT7533-1 for very-low-quiescent-current 3.3 V from higher input voltages; C6521 CD4052BM96 for two coordinated 4:1 analog mux channels; and C5625 74HC245D for an octal bidirectional tri-state bus. Keep C71035 LM324DT as a conditional four-channel option, not a general-purpose default. The exact-part API confirms C12044, C5625, and C6521 are Preferred, and C14289 is Basic despite generic Extended labels on public detail pages.",
+      "reason": "These add distinct use cases rather than near-duplicate headline picks. The TP4057 manufacturer document describes a 500 mA single-cell CC/CV charger with reverse-battery protection and programmed current, while its catalog says no battery-temperature detection and no 0 V battery charging; like the picked TP4056, it is not power-path management. Holtek gives the HT7533 a 2.5 µA supply current and up-to-30 V input, which complements the picked XC6206 (6 V max) but is only a 100 mA family with 70 mA guaranteed minimum at 3.3 V. CD4052 is two independent 4:1 paths, distinct from the picked single 8:1 CD4051; its 125 Ω typical on-resistance is specified at 15 V and signals must stay within its supply rails. 74HC245 provides eight bidirectional 3-state lines, but HC CMOS thresholds do not make it a guaranteed 3.3 V-to-5 V translator and output drive is limited. LM324DT gives four channels but is commercial grade (0–70 °C) and 7 mV maximum offset, already explained in its note. Evaluated C32574 TP4054 as well, but did not shortlist it: its component note gives 400 mA typical at the worked setting, with 250–450 mA over temperature and thermal-current backoff, so it is less distinct than TP4057; Top Power’s product page calls the device 400 mA while the JLC listing labels it 450 mA maximum. Oct. 29 snapshot stock: 34,527 (C12044), 177,879 (C14289), 46,445 (C5625), and 53,113 (C6521). Exact-part API checks confirm C12044, C5625 and C6521 are Preferred (expand plus preferredComponentFlag=true); the public detail pages use “Extended” generically for both Preferred and ordinary Extended.",
+      "evidence": [
+        {
+          "url": "https://www.toppwr.com/uploadfile/file/20240913/66e3cef054ad8.pdf",
+          "fact": "Manufacturer TP4057 document describes single-cell linear CC/CV charging, 500 mA programmable current, reverse-battery protection, 4.2 V and SOT-23-6."
+        },
+        {
+          "url": "https://jlcpcb.com/partdetail/12599-TP4057_42_SOT26R/C12044",
+          "fact": "JLCPCB lists C12044 as TP4057-42-SOT26-R, SOT-23-6, 500 mA maximum, no battery-temperature detection and no 0 V battery charge."
+        },
+        {
+          "url": "https://www.holtek.com/webapi/116711/HT75xx-1v281.pdf",
+          "fact": "Holtek Rev. 2.81 identifies HT7533-1 and supports its 3.3 V, low-power LDO characteristics."
+        },
+        {
+          "url": "https://jlcpcb.com/partdetail/C14289",
+          "fact": "JLCPCB lists C14289 as Holtek HT7533-1, Basic, SOT-89-3, 3.3 V, 100 mA, 2.5 µA and 30 V input."
+        },
+        {
+          "url": "https://www.nexperia.com/product/74HC245BZ",
+          "fact": "Nexperia describes 74HC245 as an 8-bit transceiver with 3-state outputs, direction and output-enable controls, 2–6 V supply, and HC CMOS input levels."
+        },
+        {
+          "url": "https://jlcpcb.com/partdetail/Nexperia-74HC245D653/C5625",
+          "fact": "JLCPCB identifies C5625 as Nexperia 74HC245D,653 in SOIC-20-300mil with 8-bit, bidirectional, tri-state attributes; the exact-part API confirms Preferred."
+        },
+        {
+          "url": "https://www.ti.com/lit/ds/symlink/cd4052b.pdf",
+          "fact": "TI specifies CD4052B as two 4:1 channels, 3–20 V single supply or ±3–±10 V dual supply, 125 Ω typical on-resistance at 15 V and 25 MHz typical bandwidth."
+        },
+        {
+          "url": "https://jlcpcb.com/partdetail/C6521",
+          "fact": "JLCPCB identifies C6521 as TI CD4052BM96, SOIC-16, with 2 channels, 4:1 switching, 3–20 V, 125 Ω and 25 MHz; the exact-part API confirms Preferred."
+        },
+        {
+          "url": "https://www.st.com/resource/en/datasheet/lm124.pdf",
+          "fact": "ST order table lists LM324DT as a 0–70 °C SO-14 order code; the note covers the LM324 offset grade and 7 mV maximum."
+        },
+        {
+          "url": "https://www.toppwr.com/product/?sortid=293",
+          "fact": "Top Power manufacturer product page describes TP4054 as a 400 mA linear Li-ion charger, while JLCPCB listing for C32574 states 450 mA maximum; its component note explains the worked-setting and thermal conditions."
+        },
+        {
+          "url": "https://jlcpcb.com/parts/basic_parts",
+          "fact": "Exact-part API check via project helper: C12044, C5625 and C6521 each return componentLibraryType=expand and preferredComponentFlag=true (Preferred). Public detail page “Extended” heading is generic and does not indicate the preferred flag."
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "LA-004",
+      "priority": "P3",
+      "status": "proposed",
+      "files": [
+        "basicpart/raw-data/jlcpcb-basic-parts-2026-10-29.json",
+        "basicpart/content/components/C9683.md"
+      ],
+      "partIds": [
+        "C9683"
+      ],
+      "currentClaim": "C9683 ULN2803ADWR note records 2,405 units in the July 24 snapshot and calls it Preferred Extended; the October 29 raw snapshot and exact-part API both show 2 units in stock and Preferred tier.",
+      "proposedChange": "Keep the July snapshot figure explicitly dated, as it is; if reconsidering this as a recommendation, add a current availability caveat or wait for inventory recovery. The October 29 snapshot and exact-part API both list 2 units.",
+      "reason": "This is a selection and availability caveat, not a stale-data error: the component note explicitly dates its 2,405-unit figure to July 24, while the October 29 snapshot and exact-part API show 2 units. Exact-part API confirms Preferred (expand plus preferredComponentFlag=true), so the public detail page’s generic “Extended” heading is not evidence of a tier change. The seven-channel ULN2003ADR remains much more available at 365,185 units in the October 29 snapshot.",
+      "evidence": [
+        {
+          "url": "https://www.ti.com/product/ULN2803A",
+          "fact": "TI identifies ULN2803A as an 8-channel, 50 V Darlington array."
+        },
+        {
+          "url": "https://www.ti.com/product/ULN2003A",
+          "fact": "TI identifies ULN2003A as a 7-channel counterpart rated 500 mA per channel."
+        },
+        {
+          "url": "https://jlcpcb.com/parts/basic_parts",
+          "fact": "Exact-part API check via project helper: C9683 returns componentLibraryType=expand and preferredComponentFlag=true, tier=preferred, stock=2. The public detail page’s “Extended” label is generic."
+        }
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+[
+  {
+    "partNumber": "C25190",
+    "mpn": "0603WAF270JT5E",
+    "category": "Chip Resistor - Surface Mount",
+    "changes": {
+      "Temperature Coefficient": {
+        "old": "\u00b1200ppm/\u2103",
+        "new": "\u00b1100ppm/\u2103"
+      }
+    },
+    "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311845_UNI-ROYAL-Uniroyal-Elec-0603WAF270JT5E_C25190.pdf"
+  },
+  {
+    "partNumber": "C78395",
+    "mpn": "P6SMB6.8CA/TR13",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Reverse Leakage Current (Ir)": {
+        "old": "1uA",
+        "new": "1mA"
+      }
+    },
+    "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_1810181007_Brightking-P6SMB6-8CA-TR13_C78395.pdf"
+  },
+  {
+    "partNumber": "C7420375",
+    "mpn": "SM712",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Peak Pulse Power Dissipation (Ppp)": {
+        "old": "300W",
+        "new": "300W@8/20us"
+      },
+      "Peak Pulse Current (Ipp)": {
+        "old": "12A",
+        "new": "12A@8/20us"
+      }
+    },
+    "datasheetUrl": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2308281515_hongjiacheng-SM712_C7420375.pdf"
+  },
+  {
+    "partNumber": "C19077496",
+    "mpn": "SMF3.3CA",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Clamping Voltage": {
+        "old": "7.3V",
+        "new": "8.8V"
+      },
+      "Peak Pulse Current (Ipp)": {
+        "old": "27.4A@10/1000us",
+        "new": "22.7A@10/1000us"
+      },
+      "Voltage - Breakdown": {
+        "old": "5.3V",
+        "new": "6.5V"
+      }
+    },
+    "datasheetUrl": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2312280940_hongjiacheng-SMF3-3CA_C19077496.pdf"
+  },
+  {
+    "partNumber": "C19077522",
+    "mpn": "SMAJ3.3CA",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Voltage - Breakdown": {
+        "old": "9V",
+        "new": "6V"
+      },
+      "Reverse Leakage Current (Ir)": {
+        "old": "600uA",
+        "new": "800uA"
+      }
+    },
+    "datasheetUrl": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2312280937_hongjiacheng-SMAJ3-3CA_C19077522.pdf"
+  },
+  {
+    "partNumber": "C20615779",
+    "mpn": "H5VN06B",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Junction Capacitance": {
+        "old": "15pF",
+        "new": "22pF"
+      }
+    },
+    "datasheetUrl": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2401261524_hongjiacheng-H5VN06B_C20615779.pdf"
+  },
+  {
+    "partNumber": "C20615780",
+    "mpn": "H5VU06B",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Junction Capacitance": {
+        "old": "0.5pF",
+        "new": "0.3pF"
+      }
+    },
+    "datasheetUrl": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2401261524_hongjiacheng-H5VU06B_C20615780.pdf"
+  },
+  {
+    "partNumber": "C20615782",
+    "mpn": "H3V3U10B",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Junction Capacitance": {
+        "old": "0.3pF",
+        "new": "0.25pF"
+      }
+    },
+    "datasheetUrl": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2401261524_hongjiacheng-H3V3U10B_C20615782.pdf"
+  },
+  {
+    "partNumber": "C20615800",
+    "mpn": "H5VU25UC",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Junction Capacitance": {
+        "old": "0.4pF\u30010.8pF",
+        "new": "0.8pF"
+      }
+    },
+    "datasheetUrl": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2401261524_hongjiacheng-H5VU25UC_C20615800.pdf"
+  },
+  {
+    "partNumber": "C20615809",
+    "mpn": "H8VSD3B",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Clamping Voltage": {
+        "old": "13V\u300125V",
+        "new": "25V"
+      }
+    },
+    "datasheetUrl": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2401261525_hongjiacheng-H8VSD3B_C20615809.pdf"
+  },
+  {
+    "partNumber": "C20615824",
+    "mpn": "H5VUT2U",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Junction Capacitance": {
+        "old": "0.3pF\u30010.6pF",
+        "new": "0.6pF"
+      }
+    },
+    "datasheetUrl": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2401261525_hongjiacheng-H5VUT2U_C20615824.pdf"
+  },
+  {
+    "partNumber": "C20617909",
+    "mpn": "H3V3N10B",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Reverse Leakage Current (Ir)": {
+        "old": "50nA",
+        "new": "5nA"
+      }
+    },
+    "datasheetUrl": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2402021507_hongjiacheng-H3V3N10B_C20617909.pdf"
+  },
+  {
+    "partNumber": "C20617916",
+    "mpn": "H4V5HD3U",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Clamping Voltage": {
+        "old": "7V\u300115V",
+        "new": "15V"
+      }
+    },
+    "datasheetUrl": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2402021507_hongjiacheng-H4V5HD3U_C20617916.pdf"
+  },
+  {
+    "partNumber": "C42413902",
+    "mpn": "SM08",
+    "category": "ESD and Surge Protection (TVS/ESD)",
+    "changes": {
+      "Operating Temperature": {
+        "old": "-55\u2103~+150\u2103",
+        "new": "-55\u2103~+125\u2103"
+      },
+      "Number of Channels": {
+        "old": "1",
+        "new": "2"
+      },
+      "Peak Pulse Power Dissipation (Ppp)": {
+        "old": "350W",
+        "new": "350W@8/20us"
+      },
+      "Clamping Voltage": {
+        "old": "13.4V",
+        "new": "24V"
+      },
+      "Voltage - Breakdown": {
+        "old": "13.4V",
+        "new": "8.5V"
+      },
+      "Reverse Leakage Current (Ir)": {
+        "old": "1uA",
+        "new": "2uA"
+      }
+    },
+    "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2501211440_hongjiacheng-SM08_C42413902.pdf"
+  }
+]

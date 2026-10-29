@@ -1,0 +1,251 @@
+{
+  "scope": "Audit of microcontroller, memory/RTC, interface/digital isolation, sensor, and connector component notes and matching curated picks/descriptions. Includes all RP2040 C2040 and ordinary Extended recommendations in these areas, plus component notes whose kind falls in the audited areas. Deepened follow-up checked local 2026-10-29 qualifying snapshot against the audited notes and checked RP2040 boot/clock claims against Raspberry Pi primary documentation; assessed possible uncovered hobbyist picks.",
+  "reviewedFiles": [
+    "README.md",
+    "content/FORMAT.md",
+    "content/README.md",
+    "content/components/C109227.md",
+    "content/components/C115450.md",
+    "content/components/C12084.md",
+    "content/components/C13482.md",
+    "content/components/C14877.md",
+    "content/components/C168688.md",
+    "content/components/C2040.md",
+    "content/components/C23922.md",
+    "content/components/C24112.md",
+    "content/components/C26860.md",
+    "content/components/C2765186.md",
+    "content/components/C32843.md",
+    "content/components/C42432160.md",
+    "content/components/C42432283.md",
+    "content/components/C5126825.md",
+    "content/components/C52717.md",
+    "content/components/C529330.md",
+    "content/components/C6482.md",
+    "content/components/C6568.md",
+    "content/components/C6847463.md",
+    "content/components/C6855.md",
+    "content/components/C6952.md",
+    "content/components/C7063.md",
+    "content/components/C719499.md",
+    "content/components/C7440.md",
+    "content/components/C7532.md",
+    "content/components/C7562.md",
+    "content/components/C79988.md",
+    "content/components/C8254.md",
+    "content/components/C84681.md",
+    "content/components/C8734.md",
+    "content/components/C8959.md",
+    "content/components/C8963.md",
+    "content/components/C9669.md",
+    "content/components/C97521.md",
+    "content/components/C9861.md",
+    "src/data/other-components.json",
+    "tasks/descriptions-mixed-components.json",
+    "src/data/friendly-descriptions.json",
+    "src/pages/OtherComponents.jsx",
+    "src/components/SpecNotes.jsx",
+    "raw-data/jlcpcb-basic-parts-2026-10-29.json",
+    "content/components/C52717.md",
+    "content/components/C8254.md",
+    "content/components/C79988.md",
+    "content/components/C8959.md",
+    "content/components/C5126825.md",
+    "content/components/C719499.md",
+    "content/components/C12084.md",
+    "content/components/C79988.md"
+  ],
+  "reviewedPartIds": [
+    "C109227",
+    "C115450",
+    "C12084",
+    "C13482",
+    "C14877",
+    "C168688",
+    "C2040",
+    "C23922",
+    "C24112",
+    "C26860",
+    "C2765186",
+    "C32843",
+    "C42432160",
+    "C42432283",
+    "C5126825",
+    "C52717",
+    "C529330",
+    "C6482",
+    "C6568",
+    "C6847463",
+    "C6855",
+    "C6952",
+    "C7063",
+    "C719499",
+    "C7440",
+    "C7532",
+    "C7562",
+    "C79988",
+    "C8254",
+    "C84681",
+    "C8734",
+    "C8959",
+    "C8963",
+    "C9669",
+    "C97521",
+    "C9861"
+  ],
+  "coverageLimitations": [
+    "Reviewed the full component-note inventory and selection metadata/descriptions for the requested categories; this was a targeted editorial and lifecycle audit, not a fresh datasheet-by-datasheet electrical validation of every specification row.",
+    "The refreshed 2026-10-29 raw catalog is present, but this review did not treat the repository’s in-progress catalog refresh as final source for current stock, tier, or pricing. Root refresh work should reconcile those values.",
+    "Follow-up cross-checked catalog identity and cited technical claims on the digital notes; it did not independently re-derive every cited electrical limit from primary PDFs for all ~30 notes. C719499 and C5126825 electrical claims reviewed against their existing FORESEE datasheet citations; current catalog description attributes were checked against the 2026-10-29 raw snapshot.",
+    "Candidate assessment: C52717 is a plausible additional simple-MCU pick; DS1302Z+T&R (C8959) remains a niche legacy RTC option due to its non-I²C three-wire protocol and 0–70 °C grade, so I did not recommend it as a general pick. C79988 (M24C64-RMN6TP) could fill an EEPROM capacity gap between existing 2-Kbit and 256-Kbit entries, but the note identifies process-letter dependence for 1-MHz timing and endurance; this should be presented only with that qualification if added.",
+    "Cross-checked all 36 component notes whose kind is microcontroller, memory, interface, isolation, sensor, or connector against the 2026-10-29 raw snapshot: each of the 30 qualifying entries matched manufacturer part, category, package, and tier; the six ordinary Extended notes are correctly absent from the qualifying snapshot (C168688, C2040, C2765186, C32843, C529330, C84681). This identity check does not validate every electrical table value."
+  ],
+  "findings": [
+    {
+      "id": "LUNA-001",
+      "priority": "P2",
+      "status": "proposed",
+      "files": [
+        "content/components/C24112.md",
+        "src/data/other-components.json"
+      ],
+      "partIds": [
+        "C24112"
+      ],
+      "currentClaim": "The MPU-6050 note says no manufacturer lifecycle notice could be retrieved and frames discontinuation as unconfirmed distributor-side supply risk. The curated pick separately states TDK marks it discontinued.",
+      "proposedChange": "Align the note with TDK’s official lifecycle status: mark MPU-6050 discontinued, cite TDK’s product page and 2023 end-of-life notice, and state the announced last-time-buy date (2024-01-31) and last-time-ship date (2024-12-31). Keep the ecosystem-compatibility rationale, but label it explicitly as a legacy/repair choice rather than a new-design recommendation.",
+      "reason": "The current note contradicts the pick and understates a confirmed manufacturer discontinuance. The old disclaimer says no manufacturer notice was retrievable, which is now stale evidence and could lead a hobbyist to treat this as merely distributor-dependent NRND. TDK’s current product page marks the device discontinued and the official PCN identifies it for discontinuance.",
+      "evidence": [
+        {
+          "url": "https://product.tdk.com/ja/search/sensor/mortion-inertial/imu/info?part_no=MPU-6050",
+          "supportingFact": "TDK product page lists MPU-6050 product status as discontinued and recommends ICM-42670-P as an alternative while warning compatibility is not guaranteed."
+        },
+        {
+          "url": "https://invensense.tdk.com/wp-content/uploads/2023/09/PCN-000614.pdf",
+          "supportingFact": "TDK/InvenSense PCN-000614 dated 2023-07-23 lists MPU-6050 among products to be discontinued, with last-time-buy 2024-01-31 and last-time-ship 2024-12-31."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "LUNA-002",
+      "priority": "P2",
+      "status": "proposed",
+      "files": [
+        "content/components/C14877.md",
+        "src/data/other-components.json"
+      ],
+      "partIds": [
+        "C14877"
+      ],
+      "currentClaim": "The note says product status depends on distributor channel and that Microchip’s product page could not be read; the curated note repeats an apparent conflict between distributor NRND flags and a projected 2040 end-of-life date.",
+      "proposedChange": "Replace the distributor-only uncertainty with Microchip’s own guidance: ATmega328P is listed as “Not Recommended for new designs” in Microchip application note AN2468; describe ATmega328PB as the currently in-production, Microchip-recommended related variant, and avoid saying it is a drop-in successor without noting design/software compatibility must be checked.",
+      "reason": "An authoritative Microchip source resolves the key question: the ATmega328P is explicitly not recommended for new designs, while the 328PB has an in-production product page. The current wording buries this manufacturer guidance under a broad channel disagreement and cites a projected availability date that is not equivalent to a new-design recommendation.",
+      "evidence": [
+        {
+          "url": "https://www.microchip.com/en-us/application-notes/an2468",
+          "supportingFact": "Microchip’s AN2468 marks ATmega328P “Not Recommended for new designs” and lists ATmega328PB separately as the related device."
+        },
+        {
+          "url": "https://www.microchip.com/en-us/product/atmega328pb",
+          "supportingFact": "Microchip’s current ATmega328PB product page states Status: In Production and marks the device as recommended by Microchip."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "LUNA-003",
+      "priority": "P2",
+      "status": "proposed",
+      "files": [
+        "content/components/C2040.md"
+      ],
+      "partIds": [
+        "C2040"
+      ],
+      "currentClaim": "The RP2040 note says “Nothing runs without” external flash and the specification table presents 200 MHz as an “up to” clock when VREG is set to 1.15 V.",
+      "proposedChange": "Clarify that external QSPI flash is required for persistent stand-alone program storage and normal cold boot from a stored application, but the Boot ROM can load a UF2 program into SRAM over USB and run it without external flash; such code is volatile and must be reloaded after reset/power loss. Change the clock row to state 133 MHz is the maximum guaranteed across process, voltage and temperature; explain that Raspberry Pi documents 200 MHz as achievable with elevated DVDD/VREG VSEL 1.15 V, outside the 133 MHz all-conditions maximum and not a guaranteed operating point.",
+      "reason": "The Boot ROM documentation explicitly permits UF2 to be written to RAM, so “nothing runs without” flash is factually too absolute for hobbyists and debugging. The datasheet also separates the 133 MHz guaranteed maximum across PVT from the 200 MHz elevated-voltage achievable figure; the current row overstates 200 MHz as a normal maximum even though the prose later calls it an overclock.",
+      "evidence": [
+        {
+          "url": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf",
+          "supportingFact": "Section 2.8.4 says a UF2 file is downloaded and written to Flash or RAM, then the device automatically reboots; Section 2.15.3 states clk_sys max is 133 MHz across all PVT variations, with 200 MHz achievable at elevated core supply and VREG VSEL 1.15 V."
+        },
+        {
+          "url": "https://www.raspberrypi.com/documentation/microcontrollers/microcontroller-chips.html",
+          "supportingFact": "Raspberry Pi describes no built-in flash and states code can run from SRAM; it identifies 133 MHz as the RP2040 core speed."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "LUNA-004",
+      "priority": "P3",
+      "status": "proposed",
+      "files": [
+        "src/data/other-components.json",
+        "content/components/C52717.md"
+      ],
+      "partIds": [
+        "C52717"
+      ],
+      "currentClaim": "The Our Picks microcontroller group does not include a small 8-bit MCU, while C52717 is already in the qualifying preferred catalog and has an individual component note.",
+      "proposedChange": "Consider adding STM8S003F3P6TR (C52717) as a clearly labeled budget 8-bit MCU option, with the existing note’s qualifications: 2.95–5.5 V supply, 8 KB flash, 1 KB RAM, 128-byte true EEPROM and a 16 MHz core. Identify it as a distinct ST proprietary-core/toolchain path rather than suggesting it is a drop-in replacement for the Cortex-M or AVR picks.",
+      "reason": "This is a concrete low-cost, hand-solderable alternative for simple control projects, backed by a current ST product page marked Active/in volume production. The catalog confirms exact C-number, TSSOP-20 package, and Preferred tier. It expands the beginner-relevant choice set while making the 8-bit and 2.95 V limitations clear.",
+      "evidence": [
+        {
+          "url": "https://www.st.com/en/microcontrollers-microprocessors/stm8s003f3.html",
+          "supportingFact": "ST labels STM8S003F3 Active/in volume production and documents 8 KB flash, 1 KB RAM, 128-byte true EEPROM, 16 MHz core, and 2.95–5.5 V supply."
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "LUNA-005",
+      "priority": "P2",
+      "status": "proposed",
+      "files": [
+        "content/components/C12084.md"
+      ],
+      "partIds": [
+        "C12084"
+      ],
+      "currentClaim": "The SN65HVD230 table’s “Why it matters” text says its ±16 kV bus ESD rating is why it can run to a connector without extra protection.",
+      "proposedChange": "State that ±16 kV is the datasheet Human Body Model (HBM) component-level ESD rating for CANH/CANL/GND, not an IEC 61000-4-2 connector immunity rating. Advise choosing external TVS/common-mode protection from the system’s IEC immunity, cable, surge and EMC requirements; do not imply the HBM number alone establishes connector-level protection.",
+      "reason": "HBM and IEC contact/air-discharge tests use different waveforms and energy. The datasheet itself labels the rating HBM and does not establish that a board meets connector-level IEC immunity. The current practical advice can encourage users to omit the protection their actual environment or product test requires.",
+      "evidence": [
+        {
+          "url": "https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf",
+          "supportingFact": "TI Rev. O datasheet section 8.2 specifies ±16,000 V HBM for CANH, CANL and GND, ±4,000 V HBM for all pins, and ±1,000 V CDM; it does not state an IEC 61000-4-2 connector rating."
+        },
+        {
+          "url": "https://www.ti.com/product/SN65HVD230",
+          "supportingFact": "TI product page likewise names the protection rating as ±16 kV HBM."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "LUNA-006",
+      "priority": "P3",
+      "status": "proposed",
+      "files": [
+        "src/data/other-components.json",
+        "content/components/C79988.md"
+      ],
+      "partIds": [
+        "C79988"
+      ],
+      "currentClaim": "Our Picks has small 2-Kbit and large 256-Kbit I²C EEPROM options, but no intermediate-capacity part; C79988 is a qualifying Preferred 64-Kbit EEPROM with an existing note.",
+      "proposedChange": "Consider adding M24C64-RMN6TP (C79988) as the intermediate I²C EEPROM option, describing it as 8 KiB and retaining the component note’s qualification that 1-MHz operation and the higher endurance claims depend on unidentifiable process letters. Use the current catalog snapshot for price/stock before publication.",
+      "reason": "It provides a genuinely useful size between the existing 256-byte and 32-KiB EEPROM recommendations and matches their 8-pin SOIC format. It is already in the qualifying catalog, and the existing note explains the process-letter caveat rather than overstating the figures.",
+      "evidence": [
+        {
+          "url": "https://www.st.com/resource/en/datasheet/m24c64-r.pdf",
+          "supportingFact": "ST’s M24C64 datasheet identifies a 64-Kbit serial I²C EEPROM and marks 1-MHz and endurance specifications with process-letter conditions; the existing C79988 note documents this distinction."
+        }
+      ],
+      "confidence": "medium"
+    }
+  ]
+}

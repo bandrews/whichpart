@@ -14,13 +14,12 @@ import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { PARTS_URL, PARTS_API, searchPayload, requestPage, normalizePart, validatePage } from './jlcpcb-api.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const OUTPUT_DIR = path.join(__dirname, '../raw-data');
-const PARTS_URL = 'https://jlcpcb.com/parts/basic_parts';
-const PARTS_API = '/api/overseas-pcb-order/v1/shoppingCart/smtGood/selectSmtComponentList/v2';
 const PAGE_SIZE = 100;
 
 async function sleep(ms) {
@@ -28,75 +27,17 @@ async function sleep(ms) {
 }
 
 async function fetchPageData(page, currentPage) {
-	const requestPage = async ({ apiUrl, currentPage, pageSize }) => {
-		const payload = {
-			currentPage,
-			pageSize,
-			searchType: 2,
-			keyword: null,
-			componentLibraryType: 'base',
-			presaleType: '',
-			preferredComponentFlag: true,
-			stockFlag: null,
-			stockSort: null,
-			firstSortName: null,
-			secondSortName: null,
-			componentBrand: null,
-			componentSpecification: null,
-			componentAttributes: [],
-			firstSortNameList: [],
-			componentBrandList: [],
-			componentSpecificationList: [],
-			componentAttributeList: [],
-			searchSource: 'search',
-			presaleTypes: [],
-			componentLibTypes: ['base'],
-			pcbAType: null,
-		};
-		const response = await fetch(apiUrl, {
-			method: 'POST',
-			headers: { 'content-type': 'application/json' },
-			body: JSON.stringify(payload),
-			signal: AbortSignal.timeout(60000),
-		});
-		if (!response.ok) {
-			throw new Error(`JLCPCB API returned HTTP ${response.status}`);
-		}
-		const body = await response.json();
-		if (body.code !== 200 || !body.data?.componentPageInfo) {
-			throw new Error(`Unexpected JLCPCB API response code: ${body.code}`);
-		}
-		return body.data.componentPageInfo;
+	const params = {
+		apiUrl: page ? PARTS_API : new URL(PARTS_API, PARTS_URL).href,
+		payload: searchPayload({ currentPage, pageSize: PAGE_SIZE }),
 	};
-	const params = { apiUrl: page ? PARTS_API : new URL(PARTS_API, PARTS_URL).href, currentPage, pageSize: PAGE_SIZE };
 	const result = page ? await page.evaluate(requestPage, params) : await requestPage(params);
-
-	const tierNames = {
-		base: 'basic',
-		expand: 'preferred',
-	};
+	validatePage(result, currentPage, null, PAGE_SIZE);
 	return {
 		total: result.total,
 		currentPage: result.pageNum,
 		pageSize: result.pageSize,
-		parts: (result.list || []).map(part => ({
-			partNumber: part.componentCode,
-			manufacturerPart: part.componentModelEn,
-			manufacturer: part.componentBrandEn,
-			category: part.componentTypeEn,
-			firstSort: part.firstSortName,
-			secondSort: part.secondSortName,
-			package: part.componentSpecificationEn,
-			description: part.describe,
-			attributes: part.attributes || [],
-			stock: part.stockCount,
-			prices: part.componentPrices || [],
-			minOrder: part.minPurchaseNum,
-			lcscUrl: part.lcscGoodsUrl,
-			datasheetUrl: part.dataManualUrl,
-			libraryType: part.componentLibraryType,
-			tier: tierNames[part.componentLibraryType] || 'unknown',
-		})),
+		parts: result.list.map(normalizePart),
 	};
 }
 
@@ -118,9 +59,9 @@ function validatePageData(pageData, expectedTotal = null) {
 		if (!/^C\d+$/.test(part.partNumber || '')) {
 			throw new Error(`Invalid or missing JLCPCB part number: ${part.partNumber}`);
 		}
-		if (!['base', 'expand'].includes(part.libraryType)) {
+		if (!['basic', 'preferred'].includes(part.tier)) {
 			throw new Error(
-				`Unexpected library type "${part.libraryType}" for ${part.partNumber}; ` +
+				`Unexpected tier "${part.tier}" for ${part.partNumber}; ` +
 				'the Basic/Preferred filter or upstream schema may have changed'
 			);
 		}
@@ -223,6 +164,9 @@ async function scrapeBasicParts() {
 		const tempPath = `${outputPath}.tmp`;
 		const snapshot = {
 			scrapedAt: new Date().toISOString(),
+			sourceUrl: new URL(PARTS_API, PARTS_URL).href,
+			sourceFilters: searchPayload(),
+			transport,
 			totalExpected: expectedTotal,
 			totalScraped: partsArray.length,
 			tierCounts,

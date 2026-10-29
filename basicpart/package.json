@@ -7,6 +7,7 @@
 		"preview": "vite preview",
 		"scrape": "node scripts/scrape-jlcpcb.js",
 		"diff": "node scripts/catalog-diff.js",
+		"verify:catalog": "node scripts/check-jlcpcb-parts.js",
 		"transform": "node scripts/transform-data.js",
 		"index": "node scripts/generate-parts-index.js",
 		"descriptions": "node scripts/merge-descriptions.js",
@@ -27,6 +28,6 @@
 	"devDependencies": {
 		"@preact/preset-vite": "^2.10.6",
 		"playwright": "^1.61.1",
-		"vite": "^8.1.5"
+		"vite": "^8.3.5"
 	}
 }

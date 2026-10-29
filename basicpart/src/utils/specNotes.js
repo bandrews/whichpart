@@ -53,4 +53,6 @@ export function loadSpecNote(note) {
 	return loader ? loader() : Promise.reject(new Error('note not found'));
 }
 
+// Null when notes refer to different catalog snapshots; each entry keeps its own date.
 export const specNotesSnapshotDate = specIndex.meta.catalogSnapshotDate;
+export const specNotesSnapshotDates = specIndex.meta.catalogSnapshotDates;

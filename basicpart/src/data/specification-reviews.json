@@ -1,0 +1,285 @@
+{
+  "C25190": {
+    "mpn": "0603WAF270JT5E",
+    "package": "0603",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Temperature Coefficient": "±100ppm/℃",
+      "Resistance": "27Ω"
+    },
+    "attributes": {},
+    "descriptionReplacements": [
+      {
+        "from": "±200ppm/℃",
+        "to": "±100ppm/℃"
+      }
+    ],
+    "summary": "UNI-ROYAL's exact-part-linked thick-film datasheet (V.3, 2019-02-12, section 11) specifies ±100 ppm/°C for 0603 resistors above 10 Ω. This 27 Ω part is in that range. The catalog attribute is correct; the description's ±200 ppm/°C has been corrected here. The raw supplier record is preserved.",
+    "source": {
+      "label": "UNI-ROYAL datasheet linked from C25190",
+      "url": "https://jlcpcb.com/partdetail/C25190"
+    }
+  },
+  "C78395": {
+    "mpn": "P6SMB6.8CA/TR13",
+    "package": "SMB(DO-214AA)",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Reverse Leakage Current (Ir)": "1mA",
+      "Polarity": "Bidirectional",
+      "Reverse Stand-Off Voltage (Vrwm)": "5.8V"
+    },
+    "attributes": {
+      "Reverse Leakage Current (Ir)": "2mA max at VRWM=5.8V, TA=25℃"
+    },
+    "descriptionReplacements": [
+      {
+        "from": "1uA",
+        "to": "2mA max leakage at 5.8V, 25℃"
+      }
+    ],
+    "summary": "Brightking's exact-part-linked P6SMB table gives 1,000 µA at 5.8 V and 25 °C, then requires doubling IR for bidirectional types with VRWM ≤10 V. The applicable limit is therefore 2,000 µA (2 mA), not the old 1 µA description or the newer 1 mA attribute without its footnote. The original supplier values are retained in the source snapshot.",
+    "source": {
+      "label": "Brightking P6SMB datasheet linked from C78395",
+      "url": "https://jlcpcb.com/partdetail/C78395"
+    }
+  },
+  "C42413902": {
+    "mpn": "SM08",
+    "package": "SOT-23",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Number of Channels": "2",
+      "Voltage - Breakdown": "8.5V",
+      "Clamping Voltage": "24V"
+    },
+    "attributes": {},
+    "descriptionReplacements": [],
+    "summary": "Hongjiacheng SM Series Rev. 2.1 shows two unidirectional protection lines at pins 1 and 2 with their common anode at pin 3. The SM08 row specifies 8.5 V minimum breakdown at 1 mA, 13.4 V maximum clamping at 1 A, and 24 V maximum at 15 A (8/20 µs). The two clamp figures are different test currents, not conflicting limits. The two-channel label is manufacturer-confirmed.",
+    "source": {
+      "label": "Hongjiacheng SM Series datasheet linked from C42413902",
+      "url": "https://jlcpcb.com/partdetail/C42413902"
+    }
+  },
+  "C7420375": {
+    "mpn": "SM712",
+    "package": "SOT-23",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Peak Pulse Power Dissipation (Ppp)": "300W@8/20us",
+      "Peak Pulse Current (Ipp)": "12A@8/20us"
+    },
+    "attributes": {
+      "Peak Pulse Power Dissipation (Ppp)": "300W@8/20us",
+      "Peak Pulse Current (Ipp)": "12A@8/20us"
+    },
+    "descriptionReplacements": [],
+    "summary": "The exact SM712 sheet confirms 300 W and 12 A for an 8/20 µs waveform. It protects two asymmetric −7 V/+12 V lines; the two standoff values refer to opposite directions, not a symmetric 7 V clamp.",
+    "source": {
+      "label": "SM712 manufacturer datasheet linked from C7420375",
+      "url": "https://jlcpcb.com/partdetail/C7420375"
+    }
+  },
+  "C19077496": {
+    "mpn": "SMF3.3CA",
+    "package": "SOD-123FL",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Voltage - Breakdown": "6.5V",
+      "Clamping Voltage": "8.8V",
+      "Reverse Leakage Current (Ir)": "500uA"
+    },
+    "attributes": {
+      "Voltage - Breakdown": "5.2V min–6.5V max at 10mA",
+      "Clamping Voltage": "8.8V max at 22.7A (10/1000µs)",
+      "Reverse Leakage Current (Ir)": "1mA max at 3.3V, 25℃"
+    },
+    "descriptionReplacements": [
+      {
+        "from": "27.4A@10/1000us",
+        "to": "22.7A@10/1000us"
+      },
+      {
+        "from": "5.3V",
+        "to": "5.2–6.5V breakdown at 10mA"
+      },
+      {
+        "from": "500uA",
+        "to": "1mA max leakage"
+      },
+      {
+        "from": "7.3V",
+        "to": "8.8V"
+      }
+    ],
+    "summary": "The exact-part-linked SMF table gives SMF3.3CA breakdown 5.2–6.5 V at 10 mA and 8.8 V maximum clamping at 22.7 A, 10/1000 µs. Its 500 µA table leakage limit is doubled by note 3 for bidirectional parts at ≤10 V standoff: use 1 mA maximum at 3.3 V and 25 °C. The older description has been corrected; original values are retained.",
+    "source": {
+      "label": "SMF3.3CA manufacturer datasheet linked from C19077496",
+      "url": "https://jlcpcb.com/partdetail/C19077496"
+    }
+  },
+  "C19077522": {
+    "mpn": "SMAJ3.3CA",
+    "package": "SMA",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Voltage - Breakdown": "6V",
+      "Reverse Leakage Current (Ir)": "800uA"
+    },
+    "attributes": {
+      "Voltage - Breakdown": "5.2V min–6V max at 10mA",
+      "Reverse Leakage Current (Ir)": "1.6mA max at 3.3V, 25℃"
+    },
+    "descriptionReplacements": [
+      {
+        "from": "600uA",
+        "to": "1.6mA max leakage"
+      },
+      {
+        "from": "9V",
+        "to": "5.2–6V breakdown at 10mA"
+      }
+    ],
+    "summary": "The exact-part-linked SMAJ table gives SMAJ3.3CA breakdown 5.2–6 V at 10 mA. Its 800 µA table leakage limit is doubled by note 3 for bidirectional parts at ≤10 V standoff: use 1.6 mA maximum at 3.3 V and 25 °C. The catalog’s 6 V is the breakdown maximum, and its 800 µA scalar omits the footnote; the older 9 V/600 µA description is corrected too.",
+    "source": {
+      "label": "SMAJ3.3CA manufacturer datasheet linked from C19077522",
+      "url": "https://jlcpcb.com/partdetail/C19077522"
+    }
+  },
+  "C20615779": {
+    "mpn": "H5VN06B",
+    "package": "DFN0603-2L",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Junction Capacitance": "22pF"
+    },
+    "attributes": {
+      "Junction Capacitance": "15pF typ, 22pF max (0V, 1MHz)"
+    },
+    "descriptionReplacements": [],
+    "summary": "The exact H5VN06B table specifies 15 pF typical and 22 pF maximum at 0 V and 1 MHz. The catalog change from 15 to 22 pF changed the reported statistic, not the device.",
+    "source": {
+      "label": "H5VN06B manufacturer datasheet linked from C20615779",
+      "url": "https://jlcpcb.com/partdetail/C20615779"
+    }
+  },
+  "C20615780": {
+    "mpn": "H5VU06B",
+    "package": "DFN0603-2L",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Junction Capacitance": "0.3pF"
+    },
+    "attributes": {
+      "Junction Capacitance": "0.3pF typ, 0.5pF max (0V, 1MHz)"
+    },
+    "descriptionReplacements": [],
+    "summary": "The exact H5VU06B table gives 0.3 pF typical and 0.5 pF maximum at 0 V and 1 MHz. The newer 0.3 pF catalog scalar must not be treated as a maximum.",
+    "source": {
+      "label": "H5VU06B manufacturer datasheet linked from C20615780",
+      "url": "https://jlcpcb.com/partdetail/C20615780"
+    }
+  },
+  "C20615782": {
+    "mpn": "H3V3U10B",
+    "package": "DFN1006-2L",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Junction Capacitance": "0.25pF"
+    },
+    "attributes": {
+      "Junction Capacitance": "0.25pF typ, 0.3pF max (0V, 1MHz)"
+    },
+    "descriptionReplacements": [],
+    "summary": "The exact H3V3U10B table gives 0.25 pF typical and 0.3 pF maximum at 0 V and 1 MHz. Preserve both conditions rather than interpreting the catalog change as a lower guaranteed maximum.",
+    "source": {
+      "label": "H3V3U10B manufacturer datasheet linked from C20615782",
+      "url": "https://jlcpcb.com/partdetail/C20615782"
+    }
+  },
+  "C20615800": {
+    "mpn": "H5VU25UC",
+    "package": "DFN2510-10L",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Junction Capacitance": "0.8pF"
+    },
+    "attributes": {
+      "Junction Capacitance": "0.8pF max I/O–GND; 0.3pF typ, 0.4pF max I/O–I/O (0V, 1MHz)"
+    },
+    "descriptionReplacements": [],
+    "summary": "The exact H5VU25UC table distinguishes I/O-to-ground capacitance (0.8 pF maximum) from I/O-to-I/O capacitance (0.3 pF typical, 0.4 pF maximum), all at 0 V and 1 MHz. The old pair represented different pin pairs.",
+    "source": {
+      "label": "H5VU25UC manufacturer datasheet linked from C20615800",
+      "url": "https://jlcpcb.com/partdetail/C20615800"
+    }
+  },
+  "C20615809": {
+    "mpn": "H8VSD3B",
+    "package": "SOD-323",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Clamping Voltage": "25V"
+    },
+    "attributes": {
+      "Clamping Voltage": "13V max at 1A; 25V max at 20A (8/20µs)"
+    },
+    "descriptionReplacements": [],
+    "summary": "The exact H8VSD3B table specifies 13 V maximum clamping at 1 A and 25 V maximum at 20 A, both with an 8/20 µs pulse. These are different test-current limits.",
+    "source": {
+      "label": "H8VSD3B manufacturer datasheet linked from C20615809",
+      "url": "https://jlcpcb.com/partdetail/C20615809"
+    }
+  },
+  "C20615824": {
+    "mpn": "H5VUT2U",
+    "package": "SOT-23",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Junction Capacitance": "0.6pF"
+    },
+    "attributes": {
+      "Junction Capacitance": "0.6pF typ, 0.8pF max I/O–GND; 0.3pF typ, 0.4pF max I/O–I/O (0V, 1MHz)"
+    },
+    "descriptionReplacements": [],
+    "summary": "The exact H5VUT2U table gives I/O-to-ground capacitance of 0.6 pF typical/0.8 pF maximum and I/O-to-I/O capacitance of 0.3 pF typical/0.4 pF maximum. The catalog 0.6 pF is a typical value.",
+    "source": {
+      "label": "H5VUT2U manufacturer datasheet linked from C20615824",
+      "url": "https://jlcpcb.com/partdetail/C20615824"
+    }
+  },
+  "C20617909": {
+    "mpn": "H3V3N10B",
+    "package": "DFN1006-2L",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Reverse Leakage Current (Ir)": "5nA"
+    },
+    "attributes": {
+      "Reverse Leakage Current (Ir)": "5nA typ, 50nA max at 3.3V, 25℃"
+    },
+    "descriptionReplacements": [],
+    "summary": "The exact H3V3N10B table specifies 5 nA typical and 50 nA maximum leakage at VRWM = 3.3 V and 25 °C. The catalog change switched from maximum to typical; it did not establish a new 5 nA limit.",
+    "source": {
+      "label": "H3V3N10B manufacturer datasheet linked from C20617909",
+      "url": "https://jlcpcb.com/partdetail/C20617909"
+    }
+  },
+  "C20617916": {
+    "mpn": "H4V5HD3U",
+    "package": "SOD-323",
+    "date": "2026-10-29",
+    "expectedAttributes": {
+      "Clamping Voltage": "15V"
+    },
+    "attributes": {
+      "Clamping Voltage": "7V max at 20A; 15V max at 185A (8/20µs)"
+    },
+    "descriptionReplacements": [],
+    "summary": "The exact H4V5HD3U table specifies 7 V maximum clamping at 20 A and 15 V maximum at 185 A with an 8/20 µs pulse. The old pair described two current conditions, not forward/reverse operation.",
+    "source": {
+      "label": "H4V5HD3U manufacturer datasheet linked from C20617916",
+      "url": "https://jlcpcb.com/partdetail/C20617916"
+    }
+  }
+}

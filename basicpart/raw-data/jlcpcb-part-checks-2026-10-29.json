@@ -1,0 +1,1459 @@
+{
+  "checkedAt": "2026-10-29T15:43:33.523Z",
+  "catalogSnapshot": "raw-data/jlcpcb-basic-parts-2026-10-29.json",
+  "sourceUrl": "https://jlcpcb.com/api/overseas-pcb-order/v1/shoppingCart/smtGood/selectSmtComponentList/v2",
+  "note": "Public search without tier filters; exact C-number matching. expand requires preferredComponentFlag=true to qualify. Price/stock can move between requests.",
+  "checks": [
+    {
+      "partNumber": "C2040",
+      "checkedAt": "2026-10-29T15:43:22.597Z",
+      "expectedTier": "extended",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C2040",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": null,
+      "priceBreaksMatchSnapshot": null,
+      "current": {
+        "partNumber": "C2040",
+        "manufacturerPart": "RP2040",
+        "manufacturer": "Raspberry Pi",
+        "category": "Microcontrollers (MCU/MPU/SOC)",
+        "firstSort": "Microcontrollers (MCU/MPU/SOC)",
+        "secondSort": "Embedded Processors & Controllers",
+        "package": "LQFN-56(7x7)",
+        "description": "12bit 133MHz 30 LQFN-56(7x7) Microcontrollers (MCU/MPU/SOC) ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-20℃~+85℃"
+          },
+          {
+            "attribute_name_en": "CPU Maximum Speed",
+            "attribute_value_name": "133MHz"
+          },
+          {
+            "attribute_name_en": "Program Memory Type",
+            "attribute_value_name": "External"
+          },
+          {
+            "attribute_name_en": "Voltage - Supply",
+            "attribute_value_name": "1.8V~3.3V"
+          },
+          {
+            "attribute_name_en": "RAM Size",
+            "attribute_value_name": "264KB"
+          },
+          {
+            "attribute_name_en": "Core Size",
+            "attribute_value_name": "32 Bit"
+          },
+          {
+            "attribute_name_en": "CPU Core",
+            "attribute_value_name": "ARM Cortex-M0+"
+          },
+          {
+            "attribute_name_en": "Number of I/O",
+            "attribute_value_name": "30"
+          },
+          {
+            "attribute_name_en": "ADC (Bit)",
+            "attribute_value_name": "12bit"
+          },
+          {
+            "attribute_name_en": "Oscillator Type",
+            "attribute_value_name": "Built-in+External"
+          }
+        ],
+        "stock": 65659,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 9,
+            "productPrice": 1.0874
+          },
+          {
+            "startNumber": 10,
+            "endNumber": 29,
+            "productPrice": 1.0007
+          },
+          {
+            "startNumber": 30,
+            "endNumber": 99,
+            "productPrice": 0.9188
+          },
+          {
+            "startNumber": 100,
+            "endNumber": 499,
+            "productPrice": 0.8582
+          },
+          {
+            "startNumber": 500,
+            "endNumber": 999,
+            "productPrice": 0.7386
+          },
+          {
+            "startNumber": 1000,
+            "endNumber": -1,
+            "productPrice": 0.7255
+          }
+        ],
+        "minOrder": 1,
+        "lcscUrl": "https://www.lcsc.com/product-detail/microcontrollers-mcu-mpu-soc_raspberry-pi-rp2040_C2040.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2201101600_Raspberry-Pi-RP2040_C2040.pdf",
+        "libraryType": "expand",
+        "preferredComponentFlag": false,
+        "tier": "extended"
+      }
+    },
+    {
+      "partNumber": "C529330",
+      "checkedAt": "2026-10-29T15:43:23.157Z",
+      "expectedTier": "extended",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C529330",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": null,
+      "priceBreaksMatchSnapshot": null,
+      "current": {
+        "partNumber": "C529330",
+        "manufacturerPart": "STM32G030F6P6TR",
+        "manufacturer": "STMicroelectronics",
+        "category": "Microcontrollers (MCU/MPU/SOC)",
+        "firstSort": "Microcontrollers (MCU/MPU/SOC)",
+        "secondSort": "Embedded Processors & Controllers",
+        "package": "TSSOP-20",
+        "description": "-40℃~+85℃ 12bit 17 2V~3.6V 32 Bit 32KB 64MHz 8KB ARM Cortex-M0+ Built-in+External FLASH TSSOP-20 Microcontrollers (MCU/MPU/SOC) ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "EEPROM",
+            "attribute_value_name": "-"
+          },
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-40℃~+85℃"
+          },
+          {
+            "attribute_name_en": "CPU Maximum Speed",
+            "attribute_value_name": "64MHz"
+          },
+          {
+            "attribute_name_en": "Program Memory Type",
+            "attribute_value_name": "FLASH"
+          },
+          {
+            "attribute_name_en": "Program Storage Size",
+            "attribute_value_name": "32KB"
+          },
+          {
+            "attribute_name_en": "Voltage - Supply",
+            "attribute_value_name": "2V~3.6V"
+          },
+          {
+            "attribute_name_en": "Core Size",
+            "attribute_value_name": "32 Bit"
+          },
+          {
+            "attribute_name_en": "RAM Size",
+            "attribute_value_name": "8KB"
+          },
+          {
+            "attribute_name_en": "CPU Core",
+            "attribute_value_name": "ARM Cortex-M0+"
+          },
+          {
+            "attribute_name_en": "Number of I/O",
+            "attribute_value_name": "17"
+          },
+          {
+            "attribute_name_en": "ADC (Bit)",
+            "attribute_value_name": "12bit"
+          },
+          {
+            "attribute_name_en": "Oscillator Type",
+            "attribute_value_name": "Built-in+External"
+          }
+        ],
+        "stock": 7334,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 9,
+            "productPrice": 1.4526
+          },
+          {
+            "startNumber": 10,
+            "endNumber": 29,
+            "productPrice": 1.2676
+          },
+          {
+            "startNumber": 30,
+            "endNumber": 99,
+            "productPrice": 1.0924
+          },
+          {
+            "startNumber": 100,
+            "endNumber": 499,
+            "productPrice": 0.963
+          },
+          {
+            "startNumber": 500,
+            "endNumber": 999,
+            "productPrice": 0.9089
+          },
+          {
+            "startNumber": 1000,
+            "endNumber": -1,
+            "productPrice": 0.8827
+          }
+        ],
+        "minOrder": 1,
+        "lcscUrl": "https://www.lcsc.com/product-detail/microcontrollers-mcu-mpu-soc_stmicroelectronics-stm32g030f6p6tr_C529330.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_STMicroelectronics-STM32G030F6P6TR_C529330.pdf",
+        "libraryType": "expand",
+        "preferredComponentFlag": false,
+        "tier": "extended"
+      }
+    },
+    {
+      "partNumber": "C2765186",
+      "checkedAt": "2026-10-29T15:43:23.726Z",
+      "expectedTier": "extended",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C2765186",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": null,
+      "priceBreaksMatchSnapshot": null,
+      "current": {
+        "partNumber": "C2765186",
+        "manufacturerPart": "TYPE-C 16PIN 2MD(073)",
+        "manufacturer": "SHOU HAN",
+        "category": "USB Connectors",
+        "firstSort": "USB Connectors",
+        "secondSort": "Connectors",
+        "package": "SMD",
+        "description": "-25℃~+85℃ 1 10 thousand cycles 16P 3A 5V Black Female Surface Mount, Right Angle Type-C SMD USB Connectors ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-25℃~+85℃"
+          },
+          {
+            "attribute_name_en": "Center Height",
+            "attribute_value_name": "-"
+          },
+          {
+            "attribute_name_en": "Current Rating-Power",
+            "attribute_value_name": "3A"
+          },
+          {
+            "attribute_name_en": "Voltage Rating",
+            "attribute_value_name": "5V"
+          },
+          {
+            "attribute_name_en": "Gender",
+            "attribute_value_name": "Female"
+          },
+          {
+            "attribute_name_en": "Mounting Type",
+            "attribute_value_name": "Surface Mount, Right Angle"
+          },
+          {
+            "attribute_name_en": "Detection color",
+            "attribute_value_name": "Black"
+          },
+          {
+            "attribute_name_en": "Number of Ports",
+            "attribute_value_name": "1"
+          },
+          {
+            "attribute_name_en": "Length",
+            "attribute_value_name": "7.35mm"
+          },
+          {
+            "attribute_name_en": "Connector Type",
+            "attribute_value_name": "Type-C"
+          },
+          {
+            "attribute_name_en": "Supplementary Features",
+            "attribute_value_name": "-"
+          },
+          {
+            "attribute_name_en": "Number of Contacts",
+            "attribute_value_name": "16P"
+          },
+          {
+            "attribute_name_en": "Connect-Disconnect Life",
+            "attribute_value_name": "10,000 cycles"
+          },
+          {
+            "attribute_name_en": "Protocol Standard",
+            "attribute_value_name": "-"
+          }
+        ],
+        "stock": 1012249,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 199,
+            "productPrice": 0.0749
+          },
+          {
+            "startNumber": 200,
+            "endNumber": 999,
+            "productPrice": 0.0603
+          },
+          {
+            "startNumber": 1000,
+            "endNumber": 1999,
+            "productPrice": 0.051
+          },
+          {
+            "startNumber": 2000,
+            "endNumber": 9999,
+            "productPrice": 0.0448
+          },
+          {
+            "startNumber": 10000,
+            "endNumber": 19999,
+            "productPrice": 0.0426
+          },
+          {
+            "startNumber": 20000,
+            "endNumber": -1,
+            "productPrice": 0.0412
+          }
+        ],
+        "minOrder": 1,
+        "lcscUrl": "https://www.lcsc.com/product-detail/usb-connectors_shou-han-type-c-16pin-2md-073_C2765186.html",
+        "datasheetUrl": "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588920841703079936",
+        "libraryType": "expand",
+        "preferredComponentFlag": false,
+        "tier": "extended"
+      }
+    },
+    {
+      "partNumber": "C84681",
+      "checkedAt": "2026-10-29T15:43:24.298Z",
+      "expectedTier": "extended",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C84681",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": null,
+      "priceBreaksMatchSnapshot": null,
+      "current": {
+        "partNumber": "C84681",
+        "manufacturerPart": "CH340C",
+        "manufacturer": "WCH(Jiangsu Qin Heng)",
+        "category": "USB Converters",
+        "firstSort": "USB Converters",
+        "secondSort": "Interface",
+        "package": "SOP-16",
+        "description": "-20℃~+70℃ 2Mbps 3.3V、5V 50uA 7mA Transceiver USB 2.0 SOP-16 USB Converters ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-20℃~+70℃"
+          },
+          {
+            "attribute_name_en": "Data Rate",
+            "attribute_value_name": "2Mbps"
+          },
+          {
+            "attribute_name_en": "Number of Channels",
+            "attribute_value_name": "-"
+          },
+          {
+            "attribute_name_en": "Applications Function",
+            "attribute_value_name": "Transceiver"
+          },
+          {
+            "attribute_name_en": "Voltage - Supply",
+            "attribute_value_name": "3.3V、5V"
+          },
+          {
+            "attribute_name_en": "USB Protocol",
+            "attribute_value_name": "USB 2.0"
+          },
+          {
+            "attribute_name_en": "Current - Supply",
+            "attribute_value_name": "7mA"
+          },
+          {
+            "attribute_name_en": "Quiescent Supply Current",
+            "attribute_value_name": "50uA"
+          }
+        ],
+        "stock": 108684,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 9,
+            "productPrice": 0.5454
+          },
+          {
+            "startNumber": 10,
+            "endNumber": 49,
+            "productPrice": 0.4553
+          },
+          {
+            "startNumber": 50,
+            "endNumber": 99,
+            "productPrice": 0.3882
+          },
+          {
+            "startNumber": 100,
+            "endNumber": 499,
+            "productPrice": 0.3341
+          },
+          {
+            "startNumber": 500,
+            "endNumber": 999,
+            "productPrice": 0.3178
+          },
+          {
+            "startNumber": 1000,
+            "endNumber": -1,
+            "productPrice": 0.3079
+          }
+        ],
+        "minOrder": 1,
+        "lcscUrl": "https://www.lcsc.com/product-detail/usb-converters_wch-jiangsu-qin-heng-ch340c_C84681.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2406191656_WCH-Jiangsu-Qin-Heng-CH340C_C84681.pdf",
+        "libraryType": "expand",
+        "preferredComponentFlag": false,
+        "tier": "extended"
+      }
+    },
+    {
+      "partNumber": "C32843",
+      "checkedAt": "2026-10-29T15:43:24.861Z",
+      "expectedTier": "extended",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C32843",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": null,
+      "priceBreaksMatchSnapshot": null,
+      "current": {
+        "partNumber": "C32843",
+        "manufacturerPart": "W5500",
+        "manufacturer": "WIZNET",
+        "category": "Ethernet Controllers",
+        "firstSort": "Ethernet Controllers",
+        "secondSort": "Interface",
+        "package": "LQFP-48_7x7",
+        "description": "-40℃~+85℃ 10BASE-T、100BASE-TX 3.3V 32KB SPI SPI Wake-up function、Programmable LED indication、Low-power mode Yes LQFP-48(7x7) Ethernet Controllers ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-40℃~+85℃"
+          },
+          {
+            "attribute_name_en": "Memory Space",
+            "attribute_value_name": "32KB"
+          },
+          {
+            "attribute_name_en": "Voltage - Supply",
+            "attribute_value_name": "3.3V"
+          },
+          {
+            "attribute_name_en": "Features",
+            "attribute_value_name": "Wake-up function、Programmable LED indication、Low-power mode"
+          },
+          {
+            "attribute_name_en": "Communication Interface",
+            "attribute_value_name": "SPI"
+          },
+          {
+            "attribute_name_en": "MAC Interface",
+            "attribute_value_name": "SPI"
+          },
+          {
+            "attribute_name_en": "Integrated PHY",
+            "attribute_value_name": "Yes"
+          },
+          {
+            "attribute_name_en": "Ethernet Speed Standards",
+            "attribute_value_name": "10BASE-T、100BASE-TX"
+          }
+        ],
+        "stock": 16435,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 9,
+            "productPrice": 2.8315
+          },
+          {
+            "startNumber": 10,
+            "endNumber": 29,
+            "productPrice": 2.4696
+          },
+          {
+            "startNumber": 30,
+            "endNumber": 99,
+            "productPrice": 2.2141
+          },
+          {
+            "startNumber": 100,
+            "endNumber": 499,
+            "productPrice": 1.9783
+          },
+          {
+            "startNumber": 500,
+            "endNumber": 999,
+            "productPrice": 1.8702
+          },
+          {
+            "startNumber": 1000,
+            "endNumber": -1,
+            "productPrice": 1.8277
+          }
+        ],
+        "minOrder": 1,
+        "lcscUrl": "https://lcsc.com/product-detail/ethernet-controllers_wiznet-w5500_C32843.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121618_WIZNET-W5500_C32843.pdf",
+        "libraryType": "expand",
+        "preferredComponentFlag": false,
+        "tier": "extended"
+      }
+    },
+    {
+      "partNumber": "C7484",
+      "checkedAt": "2026-10-29T15:43:25.396Z",
+      "expectedTier": "extended",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C7484",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": null,
+      "priceBreaksMatchSnapshot": null,
+      "current": {
+        "partNumber": "C7484",
+        "manufacturerPart": "SN74AHCT1G125DBVR",
+        "manufacturer": "Texas Instruments",
+        "category": "Buffers, Drivers, Receivers, Transceivers",
+        "firstSort": "Buffers, Drivers, Receivers, Transceivers",
+        "secondSort": "Logic",
+        "package": "SOT-23-5",
+        "description": "-40℃~+125℃ 1 1 10uA 4.5V~5.5V 6.5ns@5V,15pF 74AHCT 8mA 8mA Output enable Tri-State Unidirectional SOT-23-5 Buffers, Drivers, Receivers, Transceivers ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-40℃~+125℃"
+          },
+          {
+            "attribute_name_en": "Input type",
+            "attribute_value_name": "-"
+          },
+          {
+            "attribute_name_en": "Propagation Delay",
+            "attribute_value_name": "6.5ns@5V,15pF"
+          },
+          {
+            "attribute_name_en": "Number of Bits per Element",
+            "attribute_value_name": "1"
+          },
+          {
+            "attribute_name_en": "Voltage - Supply",
+            "attribute_value_name": "4.5V~5.5V"
+          },
+          {
+            "attribute_name_en": "Channel Type",
+            "attribute_value_name": "Unidirectional"
+          },
+          {
+            "attribute_name_en": "Quiescent Current",
+            "attribute_value_name": "10uA"
+          },
+          {
+            "attribute_name_en": "Current - Output High(IOH)",
+            "attribute_value_name": "8mA"
+          },
+          {
+            "attribute_name_en": "Features",
+            "attribute_value_name": "Output enable"
+          },
+          {
+            "attribute_name_en": "Number of Elements",
+            "attribute_value_name": "1"
+          },
+          {
+            "attribute_name_en": "Logic Family",
+            "attribute_value_name": "74AHCT"
+          },
+          {
+            "attribute_name_en": "output type",
+            "attribute_value_name": "Tri-State"
+          },
+          {
+            "attribute_name_en": "Current - Output Low(IOL)",
+            "attribute_value_name": "8mA"
+          }
+        ],
+        "stock": 44595,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 49,
+            "productPrice": 0.1004
+          },
+          {
+            "startNumber": 50,
+            "endNumber": 149,
+            "productPrice": 0.08
+          },
+          {
+            "startNumber": 150,
+            "endNumber": 499,
+            "productPrice": 0.0698
+          },
+          {
+            "startNumber": 500,
+            "endNumber": 2999,
+            "productPrice": 0.0621
+          },
+          {
+            "startNumber": 3000,
+            "endNumber": 5999,
+            "productPrice": 0.0521
+          },
+          {
+            "startNumber": 6000,
+            "endNumber": -1,
+            "productPrice": 0.049
+          }
+        ],
+        "minOrder": 1,
+        "lcscUrl": "https://www.lcsc.com/product-detail/buffers-drivers-receivers-transceivers_texas-instruments-sn74ahct1g125dbvr_C7484.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_1809192136_Texas-Instruments-SN74AHCT1G125DBVR_C7484.pdf",
+        "libraryType": "expand",
+        "preferredComponentFlag": false,
+        "tier": "extended"
+      }
+    },
+    {
+      "partNumber": "C72043",
+      "checkedAt": "2026-10-29T15:43:25.953Z",
+      "expectedTier": "extended",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C72043",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": null,
+      "priceBreaksMatchSnapshot": null,
+      "current": {
+        "partNumber": "C72043",
+        "manufacturerPart": "19-217/GHC-YR1S2/3T",
+        "manufacturer": "Everlight Elec",
+        "category": "LED Indication - Discrete",
+        "firstSort": "LED Indication - Discrete",
+        "secondSort": "Optoelectronics",
+        "package": "0603",
+        "description": "-40℃~+85℃ 110mW 120° 199mcd 20mA 3.3V 518nm 520nm~535nm Discrete Diode Emerald Green Water Clear 0603 LED Indication - Discrete ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Mounting Style",
+            "attribute_value_name": "-"
+          },
+          {
+            "attribute_name_en": "Wavelength - Dominant",
+            "attribute_value_name": "520nm~535nm"
+          },
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-40℃~+85℃"
+          },
+          {
+            "attribute_name_en": "Color Temperature",
+            "attribute_value_name": "-"
+          },
+          {
+            "attribute_name_en": "Test Current",
+            "attribute_value_name": "20mA"
+          },
+          {
+            "attribute_name_en": "Viewing Angle",
+            "attribute_value_name": "120°"
+          },
+          {
+            "attribute_name_en": "Lamp Holder Type",
+            "attribute_value_name": "-"
+          },
+          {
+            "attribute_name_en": "Luminous Intensity",
+            "attribute_value_name": "199mcd"
+          },
+          {
+            "attribute_name_en": "Power(Watts)",
+            "attribute_value_name": "110mW"
+          },
+          {
+            "attribute_name_en": "Diode Configuration",
+            "attribute_value_name": "Discrete Diode"
+          },
+          {
+            "attribute_name_en": "Illumination Color",
+            "attribute_value_name": "Emerald Green"
+          },
+          {
+            "attribute_name_en": "Lens Color",
+            "attribute_value_name": "Water Clear"
+          },
+          {
+            "attribute_name_en": "Peak Wavelength",
+            "attribute_value_name": "518nm"
+          },
+          {
+            "attribute_name_en": "Voltage - Forward(Vf)",
+            "attribute_value_name": "3.3V"
+          }
+        ],
+        "stock": 0,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 499,
+            "productPrice": 0.024
+          },
+          {
+            "startNumber": 500,
+            "endNumber": 2999,
+            "productPrice": 0.0197
+          },
+          {
+            "startNumber": 3000,
+            "endNumber": 5999,
+            "productPrice": 0.0172
+          },
+          {
+            "startNumber": 6000,
+            "endNumber": 23999,
+            "productPrice": 0.0159
+          },
+          {
+            "startNumber": 24000,
+            "endNumber": 50999,
+            "productPrice": 0.0147
+          },
+          {
+            "startNumber": 51000,
+            "endNumber": -1,
+            "productPrice": 0.014
+          }
+        ],
+        "minOrder": 376,
+        "lcscUrl": "https://www.lcsc.com/product-detail/led-indication-discrete_everlight-elec-19-217-ghc-yr1s2-3t_C72043.html",
+        "datasheetUrl": "",
+        "libraryType": "expand",
+        "preferredComponentFlag": false,
+        "tier": "extended"
+      }
+    },
+    {
+      "partNumber": "C72041",
+      "checkedAt": "2026-10-29T15:43:26.530Z",
+      "expectedTier": "extended",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C72041",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": null,
+      "priceBreaksMatchSnapshot": null,
+      "current": {
+        "partNumber": "C72041",
+        "manufacturerPart": "19-217/BHC-ZL1M2RY/3T",
+        "manufacturer": "Everlight Elec",
+        "category": "LED Indication - Discrete",
+        "firstSort": "LED Indication - Discrete",
+        "secondSort": "Optoelectronics",
+        "package": "0603",
+        "description": "-40℃~+85℃ 110mW 120° 2.8V 24.5mcd~28.5mcd 465nm~475nm 468nm 5mA Blue Discrete Diode Water Clear 0603 LED Indication - Discrete ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Mounting Style",
+            "attribute_value_name": "-"
+          },
+          {
+            "attribute_name_en": "Wavelength - Dominant",
+            "attribute_value_name": "465nm~475nm"
+          },
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-40℃~+85℃"
+          },
+          {
+            "attribute_name_en": "Color Temperature",
+            "attribute_value_name": "-"
+          },
+          {
+            "attribute_name_en": "Test Current",
+            "attribute_value_name": "5mA"
+          },
+          {
+            "attribute_name_en": "Viewing Angle",
+            "attribute_value_name": "120°"
+          },
+          {
+            "attribute_name_en": "Lamp Holder Type",
+            "attribute_value_name": "-"
+          },
+          {
+            "attribute_name_en": "Luminous Intensity",
+            "attribute_value_name": "24.5mcd~28.5mcd"
+          },
+          {
+            "attribute_name_en": "Power(Watts)",
+            "attribute_value_name": "110mW"
+          },
+          {
+            "attribute_name_en": "Diode Configuration",
+            "attribute_value_name": "Discrete Diode"
+          },
+          {
+            "attribute_name_en": "Illumination Color",
+            "attribute_value_name": "Blue"
+          },
+          {
+            "attribute_name_en": "Lens Color",
+            "attribute_value_name": "Water Clear"
+          },
+          {
+            "attribute_name_en": "Peak Wavelength",
+            "attribute_value_name": "468nm"
+          },
+          {
+            "attribute_name_en": "Voltage - Forward(Vf)",
+            "attribute_value_name": "2.8V"
+          }
+        ],
+        "stock": 0,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 199,
+            "productPrice": 0.0218
+          },
+          {
+            "startNumber": 200,
+            "endNumber": 599,
+            "productPrice": 0.0171
+          },
+          {
+            "startNumber": 600,
+            "endNumber": 2999,
+            "productPrice": 0.0144
+          },
+          {
+            "startNumber": 3000,
+            "endNumber": 8999,
+            "productPrice": 0.0128
+          },
+          {
+            "startNumber": 9000,
+            "endNumber": 20999,
+            "productPrice": 0.0114
+          },
+          {
+            "startNumber": 21000,
+            "endNumber": -1,
+            "productPrice": 0.0107
+          }
+        ],
+        "minOrder": 528,
+        "lcscUrl": "https://www.lcsc.com/product-detail/led-indication-discrete_everlight-elec-19-217-bhc-zl1m2ry-3t_C72041.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_1811101510_Everlight-Elec-19-217-BHC-ZL1M2RY-3T_C72041.pdf",
+        "libraryType": "expand",
+        "preferredComponentFlag": false,
+        "tier": "extended"
+      }
+    },
+    {
+      "partNumber": "C114586",
+      "checkedAt": "2026-10-29T15:43:28.243Z",
+      "expectedTier": "extended",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C114586",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "product-page",
+      "searchIssue": "No exact match for C114586: public search returned zero results",
+      "snapshotFirstUnitPrice": null,
+      "priceBreaksMatchSnapshot": null,
+      "current": {
+        "partNumber": "C114586",
+        "manufacturerPart": "WS2812B-B/W",
+        "manufacturer": "Worldsemi",
+        "package": "SMD5050-4P",
+        "category": "Optoelectronics",
+        "tier": "extended",
+        "pcbaType": "Standard Only",
+        "libraryType": null,
+        "preferredComponentFlag": null,
+        "stock": null,
+        "prices": [],
+        "attributes": [],
+        "verificationMethod": "product-page",
+        "tierEvidence": "Exact Product SKU and identity match; page badge Extended and PCBA Type Standard Only. No Economic PCBA Preferred exemption is offered.",
+        "sourceUrl": "https://jlcpcb.com/partdetail/C114586"
+      }
+    },
+    {
+      "partNumber": "C25197",
+      "checkedAt": "2026-10-29T15:43:28.935Z",
+      "expectedTier": "basic",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C25197",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": 0.0124,
+      "priceBreaksMatchSnapshot": true,
+      "current": {
+        "partNumber": "C25197",
+        "manufacturerPart": "0603WAF510KT5E",
+        "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+        "category": "Chip Resistor - Surface Mount",
+        "firstSort": "Chip Resistor - Surface Mount",
+        "secondSort": "Resistors",
+        "package": "0603",
+        "description": "-55℃~+155℃ 100mW 5.1Ω 75V Thick Film Resistor ±1% ±200ppm/℃ 0603 Chip Resistor - Surface Mount ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Resistance",
+            "attribute_value_name": "5.1Ω"
+          },
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-55℃~+155℃"
+          },
+          {
+            "attribute_name_en": "Power(Watts)",
+            "attribute_value_name": "100mW"
+          },
+          {
+            "attribute_name_en": "Type",
+            "attribute_value_name": "Thick Film Resistor"
+          },
+          {
+            "attribute_name_en": "Voltage-Supply(Max)",
+            "attribute_value_name": "75V"
+          },
+          {
+            "attribute_name_en": "Tolerance",
+            "attribute_value_name": "±1%"
+          },
+          {
+            "attribute_name_en": "Temperature Coefficient",
+            "attribute_value_name": "±200ppm/℃"
+          }
+        ],
+        "stock": 203464,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 499,
+            "productPrice": 0.0124
+          },
+          {
+            "startNumber": 500,
+            "endNumber": 1499,
+            "productPrice": 0.0102
+          },
+          {
+            "startNumber": 1500,
+            "endNumber": 4999,
+            "productPrice": 0.0089
+          },
+          {
+            "startNumber": 5000,
+            "endNumber": 24999,
+            "productPrice": 0.0082
+          },
+          {
+            "startNumber": 25000,
+            "endNumber": 49999,
+            "productPrice": 0.0075
+          },
+          {
+            "startNumber": 50000,
+            "endNumber": -1,
+            "productPrice": 0.0072
+          }
+        ],
+        "minOrder": 1,
+        "lcscUrl": "https://www.lcsc.com/product-detail/chip-resistor-surface-mount_uni-royal-uniroyal-elec-0603waf510kt5e_C25197.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311845_UNI-ROYAL-Uniroyal-Elec-0603WAF510KT5E_C25197.pdf",
+        "libraryType": "base",
+        "preferredComponentFlag": false,
+        "tier": "basic"
+      }
+    },
+    {
+      "partNumber": "C17675",
+      "checkedAt": "2026-10-29T15:43:29.505Z",
+      "expectedTier": "basic",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C17675",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": 0.0154,
+      "priceBreaksMatchSnapshot": true,
+      "current": {
+        "partNumber": "C17675",
+        "manufacturerPart": "0805W8F470KT5E",
+        "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+        "category": "Chip Resistor - Surface Mount",
+        "firstSort": "Chip Resistor - Surface Mount",
+        "secondSort": "Resistors",
+        "package": "0805",
+        "description": "-55℃~+155℃ 125mW 150V 4.7Ω Thick Film Resistor ±1% ±200ppm/℃ 0805 Chip Resistor - Surface Mount ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Resistance",
+            "attribute_value_name": "4.7Ω"
+          },
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-55℃~+155℃"
+          },
+          {
+            "attribute_name_en": "Power(Watts)",
+            "attribute_value_name": "125mW"
+          },
+          {
+            "attribute_name_en": "Type",
+            "attribute_value_name": "Thick Film Resistor"
+          },
+          {
+            "attribute_name_en": "Voltage-Supply(Max)",
+            "attribute_value_name": "150V"
+          },
+          {
+            "attribute_name_en": "Tolerance",
+            "attribute_value_name": "±1%"
+          },
+          {
+            "attribute_name_en": "Temperature Coefficient",
+            "attribute_value_name": "±200ppm/℃"
+          }
+        ],
+        "stock": 38455,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 499,
+            "productPrice": 0.0154
+          },
+          {
+            "startNumber": 500,
+            "endNumber": 1499,
+            "productPrice": 0.0126
+          },
+          {
+            "startNumber": 1500,
+            "endNumber": 4999,
+            "productPrice": 0.0111
+          },
+          {
+            "startNumber": 5000,
+            "endNumber": 24999,
+            "productPrice": 0.01
+          },
+          {
+            "startNumber": 25000,
+            "endNumber": 49999,
+            "productPrice": 0.0092
+          },
+          {
+            "startNumber": 50000,
+            "endNumber": -1,
+            "productPrice": 0.0087
+          }
+        ],
+        "minOrder": 717,
+        "lcscUrl": "https://www.lcsc.com/product-detail/chip-resistor-surface-mount_uni-royal-uniroyal-elec-0805w8f470kt5e_C17675.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010200_UNI-ROYAL-Uniroyal-Elec-0805W8F470KT5E_C17675.pdf",
+        "libraryType": "base",
+        "preferredComponentFlag": false,
+        "tier": "basic"
+      }
+    },
+    {
+      "partNumber": "C23163",
+      "checkedAt": "2026-10-29T15:43:30.046Z",
+      "expectedTier": "preferred",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C23163",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": 0.0041,
+      "priceBreaksMatchSnapshot": true,
+      "current": {
+        "partNumber": "C23163",
+        "manufacturerPart": "0603WAF4704T5E",
+        "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+        "category": "Chip Resistor - Surface Mount",
+        "firstSort": "Chip Resistor - Surface Mount",
+        "secondSort": "Resistors",
+        "package": "0603",
+        "description": "-55℃~+155℃ 100mW 4.7MΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Resistance",
+            "attribute_value_name": "4.7MΩ"
+          },
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-55℃~+155℃"
+          },
+          {
+            "attribute_name_en": "Power(Watts)",
+            "attribute_value_name": "100mW"
+          },
+          {
+            "attribute_name_en": "Type",
+            "attribute_value_name": "Thick Film Resistor"
+          },
+          {
+            "attribute_name_en": "Voltage-Supply(Max)",
+            "attribute_value_name": "75V"
+          },
+          {
+            "attribute_name_en": "Tolerance",
+            "attribute_value_name": "±1%"
+          },
+          {
+            "attribute_name_en": "Temperature Coefficient",
+            "attribute_value_name": "±100ppm/℃"
+          }
+        ],
+        "stock": 133616,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 999,
+            "productPrice": 0.0041
+          },
+          {
+            "startNumber": 1000,
+            "endNumber": 4999,
+            "productPrice": 0.0037
+          },
+          {
+            "startNumber": 5000,
+            "endNumber": 9999,
+            "productPrice": 0.0035
+          },
+          {
+            "startNumber": 10000,
+            "endNumber": 49999,
+            "productPrice": 0.0033
+          },
+          {
+            "startNumber": 50000,
+            "endNumber": 50199,
+            "productPrice": 0.0032
+          },
+          {
+            "startNumber": 50200,
+            "endNumber": -1,
+            "productPrice": 0.0032
+          }
+        ],
+        "minOrder": 1,
+        "lcscUrl": "https://www.lcsc.com/product-detail/chip-resistor-surface-mount_uni-royal-uniroyal-elec-0603waf4704t5e_C23163.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010116_UNI-ROYAL-Uniroyal-Elec-0603WAF4704T5E_C23163.pdf",
+        "libraryType": "expand",
+        "preferredComponentFlag": true,
+        "tier": "preferred"
+      }
+    },
+    {
+      "partNumber": "C25104",
+      "checkedAt": "2026-10-29T15:43:30.560Z",
+      "expectedTier": "basic",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C25104",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": 0.0011,
+      "priceBreaksMatchSnapshot": true,
+      "current": {
+        "partNumber": "C25104",
+        "manufacturerPart": "0402WGF3300TCE",
+        "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+        "category": "Chip Resistor - Surface Mount",
+        "firstSort": "Chip Resistor - Surface Mount",
+        "secondSort": "Resistors",
+        "package": "0402",
+        "description": "-55℃~+155℃ 330Ω 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Resistance",
+            "attribute_value_name": "330Ω"
+          },
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-55℃~+155℃"
+          },
+          {
+            "attribute_name_en": "Power(Watts)",
+            "attribute_value_name": "62.5mW"
+          },
+          {
+            "attribute_name_en": "Type",
+            "attribute_value_name": "Thick Film Resistor"
+          },
+          {
+            "attribute_name_en": "Voltage-Supply(Max)",
+            "attribute_value_name": "50V"
+          },
+          {
+            "attribute_name_en": "Tolerance",
+            "attribute_value_name": "±1%"
+          },
+          {
+            "attribute_name_en": "Temperature Coefficient",
+            "attribute_value_name": "±100ppm/℃"
+          }
+        ],
+        "stock": 2205919,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 999,
+            "productPrice": 0.0011
+          },
+          {
+            "startNumber": 1000,
+            "endNumber": 2999,
+            "productPrice": 0.0009
+          },
+          {
+            "startNumber": 3000,
+            "endNumber": 9999,
+            "productPrice": 0.0008
+          },
+          {
+            "startNumber": 10000,
+            "endNumber": 49999,
+            "productPrice": 0.0007
+          },
+          {
+            "startNumber": 50000,
+            "endNumber": 50199,
+            "productPrice": 0.0005
+          },
+          {
+            "startNumber": 50200,
+            "endNumber": -1,
+            "productPrice": 0.0005
+          }
+        ],
+        "minOrder": 1,
+        "lcscUrl": "https://www.lcsc.com/product-detail/chip-resistor-surface-mount_uni-royal-uniroyal-elec-0402wgf3300tce_C25104.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311900_UNI-ROYAL-Uniroyal-Elec-0402WGF3300TCE_C25104.pdf",
+        "libraryType": "base",
+        "preferredComponentFlag": false,
+        "tier": "basic"
+      }
+    },
+    {
+      "partNumber": "C25908",
+      "checkedAt": "2026-10-29T15:43:32.670Z",
+      "expectedTier": "preferred",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C25908",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": 0.001,
+      "priceBreaksMatchSnapshot": true,
+      "current": {
+        "partNumber": "C25908",
+        "manufacturerPart": "0402WGF5601TCE",
+        "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+        "category": "Chip Resistor - Surface Mount",
+        "firstSort": "Chip Resistor - Surface Mount",
+        "secondSort": "Resistors",
+        "package": "0402",
+        "description": "-55℃~+155℃ 5.6kΩ 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Resistance",
+            "attribute_value_name": "5.6kΩ"
+          },
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-55℃~+155℃"
+          },
+          {
+            "attribute_name_en": "Power(Watts)",
+            "attribute_value_name": "62.5mW"
+          },
+          {
+            "attribute_name_en": "Type",
+            "attribute_value_name": "Thick Film Resistor"
+          },
+          {
+            "attribute_name_en": "Voltage-Supply(Max)",
+            "attribute_value_name": "50V"
+          },
+          {
+            "attribute_name_en": "Tolerance",
+            "attribute_value_name": "±1%"
+          },
+          {
+            "attribute_name_en": "Temperature Coefficient",
+            "attribute_value_name": "±100ppm/℃"
+          }
+        ],
+        "stock": 463514,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 999,
+            "productPrice": 0.001
+          },
+          {
+            "startNumber": 1000,
+            "endNumber": 2999,
+            "productPrice": 0.0008
+          },
+          {
+            "startNumber": 3000,
+            "endNumber": 9999,
+            "productPrice": 0.0007
+          },
+          {
+            "startNumber": 10000,
+            "endNumber": 49999,
+            "productPrice": 0.0006
+          },
+          {
+            "startNumber": 50000,
+            "endNumber": 50199,
+            "productPrice": 0.0005
+          },
+          {
+            "startNumber": 50200,
+            "endNumber": -1,
+            "productPrice": 0.0005
+          }
+        ],
+        "minOrder": 1,
+        "lcscUrl": "https://www.lcsc.com/product-detail/chip-resistor-surface-mount_uni-royal-uniroyal-elec-0402wgf5601tce_C25908.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF5601TCE_C25908.pdf",
+        "libraryType": "expand",
+        "preferredComponentFlag": true,
+        "tier": "preferred"
+      }
+    },
+    {
+      "partNumber": "C25779",
+      "checkedAt": "2026-10-29T15:43:33.523Z",
+      "expectedTier": "basic",
+      "sourceUrl": "https://jlcpcb.com/partdetail/C25779",
+      "status": "verified",
+      "issues": [],
+      "verificationMethod": "search-api",
+      "searchIssue": null,
+      "snapshotFirstUnitPrice": 0.0019,
+      "priceBreaksMatchSnapshot": true,
+      "current": {
+        "partNumber": "C25779",
+        "manufacturerPart": "0402WGF3302TCE",
+        "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+        "category": "Chip Resistor - Surface Mount",
+        "firstSort": "Chip Resistor - Surface Mount",
+        "secondSort": "Resistors",
+        "package": "0402",
+        "description": "-55℃~+155℃ 33kΩ 50V 62.5mW Thick Film Resistor ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS",
+        "attributes": [
+          {
+            "attribute_name_en": "Resistance",
+            "attribute_value_name": "33kΩ"
+          },
+          {
+            "attribute_name_en": "Operating Temperature",
+            "attribute_value_name": "-55℃~+155℃"
+          },
+          {
+            "attribute_name_en": "Power(Watts)",
+            "attribute_value_name": "62.5mW"
+          },
+          {
+            "attribute_name_en": "Type",
+            "attribute_value_name": "Thick Film Resistor"
+          },
+          {
+            "attribute_name_en": "Voltage-Supply(Max)",
+            "attribute_value_name": "50V"
+          },
+          {
+            "attribute_name_en": "Tolerance",
+            "attribute_value_name": "±1%"
+          },
+          {
+            "attribute_name_en": "Temperature Coefficient",
+            "attribute_value_name": "±100ppm/℃"
+          }
+        ],
+        "stock": 2498887,
+        "prices": [
+          {
+            "startNumber": 1,
+            "endNumber": 999,
+            "productPrice": 0.0019
+          },
+          {
+            "startNumber": 1000,
+            "endNumber": 2999,
+            "productPrice": 0.0015
+          },
+          {
+            "startNumber": 3000,
+            "endNumber": 9999,
+            "productPrice": 0.0012
+          },
+          {
+            "startNumber": 10000,
+            "endNumber": 49999,
+            "productPrice": 0.0011
+          },
+          {
+            "startNumber": 50000,
+            "endNumber": 50199,
+            "productPrice": 0.001
+          },
+          {
+            "startNumber": 50200,
+            "endNumber": -1,
+            "productPrice": 0.001
+          }
+        ],
+        "minOrder": 1,
+        "lcscUrl": "https://www.lcsc.com/product-detail/chip-resistor-surface-mount_uni-royal-uniroyal-elec-0402wgf3302tce_C25779.html",
+        "datasheetUrl": "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010100_UNI-ROYAL-Uniroyal-Elec-0402WGF3302TCE_C25779.pdf",
+        "libraryType": "base",
+        "preferredComponentFlag": false,
+        "tier": "basic"
+      }
+    }
+  ]
+}

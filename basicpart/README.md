@@ -5,6 +5,14 @@ catalog. The table pages cover the complete qualifying snapshot. “Our Picks”
 is a separately curated list and may also include useful ordinary Extended
 parts, which are explicitly labeled and highlighted in orange.
 
+## Our Picks membership
+
+Only humans select additions to Our Picks. Catalog refreshes and agent audits
+must preserve the selected C-numbers in `src/data/our-picks-selection.json`.
+Agents may correct existing metadata and descriptions during authorized work;
+they must not add or substitute parts without explicit human selection. The
+strict audit checks membership as well as tier and package identity.
+
 ## Getting Started
 
 ```bash
@@ -35,7 +43,9 @@ raw-data/                    # Scraped JSON from JLCPCB (source of truth)
 ├── jlcpcb-basic-parts-*.json
 
 scripts/                     # Data processing scripts
-├── scrape-jlcpcb.js         # Fetches the site catalog (requires Playwright)
+├── scrape-jlcpcb.js         # Fetches the catalog via HTTP or Playwright
+├── jlcpcb-api.js            # Shared request, tier and pagination validation
+├── check-jlcpcb-parts.js    # Exact lookups for Extended picks and price extremes
 ├── catalog-diff.js          # Reports additions, removals, tier, and price changes
 ├── transform-data.js        # Transforms raw data into site format
 ├── generate-parts-index.js  # Generates master parts lookup
@@ -72,7 +82,11 @@ dist/                        # Built site (THIS IS WHAT GETS DEPLOYED)
    qualifying part and its full metadata.
 2. **Diff** compares the two newest complete snapshots.
 3. **Transform and index** organize the snapshot into site tables and the
-   complete part lookup.
+   complete part lookup. `specification-reviews.json` supplies explicit
+   manufacturer-backed corrections and test conditions; their original source
+   attributes/description remain in `catalogOriginal` and in the raw snapshot.
+   Changed identities or expected source values require re-review before the
+   index can be generated.
 4. **Descriptions** rebuilds `friendly-descriptions.json` from `tasks/`.
 5. **Validation and audits** enforce catalog completeness, description
    coverage, package/tier identity, and curated-pick policy.
@@ -107,6 +121,8 @@ descriptions, stale qualifying picks, tier mismatches, or package mismatches.
 It writes:
 
 - `catalog-change-manifest.json` for catalog and pricing changes.
+- `raw-data/jlcpcb-part-checks-*.json` from `npm run verify:catalog` for
+  independent Extended-pick, removed-part, and price-extreme checks.
 - `data-audit-manifest.json` for transformed-data checks.
 - `curated-picks-audit.json` for the hand-maintained recommendations.
 - `dist/`, which is the deployable site.
@@ -120,6 +136,10 @@ necessary:
 
 1. Review `catalog-change-manifest.json`, especially additions, removals, tier
    changes, and unusually large price movements.
+   Run `npm run verify:catalog` for independent exact-part checks. A true
+   `preferredComponentFlag` distinguishes Preferred from ordinary Extended;
+   both use the upstream library code `expand`. Unresolved lookups and identity
+   mismatches remain review items and block publication, not local review builds.
 2. Add a source-backed description for every new C-number to the appropriate
    `tasks/descriptions-*.json` file.
 3. Review `src/data/other-components.json`. Qualifying recommendations must
@@ -187,8 +207,9 @@ requirements, and polarity before substituting one for the other.
 - `basic` and `preferred` come from the complete qualifying snapshot and have
   local detail pages.
 - `extended` is permitted only in the hand-curated “Our Picks” data. It is
-  highlighted in orange and links directly to JLCPCB because it is outside the
-  local qualifying index.
+  highlighted in orange. Curated Extended parts with component notes have
+  local detail pages and an external JLCPCB link; they lack qualifying snapshot
+  price and stock records.
 - Preferred Extended parts have no feeder-loading fee for Economic PCBA.
   Assembly pricing rules differ by service, so user-facing copy must not make
   unconditional fee promises.

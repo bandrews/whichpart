@@ -36,6 +36,11 @@ Front matter rules:
   guessed.
 - `summary` is written for display, not for search. It never contains a figure
   that is not also in the body.
+- `catalog_snapshot` belongs to that note's catalog evidence. Notes may have
+  different valid ISO dates; do not advance older notes just to match a newer
+  one. The index retains each note's date and all distinct dates in
+  `meta.catalogSnapshotDates`; its legacy `catalogSnapshotDate` is null for a
+  mixed-date collection.
 
 Family files use `family:` instead of `part:`/`mpn:`, add `part_count:` and
 `categories:` (the catalog categories the family covers), and omit `package`

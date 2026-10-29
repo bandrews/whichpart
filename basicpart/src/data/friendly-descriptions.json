@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "generated": "2026-10-02",
-    "catalogSnapshotDate": "2026-10-02",
+    "generated": "2026-10-29",
+    "catalogSnapshotDate": "2026-10-29",
     "description": "Human-friendly part descriptions for basicp.art"
   },
   "C1002": "600Ω@100MHz 200mA Ferrite Bead (0603)",
@@ -663,7 +663,7 @@
   "C7420372": "5V Bi-directional ESD Protection (DFN1006-2L)",
   "C7420373": "5V Bi-directional ESD Protection (DFN0603-2)",
   "C7420374": "5V Uni-directional 4ch TVS (DFN2510-10L)",
-  "C7420375": "7V Bi-directional 2ch ESD Protection (SOT-23)",
+  "C7420375": "-7V/+12V bidirectional 2-channel ESD protection (SOT-23)",
   "C7420376": "5V Uni-directional 4ch ESD Protection (SOT-23-6)",
   "C7420377": "6.5V Bi-directional TVS (SMB)",
   "C7502685": "40V 200mA Schottky (SOT-23)",
@@ -1583,7 +1583,7 @@
   "C42413887": "36V Uni-directional ESD Protection (SOD-323)",
   "C42413893": "5V Bi-directional ESD Protection (DFN1006-2L)",
   "C42413899": "5V Bi-directional ESD Protection (SOD-523)",
-  "C42413902": "8V Uni-directional ESD Protection (SOT-23)",
+  "C42413902": "8V 2-channel unidirectional ESD protection (SOT-23)",
   "C42413903": "12V Uni-directional ESD Protection (SOT-23)",
   "C42413904": "18V Uni-directional ESD Protection (SOT-23)",
   "C42413905": "24V Uni-directional ESD Protection (SOT-23)",

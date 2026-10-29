@@ -1,0 +1,152 @@
+{
+  "scope": "All 14 content/families notes; component notes, task descriptions, and curated entries for crystals, LEDs, MOSFETs, diodes, bridge rectifiers, and TVS/ESD protection; general site copy, README.md, MAINTENANCE.md, content/FORMAT.md, content/README.md, and DATA-CHANGES-MANIFEST.md. Follow-up audit of the 14 rating-change records extracted from the 2026-10-29 catalog snapshot is appended below.",
+  "reviewedFiles": [
+    "README.md",
+    "MAINTENANCE.md",
+    "content/FORMAT.md",
+    "content/README.md",
+    "DATA-CHANGES-MANIFEST.md",
+    "content/families/bipolar-transistors.md",
+    "content/families/bridge-rectifiers.md",
+    "content/families/chip-resistors.md",
+    "content/families/crystals.md",
+    "content/families/electrolytic-and-tantalum-capacitors.md",
+    "content/families/inductors-and-ferrite-beads.md",
+    "content/families/led-indicators.md",
+    "content/families/mlcc-capacitors.md",
+    "content/families/mosfets.md",
+    "content/families/resistor-networks.md",
+    "content/families/schottky-and-rectifier-diodes.md",
+    "content/families/tactile-switches.md",
+    "content/families/tvs-esd-protection.md",
+    "content/families/zener-diodes.md",
+    "content/components/C13738.md",
+    "content/components/C15127.md",
+    "content/components/C20917.md",
+    "content/components/C2286.md",
+    "content/components/C2290.md",
+    "content/components/C2488.md",
+    "content/components/C28646265.md",
+    "content/components/C32346.md",
+    "content/components/C37704.md",
+    "content/components/C412437.md",
+    "content/components/C72041.md",
+    "content/components/C72043.md",
+    "content/components/C7420316.md",
+    "content/components/C7420372.md",
+    "content/components/C7502727.md",
+    "content/components/C85364.md",
+    "content/components/C9002.md",
+    "content/components/C9006.md",
+    "content/components/C114586.md",
+    "tasks/descriptions-diodes-misc.json",
+    "tasks/descriptions-mixed-components.json",
+    "tasks/descriptions-rectifiers.json",
+    "tasks/descriptions-transistors.json",
+    "tasks/descriptions-tvs-esd.json",
+    "src/data/other-components.json",
+    "tasks/descriptions-resistors.json",
+    "raw-data/jlcpcb-basic-parts-2026-10-29.json",
+    "reviews/2026-10-29/changed-ratings.json"
+  ],
+  "reviewedPartIds": ["C114586", "C13738", "C15127", "C20917", "C2286", "C2290", "C2488", "C28646265", "C32346", "C37704", "C412437", "C72041", "C72043", "C7420316", "C7420372", "C7502727", "C85364", "C9002", "C9006", "C25190", "C78395", "C7420375", "C19077496", "C19077522", "C20615779", "C20615780", "C20615782", "C20615800", "C20615809", "C20615824", "C20617909", "C20617916", "C42413902"],
+  "coverageLimitations": [
+    "All 14 family notes were read. Category counts and catalog-specific examples were assessed as claims anchored to their stated 2026-07-24 snapshot; this review did not freshly recalculate every family statistic against all 1,586 records.",
+    "All 19 scoped component notes and corresponding curated entries were reviewed. Task description strings were checked for all 19 part IDs, with manufacturer-level verification focused on the explicit headline claims and sampled component specifications rather than a fresh independent audit of every sentence and every datasheet table.",
+    "Source links in the existing notes were considered alongside targeted primary-source checks; no claim is made that every linked source URL or every catalog price/stock figure was re-fetched.",
+    "For the 14 new rating-change records, the supplied LCSC PDF URLs returned HTML rather than PDF data through the available fetch route, and the web reader could not open those URLs. The report therefore keeps catalog-change evidence separate from manufacturer confirmation. Manufacturer evidence is cited only where a searchable manufacturer-hosted or manufacturer-issued document could be retrieved; the rest remain unverified discrepancies, not resolved errors."
+  ],
+  "findings": [
+    {
+      "id": "LUNA-PASS-001",
+      "priority": "P2",
+      "status": "proposed",
+      "files": ["DATA-CHANGES-MANIFEST.md", "README.md"],
+      "partIds": [],
+      "currentClaim": "The older data-change manifest calls SOD-123FL and SOT-23-6L pin-compatible variants with the same footprint, and calls the variants acceptable on that basis. README.md now warns that SOD-123FL has different mechanical and land-pattern requirements from SOD-123 and says not to treat them as drop-in replacements.",
+      "proposedChange": "Mark the 2026-01-12 package-variant discussion in DATA-CHANGES-MANIFEST.md as superseded, remove the pin-compatible/same-footprint statements, and replace them with a pointer to the current package-specific guidance in README.md. Revisit the SOT-23-6L line independently rather than implying the SOD-123FL conclusion applies to it.",
+      "reason": "The repository currently gives contradictory package-substitution guidance in two user-readable documents. Nexperia identifies SOD123FL as its own package type, and manufacturer package drawings provide distinct recommended land patterns; compatibility cannot be established from lead count or package naming alone.",
+      "evidence": [
+        {"url": "https://www.nexperia.com/packages/SOD123FL.html", "fact": "Nexperia lists SOD123FL as a separate package type and links a dedicated package-information document."},
+        {"url": "https://assets.nexperia.com/documents/package-information/SOD123FL.pdf", "fact": "The package information gives SOD123FL-specific package and footprint dimensions."}
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "LUNA-PASS-002",
+      "priority": "P2",
+      "status": "proposed",
+      "files": ["content/components/C15127.md", "content/components/C20917.md", "content/components/C2286.md", "content/components/C2290.md", "content/components/C2488.md", "content/components/C9002.md", "content/components/C9006.md"],
+      "partIds": ["C15127", "C20917", "C2286", "C2290", "C2488", "C9002", "C9006"],
+      "currentClaim": "Seven in-scope Basic-part detail notes state that the part has 'no assembly surcharge at JLCPCB.' The C32346 and C412437 notes already use the more precise 'no feeder-loading fee for Economic PCBA' wording and are not part of this correction.",
+      "proposedChange": "Use one precise wording throughout: 'Basic part; no feeder-loading fee for Economic PCBA at the 2026-07-24 snapshot.' Keep the statement explicitly tied to the tier, service, and snapshot date, and avoid implying total assembly is surcharge-free.",
+      "reason": "JLCPCB's published pricing separates assembly setup, extended-component, and other fees. Its documented exemption for Preferred Extended parts is specifically the feeder-loading fee in Economic PCBA. The broad 'no assembly surcharge' promise can be read as a guarantee about the total order price or all PCBA services.",
+      "evidence": [
+        {"url": "https://jlcpcb.com/help/article/pcb-assembly-price", "fact": "JLCPCB describes a distinct Extended Components Fee for Economic PCBA and describes other charges separately."},
+        {"url": "https://jlcpcb.com/help/article/pcb-assembly-faqs", "fact": "JLCPCB says Preferred Extended parts are exempt from the Feeders Loading fee for Economic PCB assembly."}
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "LUNA-PASS-003",
+      "priority": "P2",
+      "status": "proposed",
+      "files": ["content/components/C85364.md", "content/families/tvs-esd-protection.md"],
+      "partIds": ["C85364"],
+      "currentClaim": "C85364.md says 3.5 pF typical is low enough not to distort USB 2.0 or Ethernet; its specification row later advises designing against the 5 pF maximum. The family note generally treats very low capacitance as the key criterion for high-speed lines.",
+      "proposedChange": "Qualify the application statement: describe 3.5 pF typical / 5 pF maximum as a low-capacitance option intended for high-speed interfaces, while directing users to validate the selected line's signal-integrity budget, layout, and system-level ESD performance. Avoid an unconditional assurance that it will not distort USB 2.0 or Ethernet.",
+      "reason": "The cited manufacturer sheet characterizes capacitance and protection ratings, but a component capacitance value alone does not guarantee signal integrity or standards compliance in a particular implementation. The existing note itself reports a 5 pF maximum, which is the more conservative value for design assessment.",
+      "evidence": [
+        {"url": "https://protekdevices.com/wp-content/uploads/datasheets/srv05_4.pdf", "fact": "ProTek specifies I/O-to-ground capacitance as 3.5 pF typical and 5 pF maximum; it does not guarantee signal integrity for a specific USB or Ethernet implementation."}
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "LUNA-RATING-001",
+      "priority": "P2",
+      "status": "proposed",
+      "files": ["raw-data/jlcpcb-basic-parts-2026-10-29.json", "reviews/2026-10-29/changed-ratings.json", "content/families/chip-resistors.md", "tasks/descriptions-resistors.json"],
+      "partIds": ["C25190"],
+      "currentClaim": "The 2026-10-29 API snapshot changes C25190's Temperature Coefficient from ±200 ppm/°C to ±100 ppm/°C, while its bundled catalog description remains ±200 ppm/°C. JLCPCB's currently indexed part-detail record also reports ±200 ppm/°C. UNI-ROYAL's series datasheet table gives ±100 ppm/°C for 0603 values above 10 Ω; C25190 is 27 Ω. The short task description says only '27Ω 1% Resistor (0603)' and does not state a TCR.",
+      "proposedChange": "Do not silently update any descriptive text to ±100 or ±200 ppm/°C. Keep the per-part conflict visible in the refresh review and seek confirmation for this exact order code; if the value is resolved, align the API attribute and generated description with the confirmed value. No task-description edit is needed because it contains no TCR claim.",
+      "reason": "The new API field conflicts both with its own description string and the current JLCPCB detail page, while the generic UNI-ROYAL series table supports the API's ±100 ppm/°C for this package/value range. The exact catalog order code is not unambiguously resolved by those conflicting records.",
+      "evidence": [
+        {"url": "https://jlcpcb.com/partdetail/25933-0603WAF270JT5E/C25190", "fact": "JLCPCB's indexed product page currently reports ±200 ppm/°C in both description and attributes."},
+        {"url": "https://www.uni-royal.cn/images/userfile/file/1590821906c56505e6d9ab55c7.pdf", "fact": "UNI-ROYAL's thick-film resistor series table states ±100 ppm/°C for 0603 resistance values above 10 Ω; it is series-level evidence, not an order-code-specific certificate."},
+        {"url": "https://www.lcsc.com/datasheet/lcsc_datasheet_2205311845_UNI-ROYAL-Uniroyal-Elec-0603WAF270JT5E_C25190.pdf", "fact": "The supplied exact-part datasheet link; it could not be retrieved through this review's PDF fetch path, so its exact-order-code contents were not independently inspected."}
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "LUNA-RATING-002",
+      "priority": "P2",
+      "status": "proposed",
+      "files": ["raw-data/jlcpcb-basic-parts-2026-10-29.json", "reviews/2026-10-29/changed-ratings.json", "tasks/descriptions-tvs-esd.json"],
+      "partIds": ["C78395"],
+      "currentClaim": "The new API snapshot changes C78395 Reverse Leakage Current from 1 µA to 1 mA. The current JLCPCB product page/index reports 1 µA; Brightking-family datasheet evidence for the bidirectional device states that the leakage limit doubles for devices with V_RWM ≤ 10 V, but the exact LCSC-linked document for this order code was not retrievable here. Its task description does not state leakage.",
+      "proposedChange": "Retain both values as a source discrepancy and request or inspect the exact Brightking C78395 datasheet revision before revising the source attribute. Do not amend the short task description, which makes no leakage claim.",
+      "reason": "The new value differs by three orders of magnitude from the current product page. A family datasheet footnote may explain a doubled bidirectional limit, but available evidence does not establish whether the exact product specification is 1 mA, 1 µA, or a conditional limit for this part.",
+      "evidence": [
+        {"url": "https://lcsc.com/product-detail/C78395.html", "fact": "The current LCSC page search result reports 1 µA reverse leakage for C78395."},
+        {"url": "https://www.mouser.com/datasheet/2/447/P6SMB_0-1604913.pdf", "fact": "Brightking's P6SMB family sheet says reverse leakage for bidirectional types with V_RWM 10 V or less is double the table limit; exact applicability to the LCSC-linked C78395 revision remains to confirm."},
+        {"url": "https://www.lcsc.com/datasheet/lcsc_datasheet_1810181007_Brightking-P6SMB6-8CA-TR13_C78395.pdf", "fact": "The supplied exact-part datasheet link; this review could not retrieve it as a PDF."}
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "LUNA-RATING-003",
+      "priority": "P3",
+      "status": "proposed",
+      "files": ["tasks/descriptions-tvs-esd.json", "raw-data/jlcpcb-basic-parts-2026-10-29.json", "reviews/2026-10-29/changed-ratings.json"],
+      "partIds": ["C42413902"],
+      "currentClaim": "The short description for SM08 is '8V Uni-directional ESD Protection (SOT-23)' and omits channel count. The 2026-10-29 catalog snapshot changes Number of Channels from 1 to 2, and its generated description string now includes '2'.",
+      "proposedChange": "After checking the exact SM08 datasheet topology and whether JLC's channel field means two protected signal lines, update the task description to '8V 2-channel unidirectional ESD protection (SOT-23)' if confirmed. Until then, do not infer the functional channel count solely from the changed catalog attribute.",
+      "reason": "Channel count is a useful choice criterion and the snapshot supplies a new value, but the exact datasheet could not be opened in this audit. Other changed SM08 attributes (temperature range, breakdown/clamping, leakage, and pulse waveform) are not present in its short task description, so they do not require description edits.",
+      "evidence": [
+        {"url": "https://www.lcsc.com/product-detail/esd-and-surge-protection-tvs-esd_hongjiacheng-sm08_C42413902.html", "fact": "The catalog page URL for the part; the supplied fresh snapshot reports 2 channels."},
+        {"url": "https://www.lcsc.com/datasheet/lcsc_datasheet_2501211440_hongjiacheng-SM08_C42413902.pdf", "fact": "The supplied exact-part datasheet link; it could not be retrieved as a PDF through this review's fetch path."}
+      ],
+      "confidence": "medium"
+    }
+  ]
+}

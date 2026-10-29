@@ -9,6 +9,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { applySpecificationReview } from './specification-reviews.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -40,6 +41,7 @@ async function main() {
 
 	// Create index by part number
 	const index = {};
+	const reviews = JSON.parse(fs.readFileSync(path.join(OUTPUT_DIR, 'specification-reviews.json'), 'utf8'));
 
 	for (const part of parts) {
 		index[part.partNumber] = {
@@ -61,6 +63,10 @@ async function main() {
 			lcsc: part.lcscUrl,
 			tier: part.tier,
 		};
+		index[part.partNumber] = applySpecificationReview(index[part.partNumber], reviews[part.partNumber]);
+	}
+	for (const partNumber of Object.keys(reviews)) {
+		if (!index[partNumber]) throw new Error(`Reviewed part ${partNumber} left the catalog; reconcile its review`);
 	}
 
 	// Write the index file

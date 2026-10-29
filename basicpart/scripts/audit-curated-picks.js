@@ -12,7 +12,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,9 +24,7 @@ function loadJson(fileName) {
 	return JSON.parse(fs.readFileSync(path.join(DATA_DIR, fileName), 'utf8'));
 }
 
-function main() {
-	const picks = loadJson('other-components.json');
-	const partsIndex = loadJson('parts-index.json');
+export function auditCuratedPicks(picks, partsIndex, selection) {
 	const issues = [];
 	const seenParts = new Set();
 	let totalPicks = 0;
@@ -106,7 +104,7 @@ function main() {
 
 			if (item.package !== current.pkg) {
 				issues.push({
-					severity: 'warning',
+					severity: 'error',
 					type: 'package_label_mismatch',
 					location,
 					partNumber: item.part,
@@ -120,6 +118,16 @@ function main() {
 		}
 	}
 
+	const approved = new Set(selection.partNumbers);
+	for (const partNumber of new Set([...approved, ...seenParts])) {
+		if (approved.has(partNumber) === seenParts.has(partNumber)) continue;
+		issues.push({
+			severity: 'error', type: 'human_selection_mismatch', partNumber,
+			location: `Our Picks/${partNumber}`,
+			message: `${partNumber}: Our Picks membership differs from the human selection. A human must explicitly select additions or membership changes.`,
+		});
+	}
+
 	const manifest = {
 		generatedAt: new Date().toISOString(),
 		picksDeclaredUpdatedAt:
@@ -130,7 +138,7 @@ function main() {
 			totalPicks,
 			qualifyingPicks: totalPicks - extendedPicks,
 			extendedPicks,
-			validPicks: totalPicks - new Set(issues.map(issue => issue.location)).size,
+			validPicks: totalPicks - new Set(issues.filter(issue => seenParts.has(issue.partNumber)).map(issue => issue.partNumber)).size,
 			totalIssues: issues.length,
 			errors: issues.filter(issue => issue.severity === 'error').length,
 			warnings: issues.filter(issue => issue.severity === 'warning').length,
@@ -142,9 +150,17 @@ function main() {
 		issues,
 	};
 
+	return manifest;
+}
+
+function main() {
+	const manifest = auditCuratedPicks(
+		loadJson('other-components.json'), loadJson('parts-index.json'),
+		loadJson('our-picks-selection.json'),
+	);
 	fs.writeFileSync(OUTPUT_PATH, JSON.stringify(manifest, null, 2));
 	console.log(
-		`Curated picks: ${totalPicks}; ${manifest.summary.errors} errors, ` +
+		`Curated picks: ${manifest.summary.totalPicks}; ${manifest.summary.errors} errors, ` +
 		`${manifest.summary.warnings} warnings`
 	);
 	console.log(`Manifest written to ${OUTPUT_PATH}`);
@@ -154,9 +170,11 @@ function main() {
 	}
 }
 
-try {
-	main();
-} catch (error) {
-	console.error(`Curated-picks audit failed: ${error.stack || error.message}`);
-	process.exitCode = 1;
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+	try {
+		main();
+	} catch (error) {
+		console.error(`Curated-picks audit failed: ${error.stack || error.message}`);
+		process.exitCode = 1;
+	}
 }

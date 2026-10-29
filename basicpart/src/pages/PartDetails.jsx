@@ -211,6 +211,15 @@ export function PartDetails() {
 					{partInfo.attrs && Object.keys(partInfo.attrs).length > 0 && (
 						<div class="part-details-card" style={{ gridColumn: '1 / -1' }}>
 							<h3 style={{ margin: '0 0 var(--spacing-md) 0', fontSize: '1rem' }}>Specifications</h3>
+							{partInfo.specificationReview && (
+								<p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+									<strong>Datasheet check ({partInfo.specificationReview.date}): </strong>
+									{partInfo.specificationReview.summary}{' '}
+									<a href={partInfo.specificationReview.source.url} target="_blank" rel="noopener noreferrer">
+										{partInfo.specificationReview.source.label}
+									</a>
+								</p>
+							)}
 							<table class="part-details-table">
 								<tbody>
 									{Object.entries(partInfo.attrs).map(([key, value]) => (

@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "ceramic-capacitor",
-    "lastUpdated": "2026-10-02",
+    "lastUpdated": "2026-10-29",
     "columns": [
       "0402",
       "0603",
@@ -864,15 +864,6 @@
         "tier": "preferred"
       }
     },
-    "2.2uF_50V_Y5V": {
-      "display": "2.2uF",
-      "voltage": "50V",
-      "dielectric": "Y5V",
-      "0805": {
-        "part": "C49217",
-        "tier": "preferred"
-      }
-    },
     "2.2uF_50V_X7R": {
       "1206": {
         "part": "C50254",
@@ -969,6 +960,15 @@
       "dielectric": "Y5V",
       "0402": {
         "part": "C1585",
+        "tier": "preferred"
+      }
+    },
+    "2.2uF_50V_Y5V": {
+      "display": "2.2uF",
+      "voltage": "50V",
+      "dielectric": "Y5V",
+      "0805": {
+        "part": "C49217",
         "tier": "preferred"
       }
     }
